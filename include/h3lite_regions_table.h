@@ -14,30 +14,33 @@
 #define REGION_EU868 2
 #define REGION_AU915 3
 #define REGION_AS923_1 4
-#define REGION_AS923_2 5
-#define REGION_AS923_3 6
-#define REGION_AS923_4 7
-#define REGION_KR920 8
-#define REGION_IN865 9
-#define REGION_RU864 10
-#define REGION_CN470 11
-#define REGION_EU433 12
+#define REGION_AS923_1B 5
+#define REGION_AS923_1C 6
+#define REGION_AS923_2 7
+#define REGION_AS923_3 8
+#define REGION_AS923_4 9
+#define REGION_KR920 10
+#define REGION_IN865 11
+#define REGION_RU864 12
+#define REGION_CN470 13
+#define REGION_EU433 14
+#define REGION_CD900_1A 15
 
 // Number of entries in the lookup table
-#define REGION_ENTRY_COUNT 10875
+#define REGION_ENTRY_COUNT 10953
 
 // Lookup entry structure
 typedef struct {
     uint8_t baseCell;      // Base cell (0-121)
-    uint16_t partialIndex; // Partial index for first few resolutions
-    RegionId regionId;     // Region ID (1-12)
+    uint16_t partialIndex; // Partial index for first 3 resolution digits (max 512)
+    RegionId regionId;     // Region ID (1-15)
 } RegionEntry;
 
 // Region lookup table (sorted by baseCell and partialIndex)
 extern const RegionEntry regionLookup[REGION_ENTRY_COUNT];
 
 // Region names array
-extern const char* regionNames[13];
+extern const char* regionNames[16];
 
 // Binary search the region lookup table
 RegionId findRegion(uint8_t baseCell, uint16_t partialIndex);

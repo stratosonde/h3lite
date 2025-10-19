@@ -17,6 +17,7 @@ This is optimized for STM32 microcontrollers with limited memory
 import sys
 import json
 import os
+import argparse
 import h3
 import geopandas as gpd
 from shapely.geometry import shape
@@ -34,14 +35,17 @@ REGION_IDS = {
     "EU868": 2,
     "AU915": 3,
     "AS923-1": 4,
-    "AS923-2": 5,
-    "AS923-3": 6,
-    "AS923-4": 7,
-    "KR920": 8,
-    "IN865": 9,
-    "RU864": 10,
-    "CN470": 11,
-    "EU433": 12,
+    "AS923-1B": 5,
+    "AS923-1C": 6,
+    "AS923-2": 7,
+    "AS923-3": 8,
+    "AS923-4": 9,
+    "KR920": 10,
+    "IN865": 11,
+    "RU864": 12,
+    "CN470": 13,
+    "EU433": 14,
+    "CD900-1A": 15,
     # Add other regions as needed
 }
 
@@ -54,16 +58,24 @@ def load_regions(directory=".."):  # Look in parent directory for GeoJSON files
         # Extract region name from filename (strip .geojson extension)
         region_name = os.path.splitext(filename)[0]
         
-        # Check if this is a region we're interested in
-        found_match = False
-        for key in REGION_IDS.keys():
-            if key in region_name:
-                region_name = key
-                found_match = True
-                break
-        
-        if not found_match:
-            continue
+        # Check if this region name is in our REGION_IDS
+        # First try exact match, then try substring match
+        if region_name in REGION_IDS:
+            # Exact match found
+            pass
+        else:
+            # Try to find a matching region by checking if any key is in the filename
+            # Sort keys by length (descending) to match longer strings first
+            # This prevents "AS923-1" from matching "AS923-1B"
+            found_match = False
+            for key in sorted(REGION_IDS.keys(), key=len, reverse=True):
+                if key in region_name:
+                    region_name = key
+                    found_match = True
+                    break
+            
+            if not found_match:
+                continue
         
         # Load the GeoJSON
         try:
@@ -179,7 +191,11 @@ def convert_region_to_h3(gdf, resolution=DEFAULT_RESOLUTION):
     return all_h3_cells
 
 def extract_h3_components(h3_index):
-    """Extract base cell and partial index from an H3 index"""
+    """Extract base cell and partial index from an H3 index
+    
+    Uses 3 resolution digits for partial index encoding.
+    This gives partial_index values up to 512 (fits in uint16).
+    """
     # Convert h3_index to integer
     h3_int = int(h3_index, 16)
     
@@ -189,23 +205,30 @@ def extract_h3_components(h3_index):
     # Extract base cell (bits 45-52)
     base_cell = (h3_int >> 45) & 0x7F
     
-    # Extract the first 3 resolution digits directly from the bit pattern
+    # Extract the first 3 resolution digits
     # Each digit in H3 uses 3 bits, starting from bit 45 and going down
+    # Using 3 digits gives us 8^3 = 512 possible values (fits in uint16)
     partial_index = 0
-    for r in range(1, min(4, res+1)):
+    num_digits = min(3, res)  # Use up to 3 digits, or fewer if resolution is lower
+    for r in range(1, num_digits + 1):
         # Calculate position in the bit pattern based on resolution
-        # First digit is at bits 42-44, second at 39-41, third at 36-38
+        # First digit is at bits 42-44, second at 39-41, etc.
         shift = 45 - (3 * r)
         digit = (h3_int >> shift) & 0x7
         partial_index = (partial_index * 8) + digit
     
     # For debugging
-    print(f"H3: {h3_index}, BC: {base_cell}, PI: {partial_index}")
+    print(f"H3: {h3_index}, BC: {base_cell}, PI: {partial_index}, digits: {num_digits}")
     
     return base_cell, partial_index
 
 def generate_lookup_table(regions, max_resolution=DEFAULT_RESOLUTION):
-    """Generate lookup tables for all regions using a multi-resolution approach"""
+    """Generate lookup tables for all regions using a multi-resolution approach
+    
+    Args:
+        regions: Dictionary of region name -> GeoDataFrame
+        max_resolution: Maximum H3 resolution to process
+    """
     entries = []
     processed_cells = set()  # Keep track of areas we've already covered
     
@@ -267,7 +290,7 @@ def generate_lookup_table(regions, max_resolution=DEFAULT_RESOLUTION):
                             'regionName': region_name
                         })
     
-    print(f"Generated {len(entries)} lookup table entries")
+    print(f"\nGenerated {len(entries)} lookup table entries")
     return entries
 
 def generate_c_code(entries, output_c_file, output_h_file):
@@ -302,7 +325,7 @@ def generate_c_code(entries, output_c_file, output_h_file):
 // Lookup entry structure
 typedef struct {{
     uint8_t baseCell;      // Base cell (0-121)
-    uint16_t partialIndex; // Partial index for first few resolutions
+    uint16_t partialIndex; // Partial index for first 3 resolution digits (max 512)
     RegionId regionId;     // Region ID (1-{max(REGION_IDS.values())})
 }} RegionEntry;
 
@@ -384,7 +407,7 @@ RegionId findRegion(uint8_t baseCell, uint16_t partialIndex) {{
     print(f"Generated C code in {output_c_file} and {output_h_file}")
     
     # Print some stats
-    table_size = len(entries) * (1 + 2 + 1)  # baseCell + partialIndex + regionId
+    table_size = len(entries) * (1 + 4 + 1)  # baseCell(uint8) + partialIndex(uint32) + regionId(uint8)
     print(f"Lookup table size: {table_size} bytes")
     print(f"Number of unique regions: {len(set(e['regionId'] for e in entries))}")
     
@@ -399,17 +422,42 @@ RegionId findRegion(uint8_t baseCell, uint16_t partialIndex) {{
         print(f"  {region}: {count} cells")
 
 def main():
+    # Parse command-line arguments
+    parser = argparse.ArgumentParser(
+        description='Generate H3Lite lookup tables from GeoJSON region files',
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  python3 generate_lookup_table.py --geojson-dir ../hplans
+  python3 generate_lookup_table.py --geojson-dir /path/to/regions --resolution 4
+        """
+    )
+    parser.add_argument(
+        '--geojson-dir',
+        type=str,
+        default='../hplans',
+        help='Directory containing GeoJSON region files (default: ../hplans)'
+    )
+    parser.add_argument(
+        '--resolution',
+        type=int,
+        default=DEFAULT_RESOLUTION,
+        help=f'H3 resolution level (default: {DEFAULT_RESOLUTION})'
+    )
+    
+    args = parser.parse_args()
+    
     # Load regions
-    print("Loading region definitions from GeoJSON files...")
-    regions = load_regions()
+    print(f"Loading region definitions from GeoJSON files in {args.geojson_dir}...")
+    regions = load_regions(directory=args.geojson_dir)
     
     if not regions:
-        print("No region files found or loaded. Exiting.")
+        print(f"No region files found or loaded in {args.geojson_dir}. Exiting.")
         return
     
     # Generate lookup tables
-    print(f"\nGenerating lookup tables at resolution {DEFAULT_RESOLUTION}...")
-    entries = generate_lookup_table(regions)
+    print(f"\nGenerating lookup tables at resolution {args.resolution}...")
+    entries = generate_lookup_table(regions, max_resolution=args.resolution)
     
     # Generate C code
     print("\nGenerating C code...")

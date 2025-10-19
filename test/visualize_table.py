@@ -10,7 +10,7 @@ from collections import defaultdict
 
 # Parse the regions table
 def parse_regions_table():
-    with open('h3lite/src/h3lite_regions_table.c', 'r') as f:
+    with open('src/h3lite_regions_table.c', 'r') as f:
         content = f.read()
     
     # Extract entries

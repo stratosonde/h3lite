@@ -107,11 +107,12 @@ RegionId h3ToRegion(H3Index h3) {
     // Extract the base cell
     int baseCell = H3_GET_BASE_CELL(h3);
     
-    // Extract partial indexing information
-    uint16_t partialIndex = 0;
-    for (int r = 1; r <= 3 && r <= res; r++) {
+    // Extract partial indexing information (using 3 digits)
+    uint32_t partialIndex = 0;
+    int numDigits = (res < 3) ? res : 3;  // Use up to 3 digits
+    for (int r = 1; r <= numDigits; r++) {
         int digit = H3_GET_INDEX_DIGIT(h3, r);
-        partialIndex = (partialIndex * 8) + digit;  // Match Python script (base-8)
+        partialIndex = (partialIndex * 8) + digit;  // Base-8 encoding
     }
     
     // Debug output

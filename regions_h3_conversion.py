@@ -9,6 +9,7 @@ import subprocess
 import os
 import gc
 import json
+import argparse
 
 # Function to install dependencies if they're missing
 def install_if_missing(package):
@@ -80,75 +81,101 @@ def plot_cells(cells, ax=None, title=None):
         return
     
     try:
-        # Group cells by whether they're likely on the east or west side of the date line
-        # This is a heuristic approach based on examining the cell center coordinates
-        east_cells = []
-        west_cells = []
-        
-        for cell in cells:
-            # Get the center coordinates of the cell
-            lat, lng = h3.cell_to_latlng(cell)
-            # Classify based on longitude - use a wider band to catch all cells near the date line
-            if lng > 150 or lng < -150:  # Near the international date line
-                if lng > 0:
-                    east_cells.append(cell)
-                else:
-                    west_cells.append(cell)
-            else:
-                # For cells away from the date line, just add to both groups
-                # They'll be handled correctly when converted to shapes
-                east_cells.append(cell)
-                west_cells.append(cell)
-        
-        # Create a plot for each side if needed
         if ax is None:
             _, ax = plt.subplots(figsize=(12, 10))
         
-        if east_cells and west_cells and (set(east_cells) != set(west_cells)):
-            print(f"Splitting {len(cells)} cells into East ({len(east_cells)}) and West ({len(west_cells)}) groups")
+        # Separate cells into those that cross the date line and those that don't
+        normal_cells = []
+        dateline_crossing_cells = []
+        all_polygons = []
+        
+        for cell in cells:
+            # Get all boundary points of the cell
+            boundary = h3.cell_to_boundary(cell)
             
-            # Create shapes for each side
-            try:
-                if east_cells:
-                    east_shape = h3.cells_to_h3shape(east_cells)
-                    east_gdf = gpd.GeoDataFrame({'geometry': [east_shape]}, crs='EPSG:4326')
-                    east_gdf = east_gdf.to_crs(epsg=3857)  # web mercator
-                    east_gdf.plot(ax=ax, alpha=0.5, edgecolor='k', color='blue')
+            # Check if this cell crosses the ACTUAL date line (±180°)
+            # by looking for large longitude jumps (e.g., from +175° to -175°)
+            crosses_actual_dateline = False
+            for i in range(len(boundary)):
+                lat1, lng1 = boundary[i]
+                lat2, lng2 = boundary[(i + 1) % len(boundary)]
                 
-                if west_cells:
-                    west_shape = h3.cells_to_h3shape(west_cells)
-                    west_gdf = gpd.GeoDataFrame({'geometry': [west_shape]}, crs='EPSG:4326')
-                    west_gdf = west_gdf.to_crs(epsg=3857)  # web mercator
-                    west_gdf.plot(ax=ax, alpha=0.5, edgecolor='k', color='blue')
+                # Check for a jump across the date line (large longitude difference)
+                lng_diff = abs(lng2 - lng1)
+                if lng_diff > 180:  # A jump of more than 180° indicates dateline crossing
+                    crosses_actual_dateline = True
+                    break
+            
+            # If this cell crosses the actual date line, split it
+            if crosses_actual_dateline:
+                dateline_crossing_cells.append(cell)
                 
-                # Add basemap
-                cx.add_basemap(ax, crs='EPSG:3857', source=cx.providers.CartoDB.Positron)
-            except Exception as e:
-                print(f"Error plotting split cells: {e}")
-                # Fall back to simple plotting
-                for cell in cells:
-                    bounds = h3.cell_to_boundary(cell, geo_json=True)
-                    polygon = Polygon(bounds)
-                    gdf = gpd.GeoDataFrame({'geometry': [polygon]}, crs='EPSG:4326')
-                    gdf = gdf.to_crs(epsg=3857)  # web mercator
-                    gdf.plot(ax=ax, alpha=0.2, edgecolor='k', color='green')
-        else:
-            # If cells aren't split across the date line, use standard plotting
+                # Split the cell into western and eastern parts
+                west_coords = []
+                east_coords = []
+                
+                for lat, lng in boundary:
+                    if lng < 0:  # Western hemisphere
+                        west_coords.append((lng, lat))
+                    else:  # Eastern hemisphere
+                        east_coords.append((lng, lat))
+                
+                # Create polygons for each side
+                if len(west_coords) >= 3:
+                    # Close the polygon
+                    if west_coords[0] != west_coords[-1]:
+                        west_coords.append(west_coords[0])
+                    try:
+                        west_poly = Polygon(west_coords)
+                        if west_poly.is_valid:
+                            all_polygons.append(west_poly)
+                    except Exception as e:
+                        pass
+                
+                if len(east_coords) >= 3:
+                    # Close the polygon
+                    if east_coords[0] != east_coords[-1]:
+                        east_coords.append(east_coords[0])
+                    try:
+                        east_poly = Polygon(east_coords)
+                        if east_poly.is_valid:
+                            all_polygons.append(east_poly)
+                    except Exception as e:
+                        pass
+            else:
+                # Normal cell - add to list for unified plotting
+                normal_cells.append(cell)
+        
+        # Report on split cells
+        if dateline_crossing_cells:
+            print(f"Split {len(dateline_crossing_cells)} cells at the date line")
+            print(f"Kept {len(normal_cells)} normal cells")
+        
+        # Plot normal cells as a unified shape
+        if normal_cells:
             try:
-                shape = h3.cells_to_h3shape(cells)
-                plot_shape(shape, ax=ax, title=None)  # Title will be set later
+                shape = h3.cells_to_h3shape(normal_cells)
+                gdf = gpd.GeoDataFrame({'geometry': [shape]}, crs='EPSG:4326')
+                gdf = gdf.to_crs(epsg=3857)  # web mercator
+                gdf.plot(ax=ax, alpha=0.5, edgecolor='k', color='blue')
             except Exception as e:
-                print(f"Error in standard cell plotting: {e}")
-                # Fall back to individual cell plotting
-                for cell in cells:
+                print(f"Error creating unified shape for normal cells: {e}")
+                # Add individual normal cells to all_polygons
+                for cell in normal_cells:
                     try:
                         bounds = h3.cell_to_boundary(cell, geo_json=True)
-                        polygon = Polygon(bounds)
-                        gdf = gpd.GeoDataFrame({'geometry': [polygon]}, crs='EPSG:4326')
-                        gdf = gdf.to_crs(epsg=3857)  # web mercator
-                        gdf.plot(ax=ax, alpha=0.2, edgecolor='k', color='green')
+                        all_polygons.append(Polygon(bounds))
                     except Exception as cell_e:
-                        print(f"Error plotting individual cell: {cell_e}")
+                        pass
+        
+        # Plot all the individual polygons (split cells)
+        if all_polygons:
+            gdf = gpd.GeoDataFrame({'geometry': all_polygons}, crs='EPSG:4326')
+            gdf = gdf.to_crs(epsg=3857)  # web mercator
+            gdf.plot(ax=ax, alpha=0.5, edgecolor='k', color='blue')
+        
+        # Add basemap
+        cx.add_basemap(ax, crs='EPSG:3857', source=cx.providers.CartoDB.Positron)
         
         # Set title if provided
         if title:
@@ -475,11 +502,44 @@ def convert_geometry_to_h3(geom, resolution=7, verbose=False):
     return cells
 
 def main():
+    # Parse command-line arguments
+    parser = argparse.ArgumentParser(
+        description='Convert GeoJSON regions to H3 hexagons and create visualizations',
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  python3 regions_h3_conversion.py --geojson-file ../hplans/regions.geojson
+  python3 regions_h3_conversion.py --geojson-file ../hplans/regions.geojson --min-res 2 --max-res 4
+        """
+    )
+    parser.add_argument(
+        '--geojson-file',
+        type=str,
+        default='../hplans/regions.geojson',
+        help='Path to GeoJSON file containing region definitions (default: ../hplans/regions.geojson)'
+    )
+    parser.add_argument(
+        '--min-res',
+        type=int,
+        default=2,
+        help='Minimum H3 resolution level (default: 2)'
+    )
+    parser.add_argument(
+        '--max-res',
+        type=int,
+        default=4,
+        help='Maximum H3 resolution level (default: 4)'
+    )
+    
+    args = parser.parse_args()
+    
     print("\n## Load and Explore the regions.geojson File")
+    print(f"Loading from: {args.geojson_file}")
+    
     # Memory-efficient loading for the GeoJSON file
     try:
         # Try standard loading first
-        regions_gdf = gpd.read_file('hplans/regions.geojson')
+        regions_gdf = gpd.read_file(args.geojson_file)
         print(f"Successfully loaded file with {len(regions_gdf)} features")
     except Exception as e:
         print(f"Standard loading failed with error: {e}")
@@ -559,9 +619,44 @@ def main():
             print(f"\nCreated 'region_id' column as identifier")
             print(f"Values: {regions_gdf[region_id_column].unique().tolist()}")
 
-    # Plot the regions to visualize them
+    # Split regions that cross the international date line before plotting
+    print("\nSplitting regions that cross the international date line...")
+    fixed_geometries = []
+    for idx, row in regions_gdf.iterrows():
+        geom = row.geometry
+        if geom.geom_type == 'MultiPolygon':
+            # Process each polygon in the MultiPolygon
+            fixed_polys = []
+            for poly in geom.geoms:
+                if check_crosses_idl(poly):
+                    print(f"  Splitting {row[region_id_column]} polygon at date line")
+                    split_geom = split_polygon_at_dateline(poly)
+                    if isinstance(split_geom, MultiPolygon):
+                        fixed_polys.extend(list(split_geom.geoms))
+                    else:
+                        fixed_polys.append(split_geom)
+                else:
+                    fixed_polys.append(poly)
+            if len(fixed_polys) > 1:
+                fixed_geometries.append(MultiPolygon(fixed_polys))
+            else:
+                fixed_geometries.append(fixed_polys[0])
+        elif geom.geom_type == 'Polygon':
+            if check_crosses_idl(geom):
+                print(f"  Splitting {row[region_id_column]} at date line")
+                fixed_geometries.append(split_polygon_at_dateline(geom))
+            else:
+                fixed_geometries.append(geom)
+        else:
+            fixed_geometries.append(geom)
+    
+    # Create a new GeoDataFrame with fixed geometries
+    regions_gdf_fixed = regions_gdf.copy()
+    regions_gdf_fixed.geometry = fixed_geometries
+    
+    # Plot the regions to visualize them (using fixed geometries)
     plt.figure(figsize=(16, 12))
-    plot_df(regions_gdf, column=region_id_column, title="Regions from regions.geojson")
+    plot_df(regions_gdf_fixed, column=region_id_column, title="Regions from regions.geojson")
     plt.tight_layout()
     plt.savefig('regions_original.png', bbox_inches='tight', dpi=300)
     print("Saved original regions plot to regions_original.png")
@@ -570,9 +665,9 @@ def main():
     output_dir = 'region_plots'
     os.makedirs(output_dir, exist_ok=True)
 
-    # Plot each region separately
-    for i, region_id in enumerate(regions_gdf[region_id_column].unique()):
-        region_data = regions_gdf[regions_gdf[region_id_column] == region_id]
+    # Plot each region separately (using fixed geometries)
+    for i, region_id in enumerate(regions_gdf_fixed[region_id_column].unique()):
+        region_data = regions_gdf_fixed[regions_gdf_fixed[region_id_column] == region_id]
         
         plt.figure(figsize=(12, 10))
         plot_df(region_data, title=f"Region: {region_id}")
@@ -591,19 +686,29 @@ def main():
     region_cells = {}
 
     # Process each region at different resolutions
-    resolutions = list(range(2, 5))  # Resolutions 2-4
+    resolutions = list(range(args.min_res, args.max_res + 1))
+    print(f"Processing resolutions: {resolutions}")
+    
+    if not resolutions:
+        print("Error: No resolutions to process. Check --min-res and --max-res values.")
+        return
 
-    for region_idx, region_id in enumerate(regions_gdf[region_id_column].unique()):
-        # Get the region data
-        region_data = regions_gdf[regions_gdf[region_id_column] == region_id]
+    for region_idx, region_id in enumerate(regions_gdf_fixed[region_id_column].unique()):
+        # Get the region data (use fixed geometries for H3 conversion)
+        region_data = regions_gdf_fixed[regions_gdf_fixed[region_id_column] == region_id]
         region_cells[region_id] = {}
         
         print(f"\nProcessing region: {region_id}")
         
         # Create a plot with subplots for each resolution
-        fig, axes = plt.subplots(len(resolutions) + 1, 1, figsize=(12, 5 * (len(resolutions) + 1)))
+        num_subplots = len(resolutions) + 1
+        fig, axes = plt.subplots(num_subplots, 1, figsize=(12, 5 * num_subplots))
         
-        # Plot original region
+        # Handle case where there's only one subplot (axes is not an array)
+        if num_subplots == 1:
+            axes = [axes]
+        
+        # Plot original region (using fixed geometries)
         plot_df(region_data, ax=axes[0], title=f"Original Region: {region_id}")
         
         # Process each resolution
@@ -690,56 +795,89 @@ def main():
                 
             cells = region_cells[region_id][res]
             
-            # For visualization, examine each cell's boundary and completely drop any cell
-            # that has boundary points on both sides of the date line
-            filtered_cells = []
-            problematic_cells = []
+            # Separate normal cells from dateline-crossing cells
+            normal_cells_list = []
+            dateline_cell_polygons = []
+            split_count = 0
             
             for cell in cells:
                 # Get all boundary points of the cell
                 boundary = h3.cell_to_boundary(cell)
                 
-                # Check if this cell has points on both sides of the longitude line
-                has_positive_lng = False
-                has_negative_lng = False
+                # Check if this cell crosses the ACTUAL date line (±180°)
+                crosses_actual_dateline = False
+                for i in range(len(boundary)):
+                    lat1, lng1 = boundary[i]
+                    lat2, lng2 = boundary[(i + 1) % len(boundary)]
+                    
+                    # Check for a jump across the date line (large longitude difference)
+                    lng_diff = abs(lng2 - lng1)
+                    if lng_diff > 180:  # A jump of more than 180° indicates dateline crossing
+                        crosses_actual_dateline = True
+                        break
                 
-                for lat, lng in boundary:
-                    if lng > 0:
-                        has_positive_lng = True
-                    if lng < 0:
-                        has_negative_lng = True
-                
-                # If this cell has boundary points on both sides, drop it completely
-                if has_positive_lng and has_negative_lng:
-                    problematic_cells.append(cell)
+                if crosses_actual_dateline:
+                    split_count += 1
+                    # Split the cell into western and eastern parts
+                    west_coords = []
+                    east_coords = []
+                    
+                    for lat, lng in boundary:
+                        if lng < 0:  # Western hemisphere
+                            west_coords.append((lng, lat))
+                        else:  # Eastern hemisphere
+                            east_coords.append((lng, lat))
+                    
+                    # Create polygons for each side
+                    if len(west_coords) >= 3:
+                        if west_coords[0] != west_coords[-1]:
+                            west_coords.append(west_coords[0])
+                        try:
+                            west_poly = Polygon(west_coords)
+                            if west_poly.is_valid:
+                                dateline_cell_polygons.append(west_poly)
+                        except Exception as e:
+                            pass
+                    
+                    if len(east_coords) >= 3:
+                        if east_coords[0] != east_coords[-1]:
+                            east_coords.append(east_coords[0])
+                        try:
+                            east_poly = Polygon(east_coords)
+                            if east_poly.is_valid:
+                                dateline_cell_polygons.append(east_poly)
+                        except Exception as e:
+                            pass
                 else:
-                    filtered_cells.append(cell)
+                    # Normal cell
+                    normal_cells_list.append(cell)
             
-            # Report on filtering
-            if problematic_cells:
-                print(f"Region {region_id}: Filtered out {len(problematic_cells)} cells near the date line")
-                print(f"  Kept {len(filtered_cells)} cells for visualization")
+            # Report on split cells
+            if split_count > 0:
+                print(f"Region {region_id}: Split {split_count} cells at the actual date line")
+                print(f"  Normal cells: {len(normal_cells_list)}")
             
-            # Only visualize the filtered cells
-            if filtered_cells:
+            # Try to create a unified shape from normal cells
+            if normal_cells_list:
                 try:
-                    # Convert cells to a shape and add to the geometries list
-                    shape = h3.cells_to_h3shape(filtered_cells)
-                    all_geometries.append(shape)
+                    unified_shape = h3.cells_to_h3shape(normal_cells_list)
+                    all_geometries.append(unified_shape)
                     all_regions.append(region_id)
                 except Exception as e:
-                    print(f"Error creating shape for region {region_id}: {e}")
-                    # Fall back to individual cell plotting
-                    print(f"Falling back to individual cell plotting for {region_id}")
-                    for cell in filtered_cells:
+                    print(f"Error creating unified shape for {region_id}: {e}")
+                    # Fall back to individual polygons
+                    for cell in normal_cells_list:
                         try:
-                            # Convert each cell to a polygon
                             bounds = h3.cell_to_boundary(cell, geo_json=True)
-                            poly = Polygon(bounds)
-                            all_geometries.append(poly)
+                            all_geometries.append(Polygon(bounds))
                             all_regions.append(region_id)
                         except Exception as cell_e:
-                            print(f"Error with individual cell in {region_id}: {cell_e}")
+                            pass
+            
+            # Add split dateline cell polygons
+            for poly in dateline_cell_polygons:
+                all_geometries.append(poly)
+                all_regions.append(region_id)
         
         # Create GeoDataFrame and plot
         if all_geometries:
