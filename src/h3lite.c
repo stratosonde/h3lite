@@ -172,10 +172,24 @@ NearestRegionsInfo findNearestRegions(double lat, double lng, int maxRings) {
         return result;
     }
     
+    // PRODUCTION-SAFE: Limit maxRings to prevent buffer overflow
+    #define MAX_SUPPORTED_RINGS 6
+    #define RING_BUFFER_SIZE 42  // 6*6=36, +6 safety margin
+    
+    if (maxRings > MAX_SUPPORTED_RINGS) {
+        maxRings = MAX_SUPPORTED_RINGS;  // Clamp to safe maximum
+    }
+    
     // Search rings 1 to maxRings
     for (int k = 1; k <= maxRings && result.numRegions < MAX_NEAREST_REGIONS; k++) {
         int ringSize = 6 * k;
-        H3Index ringCells[18];  // Max size for k=3
+        
+        // BOUNDS CHECK: Verify ring size won't overflow buffer
+        if (ringSize > RING_BUFFER_SIZE) {
+            break;  // Stop if ring would overflow - prevents corruption
+        }
+        
+        H3Index ringCells[RING_BUFFER_SIZE];
         
         // Get the ring of cells at distance k
         if (h3GetRing(h3, k, ringCells) == 0) {
