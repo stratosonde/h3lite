@@ -36,6 +36,10 @@ typedef struct {
  */
 typedef uint8_t RegionId;
 
+/* Special region values */
+#define REGION_UNKNOWN      0    // Unknown/invalid region
+#define REGION_RESTRICTED   255  // Restricted region (no transmission allowed)
+
 /**
  * Maximum number of nearest regions to return
  */

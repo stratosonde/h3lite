@@ -116,8 +116,8 @@ RegionId h3ToRegion(H3Index h3) {
     }
     
     // Debug output
-    printf("DEBUG h3ToRegion: h3=0x%llx baseCell=%d partialIndex=%d\n", 
-           (unsigned long long)h3, baseCell, partialIndex);
+    printf("DEBUG h3ToRegion: h3=0x%llx baseCell=%d partialIndex=%ld\n",
+           (unsigned long long)h3, baseCell, (long)partialIndex);
     
     // Search for matching region
     RegionId region = findRegion(baseCell, partialIndex);
