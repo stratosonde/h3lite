@@ -71,7 +71,7 @@ Instead of implementing the full H3 specification, H3Lite uses:
 - **Pre-computed lookup tables** for region boundaries at resolution 3
 - **Simplified coordinate math** optimized for embedded systems
 - **Binary search** for O(log n) lookups instead of spatial queries
-- **Compact encoding**: 4 bytes per table entry (baseCell + partialIndex + regionId)
+- **Compact encoding**: 4 bytes per table entry (packed uint32: baseCell, resolution, partialIndex, regionId)
 - **Regional focus**: Only includes cells needed for region detection
 
 ## Building and Using
@@ -100,7 +100,7 @@ To generate the compact region lookup tables:
 
 ```bash
 # Ensure you have the required Python packages
-pip install h3 geopandas shapely numpy tqdm
+pip install h3 shapely tqdm
 
 # Generate tables from GeoJSON region definitions
 python generate_lookup_table.py
@@ -136,9 +136,10 @@ const char* regionName = getRegionName(region);  // e.g., "US915"
 ### Flash Memory (STM32)
 
 - **Core Code**: ~2-4KB
-- **Lookup Tables**: ~44KB (10,875 entries at resolution 3)
-  - Each entry: 4 bytes (1 byte baseCell + 2 bytes partialIndex + 1 byte regionId)
-- **Total**: ~46-48KB
+- **Lookup Tables**: ~18KB (4,556 packed entries, mixed res 1-3)
+  - Each entry: 4 bytes packed uint32 (baseCell[31:25] resolution[24:23]
+    partialIndex[22:14] regionId[13:10])
+- **Total**: ~20-22KB
 
 ### RAM Usage
 
@@ -205,7 +206,7 @@ If you need to regenerate the region lookup tables (e.g., for different regions 
 
 ```bash
 # Install dependencies
-pip install h3 geopandas shapely numpy tqdm matplotlib
+pip install h3 shapely tqdm
 
 # Generate tables from GeoJSON files
 python generate_lookup_table.py
@@ -247,3 +248,16 @@ Based on Uber's H3 library, licensed under the Apache License, Version 2.0.
 - **Uber H3**: Original H3 geospatial indexing system
 - **LoRaWAN Alliance**: Regional parameter definitions
 - Built with support from the embedded systems community
+
+## Known limitations
+
+- **Pentagon rings (H3-6(2), deferred):** `h3GetRing()` fails cleanly
+  (returns negative) when the ring traversal crosses one of the 12
+  pentagon base cells, instead of returning the 5k-cell distorted ring
+  real H3 would produce. Measured: 846/927 exact ring matches, 81 clean
+  failures, 0 wrong-content results (~11% of sampled origins, clustered
+  near pentagons). `findNearestRegions()` treats this as "no ring" and
+  searches the next ring outward, so nearest-region lookup still works.
+  Pentagon rotation support is deferred; `h3GetRing` returns the actual
+  cell count (H3-6(1)) so a future pentagon-capable implementation
+  cannot become a stale-data read.
