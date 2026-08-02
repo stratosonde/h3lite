@@ -29,20 +29,29 @@
 // Number of entries in the lookup table
 #define REGION_ENTRY_COUNT 10953
 
-// Lookup entry structure
-typedef struct {
-    uint8_t baseCell;      // Base cell (0-121)
-    uint16_t partialIndex; // Partial index for first 3 resolution digits (max 512)
-    RegionId regionId;     // Region ID (1-15)
-} RegionEntry;
+/* Packed entry (H3-1/H3-4):
+ *   bits [31:25] baseCell (0-121)
+ *   bits [24:23] resolution (1-3)
+ *   bits [22:14] partialIndex (0-511)
+ *   bits [13:10] regionId (0-15)
+ *   bits [9:0]   reserved (zero)
+ * Sorted ascending by (baseCell, resolution, partialIndex) — which is
+ * numeric order of the packed value. */
+typedef uint32_t RegionEntry;
 
-// Region lookup table (sorted by baseCell and partialIndex)
+#define RE_BASECELL(e)  ((uint8_t)(((e) >> 25) & 0x7F))
+#define RE_RES(e)       ((uint8_t)(((e) >> 23) & 0x03))
+#define RE_PARTIAL(e)   ((uint16_t)(((e) >> 14) & 0x1FF))
+#define RE_REGION(e)    ((RegionId)(((e) >> 10) & 0x0F))
+
+// Region lookup table (sorted by baseCell, resolution, partialIndex)
 extern const RegionEntry regionLookup[REGION_ENTRY_COUNT];
 
 // Region names array
 extern const char* regionNames[16];
 
-// Binary search the region lookup table
-RegionId findRegion(uint8_t baseCell, uint16_t partialIndex);
+// Binary search the region lookup table for an exact
+// (baseCell, resolution, partialIndex) key; returns 0 (Unknown) on miss.
+RegionId findRegion(uint8_t baseCell, uint8_t res, uint16_t partialIndex);
 
 #endif /* H3LITE_REGIONS_TABLE_H */

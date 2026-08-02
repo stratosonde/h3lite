@@ -80,20 +80,23 @@ RegionId h3ToRegion(H3Index h3) {
     // Extract the base cell
     int baseCell = H3_GET_BASE_CELL(h3);
 
-    // Extract partial indexing information (using 3 digits)
-    uint32_t partialIndex = 0;
-    int numDigits = (res < 3) ? res : 3;  // Use up to 3 digits
-    for (int r = 1; r <= numDigits; r++) {
-        int digit = H3_GET_INDEX_DIGIT(h3, r);
-        partialIndex = (partialIndex * 8) + digit;  // Base-8 encoding
-    }
+    /* H3-1: the table now carries resolution in its key, so probe
+     * most-specific-first: res 3, then res 2, then res 1 — first hit wins.
+     * (Previously the device always built a 3-digit key, which made every
+     * res-1/res-2 table entry unmatchable: 75.55% global Unknown rate.) */
+    int d1 = H3_GET_INDEX_DIGIT(h3, 1);
+    int d2 = (res >= 2) ? H3_GET_INDEX_DIGIT(h3, 2) : 0;
+    int d3 = (res >= 3) ? H3_GET_INDEX_DIGIT(h3, 3) : 0;
+    uint16_t k3 = (uint16_t)(d1 * 64 + d2 * 8 + d3);
+    uint16_t k2 = (uint16_t)(d1 * 8 + d2);
+    uint16_t k1 = (uint16_t)d1;
 
-    /* H3-5: unconditional printf() removed from the flight hot path.
-     * Raw printf pulls in newlib streams/malloc and %llx prints garbage
-     * without 64-bit printf support. Region search is silent in production. */
-
-    // Search for matching region
-    RegionId region = findRegion(baseCell, partialIndex);
+    RegionId region = INVALID_REGION;
+    if (res >= 3) region = findRegion(baseCell, 3, k3);
+    if (region == INVALID_REGION && res >= 2)
+        region = findRegion(baseCell, 2, k2);
+    if (region == INVALID_REGION && res >= 1)
+        region = findRegion(baseCell, 1, k1);
 
     return region;
 }
