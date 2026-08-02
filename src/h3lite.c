@@ -118,10 +118,17 @@ RegionId latLngToRegion(double lat, double lng) {
  * Get string name for a region ID
  */
 const char* getRegionName(RegionId regionId) {
-    // Use the region names from the generated lookup table
-    // Make sure we don't go out of bounds of the array size
-    int max_region_id = 12; // From the generated table
-    if (regionId > max_region_id) {
+    /* H3-8: restricted territories have no entry in regionNames; name them
+     * honestly. Enforcement keys on the ID (REGION_RESTRICTED), not the
+     * name — REGION_UNKNOWN (0) is a different policy (keep current region
+     * and transmit) and must never be conflated with restricted. */
+    if (regionId == REGION_RESTRICTED) {
+        return "RESTRICTED";
+    }
+    /* H3-7: clamp to the actual array size. Was hardcoded to 12, which
+     * mislabeled CN470 (13), EU433 (14) and CD900-1A (15) as "Unknown"
+     * and broke the region-name strcmp mapping in the firmware. */
+    if (regionId >= (RegionId)(sizeof(regionNames) / sizeof(regionNames[0]))) {
         return regionNames[0];  // "Unknown"
     }
     return regionNames[regionId];
@@ -165,10 +172,13 @@ NearestRegionsInfo findNearestRegions(double lat, double lng, int maxRings) {
 
         H3Index ringCells[RING_BUFFER_SIZE];
 
-        // Get the ring of cells at distance k
-        if (h3GetRing(h3, k, ringCells) == 0) {
+        /* Get the ring of cells at distance k. H3-6(1): h3GetRing returns
+         * the actual cell count (negative on pentagon failure) — iterate
+         * that count, never the nominal 6*k. */
+        int ringCount = h3GetRing(h3, k, ringCells);
+        if (ringCount > 0) {
             // Check all cells in this ring
-            for (int i = 0; i < ringSize && result.numRegions < MAX_NEAREST_REGIONS; i++) {
+            for (int i = 0; i < ringCount && result.numRegions < MAX_NEAREST_REGIONS; i++) {
                 region = h3ToRegion(ringCells[i]);
                 if (region != 0) {
                     // Check if we already have this region
