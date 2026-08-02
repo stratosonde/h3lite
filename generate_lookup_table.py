@@ -7,8 +7,11 @@ library from LoRaWAN region GeoJSON files.
 
 H3-1/H3-4: entries are packed uint32_t carrying (baseCell, resolution,
 partialIndex, regionId); the device probes res 3 -> res 2 -> res 1,
-most-specific-first. The compaction below is the legacy region-blind one
-(H3-2 replaces it with uniform-only compaction).
+most-specific-first.
+H3-2: compaction is uniform-only — a parent is emitted only when all of
+its children are present and map to the same region; contested res-3
+cells are resolved deterministically (largest intersected area wins,
+lowest region ID breaks ties).
 
 Dependencies: h3, shapely, tqdm   (no geopandas/numpy)
 """
@@ -188,52 +191,136 @@ def pack_entry(base_cell, resolution, partial_index, region_id):
             (partial_index & 0x1FF) << 14 | (region_id & 0x0F) << 10)
 
 
+def _cell_polygon(cell):
+    """Shapely polygon for an H3 cell boundary (lng/lat order)."""
+    boundary = h3.cell_to_boundary(cell)  # [(lat, lng), ...]
+    from shapely.geometry import Polygon
+    return Polygon([(lng, lat) for lat, lng in boundary])
+
+
 def generate_lookup_table(regions, max_resolution=DEFAULT_RESOLUTION):
-    """Legacy multi-resolution compaction (H3-2 replaces this).
+    """H3-2: uniform-only compaction with deterministic conflict resolution.
+
+    1. Polyfill every region at res 3 only; build cell -> region.
+    2. Conflicts (two regions claim the same res-3 cell): largest
+       intersected polygon area wins; tie-break lowest region ID.
+       Every resolution is logged.
+    3. Bottom-up compaction: a group of res-3 siblings collapses to its
+       res-2 parent only if ALL children are present and ALL map to the
+       same region. Repeat res-2 -> res-1 under the same rule.
+    4. Assert zero duplicate (baseCell, resolution, partialIndex) keys.
 
     Returns entries with keys: baseCell, resolution, partialIndex,
     regionId, regionName.
     """
-    entries = []
-    processed_cells = set()
+    from shapely.ops import unary_union
 
-    for resolution in range(1, max_resolution + 1):
-        print(f"\nProcessing resolution {resolution}...")
+    id_to_name = {v: k for k, v in REGION_IDS.items()}
 
-        for region_name, geoms in regions.items():
-            if region_name not in REGION_IDS:
-                print(f"Skipping region {region_name} - not in REGION_IDS")
+    # ---- 1. polyfill every region at res 3 -------------------------------
+    # h3 polyfill only keeps cells whose CENTER is inside the polygon, so
+    # coastal cells erode (Sydney, Lagos). Fix: also polyfill a buffered
+    # polygon, but keep only buffered cells that NO region claims truly —
+    # i.e. the buffer extends coverage seaward only, never across a land
+    # border into a neighbor.
+    SEAWARD_BUFFER_DEG = 0.6  # ~ one res-3 cell radius (~60 km)
+
+    true_cells = {}   # region_id -> set of cells from the true polygon
+    unions = {}       # region_id -> unary union of true geometry
+    for region_name, geoms in regions.items():
+        if region_name not in REGION_IDS:
+            print(f"Skipping region {region_name} - not in REGION_IDS")
+            continue
+        region_id = REGION_IDS[region_name]
+        print(f"Polyfilling {region_name} (ID: {region_id}) at res 3")
+        true_cells[region_id] = set(convert_region_to_h3(geoms,
+                                                         max_resolution))
+        unions[region_id] = unary_union(geoms)
+
+    all_true = set().union(*true_cells.values()) if true_cells else set()
+
+    claims = {}  # cell -> list of region_ids claiming it
+    for region_name, geoms in regions.items():
+        if region_name not in REGION_IDS:
+            continue
+        region_id = REGION_IDS[region_name]
+        buffered = [g.buffer(SEAWARD_BUFFER_DEG) for g in geoms]
+        seaward = set(convert_region_to_h3(buffered, max_resolution)) \
+            - all_true
+        if seaward:
+            print(f"  {region_name}: +{len(seaward)} seaward cells")
+        for cell in true_cells[region_id] | seaward:
+            claims.setdefault(cell, []).append(region_id)
+
+    # ---- 2. deterministic conflict resolution ----------------------------
+    cell_region = {}
+    n_conflicts = 0
+    for cell, region_ids in claims.items():
+        if len(region_ids) == 1:
+            cell_region[cell] = region_ids[0]
+            continue
+        n_conflicts += 1
+        cpoly = _cell_polygon(cell)
+        best = None  # (area, -region_id) — max wins
+        areas = []
+        for rid in region_ids:
+            area = unions[rid].intersection(cpoly).area
+            areas.append((area, rid))
+        areas.sort(key=lambda t: (-t[0], t[1]))  # area desc, id asc
+        winner = areas[0][1]
+        cell_region[cell] = winner
+        print(f"  conflict {cell}: " +
+              ", ".join(f"{id_to_name[r]}={a:.6f}" for a, r in areas) +
+              f" -> {id_to_name[winner]}")
+    print(f"Resolved {n_conflicts} contested res-3 cells "
+          f"(largest intersected area wins, lowest ID breaks ties)")
+
+    # ---- 3. bottom-up uniform compaction ---------------------------------
+    for parent_res in (max_resolution - 1, max_resolution - 2):
+        if parent_res < 1:
+            break
+        child_res = parent_res + 1
+        # group cells currently at child_res by their parent
+        by_parent = {}
+        for cell, rid in cell_region.items():
+            if h3.get_resolution(cell) != child_res:
                 continue
+            parent = h3.cell_to_parent(cell, parent_res)
+            by_parent.setdefault(parent, {})[cell] = rid
+        n_compacted = 0
+        for parent, kids in by_parent.items():
+            full = set(h3.cell_to_children(parent, child_res))
+            if set(kids) != full:
+                continue  # not all children present
+            if len(set(kids.values())) != 1:
+                continue  # not uniform
+            rid = next(iter(kids.values()))
+            for cell in kids:
+                del cell_region[cell]
+            cell_region[parent] = rid
+            n_compacted += 1
+        print(f"Compacted {n_compacted} uniform res-{child_res} groups "
+              f"to res-{parent_res} parents")
 
-            region_id = REGION_IDS[region_name]
-            print(f"Processing region {region_name} (ID: {region_id}) "
-                  f"at resolution {resolution}")
+    # ---- 4. emit + assert -------------------------------------------------
+    entries = []
+    seen = set()
+    for cell, rid in cell_region.items():
+        base_cell, partial_index, res = extract_h3_components(cell)
+        key = (base_cell, res, partial_index)
+        assert key not in seen, f"duplicate key {key} ({cell})"
+        seen.add(key)
+        entries.append({
+            'h3': cell,
+            'baseCell': base_cell,
+            'resolution': res,
+            'partialIndex': partial_index,
+            'regionId': rid,
+            'regionName': id_to_name[rid],
+        })
 
-            h3_cells = convert_region_to_h3(geoms, resolution)
-
-            for cell in h3_cells:
-                base_cell, partial_index, _ = extract_h3_components(cell)
-                cell_key = (base_cell, partial_index, resolution)
-
-                if resolution > 1:
-                    # Suppress children whose parent was already emitted
-                    parent_partial_index = partial_index // 8
-                    if (base_cell, parent_partial_index,
-                            resolution - 1) in processed_cells:
-                        continue
-
-                if cell_key not in processed_cells:
-                    processed_cells.add(cell_key)
-                    entries.append({
-                        'h3': cell,
-                        'baseCell': base_cell,
-                        'resolution': resolution,
-                        'partialIndex': partial_index,
-                        'regionId': region_id,
-                        'regionName': region_name,
-                    })
-
-    print(f"\nGenerated {len(entries)} lookup table entries")
+    print(f"\nGenerated {len(entries)} lookup table entries "
+          f"(0 duplicate keys asserted)")
     return entries
 
 

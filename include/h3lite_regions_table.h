@@ -27,7 +27,7 @@
 #define REGION_CD900_1A 15
 
 // Number of entries in the lookup table
-#define REGION_ENTRY_COUNT 10953
+#define REGION_ENTRY_COUNT 4556
 
 /* Packed entry (H3-1/H3-4):
  *   bits [31:25] baseCell (0-121)

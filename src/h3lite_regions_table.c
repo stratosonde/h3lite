@@ -28,165 +28,121 @@ const char* regionNames[16] = {
 
 // Region lookup table (packed uint32, sorted by packed value)
 const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
-    0x0081B000u, // bc=0 res=1 pi=6 RU864
-    0x0100F000u, // bc=0 res=2 pi=3 RU864
     0x01014800u, // bc=0 res=2 pi=5 EU868
     0x01034800u, // bc=0 res=2 pi=13 EU868
-    0x0104F000u, // bc=0 res=2 pi=19 RU864
-    0x01053000u, // bc=0 res=2 pi=20 RU864
     0x01090800u, // bc=0 res=2 pi=36 EU868
     0x010A8800u, // bc=0 res=2 pi=42 EU868
     0x01804800u, // bc=0 res=3 pi=1 EU868
+    0x01863000u, // bc=0 res=3 pi=24 RU864
+    0x0186B000u, // bc=0 res=3 pi=26 RU864
+    0x0186F000u, // bc=0 res=3 pi=27 RU864
+    0x01873000u, // bc=0 res=3 pi=28 RU864
+    0x01877000u, // bc=0 res=3 pi=29 RU864
+    0x0187B000u, // bc=0 res=3 pi=30 RU864
+    0x01884800u, // bc=0 res=3 pi=33 EU868
+    0x01894800u, // bc=0 res=3 pi=37 EU868
+    0x01920800u, // bc=0 res=3 pi=72 EU868
+    0x01924800u, // bc=0 res=3 pi=73 EU868
     0x01930800u, // bc=0 res=3 pi=76 EU868
     0x01934800u, // bc=0 res=3 pi=77 EU868
     0x01984800u, // bc=0 res=3 pi=97 EU868
+    0x01A27000u, // bc=0 res=3 pi=137 RU864
+    0x01A33000u, // bc=0 res=3 pi=140 RU864
+    0x01A43000u, // bc=0 res=3 pi=144 RU864
     0x01A47000u, // bc=0 res=3 pi=145 RU864
     0x01A4B000u, // bc=0 res=3 pi=146 RU864
     0x01A4F000u, // bc=0 res=3 pi=147 RU864
+    0x01A53000u, // bc=0 res=3 pi=148 RU864
     0x01A5B000u, // bc=0 res=3 pi=150 RU864
+    0x01A63000u, // bc=0 res=3 pi=152 RU864
+    0x01A6B000u, // bc=0 res=3 pi=154 RU864
+    0x01A6F000u, // bc=0 res=3 pi=155 RU864
+    0x01A73000u, // bc=0 res=3 pi=156 RU864
+    0x01A7B000u, // bc=0 res=3 pi=158 RU864
+    0x01A83000u, // bc=0 res=3 pi=160 RU864
+    0x01A8B000u, // bc=0 res=3 pi=162 RU864
+    0x01A8F000u, // bc=0 res=3 pi=163 RU864
+    0x01A93000u, // bc=0 res=3 pi=164 RU864
+    0x01A9B000u, // bc=0 res=3 pi=166 RU864
+    0x01AA7000u, // bc=0 res=3 pi=169 RU864
     0x01AB7000u, // bc=0 res=3 pi=173 RU864
+    0x01ACB000u, // bc=0 res=3 pi=178 RU864
     0x01ADB000u, // bc=0 res=3 pi=182 RU864
+    0x01B4B000u, // bc=0 res=3 pi=210 RU864
+    0x01B5B000u, // bc=0 res=3 pi=214 RU864
     0x01BD3000u, // bc=0 res=3 pi=244 RU864
+    0x01C10800u, // bc=0 res=3 pi=260 EU868
+    0x01C2C800u, // bc=0 res=3 pi=267 EU868
+    0x01C34800u, // bc=0 res=3 pi=269 EU868
+    0x01CAC800u, // bc=0 res=3 pi=299 EU868
+    0x01CC0800u, // bc=0 res=3 pi=304 EU868
+    0x01CC4800u, // bc=0 res=3 pi=305 EU868
     0x01CD3000u, // bc=0 res=3 pi=308 RU864
     0x01CD4800u, // bc=0 res=3 pi=309 EU868
     0x01CDB000u, // bc=0 res=3 pi=310 RU864
     0x01D68800u, // bc=0 res=3 pi=346 EU868
     0x01D78800u, // bc=0 res=3 pi=350 EU868
     0x01E03000u, // bc=0 res=3 pi=384 RU864
+    0x01E0B000u, // bc=0 res=3 pi=386 RU864
     0x01E0F000u, // bc=0 res=3 pi=387 RU864
     0x01E13000u, // bc=0 res=3 pi=388 RU864
     0x01E1B000u, // bc=0 res=3 pi=390 RU864
     0x01E2B000u, // bc=0 res=3 pi=394 RU864
+    0x01E3B000u, // bc=0 res=3 pi=398 RU864
     0x01E53000u, // bc=0 res=3 pi=404 RU864
+    0x01E57000u, // bc=0 res=3 pi=405 RU864
     0x01E5B000u, // bc=0 res=3 pi=406 RU864
     0x01E67000u, // bc=0 res=3 pi=409 RU864
     0x01E77000u, // bc=0 res=3 pi=413 RU864
+    0x01EC7000u, // bc=0 res=3 pi=433 RU864
+    0x01ECB000u, // bc=0 res=3 pi=434 RU864
     0x01ECF000u, // bc=0 res=3 pi=435 RU864
+    0x01ED3000u, // bc=0 res=3 pi=436 RU864
+    0x01ED7000u, // bc=0 res=3 pi=437 RU864
     0x01EDB000u, // bc=0 res=3 pi=438 RU864
-    0x02800400u, // bc=1 res=1 pi=0 US915
-    0x02804400u, // bc=1 res=1 pi=1 US915
     0x0280C400u, // bc=1 res=1 pi=3 US915
-    0x02814800u, // bc=1 res=1 pi=5 EU868
+    0x03004400u, // bc=1 res=2 pi=1 US915
+    0x0300C400u, // bc=1 res=2 pi=3 US915
+    0x03014400u, // bc=1 res=2 pi=5 US915
+    0x03024400u, // bc=1 res=2 pi=9 US915
+    0x03028400u, // bc=1 res=2 pi=10 US915
+    0x0302C400u, // bc=1 res=2 pi=11 US915
+    0x03038400u, // bc=1 res=2 pi=14 US915
     0x03044400u, // bc=1 res=2 pi=17 US915
-    0x03054400u, // bc=1 res=2 pi=21 US915
+    0x030A4800u, // bc=1 res=2 pi=41 EU868
+    0x030A8400u, // bc=1 res=2 pi=42 US915
+    0x030B0800u, // bc=1 res=2 pi=44 EU868
+    0x030B4800u, // bc=1 res=2 pi=45 EU868
     0x03800400u, // bc=1 res=3 pi=0 US915
     0x03804400u, // bc=1 res=3 pi=1 US915
     0x03808400u, // bc=1 res=3 pi=2 US915
     0x0380C400u, // bc=1 res=3 pi=3 US915
     0x03814400u, // bc=1 res=3 pi=5 US915
-    0x03820400u, // bc=1 res=3 pi=8 US915
-    0x03824400u, // bc=1 res=3 pi=9 US915
-    0x03828400u, // bc=1 res=3 pi=10 US915
-    0x0382C400u, // bc=1 res=3 pi=11 US915
-    0x03830400u, // bc=1 res=3 pi=12 US915
-    0x03834400u, // bc=1 res=3 pi=13 US915
-    0x03838400u, // bc=1 res=3 pi=14 US915
     0x03844400u, // bc=1 res=3 pi=17 US915
     0x0384C400u, // bc=1 res=3 pi=19 US915
-    0x03860400u, // bc=1 res=3 pi=24 US915
-    0x03864400u, // bc=1 res=3 pi=25 US915
-    0x03868400u, // bc=1 res=3 pi=26 US915
-    0x0386C400u, // bc=1 res=3 pi=27 US915
-    0x03870400u, // bc=1 res=3 pi=28 US915
-    0x03874400u, // bc=1 res=3 pi=29 US915
-    0x03878400u, // bc=1 res=3 pi=30 US915
     0x03884400u, // bc=1 res=3 pi=33 US915
-    0x038A0400u, // bc=1 res=3 pi=40 US915
-    0x038A4400u, // bc=1 res=3 pi=41 US915
-    0x038A8400u, // bc=1 res=3 pi=42 US915
-    0x038AC400u, // bc=1 res=3 pi=43 US915
-    0x038B0400u, // bc=1 res=3 pi=44 US915
-    0x038B4400u, // bc=1 res=3 pi=45 US915
-    0x038B8400u, // bc=1 res=3 pi=46 US915
     0x03900400u, // bc=1 res=3 pi=64 US915
     0x03904400u, // bc=1 res=3 pi=65 US915
     0x03908400u, // bc=1 res=3 pi=66 US915
     0x0390C400u, // bc=1 res=3 pi=67 US915
     0x03910400u, // bc=1 res=3 pi=68 US915
     0x03918400u, // bc=1 res=3 pi=70 US915
-    0x03920400u, // bc=1 res=3 pi=72 US915
-    0x03924400u, // bc=1 res=3 pi=73 US915
-    0x03928400u, // bc=1 res=3 pi=74 US915
-    0x0392C400u, // bc=1 res=3 pi=75 US915
-    0x03930400u, // bc=1 res=3 pi=76 US915
-    0x03934400u, // bc=1 res=3 pi=77 US915
-    0x03938400u, // bc=1 res=3 pi=78 US915
-    0x03940400u, // bc=1 res=3 pi=80 US915
-    0x03944400u, // bc=1 res=3 pi=81 US915
-    0x03948400u, // bc=1 res=3 pi=82 US915
-    0x0394C400u, // bc=1 res=3 pi=83 US915
-    0x03950400u, // bc=1 res=3 pi=84 US915
-    0x03954400u, // bc=1 res=3 pi=85 US915
-    0x03958400u, // bc=1 res=3 pi=86 US915
-    0x03960400u, // bc=1 res=3 pi=88 US915
-    0x03964400u, // bc=1 res=3 pi=89 US915
-    0x03968400u, // bc=1 res=3 pi=90 US915
-    0x0396C400u, // bc=1 res=3 pi=91 US915
-    0x03970400u, // bc=1 res=3 pi=92 US915
-    0x03974400u, // bc=1 res=3 pi=93 US915
-    0x03978400u, // bc=1 res=3 pi=94 US915
+    0x03980800u, // bc=1 res=3 pi=96 EU868
     0x03988400u, // bc=1 res=3 pi=98 US915
     0x03990800u, // bc=1 res=3 pi=100 EU868
     0x03994800u, // bc=1 res=3 pi=101 EU868
-    0x039C0400u, // bc=1 res=3 pi=112 US915
-    0x039C4400u, // bc=1 res=3 pi=113 US915
-    0x039C8400u, // bc=1 res=3 pi=114 US915
-    0x039CC400u, // bc=1 res=3 pi=115 US915
-    0x039D0400u, // bc=1 res=3 pi=116 US915
-    0x039D4400u, // bc=1 res=3 pi=117 US915
-    0x039D8400u, // bc=1 res=3 pi=118 US915
+    0x03998400u, // bc=1 res=3 pi=102 US915
+    0x03A60400u, // bc=1 res=3 pi=152 US915
     0x03A64400u, // bc=1 res=3 pi=153 US915
     0x03A68400u, // bc=1 res=3 pi=154 US915
     0x03A6C400u, // bc=1 res=3 pi=155 US915
-    0x03B00400u, // bc=1 res=3 pi=192 US915
-    0x03B04400u, // bc=1 res=3 pi=193 US915
-    0x03B08400u, // bc=1 res=3 pi=194 US915
-    0x03B0C400u, // bc=1 res=3 pi=195 US915
-    0x03B10400u, // bc=1 res=3 pi=196 US915
-    0x03B14400u, // bc=1 res=3 pi=197 US915
-    0x03B18400u, // bc=1 res=3 pi=198 US915
-    0x03B20400u, // bc=1 res=3 pi=200 US915
-    0x03B24400u, // bc=1 res=3 pi=201 US915
-    0x03B28400u, // bc=1 res=3 pi=202 US915
-    0x03B2C400u, // bc=1 res=3 pi=203 US915
-    0x03B30400u, // bc=1 res=3 pi=204 US915
-    0x03B34400u, // bc=1 res=3 pi=205 US915
-    0x03B38400u, // bc=1 res=3 pi=206 US915
-    0x03B40400u, // bc=1 res=3 pi=208 US915
-    0x03B44400u, // bc=1 res=3 pi=209 US915
-    0x03B48400u, // bc=1 res=3 pi=210 US915
-    0x03B4C400u, // bc=1 res=3 pi=211 US915
-    0x03B50400u, // bc=1 res=3 pi=212 US915
-    0x03B54400u, // bc=1 res=3 pi=213 US915
-    0x03B58400u, // bc=1 res=3 pi=214 US915
-    0x03B60400u, // bc=1 res=3 pi=216 US915
-    0x03B64400u, // bc=1 res=3 pi=217 US915
-    0x03B68400u, // bc=1 res=3 pi=218 US915
-    0x03B6C400u, // bc=1 res=3 pi=219 US915
-    0x03B70400u, // bc=1 res=3 pi=220 US915
-    0x03B74400u, // bc=1 res=3 pi=221 US915
-    0x03B78400u, // bc=1 res=3 pi=222 US915
-    0x03B80400u, // bc=1 res=3 pi=224 US915
-    0x03B84400u, // bc=1 res=3 pi=225 US915
-    0x03B88400u, // bc=1 res=3 pi=226 US915
-    0x03B8C400u, // bc=1 res=3 pi=227 US915
-    0x03B90400u, // bc=1 res=3 pi=228 US915
-    0x03B94400u, // bc=1 res=3 pi=229 US915
-    0x03B98400u, // bc=1 res=3 pi=230 US915
-    0x03BA0400u, // bc=1 res=3 pi=232 US915
-    0x03BA4400u, // bc=1 res=3 pi=233 US915
-    0x03BA8400u, // bc=1 res=3 pi=234 US915
-    0x03BAC400u, // bc=1 res=3 pi=235 US915
-    0x03BB0400u, // bc=1 res=3 pi=236 US915
-    0x03BB4400u, // bc=1 res=3 pi=237 US915
-    0x03BB8400u, // bc=1 res=3 pi=238 US915
-    0x03BC0400u, // bc=1 res=3 pi=240 US915
-    0x03BC4400u, // bc=1 res=3 pi=241 US915
-    0x03BC8400u, // bc=1 res=3 pi=242 US915
-    0x03BCC400u, // bc=1 res=3 pi=243 US915
-    0x03BD0400u, // bc=1 res=3 pi=244 US915
-    0x03BD4400u, // bc=1 res=3 pi=245 US915
-    0x03BD8400u, // bc=1 res=3 pi=246 US915
+    0x03A74400u, // bc=1 res=3 pi=157 US915
+    0x03AA0400u, // bc=1 res=3 pi=168 US915
+    0x03AA4400u, // bc=1 res=3 pi=169 US915
+    0x03AA8400u, // bc=1 res=3 pi=170 US915
+    0x03AAC400u, // bc=1 res=3 pi=171 US915
+    0x03AB0400u, // bc=1 res=3 pi=172 US915
+    0x03AB4400u, // bc=1 res=3 pi=173 US915
     0x03D00800u, // bc=1 res=3 pi=320 EU868
     0x03D04800u, // bc=1 res=3 pi=321 EU868
     0x03D08400u, // bc=1 res=3 pi=322 US915
@@ -194,402 +150,175 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x03D10800u, // bc=1 res=3 pi=324 EU868
     0x03D14800u, // bc=1 res=3 pi=325 EU868
     0x03D18400u, // bc=1 res=3 pi=326 US915
-    0x03D20800u, // bc=1 res=3 pi=328 EU868
-    0x03D24800u, // bc=1 res=3 pi=329 EU868
-    0x03D28800u, // bc=1 res=3 pi=330 EU868
-    0x03D2C800u, // bc=1 res=3 pi=331 EU868
-    0x03D30800u, // bc=1 res=3 pi=332 EU868
-    0x03D34800u, // bc=1 res=3 pi=333 EU868
-    0x03D38800u, // bc=1 res=3 pi=334 EU868
-    0x03D40400u, // bc=1 res=3 pi=336 US915
-    0x03D44400u, // bc=1 res=3 pi=337 US915
-    0x03D48400u, // bc=1 res=3 pi=338 US915
-    0x03D4C400u, // bc=1 res=3 pi=339 US915
-    0x03D50400u, // bc=1 res=3 pi=340 US915
-    0x03D54400u, // bc=1 res=3 pi=341 US915
-    0x03D58400u, // bc=1 res=3 pi=342 US915
     0x03D60400u, // bc=1 res=3 pi=344 US915
     0x03D64800u, // bc=1 res=3 pi=345 EU868
     0x03D68400u, // bc=1 res=3 pi=346 US915
     0x03D6C400u, // bc=1 res=3 pi=347 US915
     0x03D70400u, // bc=1 res=3 pi=348 US915
+    0x03D74800u, // bc=1 res=3 pi=349 EU868
     0x03D78400u, // bc=1 res=3 pi=350 US915
-    0x03D80800u, // bc=1 res=3 pi=352 EU868
-    0x03D84800u, // bc=1 res=3 pi=353 EU868
-    0x03D88800u, // bc=1 res=3 pi=354 EU868
-    0x03D8C800u, // bc=1 res=3 pi=355 EU868
-    0x03D90800u, // bc=1 res=3 pi=356 EU868
-    0x03D94800u, // bc=1 res=3 pi=357 EU868
-    0x03D98800u, // bc=1 res=3 pi=358 EU868
-    0x03DA0800u, // bc=1 res=3 pi=360 EU868
-    0x03DA4800u, // bc=1 res=3 pi=361 EU868
-    0x03DA8800u, // bc=1 res=3 pi=362 EU868
-    0x03DAC800u, // bc=1 res=3 pi=363 EU868
-    0x03DB0800u, // bc=1 res=3 pi=364 EU868
-    0x03DB4800u, // bc=1 res=3 pi=365 EU868
-    0x03DB8800u, // bc=1 res=3 pi=366 EU868
+    0x03DC4400u, // bc=1 res=3 pi=369 US915
+    0x03DC8400u, // bc=1 res=3 pi=370 US915
     0x03DCC400u, // bc=1 res=3 pi=371 US915
+    0x03DD4800u, // bc=1 res=3 pi=373 EU868
     0x0480B000u, // bc=2 res=1 pi=2 RU864
-    0x0480F000u, // bc=2 res=1 pi=3 RU864
-    0x0481B000u, // bc=2 res=1 pi=6 RU864
-    0x0500B000u, // bc=2 res=2 pi=2 RU864
-    0x0508B000u, // bc=2 res=2 pi=34 RU864
+    0x05003000u, // bc=2 res=2 pi=0 RU864
+    0x05063000u, // bc=2 res=2 pi=24 RU864
+    0x05067000u, // bc=2 res=2 pi=25 RU864
+    0x0506B000u, // bc=2 res=2 pi=26 RU864
+    0x0506F000u, // bc=2 res=2 pi=27 RU864
+    0x0507B000u, // bc=2 res=2 pi=30 RU864
     0x05093000u, // bc=2 res=2 pi=36 RU864
     0x0509B000u, // bc=2 res=2 pi=38 RU864
-    0x05807000u, // bc=2 res=3 pi=1 RU864
-    0x05813000u, // bc=2 res=3 pi=4 RU864
-    0x0581B000u, // bc=2 res=3 pi=6 RU864
+    0x050C3000u, // bc=2 res=2 pi=48 RU864
+    0x050C7000u, // bc=2 res=2 pi=49 RU864
+    0x050CB000u, // bc=2 res=2 pi=50 RU864
+    0x050CF000u, // bc=2 res=2 pi=51 RU864
+    0x050D3000u, // bc=2 res=2 pi=52 RU864
+    0x050DB000u, // bc=2 res=2 pi=54 RU864
+    0x05843000u, // bc=2 res=3 pi=16 RU864
+    0x05847000u, // bc=2 res=3 pi=17 RU864
+    0x0584B000u, // bc=2 res=3 pi=18 RU864
+    0x0584F000u, // bc=2 res=3 pi=19 RU864
+    0x05857000u, // bc=2 res=3 pi=21 RU864
+    0x0585B000u, // bc=2 res=3 pi=22 RU864
+    0x05863000u, // bc=2 res=3 pi=24 RU864
     0x0586B000u, // bc=2 res=3 pi=26 RU864
+    0x0586F000u, // bc=2 res=3 pi=27 RU864
+    0x05873000u, // bc=2 res=3 pi=28 RU864
     0x0587B000u, // bc=2 res=3 pi=30 RU864
+    0x0588B000u, // bc=2 res=3 pi=34 RU864
+    0x0588F000u, // bc=2 res=3 pi=35 RU864
+    0x058AF000u, // bc=2 res=3 pi=43 RU864
     0x058C7000u, // bc=2 res=3 pi=49 RU864
+    0x058CF000u, // bc=2 res=3 pi=51 RU864
+    0x05967000u, // bc=2 res=3 pi=89 RU864
     0x0596F000u, // bc=2 res=3 pi=91 RU864
-    0x05A03000u, // bc=2 res=3 pi=128 RU864
-    0x05A07000u, // bc=2 res=3 pi=129 RU864
-    0x05A0B000u, // bc=2 res=3 pi=130 RU864
-    0x05A0F000u, // bc=2 res=3 pi=131 RU864
-    0x05A13000u, // bc=2 res=3 pi=132 RU864
-    0x05A17000u, // bc=2 res=3 pi=133 RU864
-    0x05A1B000u, // bc=2 res=3 pi=134 RU864
-    0x05A23000u, // bc=2 res=3 pi=136 RU864
-    0x05A27000u, // bc=2 res=3 pi=137 RU864
-    0x05A2B000u, // bc=2 res=3 pi=138 RU864
-    0x05A2F000u, // bc=2 res=3 pi=139 RU864
-    0x05A33000u, // bc=2 res=3 pi=140 RU864
-    0x05A37000u, // bc=2 res=3 pi=141 RU864
-    0x05A3B000u, // bc=2 res=3 pi=142 RU864
-    0x05A43000u, // bc=2 res=3 pi=144 RU864
-    0x05A47000u, // bc=2 res=3 pi=145 RU864
-    0x05A4B000u, // bc=2 res=3 pi=146 RU864
-    0x05A4F000u, // bc=2 res=3 pi=147 RU864
-    0x05A53000u, // bc=2 res=3 pi=148 RU864
-    0x05A57000u, // bc=2 res=3 pi=149 RU864
-    0x05A5B000u, // bc=2 res=3 pi=150 RU864
-    0x05A63000u, // bc=2 res=3 pi=152 RU864
-    0x05A67000u, // bc=2 res=3 pi=153 RU864
-    0x05A6B000u, // bc=2 res=3 pi=154 RU864
-    0x05A6F000u, // bc=2 res=3 pi=155 RU864
-    0x05A73000u, // bc=2 res=3 pi=156 RU864
-    0x05A77000u, // bc=2 res=3 pi=157 RU864
-    0x05A7B000u, // bc=2 res=3 pi=158 RU864
-    0x05A83000u, // bc=2 res=3 pi=160 RU864
-    0x05A87000u, // bc=2 res=3 pi=161 RU864
-    0x05A8B000u, // bc=2 res=3 pi=162 RU864
-    0x05A8F000u, // bc=2 res=3 pi=163 RU864
-    0x05A93000u, // bc=2 res=3 pi=164 RU864
-    0x05A97000u, // bc=2 res=3 pi=165 RU864
-    0x05A9B000u, // bc=2 res=3 pi=166 RU864
-    0x05AA3000u, // bc=2 res=3 pi=168 RU864
-    0x05AA7000u, // bc=2 res=3 pi=169 RU864
-    0x05AAB000u, // bc=2 res=3 pi=170 RU864
-    0x05AAF000u, // bc=2 res=3 pi=171 RU864
-    0x05AB3000u, // bc=2 res=3 pi=172 RU864
-    0x05AB7000u, // bc=2 res=3 pi=173 RU864
-    0x05ABB000u, // bc=2 res=3 pi=174 RU864
-    0x05AC3000u, // bc=2 res=3 pi=176 RU864
-    0x05AC7000u, // bc=2 res=3 pi=177 RU864
-    0x05ACB000u, // bc=2 res=3 pi=178 RU864
-    0x05ACF000u, // bc=2 res=3 pi=179 RU864
-    0x05AD3000u, // bc=2 res=3 pi=180 RU864
-    0x05AD7000u, // bc=2 res=3 pi=181 RU864
-    0x05ADB000u, // bc=2 res=3 pi=182 RU864
-    0x05B03000u, // bc=2 res=3 pi=192 RU864
-    0x05B07000u, // bc=2 res=3 pi=193 RU864
-    0x05B0B000u, // bc=2 res=3 pi=194 RU864
-    0x05B0F000u, // bc=2 res=3 pi=195 RU864
-    0x05B13000u, // bc=2 res=3 pi=196 RU864
-    0x05B17000u, // bc=2 res=3 pi=197 RU864
-    0x05B1B000u, // bc=2 res=3 pi=198 RU864
-    0x05B23000u, // bc=2 res=3 pi=200 RU864
-    0x05B27000u, // bc=2 res=3 pi=201 RU864
-    0x05B2B000u, // bc=2 res=3 pi=202 RU864
-    0x05B2F000u, // bc=2 res=3 pi=203 RU864
-    0x05B33000u, // bc=2 res=3 pi=204 RU864
-    0x05B37000u, // bc=2 res=3 pi=205 RU864
-    0x05B3B000u, // bc=2 res=3 pi=206 RU864
-    0x05B43000u, // bc=2 res=3 pi=208 RU864
-    0x05B47000u, // bc=2 res=3 pi=209 RU864
-    0x05B4B000u, // bc=2 res=3 pi=210 RU864
-    0x05B4F000u, // bc=2 res=3 pi=211 RU864
-    0x05B53000u, // bc=2 res=3 pi=212 RU864
-    0x05B57000u, // bc=2 res=3 pi=213 RU864
-    0x05B5B000u, // bc=2 res=3 pi=214 RU864
-    0x05B63000u, // bc=2 res=3 pi=216 RU864
-    0x05B67000u, // bc=2 res=3 pi=217 RU864
-    0x05B6B000u, // bc=2 res=3 pi=218 RU864
-    0x05B6F000u, // bc=2 res=3 pi=219 RU864
-    0x05B73000u, // bc=2 res=3 pi=220 RU864
-    0x05B77000u, // bc=2 res=3 pi=221 RU864
-    0x05B7B000u, // bc=2 res=3 pi=222 RU864
+    0x05B83000u, // bc=2 res=3 pi=224 RU864
     0x05B8B000u, // bc=2 res=3 pi=226 RU864
     0x05B8F000u, // bc=2 res=3 pi=227 RU864
+    0x05B9B000u, // bc=2 res=3 pi=230 RU864
+    0x05BA3000u, // bc=2 res=3 pi=232 RU864
+    0x05BA7000u, // bc=2 res=3 pi=233 RU864
     0x05BAB000u, // bc=2 res=3 pi=234 RU864
     0x05BAF000u, // bc=2 res=3 pi=235 RU864
-    0x05BC3000u, // bc=2 res=3 pi=240 RU864
-    0x05BC7000u, // bc=2 res=3 pi=241 RU864
-    0x05BCB000u, // bc=2 res=3 pi=242 RU864
-    0x05BCF000u, // bc=2 res=3 pi=243 RU864
-    0x05BD3000u, // bc=2 res=3 pi=244 RU864
-    0x05BD7000u, // bc=2 res=3 pi=245 RU864
-    0x05BDB000u, // bc=2 res=3 pi=246 RU864
-    0x05E03000u, // bc=2 res=3 pi=384 RU864
-    0x05E07000u, // bc=2 res=3 pi=385 RU864
-    0x05E0B000u, // bc=2 res=3 pi=386 RU864
-    0x05E0F000u, // bc=2 res=3 pi=387 RU864
-    0x05E13000u, // bc=2 res=3 pi=388 RU864
-    0x05E17000u, // bc=2 res=3 pi=389 RU864
-    0x05E1B000u, // bc=2 res=3 pi=390 RU864
-    0x05E23000u, // bc=2 res=3 pi=392 RU864
-    0x05E2B000u, // bc=2 res=3 pi=394 RU864
-    0x05E2F000u, // bc=2 res=3 pi=395 RU864
-    0x05E33000u, // bc=2 res=3 pi=396 RU864
-    0x05E37000u, // bc=2 res=3 pi=397 RU864
-    0x05E3B000u, // bc=2 res=3 pi=398 RU864
-    0x05E43000u, // bc=2 res=3 pi=400 RU864
-    0x05E47000u, // bc=2 res=3 pi=401 RU864
-    0x05E4B000u, // bc=2 res=3 pi=402 RU864
-    0x05E4F000u, // bc=2 res=3 pi=403 RU864
-    0x05E53000u, // bc=2 res=3 pi=404 RU864
-    0x05E57000u, // bc=2 res=3 pi=405 RU864
-    0x05E5B000u, // bc=2 res=3 pi=406 RU864
-    0x05E63000u, // bc=2 res=3 pi=408 RU864
-    0x05E67000u, // bc=2 res=3 pi=409 RU864
-    0x05E6B000u, // bc=2 res=3 pi=410 RU864
-    0x05E6F000u, // bc=2 res=3 pi=411 RU864
-    0x05E73000u, // bc=2 res=3 pi=412 RU864
-    0x05E77000u, // bc=2 res=3 pi=413 RU864
-    0x05E7B000u, // bc=2 res=3 pi=414 RU864
-    0x05E83000u, // bc=2 res=3 pi=416 RU864
-    0x05E87000u, // bc=2 res=3 pi=417 RU864
-    0x05E8B000u, // bc=2 res=3 pi=418 RU864
-    0x05E8F000u, // bc=2 res=3 pi=419 RU864
-    0x05E93000u, // bc=2 res=3 pi=420 RU864
-    0x05E97000u, // bc=2 res=3 pi=421 RU864
-    0x05E9B000u, // bc=2 res=3 pi=422 RU864
+    0x05C13000u, // bc=2 res=3 pi=260 RU864
+    0x05C1B000u, // bc=2 res=3 pi=262 RU864
+    0x05C43000u, // bc=2 res=3 pi=272 RU864
+    0x05C4B000u, // bc=2 res=3 pi=274 RU864
+    0x05C53000u, // bc=2 res=3 pi=276 RU864
+    0x05C57000u, // bc=2 res=3 pi=277 RU864
+    0x05C5B000u, // bc=2 res=3 pi=278 RU864
     0x05EA3000u, // bc=2 res=3 pi=424 RU864
+    0x05EA7000u, // bc=2 res=3 pi=425 RU864
     0x05EAB000u, // bc=2 res=3 pi=426 RU864
     0x05EAF000u, // bc=2 res=3 pi=427 RU864
+    0x05EB3000u, // bc=2 res=3 pi=428 RU864
     0x05EBB000u, // bc=2 res=3 pi=430 RU864
-    0x05EC3000u, // bc=2 res=3 pi=432 RU864
-    0x05EC7000u, // bc=2 res=3 pi=433 RU864
-    0x05ECB000u, // bc=2 res=3 pi=434 RU864
-    0x05ECF000u, // bc=2 res=3 pi=435 RU864
-    0x05ED3000u, // bc=2 res=3 pi=436 RU864
-    0x05ED7000u, // bc=2 res=3 pi=437 RU864
-    0x05EDB000u, // bc=2 res=3 pi=438 RU864
-    0x06800800u, // bc=3 res=1 pi=0 EU868
-    0x06808800u, // bc=3 res=1 pi=2 EU868
-    0x0680C800u, // bc=3 res=1 pi=3 EU868
-    0x06814800u, // bc=3 res=1 pi=5 EU868
-    0x06818800u, // bc=3 res=1 pi=6 EU868
-    0x07800800u, // bc=3 res=3 pi=0 EU868
-    0x07804800u, // bc=3 res=3 pi=1 EU868
-    0x07808800u, // bc=3 res=3 pi=2 EU868
-    0x0780C800u, // bc=3 res=3 pi=3 EU868
-    0x07810800u, // bc=3 res=3 pi=4 EU868
-    0x07814800u, // bc=3 res=3 pi=5 EU868
-    0x07818800u, // bc=3 res=3 pi=6 EU868
+    0x07000800u, // bc=3 res=2 pi=0 EU868
+    0x07008800u, // bc=3 res=2 pi=2 EU868
+    0x0700C800u, // bc=3 res=2 pi=3 EU868
+    0x07018800u, // bc=3 res=2 pi=6 EU868
+    0x07040800u, // bc=3 res=2 pi=16 EU868
+    0x07044800u, // bc=3 res=2 pi=17 EU868
+    0x07050800u, // bc=3 res=2 pi=20 EU868
+    0x07054800u, // bc=3 res=2 pi=21 EU868
+    0x07058800u, // bc=3 res=2 pi=22 EU868
+    0x07060800u, // bc=3 res=2 pi=24 EU868
+    0x07064800u, // bc=3 res=2 pi=25 EU868
+    0x07070800u, // bc=3 res=2 pi=28 EU868
+    0x07074800u, // bc=3 res=2 pi=29 EU868
+    0x07078800u, // bc=3 res=2 pi=30 EU868
+    0x070A0800u, // bc=3 res=2 pi=40 EU868
+    0x070C0800u, // bc=3 res=2 pi=48 EU868
+    0x070C4800u, // bc=3 res=2 pi=49 EU868
+    0x070C8800u, // bc=3 res=2 pi=50 EU868
+    0x070CC800u, // bc=3 res=2 pi=51 EU868
+    0x070D4800u, // bc=3 res=2 pi=53 EU868
     0x07820800u, // bc=3 res=3 pi=8 EU868
+    0x07824800u, // bc=3 res=3 pi=9 EU868
     0x07828800u, // bc=3 res=3 pi=10 EU868
     0x0782C800u, // bc=3 res=3 pi=11 EU868
+    0x07830800u, // bc=3 res=3 pi=12 EU868
     0x07838800u, // bc=3 res=3 pi=14 EU868
-    0x07840800u, // bc=3 res=3 pi=16 EU868
-    0x07844800u, // bc=3 res=3 pi=17 EU868
-    0x07848800u, // bc=3 res=3 pi=18 EU868
-    0x0784C800u, // bc=3 res=3 pi=19 EU868
-    0x07850800u, // bc=3 res=3 pi=20 EU868
-    0x07854800u, // bc=3 res=3 pi=21 EU868
-    0x07858800u, // bc=3 res=3 pi=22 EU868
-    0x07860800u, // bc=3 res=3 pi=24 EU868
-    0x07864800u, // bc=3 res=3 pi=25 EU868
-    0x07868800u, // bc=3 res=3 pi=26 EU868
-    0x0786C800u, // bc=3 res=3 pi=27 EU868
-    0x07870800u, // bc=3 res=3 pi=28 EU868
-    0x07874800u, // bc=3 res=3 pi=29 EU868
-    0x07878800u, // bc=3 res=3 pi=30 EU868
     0x07880800u, // bc=3 res=3 pi=32 EU868
+    0x07884800u, // bc=3 res=3 pi=33 EU868
     0x07888800u, // bc=3 res=3 pi=34 EU868
     0x0788C800u, // bc=3 res=3 pi=35 EU868
     0x07898800u, // bc=3 res=3 pi=38 EU868
-    0x078C0800u, // bc=3 res=3 pi=48 EU868
-    0x078C4800u, // bc=3 res=3 pi=49 EU868
-    0x078C8800u, // bc=3 res=3 pi=50 EU868
-    0x078CC800u, // bc=3 res=3 pi=51 EU868
-    0x078D0800u, // bc=3 res=3 pi=52 EU868
-    0x078D4800u, // bc=3 res=3 pi=53 EU868
-    0x078D8800u, // bc=3 res=3 pi=54 EU868
+    0x078A8800u, // bc=3 res=3 pi=42 EU868
+    0x078B8800u, // bc=3 res=3 pi=46 EU868
+    0x07948800u, // bc=3 res=3 pi=82 EU868
     0x07958800u, // bc=3 res=3 pi=86 EU868
-    0x07A00800u, // bc=3 res=3 pi=128 EU868
-    0x07A04800u, // bc=3 res=3 pi=129 EU868
-    0x07A08800u, // bc=3 res=3 pi=130 EU868
-    0x07A0C800u, // bc=3 res=3 pi=131 EU868
-    0x07A10800u, // bc=3 res=3 pi=132 EU868
-    0x07A14800u, // bc=3 res=3 pi=133 EU868
-    0x07A18800u, // bc=3 res=3 pi=134 EU868
-    0x07A20800u, // bc=3 res=3 pi=136 EU868
-    0x07A24800u, // bc=3 res=3 pi=137 EU868
-    0x07A30800u, // bc=3 res=3 pi=140 EU868
-    0x07A34800u, // bc=3 res=3 pi=141 EU868
-    0x07A38800u, // bc=3 res=3 pi=142 EU868
+    0x07968800u, // bc=3 res=3 pi=90 EU868
+    0x07A40800u, // bc=3 res=3 pi=144 EU868
+    0x07A48800u, // bc=3 res=3 pi=146 EU868
     0x07A50800u, // bc=3 res=3 pi=148 EU868
     0x07A54800u, // bc=3 res=3 pi=149 EU868
     0x07A58800u, // bc=3 res=3 pi=150 EU868
-    0x07A80800u, // bc=3 res=3 pi=160 EU868
-    0x07A84800u, // bc=3 res=3 pi=161 EU868
-    0x07A88800u, // bc=3 res=3 pi=162 EU868
-    0x07A8C800u, // bc=3 res=3 pi=163 EU868
-    0x07A90800u, // bc=3 res=3 pi=164 EU868
-    0x07A94800u, // bc=3 res=3 pi=165 EU868
-    0x07A98800u, // bc=3 res=3 pi=166 EU868
-    0x07AA0800u, // bc=3 res=3 pi=168 EU868
-    0x07AA4800u, // bc=3 res=3 pi=169 EU868
-    0x07AA8800u, // bc=3 res=3 pi=170 EU868
-    0x07AAC800u, // bc=3 res=3 pi=171 EU868
-    0x07AB0800u, // bc=3 res=3 pi=172 EU868
-    0x07AB4800u, // bc=3 res=3 pi=173 EU868
-    0x07AB8800u, // bc=3 res=3 pi=174 EU868
-    0x07AC0800u, // bc=3 res=3 pi=176 EU868
-    0x07AC4800u, // bc=3 res=3 pi=177 EU868
-    0x07AC8800u, // bc=3 res=3 pi=178 EU868
-    0x07ACC800u, // bc=3 res=3 pi=179 EU868
-    0x07AD0800u, // bc=3 res=3 pi=180 EU868
-    0x07AD4800u, // bc=3 res=3 pi=181 EU868
-    0x07AD8800u, // bc=3 res=3 pi=182 EU868
-    0x07B00800u, // bc=3 res=3 pi=192 EU868
-    0x07B04800u, // bc=3 res=3 pi=193 EU868
-    0x07B08800u, // bc=3 res=3 pi=194 EU868
-    0x07B0C800u, // bc=3 res=3 pi=195 EU868
-    0x07B10800u, // bc=3 res=3 pi=196 EU868
-    0x07B14800u, // bc=3 res=3 pi=197 EU868
-    0x07B18800u, // bc=3 res=3 pi=198 EU868
-    0x07B20800u, // bc=3 res=3 pi=200 EU868
-    0x07B24800u, // bc=3 res=3 pi=201 EU868
-    0x07B30800u, // bc=3 res=3 pi=204 EU868
-    0x07B34800u, // bc=3 res=3 pi=205 EU868
-    0x07B38800u, // bc=3 res=3 pi=206 EU868
     0x07B40800u, // bc=3 res=3 pi=208 EU868
     0x07B44800u, // bc=3 res=3 pi=209 EU868
     0x07B50800u, // bc=3 res=3 pi=212 EU868
     0x07B54800u, // bc=3 res=3 pi=213 EU868
+    0x07B58800u, // bc=3 res=3 pi=214 EU868
     0x07B70800u, // bc=3 res=3 pi=220 EU868
     0x07B74800u, // bc=3 res=3 pi=221 EU868
-    0x07B80800u, // bc=3 res=3 pi=224 EU868
-    0x07B84800u, // bc=3 res=3 pi=225 EU868
-    0x07B88800u, // bc=3 res=3 pi=226 EU868
-    0x07B8C800u, // bc=3 res=3 pi=227 EU868
-    0x07B90800u, // bc=3 res=3 pi=228 EU868
-    0x07B94800u, // bc=3 res=3 pi=229 EU868
-    0x07B98800u, // bc=3 res=3 pi=230 EU868
-    0x07BA0800u, // bc=3 res=3 pi=232 EU868
-    0x07BA4800u, // bc=3 res=3 pi=233 EU868
-    0x07BA8800u, // bc=3 res=3 pi=234 EU868
-    0x07BAC800u, // bc=3 res=3 pi=235 EU868
-    0x07BB0800u, // bc=3 res=3 pi=236 EU868
-    0x07BB4800u, // bc=3 res=3 pi=237 EU868
-    0x07BB8800u, // bc=3 res=3 pi=238 EU868
-    0x07BC0800u, // bc=3 res=3 pi=240 EU868
-    0x07BC4800u, // bc=3 res=3 pi=241 EU868
-    0x07BC8800u, // bc=3 res=3 pi=242 EU868
-    0x07BCC800u, // bc=3 res=3 pi=243 EU868
-    0x07BD0800u, // bc=3 res=3 pi=244 EU868
-    0x07BD4800u, // bc=3 res=3 pi=245 EU868
-    0x07BD8800u, // bc=3 res=3 pi=246 EU868
+    0x07C10800u, // bc=3 res=3 pi=260 EU868
+    0x07C14800u, // bc=3 res=3 pi=261 EU868
+    0x07C68800u, // bc=3 res=3 pi=282 EU868
     0x07C6C800u, // bc=3 res=3 pi=283 EU868
-    0x07D00800u, // bc=3 res=3 pi=320 EU868
-    0x07D04800u, // bc=3 res=3 pi=321 EU868
-    0x07D08800u, // bc=3 res=3 pi=322 EU868
-    0x07D0C800u, // bc=3 res=3 pi=323 EU868
-    0x07D10800u, // bc=3 res=3 pi=324 EU868
-    0x07D14800u, // bc=3 res=3 pi=325 EU868
-    0x07D18800u, // bc=3 res=3 pi=326 EU868
+    0x07D28800u, // bc=3 res=3 pi=330 EU868
     0x07D38800u, // bc=3 res=3 pi=334 EU868
     0x07D44800u, // bc=3 res=3 pi=337 EU868
+    0x07D4C800u, // bc=3 res=3 pi=339 EU868
+    0x07D50800u, // bc=3 res=3 pi=340 EU868
     0x07D54800u, // bc=3 res=3 pi=341 EU868
     0x07D60800u, // bc=3 res=3 pi=344 EU868
     0x07D70800u, // bc=3 res=3 pi=348 EU868
     0x07D74800u, // bc=3 res=3 pi=349 EU868
     0x07D78800u, // bc=3 res=3 pi=350 EU868
+    0x07D80800u, // bc=3 res=3 pi=352 EU868
     0x07D88800u, // bc=3 res=3 pi=354 EU868
+    0x07D8C800u, // bc=3 res=3 pi=355 EU868
+    0x07DA8800u, // bc=3 res=3 pi=362 EU868
+    0x07DC0800u, // bc=3 res=3 pi=368 EU868
     0x07DC4800u, // bc=3 res=3 pi=369 EU868
     0x07DCC800u, // bc=3 res=3 pi=371 EU868
-    0x07E00800u, // bc=3 res=3 pi=384 EU868
-    0x07E04800u, // bc=3 res=3 pi=385 EU868
-    0x07E08800u, // bc=3 res=3 pi=386 EU868
-    0x07E0C800u, // bc=3 res=3 pi=387 EU868
-    0x07E10800u, // bc=3 res=3 pi=388 EU868
-    0x07E14800u, // bc=3 res=3 pi=389 EU868
-    0x07E18800u, // bc=3 res=3 pi=390 EU868
-    0x07E20800u, // bc=3 res=3 pi=392 EU868
-    0x07E24800u, // bc=3 res=3 pi=393 EU868
-    0x07E28800u, // bc=3 res=3 pi=394 EU868
-    0x07E2C800u, // bc=3 res=3 pi=395 EU868
-    0x07E30800u, // bc=3 res=3 pi=396 EU868
-    0x07E34800u, // bc=3 res=3 pi=397 EU868
-    0x07E38800u, // bc=3 res=3 pi=398 EU868
-    0x07E40800u, // bc=3 res=3 pi=400 EU868
-    0x07E44800u, // bc=3 res=3 pi=401 EU868
-    0x07E48800u, // bc=3 res=3 pi=402 EU868
-    0x07E4C800u, // bc=3 res=3 pi=403 EU868
-    0x07E50800u, // bc=3 res=3 pi=404 EU868
-    0x07E54800u, // bc=3 res=3 pi=405 EU868
-    0x07E58800u, // bc=3 res=3 pi=406 EU868
-    0x07E60800u, // bc=3 res=3 pi=408 EU868
-    0x07E64800u, // bc=3 res=3 pi=409 EU868
-    0x07E68800u, // bc=3 res=3 pi=410 EU868
-    0x07E6C800u, // bc=3 res=3 pi=411 EU868
-    0x07E70800u, // bc=3 res=3 pi=412 EU868
-    0x07E74800u, // bc=3 res=3 pi=413 EU868
-    0x07E78800u, // bc=3 res=3 pi=414 EU868
+    0x07DD4800u, // bc=3 res=3 pi=373 EU868
+    0x07E84800u, // bc=3 res=3 pi=417 EU868
     0x07E88800u, // bc=3 res=3 pi=418 EU868
     0x07E8C800u, // bc=3 res=3 pi=419 EU868
-    0x07EA0800u, // bc=3 res=3 pi=424 EU868
-    0x07EA4800u, // bc=3 res=3 pi=425 EU868
-    0x07EA8800u, // bc=3 res=3 pi=426 EU868
-    0x07EAC800u, // bc=3 res=3 pi=427 EU868
-    0x07EB0800u, // bc=3 res=3 pi=428 EU868
-    0x07EB4800u, // bc=3 res=3 pi=429 EU868
-    0x07EB8800u, // bc=3 res=3 pi=430 EU868
     0x07EC0800u, // bc=3 res=3 pi=432 EU868
     0x07EC4800u, // bc=3 res=3 pi=433 EU868
     0x07EC8800u, // bc=3 res=3 pi=434 EU868
     0x07ECC800u, // bc=3 res=3 pi=435 EU868
+    0x07ED4800u, // bc=3 res=3 pi=437 EU868
     0x07ED8800u, // bc=3 res=3 pi=438 EU868
-    0x08800800u, // bc=4 res=1 pi=0 EU868
-    0x08808800u, // bc=4 res=1 pi=2 EU868
-    0x0880C800u, // bc=4 res=1 pi=3 EU868
-    0x08818800u, // bc=4 res=1 pi=6 EU868
-    0x090AC800u, // bc=4 res=2 pi=43 EU868
-    0x09800800u, // bc=4 res=3 pi=0 EU868
-    0x09808800u, // bc=4 res=3 pi=2 EU868
-    0x0980C800u, // bc=4 res=3 pi=3 EU868
-    0x09818800u, // bc=4 res=3 pi=6 EU868
-    0x09840800u, // bc=4 res=3 pi=16 EU868
-    0x09844800u, // bc=4 res=3 pi=17 EU868
-    0x09848800u, // bc=4 res=3 pi=18 EU868
-    0x0984C800u, // bc=4 res=3 pi=19 EU868
-    0x09850800u, // bc=4 res=3 pi=20 EU868
-    0x09854800u, // bc=4 res=3 pi=21 EU868
-    0x09858800u, // bc=4 res=3 pi=22 EU868
-    0x09860800u, // bc=4 res=3 pi=24 EU868
-    0x09864800u, // bc=4 res=3 pi=25 EU868
-    0x09868800u, // bc=4 res=3 pi=26 EU868
-    0x0986C800u, // bc=4 res=3 pi=27 EU868
-    0x09870800u, // bc=4 res=3 pi=28 EU868
-    0x09874800u, // bc=4 res=3 pi=29 EU868
-    0x09878800u, // bc=4 res=3 pi=30 EU868
+    0x09000800u, // bc=4 res=2 pi=0 EU868
+    0x09008800u, // bc=4 res=2 pi=2 EU868
+    0x0900C800u, // bc=4 res=2 pi=3 EU868
+    0x09040800u, // bc=4 res=2 pi=16 EU868
+    0x0904C800u, // bc=4 res=2 pi=19 EU868
+    0x09050800u, // bc=4 res=2 pi=20 EU868
+    0x09054800u, // bc=4 res=2 pi=21 EU868
+    0x09058800u, // bc=4 res=2 pi=22 EU868
+    0x09060800u, // bc=4 res=2 pi=24 EU868
+    0x09068800u, // bc=4 res=2 pi=26 EU868
+    0x09070800u, // bc=4 res=2 pi=28 EU868
+    0x09074800u, // bc=4 res=2 pi=29 EU868
+    0x09078800u, // bc=4 res=2 pi=30 EU868
+    0x090C4800u, // bc=4 res=2 pi=49 EU868
+    0x090CC800u, // bc=4 res=2 pi=51 EU868
     0x098A0800u, // bc=4 res=3 pi=40 EU868
     0x098A4800u, // bc=4 res=3 pi=41 EU868
     0x098A8800u, // bc=4 res=3 pi=42 EU868
     0x098AC800u, // bc=4 res=3 pi=43 EU868
     0x098B4800u, // bc=4 res=3 pi=45 EU868
+    0x098C0800u, // bc=4 res=3 pi=48 EU868
+    0x098C4800u, // bc=4 res=3 pi=49 EU868
     0x098C8800u, // bc=4 res=3 pi=50 EU868
     0x098CC800u, // bc=4 res=3 pi=51 EU868
     0x098D8800u, // bc=4 res=3 pi=54 EU868
-    0x09A00800u, // bc=4 res=3 pi=128 EU868
-    0x09A08800u, // bc=4 res=3 pi=130 EU868
-    0x09A0C800u, // bc=4 res=3 pi=131 EU868
-    0x09A10800u, // bc=4 res=3 pi=132 EU868
-    0x09A14800u, // bc=4 res=3 pi=133 EU868
-    0x09A18800u, // bc=4 res=3 pi=134 EU868
     0x09A20800u, // bc=4 res=3 pi=136 EU868
     0x09A24800u, // bc=4 res=3 pi=137 EU868
     0x09A28800u, // bc=4 res=3 pi=138 EU868
@@ -597,40 +326,10 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x09A34800u, // bc=4 res=3 pi=141 EU868
     0x09A38800u, // bc=4 res=3 pi=142 EU868
     0x09A40800u, // bc=4 res=3 pi=144 EU868
+    0x09A4C800u, // bc=4 res=3 pi=147 EU868
+    0x09A50800u, // bc=4 res=3 pi=148 EU868
     0x09A54800u, // bc=4 res=3 pi=149 EU868
     0x09A58800u, // bc=4 res=3 pi=150 EU868
-    0x09A60800u, // bc=4 res=3 pi=152 EU868
-    0x09A64800u, // bc=4 res=3 pi=153 EU868
-    0x09A68800u, // bc=4 res=3 pi=154 EU868
-    0x09A6C800u, // bc=4 res=3 pi=155 EU868
-    0x09A74800u, // bc=4 res=3 pi=157 EU868
-    0x09A78800u, // bc=4 res=3 pi=158 EU868
-    0x09A80800u, // bc=4 res=3 pi=160 EU868
-    0x09A84800u, // bc=4 res=3 pi=161 EU868
-    0x09A88800u, // bc=4 res=3 pi=162 EU868
-    0x09A8C800u, // bc=4 res=3 pi=163 EU868
-    0x09A90800u, // bc=4 res=3 pi=164 EU868
-    0x09A94800u, // bc=4 res=3 pi=165 EU868
-    0x09A98800u, // bc=4 res=3 pi=166 EU868
-    0x09AA0800u, // bc=4 res=3 pi=168 EU868
-    0x09AA4800u, // bc=4 res=3 pi=169 EU868
-    0x09AB0800u, // bc=4 res=3 pi=172 EU868
-    0x09AB4800u, // bc=4 res=3 pi=173 EU868
-    0x09AB8800u, // bc=4 res=3 pi=174 EU868
-    0x09AC0800u, // bc=4 res=3 pi=176 EU868
-    0x09AC4800u, // bc=4 res=3 pi=177 EU868
-    0x09AC8800u, // bc=4 res=3 pi=178 EU868
-    0x09ACC800u, // bc=4 res=3 pi=179 EU868
-    0x09AD0800u, // bc=4 res=3 pi=180 EU868
-    0x09AD4800u, // bc=4 res=3 pi=181 EU868
-    0x09AD8800u, // bc=4 res=3 pi=182 EU868
-    0x09B00800u, // bc=4 res=3 pi=192 EU868
-    0x09B04800u, // bc=4 res=3 pi=193 EU868
-    0x09B08800u, // bc=4 res=3 pi=194 EU868
-    0x09B0C800u, // bc=4 res=3 pi=195 EU868
-    0x09B10800u, // bc=4 res=3 pi=196 EU868
-    0x09B14800u, // bc=4 res=3 pi=197 EU868
-    0x09B18800u, // bc=4 res=3 pi=198 EU868
     0x09B20800u, // bc=4 res=3 pi=200 EU868
     0x09B24800u, // bc=4 res=3 pi=201 EU868
     0x09B28800u, // bc=4 res=3 pi=202 EU868
@@ -638,13 +337,6 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x09B30800u, // bc=4 res=3 pi=204 EU868
     0x09B34800u, // bc=4 res=3 pi=205 EU868
     0x09B38800u, // bc=4 res=3 pi=206 EU868
-    0x09B40800u, // bc=4 res=3 pi=208 EU868
-    0x09B44800u, // bc=4 res=3 pi=209 EU868
-    0x09B48800u, // bc=4 res=3 pi=210 EU868
-    0x09B4C800u, // bc=4 res=3 pi=211 EU868
-    0x09B50800u, // bc=4 res=3 pi=212 EU868
-    0x09B54800u, // bc=4 res=3 pi=213 EU868
-    0x09B58800u, // bc=4 res=3 pi=214 EU868
     0x09B60800u, // bc=4 res=3 pi=216 EU868
     0x09B67000u, // bc=4 res=3 pi=217 RU864
     0x09B6B000u, // bc=4 res=3 pi=218 RU864
@@ -652,46 +344,30 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x09B70800u, // bc=4 res=3 pi=220 EU868
     0x09B74800u, // bc=4 res=3 pi=221 EU868
     0x09B78800u, // bc=4 res=3 pi=222 EU868
-    0x09B80800u, // bc=4 res=3 pi=224 EU868
-    0x09B84800u, // bc=4 res=3 pi=225 EU868
-    0x09B88800u, // bc=4 res=3 pi=226 EU868
-    0x09B8C800u, // bc=4 res=3 pi=227 EU868
-    0x09B90800u, // bc=4 res=3 pi=228 EU868
-    0x09B94800u, // bc=4 res=3 pi=229 EU868
-    0x09B98800u, // bc=4 res=3 pi=230 EU868
-    0x09BA0800u, // bc=4 res=3 pi=232 EU868
-    0x09BA4800u, // bc=4 res=3 pi=233 EU868
-    0x09BA8800u, // bc=4 res=3 pi=234 EU868
-    0x09BAC800u, // bc=4 res=3 pi=235 EU868
-    0x09BB0800u, // bc=4 res=3 pi=236 EU868
-    0x09BB4800u, // bc=4 res=3 pi=237 EU868
-    0x09BB8800u, // bc=4 res=3 pi=238 EU868
-    0x09BC0800u, // bc=4 res=3 pi=240 EU868
-    0x09BC4800u, // bc=4 res=3 pi=241 EU868
-    0x09BC8800u, // bc=4 res=3 pi=242 EU868
-    0x09BD0800u, // bc=4 res=3 pi=244 EU868
-    0x09BD4800u, // bc=4 res=3 pi=245 EU868
-    0x09BD8800u, // bc=4 res=3 pi=246 EU868
+    0x09CC8800u, // bc=4 res=3 pi=306 EU868
+    0x09D24800u, // bc=4 res=3 pi=329 EU868
+    0x09D28800u, // bc=4 res=3 pi=330 EU868
     0x09D2C800u, // bc=4 res=3 pi=331 EU868
+    0x09D60800u, // bc=4 res=3 pi=344 EU868
+    0x09D64800u, // bc=4 res=3 pi=345 EU868
+    0x09D68800u, // bc=4 res=3 pi=346 EU868
+    0x09D6C800u, // bc=4 res=3 pi=347 EU868
+    0x09D74800u, // bc=4 res=3 pi=349 EU868
+    0x09D78800u, // bc=4 res=3 pi=350 EU868
     0x09E00800u, // bc=4 res=3 pi=384 EU868
     0x09E04800u, // bc=4 res=3 pi=385 EU868
     0x09E08800u, // bc=4 res=3 pi=386 EU868
     0x09E0C800u, // bc=4 res=3 pi=387 EU868
-    0x09E20800u, // bc=4 res=3 pi=392 EU868
-    0x09E24800u, // bc=4 res=3 pi=393 EU868
-    0x09E28800u, // bc=4 res=3 pi=394 EU868
-    0x09E2C800u, // bc=4 res=3 pi=395 EU868
-    0x09E30800u, // bc=4 res=3 pi=396 EU868
-    0x09E34800u, // bc=4 res=3 pi=397 EU868
-    0x09E38800u, // bc=4 res=3 pi=398 EU868
+    0x09E14800u, // bc=4 res=3 pi=389 EU868
+    0x09E18800u, // bc=4 res=3 pi=390 EU868
     0x09E44800u, // bc=4 res=3 pi=401 EU868
-    0x09E60800u, // bc=4 res=3 pi=408 EU868
-    0x09E64800u, // bc=4 res=3 pi=409 EU868
-    0x09E6C800u, // bc=4 res=3 pi=411 EU868
-    0x09E70800u, // bc=4 res=3 pi=412 EU868
-    0x09E74800u, // bc=4 res=3 pi=413 EU868
-    0x09E78800u, // bc=4 res=3 pi=414 EU868
+    0x09E48800u, // bc=4 res=3 pi=402 EU868
+    0x09E4C800u, // bc=4 res=3 pi=403 EU868
+    0x09E54800u, // bc=4 res=3 pi=405 EU868
+    0x09E80800u, // bc=4 res=3 pi=416 EU868
     0x09E90800u, // bc=4 res=3 pi=420 EU868
+    0x09E94800u, // bc=4 res=3 pi=421 EU868
+    0x09E98800u, // bc=4 res=3 pi=422 EU868
     0x09EA8800u, // bc=4 res=3 pi=426 EU868
     0x09EAC800u, // bc=4 res=3 pi=427 EU868
     0x0A803000u, // bc=5 res=1 pi=0 RU864
@@ -699,752 +375,115 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x0A80B000u, // bc=5 res=1 pi=2 RU864
     0x0A80F000u, // bc=5 res=1 pi=3 RU864
     0x0A813000u, // bc=5 res=1 pi=4 RU864
-    0x0A817000u, // bc=5 res=1 pi=5 RU864
     0x0A81B000u, // bc=5 res=1 pi=6 RU864
-    0x0B803000u, // bc=5 res=3 pi=0 RU864
-    0x0B807000u, // bc=5 res=3 pi=1 RU864
-    0x0B80B000u, // bc=5 res=3 pi=2 RU864
-    0x0B80F000u, // bc=5 res=3 pi=3 RU864
-    0x0B813000u, // bc=5 res=3 pi=4 RU864
-    0x0B817000u, // bc=5 res=3 pi=5 RU864
-    0x0B81B000u, // bc=5 res=3 pi=6 RU864
-    0x0B823000u, // bc=5 res=3 pi=8 RU864
-    0x0B827000u, // bc=5 res=3 pi=9 RU864
-    0x0B82B000u, // bc=5 res=3 pi=10 RU864
-    0x0B82F000u, // bc=5 res=3 pi=11 RU864
-    0x0B833000u, // bc=5 res=3 pi=12 RU864
-    0x0B837000u, // bc=5 res=3 pi=13 RU864
-    0x0B83B000u, // bc=5 res=3 pi=14 RU864
-    0x0B843000u, // bc=5 res=3 pi=16 RU864
-    0x0B847000u, // bc=5 res=3 pi=17 RU864
-    0x0B84B000u, // bc=5 res=3 pi=18 RU864
-    0x0B84F000u, // bc=5 res=3 pi=19 RU864
-    0x0B853000u, // bc=5 res=3 pi=20 RU864
-    0x0B857000u, // bc=5 res=3 pi=21 RU864
-    0x0B85B000u, // bc=5 res=3 pi=22 RU864
-    0x0B863000u, // bc=5 res=3 pi=24 RU864
-    0x0B867000u, // bc=5 res=3 pi=25 RU864
-    0x0B86B000u, // bc=5 res=3 pi=26 RU864
-    0x0B86F000u, // bc=5 res=3 pi=27 RU864
-    0x0B873000u, // bc=5 res=3 pi=28 RU864
-    0x0B877000u, // bc=5 res=3 pi=29 RU864
-    0x0B87B000u, // bc=5 res=3 pi=30 RU864
-    0x0B883000u, // bc=5 res=3 pi=32 RU864
-    0x0B887000u, // bc=5 res=3 pi=33 RU864
-    0x0B88B000u, // bc=5 res=3 pi=34 RU864
-    0x0B88F000u, // bc=5 res=3 pi=35 RU864
-    0x0B893000u, // bc=5 res=3 pi=36 RU864
-    0x0B897000u, // bc=5 res=3 pi=37 RU864
-    0x0B89B000u, // bc=5 res=3 pi=38 RU864
-    0x0B8A3000u, // bc=5 res=3 pi=40 RU864
-    0x0B8A7000u, // bc=5 res=3 pi=41 RU864
-    0x0B8AB000u, // bc=5 res=3 pi=42 RU864
-    0x0B8AF000u, // bc=5 res=3 pi=43 RU864
-    0x0B8B3000u, // bc=5 res=3 pi=44 RU864
-    0x0B8B7000u, // bc=5 res=3 pi=45 RU864
-    0x0B8BB000u, // bc=5 res=3 pi=46 RU864
-    0x0B8C3000u, // bc=5 res=3 pi=48 RU864
-    0x0B8C7000u, // bc=5 res=3 pi=49 RU864
-    0x0B8CB000u, // bc=5 res=3 pi=50 RU864
-    0x0B8CF000u, // bc=5 res=3 pi=51 RU864
-    0x0B8D3000u, // bc=5 res=3 pi=52 RU864
-    0x0B8D7000u, // bc=5 res=3 pi=53 RU864
-    0x0B8DB000u, // bc=5 res=3 pi=54 RU864
-    0x0B903000u, // bc=5 res=3 pi=64 RU864
-    0x0B907000u, // bc=5 res=3 pi=65 RU864
-    0x0B90B000u, // bc=5 res=3 pi=66 RU864
-    0x0B90F000u, // bc=5 res=3 pi=67 RU864
-    0x0B913000u, // bc=5 res=3 pi=68 RU864
-    0x0B917000u, // bc=5 res=3 pi=69 RU864
-    0x0B91B000u, // bc=5 res=3 pi=70 RU864
-    0x0B923000u, // bc=5 res=3 pi=72 RU864
-    0x0B927000u, // bc=5 res=3 pi=73 RU864
-    0x0B92B000u, // bc=5 res=3 pi=74 RU864
-    0x0B92F000u, // bc=5 res=3 pi=75 RU864
-    0x0B933000u, // bc=5 res=3 pi=76 RU864
-    0x0B937000u, // bc=5 res=3 pi=77 RU864
-    0x0B93B000u, // bc=5 res=3 pi=78 RU864
-    0x0B943000u, // bc=5 res=3 pi=80 RU864
-    0x0B947000u, // bc=5 res=3 pi=81 RU864
-    0x0B94B000u, // bc=5 res=3 pi=82 RU864
-    0x0B94F000u, // bc=5 res=3 pi=83 RU864
-    0x0B953000u, // bc=5 res=3 pi=84 RU864
-    0x0B957000u, // bc=5 res=3 pi=85 RU864
-    0x0B95B000u, // bc=5 res=3 pi=86 RU864
-    0x0B963000u, // bc=5 res=3 pi=88 RU864
-    0x0B967000u, // bc=5 res=3 pi=89 RU864
-    0x0B96B000u, // bc=5 res=3 pi=90 RU864
-    0x0B96F000u, // bc=5 res=3 pi=91 RU864
-    0x0B973000u, // bc=5 res=3 pi=92 RU864
-    0x0B977000u, // bc=5 res=3 pi=93 RU864
-    0x0B97B000u, // bc=5 res=3 pi=94 RU864
-    0x0B983000u, // bc=5 res=3 pi=96 RU864
-    0x0B987000u, // bc=5 res=3 pi=97 RU864
-    0x0B98B000u, // bc=5 res=3 pi=98 RU864
-    0x0B98F000u, // bc=5 res=3 pi=99 RU864
-    0x0B993000u, // bc=5 res=3 pi=100 RU864
-    0x0B997000u, // bc=5 res=3 pi=101 RU864
-    0x0B99B000u, // bc=5 res=3 pi=102 RU864
-    0x0B9A3000u, // bc=5 res=3 pi=104 RU864
-    0x0B9A7000u, // bc=5 res=3 pi=105 RU864
-    0x0B9AB000u, // bc=5 res=3 pi=106 RU864
-    0x0B9AF000u, // bc=5 res=3 pi=107 RU864
-    0x0B9B3000u, // bc=5 res=3 pi=108 RU864
-    0x0B9B7000u, // bc=5 res=3 pi=109 RU864
-    0x0B9BB000u, // bc=5 res=3 pi=110 RU864
-    0x0B9C3000u, // bc=5 res=3 pi=112 RU864
-    0x0B9C7000u, // bc=5 res=3 pi=113 RU864
-    0x0B9CB000u, // bc=5 res=3 pi=114 RU864
-    0x0B9CF000u, // bc=5 res=3 pi=115 RU864
-    0x0B9D3000u, // bc=5 res=3 pi=116 RU864
-    0x0B9D7000u, // bc=5 res=3 pi=117 RU864
-    0x0B9DB000u, // bc=5 res=3 pi=118 RU864
-    0x0BA03000u, // bc=5 res=3 pi=128 RU864
-    0x0BA07000u, // bc=5 res=3 pi=129 RU864
-    0x0BA0B000u, // bc=5 res=3 pi=130 RU864
-    0x0BA0F000u, // bc=5 res=3 pi=131 RU864
-    0x0BA13000u, // bc=5 res=3 pi=132 RU864
-    0x0BA17000u, // bc=5 res=3 pi=133 RU864
-    0x0BA1B000u, // bc=5 res=3 pi=134 RU864
-    0x0BA23000u, // bc=5 res=3 pi=136 RU864
-    0x0BA27000u, // bc=5 res=3 pi=137 RU864
-    0x0BA2B000u, // bc=5 res=3 pi=138 RU864
-    0x0BA2F000u, // bc=5 res=3 pi=139 RU864
-    0x0BA33000u, // bc=5 res=3 pi=140 RU864
-    0x0BA37000u, // bc=5 res=3 pi=141 RU864
-    0x0BA3B000u, // bc=5 res=3 pi=142 RU864
-    0x0BA43000u, // bc=5 res=3 pi=144 RU864
-    0x0BA47000u, // bc=5 res=3 pi=145 RU864
-    0x0BA4B000u, // bc=5 res=3 pi=146 RU864
-    0x0BA4F000u, // bc=5 res=3 pi=147 RU864
-    0x0BA53000u, // bc=5 res=3 pi=148 RU864
-    0x0BA57000u, // bc=5 res=3 pi=149 RU864
-    0x0BA5B000u, // bc=5 res=3 pi=150 RU864
-    0x0BA63000u, // bc=5 res=3 pi=152 RU864
-    0x0BA67000u, // bc=5 res=3 pi=153 RU864
-    0x0BA6B000u, // bc=5 res=3 pi=154 RU864
-    0x0BA6F000u, // bc=5 res=3 pi=155 RU864
-    0x0BA73000u, // bc=5 res=3 pi=156 RU864
-    0x0BA77000u, // bc=5 res=3 pi=157 RU864
-    0x0BA7B000u, // bc=5 res=3 pi=158 RU864
-    0x0BA83000u, // bc=5 res=3 pi=160 RU864
-    0x0BA87000u, // bc=5 res=3 pi=161 RU864
-    0x0BA8B000u, // bc=5 res=3 pi=162 RU864
-    0x0BA8F000u, // bc=5 res=3 pi=163 RU864
-    0x0BA93000u, // bc=5 res=3 pi=164 RU864
-    0x0BA97000u, // bc=5 res=3 pi=165 RU864
-    0x0BA9B000u, // bc=5 res=3 pi=166 RU864
-    0x0BAA3000u, // bc=5 res=3 pi=168 RU864
-    0x0BAA7000u, // bc=5 res=3 pi=169 RU864
-    0x0BAAB000u, // bc=5 res=3 pi=170 RU864
-    0x0BAAF000u, // bc=5 res=3 pi=171 RU864
-    0x0BAB3000u, // bc=5 res=3 pi=172 RU864
-    0x0BAB7000u, // bc=5 res=3 pi=173 RU864
-    0x0BABB000u, // bc=5 res=3 pi=174 RU864
-    0x0BAC3000u, // bc=5 res=3 pi=176 RU864
-    0x0BAC7000u, // bc=5 res=3 pi=177 RU864
-    0x0BACB000u, // bc=5 res=3 pi=178 RU864
-    0x0BACF000u, // bc=5 res=3 pi=179 RU864
-    0x0BAD3000u, // bc=5 res=3 pi=180 RU864
-    0x0BAD7000u, // bc=5 res=3 pi=181 RU864
-    0x0BADB000u, // bc=5 res=3 pi=182 RU864
-    0x0BB03000u, // bc=5 res=3 pi=192 RU864
-    0x0BB07000u, // bc=5 res=3 pi=193 RU864
-    0x0BB0B000u, // bc=5 res=3 pi=194 RU864
-    0x0BB0F000u, // bc=5 res=3 pi=195 RU864
-    0x0BB13000u, // bc=5 res=3 pi=196 RU864
-    0x0BB17000u, // bc=5 res=3 pi=197 RU864
-    0x0BB1B000u, // bc=5 res=3 pi=198 RU864
-    0x0BB23000u, // bc=5 res=3 pi=200 RU864
-    0x0BB27000u, // bc=5 res=3 pi=201 RU864
-    0x0BB2B000u, // bc=5 res=3 pi=202 RU864
-    0x0BB2F000u, // bc=5 res=3 pi=203 RU864
-    0x0BB33000u, // bc=5 res=3 pi=204 RU864
-    0x0BB37000u, // bc=5 res=3 pi=205 RU864
-    0x0BB3B000u, // bc=5 res=3 pi=206 RU864
-    0x0BB43000u, // bc=5 res=3 pi=208 RU864
-    0x0BB47000u, // bc=5 res=3 pi=209 RU864
-    0x0BB4B000u, // bc=5 res=3 pi=210 RU864
-    0x0BB4F000u, // bc=5 res=3 pi=211 RU864
-    0x0BB53000u, // bc=5 res=3 pi=212 RU864
-    0x0BB57000u, // bc=5 res=3 pi=213 RU864
-    0x0BB5B000u, // bc=5 res=3 pi=214 RU864
-    0x0BB63000u, // bc=5 res=3 pi=216 RU864
-    0x0BB67000u, // bc=5 res=3 pi=217 RU864
-    0x0BB6B000u, // bc=5 res=3 pi=218 RU864
-    0x0BB6F000u, // bc=5 res=3 pi=219 RU864
-    0x0BB73000u, // bc=5 res=3 pi=220 RU864
-    0x0BB77000u, // bc=5 res=3 pi=221 RU864
-    0x0BB7B000u, // bc=5 res=3 pi=222 RU864
-    0x0BB83000u, // bc=5 res=3 pi=224 RU864
-    0x0BB87000u, // bc=5 res=3 pi=225 RU864
-    0x0BB8B000u, // bc=5 res=3 pi=226 RU864
-    0x0BB8F000u, // bc=5 res=3 pi=227 RU864
-    0x0BB93000u, // bc=5 res=3 pi=228 RU864
-    0x0BB97000u, // bc=5 res=3 pi=229 RU864
-    0x0BB9B000u, // bc=5 res=3 pi=230 RU864
-    0x0BBA3000u, // bc=5 res=3 pi=232 RU864
-    0x0BBA7000u, // bc=5 res=3 pi=233 RU864
-    0x0BBAB000u, // bc=5 res=3 pi=234 RU864
-    0x0BBAF000u, // bc=5 res=3 pi=235 RU864
-    0x0BBB3000u, // bc=5 res=3 pi=236 RU864
-    0x0BBB7000u, // bc=5 res=3 pi=237 RU864
-    0x0BBBB000u, // bc=5 res=3 pi=238 RU864
-    0x0BBC3000u, // bc=5 res=3 pi=240 RU864
-    0x0BBC7000u, // bc=5 res=3 pi=241 RU864
-    0x0BBCB000u, // bc=5 res=3 pi=242 RU864
-    0x0BBCF000u, // bc=5 res=3 pi=243 RU864
-    0x0BBD3000u, // bc=5 res=3 pi=244 RU864
-    0x0BBD7000u, // bc=5 res=3 pi=245 RU864
-    0x0BBDB000u, // bc=5 res=3 pi=246 RU864
-    0x0BC03000u, // bc=5 res=3 pi=256 RU864
-    0x0BC07000u, // bc=5 res=3 pi=257 RU864
-    0x0BC0B000u, // bc=5 res=3 pi=258 RU864
-    0x0BC0F000u, // bc=5 res=3 pi=259 RU864
-    0x0BC13000u, // bc=5 res=3 pi=260 RU864
-    0x0BC17000u, // bc=5 res=3 pi=261 RU864
-    0x0BC1B000u, // bc=5 res=3 pi=262 RU864
-    0x0BC23000u, // bc=5 res=3 pi=264 RU864
-    0x0BC27000u, // bc=5 res=3 pi=265 RU864
-    0x0BC2B000u, // bc=5 res=3 pi=266 RU864
-    0x0BC2F000u, // bc=5 res=3 pi=267 RU864
-    0x0BC33000u, // bc=5 res=3 pi=268 RU864
-    0x0BC37000u, // bc=5 res=3 pi=269 RU864
-    0x0BC3B000u, // bc=5 res=3 pi=270 RU864
-    0x0BC43000u, // bc=5 res=3 pi=272 RU864
-    0x0BC47000u, // bc=5 res=3 pi=273 RU864
-    0x0BC4B000u, // bc=5 res=3 pi=274 RU864
-    0x0BC4F000u, // bc=5 res=3 pi=275 RU864
-    0x0BC53000u, // bc=5 res=3 pi=276 RU864
-    0x0BC57000u, // bc=5 res=3 pi=277 RU864
-    0x0BC5B000u, // bc=5 res=3 pi=278 RU864
-    0x0BC63000u, // bc=5 res=3 pi=280 RU864
-    0x0BC67000u, // bc=5 res=3 pi=281 RU864
-    0x0BC6B000u, // bc=5 res=3 pi=282 RU864
-    0x0BC6F000u, // bc=5 res=3 pi=283 RU864
-    0x0BC73000u, // bc=5 res=3 pi=284 RU864
-    0x0BC77000u, // bc=5 res=3 pi=285 RU864
-    0x0BC7B000u, // bc=5 res=3 pi=286 RU864
-    0x0BC83000u, // bc=5 res=3 pi=288 RU864
-    0x0BC87000u, // bc=5 res=3 pi=289 RU864
-    0x0BC8B000u, // bc=5 res=3 pi=290 RU864
-    0x0BC8F000u, // bc=5 res=3 pi=291 RU864
-    0x0BC93000u, // bc=5 res=3 pi=292 RU864
-    0x0BC97000u, // bc=5 res=3 pi=293 RU864
-    0x0BC9B000u, // bc=5 res=3 pi=294 RU864
-    0x0BCA3000u, // bc=5 res=3 pi=296 RU864
-    0x0BCA7000u, // bc=5 res=3 pi=297 RU864
-    0x0BCAB000u, // bc=5 res=3 pi=298 RU864
-    0x0BCAF000u, // bc=5 res=3 pi=299 RU864
-    0x0BCB3000u, // bc=5 res=3 pi=300 RU864
-    0x0BCB7000u, // bc=5 res=3 pi=301 RU864
-    0x0BCBB000u, // bc=5 res=3 pi=302 RU864
-    0x0BCC3000u, // bc=5 res=3 pi=304 RU864
-    0x0BCC7000u, // bc=5 res=3 pi=305 RU864
-    0x0BCCB000u, // bc=5 res=3 pi=306 RU864
-    0x0BCCF000u, // bc=5 res=3 pi=307 RU864
-    0x0BCD3000u, // bc=5 res=3 pi=308 RU864
-    0x0BCD7000u, // bc=5 res=3 pi=309 RU864
-    0x0BCDB000u, // bc=5 res=3 pi=310 RU864
-    0x0BD03000u, // bc=5 res=3 pi=320 RU864
-    0x0BD07000u, // bc=5 res=3 pi=321 RU864
-    0x0BD0B000u, // bc=5 res=3 pi=322 RU864
-    0x0BD0F000u, // bc=5 res=3 pi=323 RU864
-    0x0BD13000u, // bc=5 res=3 pi=324 RU864
-    0x0BD17000u, // bc=5 res=3 pi=325 RU864
-    0x0BD1B000u, // bc=5 res=3 pi=326 RU864
-    0x0BD23000u, // bc=5 res=3 pi=328 RU864
-    0x0BD27000u, // bc=5 res=3 pi=329 RU864
-    0x0BD2B000u, // bc=5 res=3 pi=330 RU864
-    0x0BD2F000u, // bc=5 res=3 pi=331 RU864
-    0x0BD33000u, // bc=5 res=3 pi=332 RU864
-    0x0BD37000u, // bc=5 res=3 pi=333 RU864
-    0x0BD3B000u, // bc=5 res=3 pi=334 RU864
-    0x0BD43000u, // bc=5 res=3 pi=336 RU864
-    0x0BD47000u, // bc=5 res=3 pi=337 RU864
-    0x0BD4B000u, // bc=5 res=3 pi=338 RU864
-    0x0BD4F000u, // bc=5 res=3 pi=339 RU864
-    0x0BD53000u, // bc=5 res=3 pi=340 RU864
-    0x0BD57000u, // bc=5 res=3 pi=341 RU864
-    0x0BD5B000u, // bc=5 res=3 pi=342 RU864
-    0x0BD63000u, // bc=5 res=3 pi=344 RU864
-    0x0BD67000u, // bc=5 res=3 pi=345 RU864
-    0x0BD6B000u, // bc=5 res=3 pi=346 RU864
-    0x0BD6F000u, // bc=5 res=3 pi=347 RU864
-    0x0BD73000u, // bc=5 res=3 pi=348 RU864
-    0x0BD77000u, // bc=5 res=3 pi=349 RU864
-    0x0BD7B000u, // bc=5 res=3 pi=350 RU864
-    0x0BD83000u, // bc=5 res=3 pi=352 RU864
-    0x0BD87000u, // bc=5 res=3 pi=353 RU864
-    0x0BD8B000u, // bc=5 res=3 pi=354 RU864
-    0x0BD8F000u, // bc=5 res=3 pi=355 RU864
-    0x0BD93000u, // bc=5 res=3 pi=356 RU864
-    0x0BD97000u, // bc=5 res=3 pi=357 RU864
-    0x0BD9B000u, // bc=5 res=3 pi=358 RU864
+    0x0B0A3000u, // bc=5 res=2 pi=40 RU864
+    0x0B0A7000u, // bc=5 res=2 pi=41 RU864
+    0x0B0AB000u, // bc=5 res=2 pi=42 RU864
+    0x0B0AF000u, // bc=5 res=2 pi=43 RU864
+    0x0B0B3000u, // bc=5 res=2 pi=44 RU864
+    0x0B0BB000u, // bc=5 res=2 pi=46 RU864
     0x0BDA3000u, // bc=5 res=3 pi=360 RU864
+    0x0BDA7000u, // bc=5 res=3 pi=361 RU864
     0x0BDAB000u, // bc=5 res=3 pi=362 RU864
     0x0BDAF000u, // bc=5 res=3 pi=363 RU864
+    0x0BDB3000u, // bc=5 res=3 pi=364 RU864
     0x0BDBB000u, // bc=5 res=3 pi=366 RU864
-    0x0BDC3000u, // bc=5 res=3 pi=368 RU864
-    0x0BDC7000u, // bc=5 res=3 pi=369 RU864
-    0x0BDCB000u, // bc=5 res=3 pi=370 RU864
-    0x0BDCF000u, // bc=5 res=3 pi=371 RU864
-    0x0BDD3000u, // bc=5 res=3 pi=372 RU864
-    0x0BDD7000u, // bc=5 res=3 pi=373 RU864
-    0x0BDDB000u, // bc=5 res=3 pi=374 RU864
-    0x0BE03000u, // bc=5 res=3 pi=384 RU864
-    0x0BE07000u, // bc=5 res=3 pi=385 RU864
-    0x0BE0B000u, // bc=5 res=3 pi=386 RU864
-    0x0BE0F000u, // bc=5 res=3 pi=387 RU864
-    0x0BE13000u, // bc=5 res=3 pi=388 RU864
-    0x0BE17000u, // bc=5 res=3 pi=389 RU864
-    0x0BE1B000u, // bc=5 res=3 pi=390 RU864
-    0x0BE23000u, // bc=5 res=3 pi=392 RU864
-    0x0BE27000u, // bc=5 res=3 pi=393 RU864
-    0x0BE2B000u, // bc=5 res=3 pi=394 RU864
-    0x0BE2F000u, // bc=5 res=3 pi=395 RU864
-    0x0BE33000u, // bc=5 res=3 pi=396 RU864
-    0x0BE37000u, // bc=5 res=3 pi=397 RU864
-    0x0BE3B000u, // bc=5 res=3 pi=398 RU864
-    0x0BE43000u, // bc=5 res=3 pi=400 RU864
-    0x0BE47000u, // bc=5 res=3 pi=401 RU864
-    0x0BE4B000u, // bc=5 res=3 pi=402 RU864
-    0x0BE4F000u, // bc=5 res=3 pi=403 RU864
-    0x0BE53000u, // bc=5 res=3 pi=404 RU864
-    0x0BE57000u, // bc=5 res=3 pi=405 RU864
-    0x0BE5B000u, // bc=5 res=3 pi=406 RU864
-    0x0BE63000u, // bc=5 res=3 pi=408 RU864
-    0x0BE67000u, // bc=5 res=3 pi=409 RU864
-    0x0BE6B000u, // bc=5 res=3 pi=410 RU864
-    0x0BE6F000u, // bc=5 res=3 pi=411 RU864
-    0x0BE73000u, // bc=5 res=3 pi=412 RU864
-    0x0BE77000u, // bc=5 res=3 pi=413 RU864
-    0x0BE7B000u, // bc=5 res=3 pi=414 RU864
-    0x0BE83000u, // bc=5 res=3 pi=416 RU864
-    0x0BE87000u, // bc=5 res=3 pi=417 RU864
-    0x0BE8B000u, // bc=5 res=3 pi=418 RU864
-    0x0BE8F000u, // bc=5 res=3 pi=419 RU864
-    0x0BE93000u, // bc=5 res=3 pi=420 RU864
-    0x0BE97000u, // bc=5 res=3 pi=421 RU864
-    0x0BE9B000u, // bc=5 res=3 pi=422 RU864
-    0x0BEA3000u, // bc=5 res=3 pi=424 RU864
-    0x0BEA7000u, // bc=5 res=3 pi=425 RU864
-    0x0BEAB000u, // bc=5 res=3 pi=426 RU864
-    0x0BEAF000u, // bc=5 res=3 pi=427 RU864
-    0x0BEB3000u, // bc=5 res=3 pi=428 RU864
-    0x0BEB7000u, // bc=5 res=3 pi=429 RU864
-    0x0BEBB000u, // bc=5 res=3 pi=430 RU864
-    0x0BEC3000u, // bc=5 res=3 pi=432 RU864
-    0x0BEC7000u, // bc=5 res=3 pi=433 RU864
-    0x0BECB000u, // bc=5 res=3 pi=434 RU864
-    0x0BECF000u, // bc=5 res=3 pi=435 RU864
-    0x0BED3000u, // bc=5 res=3 pi=436 RU864
-    0x0BED7000u, // bc=5 res=3 pi=437 RU864
-    0x0BEDB000u, // bc=5 res=3 pi=438 RU864
-    0x0C800400u, // bc=6 res=1 pi=0 US915
-    0x0C804400u, // bc=6 res=1 pi=1 US915
-    0x0C808400u, // bc=6 res=1 pi=2 US915
     0x0C814400u, // bc=6 res=1 pi=5 US915
-    0x0C81B000u, // bc=6 res=1 pi=6 RU864
+    0x0D000400u, // bc=6 res=2 pi=0 US915
+    0x0D004400u, // bc=6 res=2 pi=1 US915
+    0x0D00C400u, // bc=6 res=2 pi=3 US915
+    0x0D010400u, // bc=6 res=2 pi=4 US915
+    0x0D014400u, // bc=6 res=2 pi=5 US915
+    0x0D018400u, // bc=6 res=2 pi=6 US915
+    0x0D020400u, // bc=6 res=2 pi=8 US915
+    0x0D028400u, // bc=6 res=2 pi=10 US915
+    0x0D030400u, // bc=6 res=2 pi=12 US915
+    0x0D038400u, // bc=6 res=2 pi=14 US915
     0x0D06C400u, // bc=6 res=2 pi=27 US915
     0x0D070400u, // bc=6 res=2 pi=28 US915
     0x0D074400u, // bc=6 res=2 pi=29 US915
     0x0D084400u, // bc=6 res=2 pi=33 US915
     0x0D08C400u, // bc=6 res=2 pi=35 US915
-    0x0D800400u, // bc=6 res=3 pi=0 US915
-    0x0D804400u, // bc=6 res=3 pi=1 US915
-    0x0D808400u, // bc=6 res=3 pi=2 US915
-    0x0D80C400u, // bc=6 res=3 pi=3 US915
-    0x0D810400u, // bc=6 res=3 pi=4 US915
-    0x0D814400u, // bc=6 res=3 pi=5 US915
-    0x0D818400u, // bc=6 res=3 pi=6 US915
-    0x0D820400u, // bc=6 res=3 pi=8 US915
-    0x0D824400u, // bc=6 res=3 pi=9 US915
-    0x0D828400u, // bc=6 res=3 pi=10 US915
-    0x0D82C400u, // bc=6 res=3 pi=11 US915
-    0x0D830400u, // bc=6 res=3 pi=12 US915
-    0x0D834400u, // bc=6 res=3 pi=13 US915
-    0x0D838400u, // bc=6 res=3 pi=14 US915
+    0x0D0CB000u, // bc=6 res=2 pi=50 RU864
+    0x0D0DB000u, // bc=6 res=2 pi=54 RU864
+    0x0D840400u, // bc=6 res=3 pi=16 US915
+    0x0D844400u, // bc=6 res=3 pi=17 US915
     0x0D84C400u, // bc=6 res=3 pi=19 US915
     0x0D850400u, // bc=6 res=3 pi=20 US915
     0x0D854400u, // bc=6 res=3 pi=21 US915
-    0x0D860400u, // bc=6 res=3 pi=24 US915
-    0x0D864400u, // bc=6 res=3 pi=25 US915
-    0x0D868400u, // bc=6 res=3 pi=26 US915
-    0x0D86C400u, // bc=6 res=3 pi=27 US915
-    0x0D870400u, // bc=6 res=3 pi=28 US915
-    0x0D874400u, // bc=6 res=3 pi=29 US915
-    0x0D878400u, // bc=6 res=3 pi=30 US915
-    0x0D880400u, // bc=6 res=3 pi=32 US915
-    0x0D884400u, // bc=6 res=3 pi=33 US915
-    0x0D888400u, // bc=6 res=3 pi=34 US915
-    0x0D88C400u, // bc=6 res=3 pi=35 US915
-    0x0D890400u, // bc=6 res=3 pi=36 US915
-    0x0D894400u, // bc=6 res=3 pi=37 US915
-    0x0D898400u, // bc=6 res=3 pi=38 US915
-    0x0D8A0400u, // bc=6 res=3 pi=40 US915
-    0x0D8A4400u, // bc=6 res=3 pi=41 US915
-    0x0D8A8400u, // bc=6 res=3 pi=42 US915
-    0x0D8AC400u, // bc=6 res=3 pi=43 US915
-    0x0D8B0400u, // bc=6 res=3 pi=44 US915
-    0x0D8B4400u, // bc=6 res=3 pi=45 US915
-    0x0D8B8400u, // bc=6 res=3 pi=46 US915
-    0x0D8C0400u, // bc=6 res=3 pi=48 US915
-    0x0D8C4400u, // bc=6 res=3 pi=49 US915
-    0x0D8C8400u, // bc=6 res=3 pi=50 US915
-    0x0D8CC400u, // bc=6 res=3 pi=51 US915
-    0x0D8D0400u, // bc=6 res=3 pi=52 US915
-    0x0D8D4400u, // bc=6 res=3 pi=53 US915
-    0x0D900400u, // bc=6 res=3 pi=64 US915
-    0x0D908400u, // bc=6 res=3 pi=66 US915
-    0x0D910400u, // bc=6 res=3 pi=68 US915
-    0x0D914400u, // bc=6 res=3 pi=69 US915
-    0x0D918400u, // bc=6 res=3 pi=70 US915
-    0x0D940400u, // bc=6 res=3 pi=80 US915
-    0x0D944400u, // bc=6 res=3 pi=81 US915
-    0x0D948400u, // bc=6 res=3 pi=82 US915
-    0x0D94C400u, // bc=6 res=3 pi=83 US915
-    0x0D950400u, // bc=6 res=3 pi=84 US915
-    0x0D954400u, // bc=6 res=3 pi=85 US915
-    0x0D958400u, // bc=6 res=3 pi=86 US915
+    0x0D858400u, // bc=6 res=3 pi=22 US915
     0x0D968400u, // bc=6 res=3 pi=90 US915
-    0x0D980400u, // bc=6 res=3 pi=96 US915
-    0x0D984400u, // bc=6 res=3 pi=97 US915
-    0x0D988400u, // bc=6 res=3 pi=98 US915
-    0x0D98C400u, // bc=6 res=3 pi=99 US915
-    0x0D990400u, // bc=6 res=3 pi=100 US915
-    0x0D994400u, // bc=6 res=3 pi=101 US915
-    0x0D998400u, // bc=6 res=3 pi=102 US915
+    0x0D970400u, // bc=6 res=3 pi=92 US915
+    0x0D978400u, // bc=6 res=3 pi=94 US915
     0x0D9A0400u, // bc=6 res=3 pi=104 US915
+    0x0D9A4400u, // bc=6 res=3 pi=105 US915
+    0x0D9A8400u, // bc=6 res=3 pi=106 US915
     0x0D9B0400u, // bc=6 res=3 pi=108 US915
     0x0D9B4400u, // bc=6 res=3 pi=109 US915
     0x0D9B8400u, // bc=6 res=3 pi=110 US915
-    0x0D9C0400u, // bc=6 res=3 pi=112 US915
-    0x0D9C4400u, // bc=6 res=3 pi=113 US915
-    0x0D9C8400u, // bc=6 res=3 pi=114 US915
-    0x0D9CC400u, // bc=6 res=3 pi=115 US915
-    0x0D9D0400u, // bc=6 res=3 pi=116 US915
-    0x0D9D4400u, // bc=6 res=3 pi=117 US915
-    0x0D9D8400u, // bc=6 res=3 pi=118 US915
     0x0DA00400u, // bc=6 res=3 pi=128 US915
+    0x0DA10400u, // bc=6 res=3 pi=132 US915
+    0x0DA28400u, // bc=6 res=3 pi=138 US915
+    0x0DA80400u, // bc=6 res=3 pi=160 US915
+    0x0DA84400u, // bc=6 res=3 pi=161 US915
+    0x0DA90400u, // bc=6 res=3 pi=164 US915
     0x0DA94400u, // bc=6 res=3 pi=165 US915
     0x0DAA4400u, // bc=6 res=3 pi=169 US915
     0x0DAAC400u, // bc=6 res=3 pi=171 US915
     0x0DAB4400u, // bc=6 res=3 pi=173 US915
+    0x0DADB000u, // bc=6 res=3 pi=182 RU864
     0x0DB04400u, // bc=6 res=3 pi=193 US915
     0x0DB0C400u, // bc=6 res=3 pi=195 US915
+    0x0DB10400u, // bc=6 res=3 pi=196 US915
+    0x0DB14400u, // bc=6 res=3 pi=197 US915
+    0x0DB20400u, // bc=6 res=3 pi=200 US915
     0x0DB28400u, // bc=6 res=3 pi=202 US915
     0x0DB30400u, // bc=6 res=3 pi=204 US915
     0x0DB34400u, // bc=6 res=3 pi=205 US915
     0x0DB38400u, // bc=6 res=3 pi=206 US915
+    0x0DBC0400u, // bc=6 res=3 pi=240 US915
     0x0DBC4400u, // bc=6 res=3 pi=241 US915
     0x0DBD0400u, // bc=6 res=3 pi=244 US915
     0x0DBD4400u, // bc=6 res=3 pi=245 US915
+    0x0DBD8400u, // bc=6 res=3 pi=246 US915
+    0x0DC00400u, // bc=6 res=3 pi=256 US915
+    0x0DC04400u, // bc=6 res=3 pi=257 US915
+    0x0DC08400u, // bc=6 res=3 pi=258 US915
     0x0DC0C400u, // bc=6 res=3 pi=259 US915
-    0x0DD00400u, // bc=6 res=3 pi=320 US915
-    0x0DD04400u, // bc=6 res=3 pi=321 US915
-    0x0DD08400u, // bc=6 res=3 pi=322 US915
-    0x0DD0C400u, // bc=6 res=3 pi=323 US915
-    0x0DD10400u, // bc=6 res=3 pi=324 US915
-    0x0DD14400u, // bc=6 res=3 pi=325 US915
-    0x0DD18400u, // bc=6 res=3 pi=326 US915
-    0x0DD20400u, // bc=6 res=3 pi=328 US915
-    0x0DD24400u, // bc=6 res=3 pi=329 US915
-    0x0DD28400u, // bc=6 res=3 pi=330 US915
-    0x0DD2C400u, // bc=6 res=3 pi=331 US915
-    0x0DD30400u, // bc=6 res=3 pi=332 US915
-    0x0DD34400u, // bc=6 res=3 pi=333 US915
-    0x0DD38400u, // bc=6 res=3 pi=334 US915
-    0x0DD40400u, // bc=6 res=3 pi=336 US915
-    0x0DD44400u, // bc=6 res=3 pi=337 US915
-    0x0DD48400u, // bc=6 res=3 pi=338 US915
-    0x0DD4C400u, // bc=6 res=3 pi=339 US915
-    0x0DD50400u, // bc=6 res=3 pi=340 US915
-    0x0DD54400u, // bc=6 res=3 pi=341 US915
-    0x0DD58400u, // bc=6 res=3 pi=342 US915
-    0x0DD60400u, // bc=6 res=3 pi=344 US915
-    0x0DD64400u, // bc=6 res=3 pi=345 US915
-    0x0DD68400u, // bc=6 res=3 pi=346 US915
-    0x0DD6C400u, // bc=6 res=3 pi=347 US915
-    0x0DD70400u, // bc=6 res=3 pi=348 US915
-    0x0DD74400u, // bc=6 res=3 pi=349 US915
-    0x0DD78400u, // bc=6 res=3 pi=350 US915
-    0x0DD80400u, // bc=6 res=3 pi=352 US915
-    0x0DD84400u, // bc=6 res=3 pi=353 US915
-    0x0DD88400u, // bc=6 res=3 pi=354 US915
-    0x0DD8C400u, // bc=6 res=3 pi=355 US915
-    0x0DD90400u, // bc=6 res=3 pi=356 US915
-    0x0DD94400u, // bc=6 res=3 pi=357 US915
-    0x0DDA0400u, // bc=6 res=3 pi=360 US915
-    0x0DDA4400u, // bc=6 res=3 pi=361 US915
-    0x0DDA8400u, // bc=6 res=3 pi=362 US915
-    0x0DDAC400u, // bc=6 res=3 pi=363 US915
-    0x0DDB0400u, // bc=6 res=3 pi=364 US915
-    0x0DDB4400u, // bc=6 res=3 pi=365 US915
-    0x0DDB8400u, // bc=6 res=3 pi=366 US915
-    0x0DDC0400u, // bc=6 res=3 pi=368 US915
-    0x0DDC4400u, // bc=6 res=3 pi=369 US915
-    0x0DDC8400u, // bc=6 res=3 pi=370 US915
-    0x0DDCC400u, // bc=6 res=3 pi=371 US915
-    0x0DDD4400u, // bc=6 res=3 pi=373 US915
-    0x0DDD8400u, // bc=6 res=3 pi=374 US915
+    0x0DCAC400u, // bc=6 res=3 pi=299 US915
     0x0DE03000u, // bc=6 res=3 pi=384 RU864
+    0x0DE07000u, // bc=6 res=3 pi=385 RU864
     0x0DE0B000u, // bc=6 res=3 pi=386 RU864
     0x0DE0F000u, // bc=6 res=3 pi=387 RU864
+    0x0DE13000u, // bc=6 res=3 pi=388 RU864
     0x0DE1B000u, // bc=6 res=3 pi=390 RU864
     0x0DE23000u, // bc=6 res=3 pi=392 RU864
     0x0DE24400u, // bc=6 res=3 pi=393 US915
     0x0DE2B000u, // bc=6 res=3 pi=394 RU864
+    0x0DE33000u, // bc=6 res=3 pi=396 RU864
+    0x0DE34400u, // bc=6 res=3 pi=397 US915
     0x0DE3B000u, // bc=6 res=3 pi=398 RU864
-    0x0DE43000u, // bc=6 res=3 pi=400 RU864
-    0x0DE47000u, // bc=6 res=3 pi=401 RU864
-    0x0DE4B000u, // bc=6 res=3 pi=402 RU864
-    0x0DE4F000u, // bc=6 res=3 pi=403 RU864
-    0x0DE53000u, // bc=6 res=3 pi=404 RU864
-    0x0DE57000u, // bc=6 res=3 pi=405 RU864
-    0x0DE5B000u, // bc=6 res=3 pi=406 RU864
+    0x0DE63000u, // bc=6 res=3 pi=408 RU864
     0x0DE67000u, // bc=6 res=3 pi=409 RU864
     0x0DE73000u, // bc=6 res=3 pi=412 RU864
     0x0DE77000u, // bc=6 res=3 pi=413 RU864
+    0x0DE7B000u, // bc=6 res=3 pi=414 RU864
+    0x0DE93000u, // bc=6 res=3 pi=420 RU864
     0x0DE9B000u, // bc=6 res=3 pi=422 RU864
     0x0DEA4400u, // bc=6 res=3 pi=425 US915
-    0x0DEC3000u, // bc=6 res=3 pi=432 RU864
-    0x0DEC7000u, // bc=6 res=3 pi=433 RU864
-    0x0DECB000u, // bc=6 res=3 pi=434 RU864
-    0x0DECF000u, // bc=6 res=3 pi=435 RU864
-    0x0DEDB000u, // bc=6 res=3 pi=438 RU864
+    0x0DEB4400u, // bc=6 res=3 pi=429 US915
     0x0E800400u, // bc=7 res=1 pi=0 US915
     0x0E804400u, // bc=7 res=1 pi=1 US915
     0x0E808400u, // bc=7 res=1 pi=2 US915
     0x0E80C400u, // bc=7 res=1 pi=3 US915
-    0x0E810400u, // bc=7 res=1 pi=4 US915
     0x0E818400u, // bc=7 res=1 pi=6 US915
+    0x0F080400u, // bc=7 res=2 pi=32 US915
+    0x0F084400u, // bc=7 res=2 pi=33 US915
+    0x0F088400u, // bc=7 res=2 pi=34 US915
+    0x0F08C400u, // bc=7 res=2 pi=35 US915
     0x0F0A8400u, // bc=7 res=2 pi=42 US915
     0x0F0AC400u, // bc=7 res=2 pi=43 US915
-    0x0F800400u, // bc=7 res=3 pi=0 US915
-    0x0F804400u, // bc=7 res=3 pi=1 US915
-    0x0F808400u, // bc=7 res=3 pi=2 US915
-    0x0F80C400u, // bc=7 res=3 pi=3 US915
-    0x0F810400u, // bc=7 res=3 pi=4 US915
-    0x0F814400u, // bc=7 res=3 pi=5 US915
-    0x0F818400u, // bc=7 res=3 pi=6 US915
-    0x0F820400u, // bc=7 res=3 pi=8 US915
-    0x0F824400u, // bc=7 res=3 pi=9 US915
-    0x0F828400u, // bc=7 res=3 pi=10 US915
-    0x0F82C400u, // bc=7 res=3 pi=11 US915
-    0x0F830400u, // bc=7 res=3 pi=12 US915
-    0x0F834400u, // bc=7 res=3 pi=13 US915
-    0x0F838400u, // bc=7 res=3 pi=14 US915
-    0x0F840400u, // bc=7 res=3 pi=16 US915
-    0x0F844400u, // bc=7 res=3 pi=17 US915
-    0x0F848400u, // bc=7 res=3 pi=18 US915
-    0x0F84C400u, // bc=7 res=3 pi=19 US915
-    0x0F850400u, // bc=7 res=3 pi=20 US915
-    0x0F854400u, // bc=7 res=3 pi=21 US915
-    0x0F858400u, // bc=7 res=3 pi=22 US915
-    0x0F860400u, // bc=7 res=3 pi=24 US915
-    0x0F864400u, // bc=7 res=3 pi=25 US915
-    0x0F868400u, // bc=7 res=3 pi=26 US915
-    0x0F86C400u, // bc=7 res=3 pi=27 US915
-    0x0F870400u, // bc=7 res=3 pi=28 US915
-    0x0F874400u, // bc=7 res=3 pi=29 US915
-    0x0F878400u, // bc=7 res=3 pi=30 US915
-    0x0F880400u, // bc=7 res=3 pi=32 US915
-    0x0F884400u, // bc=7 res=3 pi=33 US915
-    0x0F888400u, // bc=7 res=3 pi=34 US915
-    0x0F88C400u, // bc=7 res=3 pi=35 US915
-    0x0F890400u, // bc=7 res=3 pi=36 US915
-    0x0F894400u, // bc=7 res=3 pi=37 US915
-    0x0F898400u, // bc=7 res=3 pi=38 US915
-    0x0F8A0400u, // bc=7 res=3 pi=40 US915
-    0x0F8A4400u, // bc=7 res=3 pi=41 US915
-    0x0F8A8400u, // bc=7 res=3 pi=42 US915
-    0x0F8AC400u, // bc=7 res=3 pi=43 US915
-    0x0F8B0400u, // bc=7 res=3 pi=44 US915
-    0x0F8B4400u, // bc=7 res=3 pi=45 US915
-    0x0F8B8400u, // bc=7 res=3 pi=46 US915
-    0x0F8C0400u, // bc=7 res=3 pi=48 US915
-    0x0F8C4400u, // bc=7 res=3 pi=49 US915
-    0x0F8C8400u, // bc=7 res=3 pi=50 US915
-    0x0F8CC400u, // bc=7 res=3 pi=51 US915
-    0x0F8D0400u, // bc=7 res=3 pi=52 US915
-    0x0F8D4400u, // bc=7 res=3 pi=53 US915
-    0x0F8D8400u, // bc=7 res=3 pi=54 US915
-    0x0F900400u, // bc=7 res=3 pi=64 US915
-    0x0F904400u, // bc=7 res=3 pi=65 US915
-    0x0F908400u, // bc=7 res=3 pi=66 US915
-    0x0F90C400u, // bc=7 res=3 pi=67 US915
-    0x0F910400u, // bc=7 res=3 pi=68 US915
-    0x0F914400u, // bc=7 res=3 pi=69 US915
-    0x0F918400u, // bc=7 res=3 pi=70 US915
-    0x0F920400u, // bc=7 res=3 pi=72 US915
-    0x0F924400u, // bc=7 res=3 pi=73 US915
-    0x0F928400u, // bc=7 res=3 pi=74 US915
-    0x0F92C400u, // bc=7 res=3 pi=75 US915
-    0x0F930400u, // bc=7 res=3 pi=76 US915
-    0x0F934400u, // bc=7 res=3 pi=77 US915
-    0x0F938400u, // bc=7 res=3 pi=78 US915
-    0x0F940400u, // bc=7 res=3 pi=80 US915
-    0x0F944400u, // bc=7 res=3 pi=81 US915
-    0x0F948400u, // bc=7 res=3 pi=82 US915
-    0x0F94C400u, // bc=7 res=3 pi=83 US915
-    0x0F950400u, // bc=7 res=3 pi=84 US915
-    0x0F954400u, // bc=7 res=3 pi=85 US915
-    0x0F958400u, // bc=7 res=3 pi=86 US915
-    0x0F960400u, // bc=7 res=3 pi=88 US915
-    0x0F964400u, // bc=7 res=3 pi=89 US915
-    0x0F968400u, // bc=7 res=3 pi=90 US915
-    0x0F96C400u, // bc=7 res=3 pi=91 US915
-    0x0F970400u, // bc=7 res=3 pi=92 US915
-    0x0F974400u, // bc=7 res=3 pi=93 US915
-    0x0F978400u, // bc=7 res=3 pi=94 US915
-    0x0F980400u, // bc=7 res=3 pi=96 US915
-    0x0F984400u, // bc=7 res=3 pi=97 US915
-    0x0F988400u, // bc=7 res=3 pi=98 US915
-    0x0F98C400u, // bc=7 res=3 pi=99 US915
-    0x0F990400u, // bc=7 res=3 pi=100 US915
-    0x0F994400u, // bc=7 res=3 pi=101 US915
-    0x0F998400u, // bc=7 res=3 pi=102 US915
-    0x0F9A0400u, // bc=7 res=3 pi=104 US915
-    0x0F9A4400u, // bc=7 res=3 pi=105 US915
-    0x0F9A8400u, // bc=7 res=3 pi=106 US915
-    0x0F9AC400u, // bc=7 res=3 pi=107 US915
-    0x0F9B0400u, // bc=7 res=3 pi=108 US915
-    0x0F9B4400u, // bc=7 res=3 pi=109 US915
-    0x0F9B8400u, // bc=7 res=3 pi=110 US915
-    0x0F9C0400u, // bc=7 res=3 pi=112 US915
-    0x0F9C4400u, // bc=7 res=3 pi=113 US915
-    0x0F9C8400u, // bc=7 res=3 pi=114 US915
-    0x0F9CC400u, // bc=7 res=3 pi=115 US915
-    0x0F9D0400u, // bc=7 res=3 pi=116 US915
-    0x0F9D4400u, // bc=7 res=3 pi=117 US915
-    0x0F9D8400u, // bc=7 res=3 pi=118 US915
-    0x0FA00400u, // bc=7 res=3 pi=128 US915
-    0x0FA04400u, // bc=7 res=3 pi=129 US915
-    0x0FA08400u, // bc=7 res=3 pi=130 US915
-    0x0FA0C400u, // bc=7 res=3 pi=131 US915
-    0x0FA10400u, // bc=7 res=3 pi=132 US915
-    0x0FA14400u, // bc=7 res=3 pi=133 US915
-    0x0FA18400u, // bc=7 res=3 pi=134 US915
-    0x0FA20400u, // bc=7 res=3 pi=136 US915
-    0x0FA24400u, // bc=7 res=3 pi=137 US915
-    0x0FA28400u, // bc=7 res=3 pi=138 US915
-    0x0FA2C400u, // bc=7 res=3 pi=139 US915
-    0x0FA30400u, // bc=7 res=3 pi=140 US915
-    0x0FA34400u, // bc=7 res=3 pi=141 US915
-    0x0FA38400u, // bc=7 res=3 pi=142 US915
-    0x0FA40400u, // bc=7 res=3 pi=144 US915
-    0x0FA44400u, // bc=7 res=3 pi=145 US915
-    0x0FA48400u, // bc=7 res=3 pi=146 US915
-    0x0FA4C400u, // bc=7 res=3 pi=147 US915
-    0x0FA50400u, // bc=7 res=3 pi=148 US915
-    0x0FA54400u, // bc=7 res=3 pi=149 US915
-    0x0FA58400u, // bc=7 res=3 pi=150 US915
-    0x0FA60400u, // bc=7 res=3 pi=152 US915
-    0x0FA64400u, // bc=7 res=3 pi=153 US915
-    0x0FA68400u, // bc=7 res=3 pi=154 US915
-    0x0FA6C400u, // bc=7 res=3 pi=155 US915
-    0x0FA70400u, // bc=7 res=3 pi=156 US915
-    0x0FA74400u, // bc=7 res=3 pi=157 US915
-    0x0FA78400u, // bc=7 res=3 pi=158 US915
-    0x0FA80400u, // bc=7 res=3 pi=160 US915
-    0x0FA84400u, // bc=7 res=3 pi=161 US915
-    0x0FA88400u, // bc=7 res=3 pi=162 US915
-    0x0FA8C400u, // bc=7 res=3 pi=163 US915
-    0x0FA90400u, // bc=7 res=3 pi=164 US915
-    0x0FA94400u, // bc=7 res=3 pi=165 US915
-    0x0FA98400u, // bc=7 res=3 pi=166 US915
-    0x0FAA0400u, // bc=7 res=3 pi=168 US915
-    0x0FAA4400u, // bc=7 res=3 pi=169 US915
-    0x0FAA8400u, // bc=7 res=3 pi=170 US915
-    0x0FAAC400u, // bc=7 res=3 pi=171 US915
-    0x0FAB0400u, // bc=7 res=3 pi=172 US915
-    0x0FAB4400u, // bc=7 res=3 pi=173 US915
-    0x0FAB8400u, // bc=7 res=3 pi=174 US915
-    0x0FAC0400u, // bc=7 res=3 pi=176 US915
-    0x0FAC4400u, // bc=7 res=3 pi=177 US915
-    0x0FAC8400u, // bc=7 res=3 pi=178 US915
-    0x0FACC400u, // bc=7 res=3 pi=179 US915
-    0x0FAD0400u, // bc=7 res=3 pi=180 US915
-    0x0FAD4400u, // bc=7 res=3 pi=181 US915
-    0x0FAD8400u, // bc=7 res=3 pi=182 US915
-    0x0FB00400u, // bc=7 res=3 pi=192 US915
-    0x0FB04400u, // bc=7 res=3 pi=193 US915
-    0x0FB08400u, // bc=7 res=3 pi=194 US915
-    0x0FB0C400u, // bc=7 res=3 pi=195 US915
-    0x0FB10400u, // bc=7 res=3 pi=196 US915
-    0x0FB14400u, // bc=7 res=3 pi=197 US915
-    0x0FB18400u, // bc=7 res=3 pi=198 US915
-    0x0FB20400u, // bc=7 res=3 pi=200 US915
-    0x0FB24400u, // bc=7 res=3 pi=201 US915
-    0x0FB28400u, // bc=7 res=3 pi=202 US915
-    0x0FB2C400u, // bc=7 res=3 pi=203 US915
-    0x0FB30400u, // bc=7 res=3 pi=204 US915
-    0x0FB34400u, // bc=7 res=3 pi=205 US915
-    0x0FB38400u, // bc=7 res=3 pi=206 US915
-    0x0FB40400u, // bc=7 res=3 pi=208 US915
-    0x0FB44400u, // bc=7 res=3 pi=209 US915
-    0x0FB48400u, // bc=7 res=3 pi=210 US915
-    0x0FB4C400u, // bc=7 res=3 pi=211 US915
-    0x0FB50400u, // bc=7 res=3 pi=212 US915
-    0x0FB54400u, // bc=7 res=3 pi=213 US915
-    0x0FB58400u, // bc=7 res=3 pi=214 US915
-    0x0FB60400u, // bc=7 res=3 pi=216 US915
-    0x0FB64400u, // bc=7 res=3 pi=217 US915
-    0x0FB68400u, // bc=7 res=3 pi=218 US915
-    0x0FB6C400u, // bc=7 res=3 pi=219 US915
-    0x0FB70400u, // bc=7 res=3 pi=220 US915
-    0x0FB74400u, // bc=7 res=3 pi=221 US915
-    0x0FB78400u, // bc=7 res=3 pi=222 US915
-    0x0FB80400u, // bc=7 res=3 pi=224 US915
-    0x0FB84400u, // bc=7 res=3 pi=225 US915
-    0x0FB88400u, // bc=7 res=3 pi=226 US915
-    0x0FB8C400u, // bc=7 res=3 pi=227 US915
-    0x0FB90400u, // bc=7 res=3 pi=228 US915
-    0x0FB94400u, // bc=7 res=3 pi=229 US915
-    0x0FB98400u, // bc=7 res=3 pi=230 US915
-    0x0FBA0400u, // bc=7 res=3 pi=232 US915
-    0x0FBA4400u, // bc=7 res=3 pi=233 US915
-    0x0FBA8400u, // bc=7 res=3 pi=234 US915
-    0x0FBAC400u, // bc=7 res=3 pi=235 US915
-    0x0FBB0400u, // bc=7 res=3 pi=236 US915
-    0x0FBB4400u, // bc=7 res=3 pi=237 US915
-    0x0FBB8400u, // bc=7 res=3 pi=238 US915
-    0x0FBC0400u, // bc=7 res=3 pi=240 US915
-    0x0FBC4400u, // bc=7 res=3 pi=241 US915
-    0x0FBC8400u, // bc=7 res=3 pi=242 US915
-    0x0FBCC400u, // bc=7 res=3 pi=243 US915
-    0x0FBD0400u, // bc=7 res=3 pi=244 US915
-    0x0FBD4400u, // bc=7 res=3 pi=245 US915
-    0x0FBD8400u, // bc=7 res=3 pi=246 US915
-    0x0FC00400u, // bc=7 res=3 pi=256 US915
-    0x0FC04400u, // bc=7 res=3 pi=257 US915
-    0x0FC08400u, // bc=7 res=3 pi=258 US915
-    0x0FC0C400u, // bc=7 res=3 pi=259 US915
-    0x0FC10400u, // bc=7 res=3 pi=260 US915
-    0x0FC14400u, // bc=7 res=3 pi=261 US915
-    0x0FC18400u, // bc=7 res=3 pi=262 US915
-    0x0FC20400u, // bc=7 res=3 pi=264 US915
-    0x0FC24400u, // bc=7 res=3 pi=265 US915
-    0x0FC28400u, // bc=7 res=3 pi=266 US915
-    0x0FC2C400u, // bc=7 res=3 pi=267 US915
-    0x0FC30400u, // bc=7 res=3 pi=268 US915
-    0x0FC34400u, // bc=7 res=3 pi=269 US915
-    0x0FC38400u, // bc=7 res=3 pi=270 US915
-    0x0FC40400u, // bc=7 res=3 pi=272 US915
-    0x0FC44400u, // bc=7 res=3 pi=273 US915
-    0x0FC48400u, // bc=7 res=3 pi=274 US915
-    0x0FC4C400u, // bc=7 res=3 pi=275 US915
-    0x0FC50400u, // bc=7 res=3 pi=276 US915
-    0x0FC54400u, // bc=7 res=3 pi=277 US915
-    0x0FC58400u, // bc=7 res=3 pi=278 US915
-    0x0FC60400u, // bc=7 res=3 pi=280 US915
-    0x0FC64400u, // bc=7 res=3 pi=281 US915
-    0x0FC68400u, // bc=7 res=3 pi=282 US915
-    0x0FC6C400u, // bc=7 res=3 pi=283 US915
-    0x0FC70400u, // bc=7 res=3 pi=284 US915
-    0x0FC74400u, // bc=7 res=3 pi=285 US915
-    0x0FC78400u, // bc=7 res=3 pi=286 US915
+    0x0FCA0400u, // bc=7 res=3 pi=296 US915
     0x0FCA8400u, // bc=7 res=3 pi=298 US915
     0x0FCAC400u, // bc=7 res=3 pi=299 US915
     0x0FCB8400u, // bc=7 res=3 pi=302 US915
@@ -1452,176 +491,38 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x0FCC4400u, // bc=7 res=3 pi=305 US915
     0x0FCC8400u, // bc=7 res=3 pi=306 US915
     0x0FCCC400u, // bc=7 res=3 pi=307 US915
+    0x0FCD8400u, // bc=7 res=3 pi=310 US915
+    0x0FD0C400u, // bc=7 res=3 pi=323 US915
+    0x0FD20400u, // bc=7 res=3 pi=328 US915
+    0x0FD24400u, // bc=7 res=3 pi=329 US915
     0x0FD28400u, // bc=7 res=3 pi=330 US915
     0x0FD2C400u, // bc=7 res=3 pi=331 US915
-    0x0FE00400u, // bc=7 res=3 pi=384 US915
-    0x0FE04400u, // bc=7 res=3 pi=385 US915
-    0x0FE08400u, // bc=7 res=3 pi=386 US915
-    0x0FE0C400u, // bc=7 res=3 pi=387 US915
-    0x0FE10400u, // bc=7 res=3 pi=388 US915
-    0x0FE14400u, // bc=7 res=3 pi=389 US915
-    0x0FE18400u, // bc=7 res=3 pi=390 US915
-    0x0FE20400u, // bc=7 res=3 pi=392 US915
-    0x0FE24400u, // bc=7 res=3 pi=393 US915
-    0x0FE28400u, // bc=7 res=3 pi=394 US915
-    0x0FE2C400u, // bc=7 res=3 pi=395 US915
-    0x0FE30400u, // bc=7 res=3 pi=396 US915
-    0x0FE34400u, // bc=7 res=3 pi=397 US915
-    0x0FE38400u, // bc=7 res=3 pi=398 US915
-    0x0FE40400u, // bc=7 res=3 pi=400 US915
-    0x0FE44400u, // bc=7 res=3 pi=401 US915
-    0x0FE48400u, // bc=7 res=3 pi=402 US915
-    0x0FE4C400u, // bc=7 res=3 pi=403 US915
-    0x0FE50400u, // bc=7 res=3 pi=404 US915
-    0x0FE54400u, // bc=7 res=3 pi=405 US915
-    0x0FE58400u, // bc=7 res=3 pi=406 US915
-    0x0FE60400u, // bc=7 res=3 pi=408 US915
-    0x0FE64400u, // bc=7 res=3 pi=409 US915
-    0x0FE68400u, // bc=7 res=3 pi=410 US915
-    0x0FE6C400u, // bc=7 res=3 pi=411 US915
-    0x0FE70400u, // bc=7 res=3 pi=412 US915
-    0x0FE74400u, // bc=7 res=3 pi=413 US915
-    0x0FE78400u, // bc=7 res=3 pi=414 US915
-    0x0FE80400u, // bc=7 res=3 pi=416 US915
-    0x0FE84400u, // bc=7 res=3 pi=417 US915
-    0x0FE88400u, // bc=7 res=3 pi=418 US915
-    0x0FE8C400u, // bc=7 res=3 pi=419 US915
-    0x0FE90400u, // bc=7 res=3 pi=420 US915
-    0x0FE94400u, // bc=7 res=3 pi=421 US915
-    0x0FE98400u, // bc=7 res=3 pi=422 US915
-    0x0FEA0400u, // bc=7 res=3 pi=424 US915
-    0x0FEA4400u, // bc=7 res=3 pi=425 US915
-    0x0FEA8400u, // bc=7 res=3 pi=426 US915
-    0x0FEAC400u, // bc=7 res=3 pi=427 US915
-    0x0FEB0400u, // bc=7 res=3 pi=428 US915
-    0x0FEB4400u, // bc=7 res=3 pi=429 US915
-    0x0FEB8400u, // bc=7 res=3 pi=430 US915
-    0x0FEC0400u, // bc=7 res=3 pi=432 US915
-    0x0FEC4400u, // bc=7 res=3 pi=433 US915
-    0x0FEC8400u, // bc=7 res=3 pi=434 US915
-    0x0FECC400u, // bc=7 res=3 pi=435 US915
-    0x0FED0400u, // bc=7 res=3 pi=436 US915
-    0x0FED4400u, // bc=7 res=3 pi=437 US915
-    0x0FED8400u, // bc=7 res=3 pi=438 US915
+    0x0FD38400u, // bc=7 res=3 pi=334 US915
+    0x0FDC8400u, // bc=7 res=3 pi=370 US915
     0x10803000u, // bc=8 res=1 pi=0 RU864
     0x10807000u, // bc=8 res=1 pi=1 RU864
-    0x1080B000u, // bc=8 res=1 pi=2 RU864
     0x1080F000u, // bc=8 res=1 pi=3 RU864
-    0x10813000u, // bc=8 res=1 pi=4 RU864
-    0x10817000u, // bc=8 res=1 pi=5 RU864
-    0x1081B000u, // bc=8 res=1 pi=6 RU864
-    0x11803000u, // bc=8 res=3 pi=0 RU864
-    0x11807000u, // bc=8 res=3 pi=1 RU864
-    0x1180B000u, // bc=8 res=3 pi=2 RU864
-    0x1180F000u, // bc=8 res=3 pi=3 RU864
-    0x11813000u, // bc=8 res=3 pi=4 RU864
-    0x11817000u, // bc=8 res=3 pi=5 RU864
-    0x1181B000u, // bc=8 res=3 pi=6 RU864
-    0x11823000u, // bc=8 res=3 pi=8 RU864
-    0x11827000u, // bc=8 res=3 pi=9 RU864
-    0x1182B000u, // bc=8 res=3 pi=10 RU864
-    0x1182F000u, // bc=8 res=3 pi=11 RU864
-    0x11833000u, // bc=8 res=3 pi=12 RU864
-    0x11837000u, // bc=8 res=3 pi=13 RU864
-    0x1183B000u, // bc=8 res=3 pi=14 RU864
-    0x11843000u, // bc=8 res=3 pi=16 RU864
-    0x11847000u, // bc=8 res=3 pi=17 RU864
-    0x1184B000u, // bc=8 res=3 pi=18 RU864
-    0x1184F000u, // bc=8 res=3 pi=19 RU864
-    0x11853000u, // bc=8 res=3 pi=20 RU864
-    0x11857000u, // bc=8 res=3 pi=21 RU864
-    0x1185B000u, // bc=8 res=3 pi=22 RU864
-    0x11863000u, // bc=8 res=3 pi=24 RU864
-    0x11867000u, // bc=8 res=3 pi=25 RU864
-    0x1186B000u, // bc=8 res=3 pi=26 RU864
-    0x1186F000u, // bc=8 res=3 pi=27 RU864
-    0x11873000u, // bc=8 res=3 pi=28 RU864
-    0x11877000u, // bc=8 res=3 pi=29 RU864
-    0x1187B000u, // bc=8 res=3 pi=30 RU864
-    0x11883000u, // bc=8 res=3 pi=32 RU864
-    0x11887000u, // bc=8 res=3 pi=33 RU864
-    0x1188B000u, // bc=8 res=3 pi=34 RU864
-    0x1188F000u, // bc=8 res=3 pi=35 RU864
-    0x11893000u, // bc=8 res=3 pi=36 RU864
-    0x11897000u, // bc=8 res=3 pi=37 RU864
-    0x1189B000u, // bc=8 res=3 pi=38 RU864
-    0x118A3000u, // bc=8 res=3 pi=40 RU864
-    0x118A7000u, // bc=8 res=3 pi=41 RU864
-    0x118AB000u, // bc=8 res=3 pi=42 RU864
-    0x118AF000u, // bc=8 res=3 pi=43 RU864
-    0x118B3000u, // bc=8 res=3 pi=44 RU864
-    0x118B7000u, // bc=8 res=3 pi=45 RU864
-    0x118BB000u, // bc=8 res=3 pi=46 RU864
-    0x118C3000u, // bc=8 res=3 pi=48 RU864
-    0x118C7000u, // bc=8 res=3 pi=49 RU864
-    0x118CB000u, // bc=8 res=3 pi=50 RU864
-    0x118CF000u, // bc=8 res=3 pi=51 RU864
-    0x118D3000u, // bc=8 res=3 pi=52 RU864
-    0x118D7000u, // bc=8 res=3 pi=53 RU864
-    0x118DB000u, // bc=8 res=3 pi=54 RU864
-    0x11903000u, // bc=8 res=3 pi=64 RU864
-    0x11907000u, // bc=8 res=3 pi=65 RU864
-    0x1190B000u, // bc=8 res=3 pi=66 RU864
-    0x1190F000u, // bc=8 res=3 pi=67 RU864
-    0x11913000u, // bc=8 res=3 pi=68 RU864
-    0x11917000u, // bc=8 res=3 pi=69 RU864
-    0x1191B000u, // bc=8 res=3 pi=70 RU864
-    0x11923000u, // bc=8 res=3 pi=72 RU864
-    0x11927000u, // bc=8 res=3 pi=73 RU864
-    0x1192B000u, // bc=8 res=3 pi=74 RU864
-    0x1192F000u, // bc=8 res=3 pi=75 RU864
-    0x11933000u, // bc=8 res=3 pi=76 RU864
-    0x11937000u, // bc=8 res=3 pi=77 RU864
-    0x1193B000u, // bc=8 res=3 pi=78 RU864
-    0x11943000u, // bc=8 res=3 pi=80 RU864
-    0x11947000u, // bc=8 res=3 pi=81 RU864
-    0x1194B000u, // bc=8 res=3 pi=82 RU864
-    0x1194F000u, // bc=8 res=3 pi=83 RU864
-    0x11953000u, // bc=8 res=3 pi=84 RU864
-    0x11957000u, // bc=8 res=3 pi=85 RU864
-    0x1195B000u, // bc=8 res=3 pi=86 RU864
-    0x11963000u, // bc=8 res=3 pi=88 RU864
-    0x11967000u, // bc=8 res=3 pi=89 RU864
-    0x1196B000u, // bc=8 res=3 pi=90 RU864
-    0x1196F000u, // bc=8 res=3 pi=91 RU864
-    0x11973000u, // bc=8 res=3 pi=92 RU864
-    0x11977000u, // bc=8 res=3 pi=93 RU864
-    0x1197B000u, // bc=8 res=3 pi=94 RU864
-    0x11983000u, // bc=8 res=3 pi=96 RU864
-    0x11987000u, // bc=8 res=3 pi=97 RU864
-    0x1198B000u, // bc=8 res=3 pi=98 RU864
-    0x1198F000u, // bc=8 res=3 pi=99 RU864
-    0x11993000u, // bc=8 res=3 pi=100 RU864
-    0x11997000u, // bc=8 res=3 pi=101 RU864
-    0x1199B000u, // bc=8 res=3 pi=102 RU864
-    0x119A3000u, // bc=8 res=3 pi=104 RU864
-    0x119A7000u, // bc=8 res=3 pi=105 RU864
-    0x119AB000u, // bc=8 res=3 pi=106 RU864
-    0x119AF000u, // bc=8 res=3 pi=107 RU864
-    0x119B3000u, // bc=8 res=3 pi=108 RU864
-    0x119B7000u, // bc=8 res=3 pi=109 RU864
-    0x119BB000u, // bc=8 res=3 pi=110 RU864
-    0x119C3000u, // bc=8 res=3 pi=112 RU864
-    0x119C7000u, // bc=8 res=3 pi=113 RU864
-    0x119CB000u, // bc=8 res=3 pi=114 RU864
-    0x119CF000u, // bc=8 res=3 pi=115 RU864
-    0x119D3000u, // bc=8 res=3 pi=116 RU864
-    0x119D7000u, // bc=8 res=3 pi=117 RU864
-    0x119DB000u, // bc=8 res=3 pi=118 RU864
-    0x11A03000u, // bc=8 res=3 pi=128 RU864
-    0x11A07000u, // bc=8 res=3 pi=129 RU864
-    0x11A0B000u, // bc=8 res=3 pi=130 RU864
-    0x11A0F000u, // bc=8 res=3 pi=131 RU864
-    0x11A13000u, // bc=8 res=3 pi=132 RU864
-    0x11A17000u, // bc=8 res=3 pi=133 RU864
-    0x11A1B000u, // bc=8 res=3 pi=134 RU864
-    0x11A23000u, // bc=8 res=3 pi=136 RU864
-    0x11A27000u, // bc=8 res=3 pi=137 RU864
-    0x11A2B000u, // bc=8 res=3 pi=138 RU864
-    0x11A2F000u, // bc=8 res=3 pi=139 RU864
-    0x11A33000u, // bc=8 res=3 pi=140 RU864
-    0x11A37000u, // bc=8 res=3 pi=141 RU864
-    0x11A3B000u, // bc=8 res=3 pi=142 RU864
+    0x11043000u, // bc=8 res=2 pi=16 RU864
+    0x11047000u, // bc=8 res=2 pi=17 RU864
+    0x11053000u, // bc=8 res=2 pi=20 RU864
+    0x11057000u, // bc=8 res=2 pi=21 RU864
+    0x1105B000u, // bc=8 res=2 pi=22 RU864
+    0x11083000u, // bc=8 res=2 pi=32 RU864
+    0x11087000u, // bc=8 res=2 pi=33 RU864
+    0x1108B000u, // bc=8 res=2 pi=34 RU864
+    0x1108F000u, // bc=8 res=2 pi=35 RU864
+    0x11090800u, // bc=8 res=2 pi=36 EU868
+    0x110A3000u, // bc=8 res=2 pi=40 RU864
+    0x110AB000u, // bc=8 res=2 pi=42 RU864
+    0x110AF000u, // bc=8 res=2 pi=43 RU864
+    0x110B3000u, // bc=8 res=2 pi=44 RU864
+    0x110BB000u, // bc=8 res=2 pi=46 RU864
+    0x110C3000u, // bc=8 res=2 pi=48 RU864
+    0x110C7000u, // bc=8 res=2 pi=49 RU864
+    0x110CB000u, // bc=8 res=2 pi=50 RU864
+    0x110CF000u, // bc=8 res=2 pi=51 RU864
+    0x110D3000u, // bc=8 res=2 pi=52 RU864
+    0x110D7000u, // bc=8 res=2 pi=53 RU864
     0x11A42C00u, // bc=8 res=3 pi=144 IN865
     0x11A46C00u, // bc=8 res=3 pi=145 IN865
     0x11A4AC00u, // bc=8 res=3 pi=146 IN865
@@ -1636,111 +537,6 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x11A72C00u, // bc=8 res=3 pi=156 IN865
     0x11A77000u, // bc=8 res=3 pi=157 RU864
     0x11A7AC00u, // bc=8 res=3 pi=158 IN865
-    0x11A83000u, // bc=8 res=3 pi=160 RU864
-    0x11A87000u, // bc=8 res=3 pi=161 RU864
-    0x11A8B000u, // bc=8 res=3 pi=162 RU864
-    0x11A8F000u, // bc=8 res=3 pi=163 RU864
-    0x11A93000u, // bc=8 res=3 pi=164 RU864
-    0x11A97000u, // bc=8 res=3 pi=165 RU864
-    0x11A9B000u, // bc=8 res=3 pi=166 RU864
-    0x11AA3000u, // bc=8 res=3 pi=168 RU864
-    0x11AA7000u, // bc=8 res=3 pi=169 RU864
-    0x11AAB000u, // bc=8 res=3 pi=170 RU864
-    0x11AAF000u, // bc=8 res=3 pi=171 RU864
-    0x11AB3000u, // bc=8 res=3 pi=172 RU864
-    0x11AB7000u, // bc=8 res=3 pi=173 RU864
-    0x11ABB000u, // bc=8 res=3 pi=174 RU864
-    0x11AC3000u, // bc=8 res=3 pi=176 RU864
-    0x11AC7000u, // bc=8 res=3 pi=177 RU864
-    0x11ACB000u, // bc=8 res=3 pi=178 RU864
-    0x11ACF000u, // bc=8 res=3 pi=179 RU864
-    0x11AD3000u, // bc=8 res=3 pi=180 RU864
-    0x11AD7000u, // bc=8 res=3 pi=181 RU864
-    0x11ADB000u, // bc=8 res=3 pi=182 RU864
-    0x11B03000u, // bc=8 res=3 pi=192 RU864
-    0x11B07000u, // bc=8 res=3 pi=193 RU864
-    0x11B0B000u, // bc=8 res=3 pi=194 RU864
-    0x11B0F000u, // bc=8 res=3 pi=195 RU864
-    0x11B13000u, // bc=8 res=3 pi=196 RU864
-    0x11B17000u, // bc=8 res=3 pi=197 RU864
-    0x11B1B000u, // bc=8 res=3 pi=198 RU864
-    0x11B23000u, // bc=8 res=3 pi=200 RU864
-    0x11B27000u, // bc=8 res=3 pi=201 RU864
-    0x11B2B000u, // bc=8 res=3 pi=202 RU864
-    0x11B2F000u, // bc=8 res=3 pi=203 RU864
-    0x11B33000u, // bc=8 res=3 pi=204 RU864
-    0x11B37000u, // bc=8 res=3 pi=205 RU864
-    0x11B3B000u, // bc=8 res=3 pi=206 RU864
-    0x11B43000u, // bc=8 res=3 pi=208 RU864
-    0x11B47000u, // bc=8 res=3 pi=209 RU864
-    0x11B4B000u, // bc=8 res=3 pi=210 RU864
-    0x11B4F000u, // bc=8 res=3 pi=211 RU864
-    0x11B53000u, // bc=8 res=3 pi=212 RU864
-    0x11B57000u, // bc=8 res=3 pi=213 RU864
-    0x11B5B000u, // bc=8 res=3 pi=214 RU864
-    0x11B63000u, // bc=8 res=3 pi=216 RU864
-    0x11B67000u, // bc=8 res=3 pi=217 RU864
-    0x11B6B000u, // bc=8 res=3 pi=218 RU864
-    0x11B6F000u, // bc=8 res=3 pi=219 RU864
-    0x11B73000u, // bc=8 res=3 pi=220 RU864
-    0x11B77000u, // bc=8 res=3 pi=221 RU864
-    0x11B7B000u, // bc=8 res=3 pi=222 RU864
-    0x11B83000u, // bc=8 res=3 pi=224 RU864
-    0x11B87000u, // bc=8 res=3 pi=225 RU864
-    0x11B8B000u, // bc=8 res=3 pi=226 RU864
-    0x11B8F000u, // bc=8 res=3 pi=227 RU864
-    0x11B93000u, // bc=8 res=3 pi=228 RU864
-    0x11B97000u, // bc=8 res=3 pi=229 RU864
-    0x11B9B000u, // bc=8 res=3 pi=230 RU864
-    0x11BA3000u, // bc=8 res=3 pi=232 RU864
-    0x11BA7000u, // bc=8 res=3 pi=233 RU864
-    0x11BAB000u, // bc=8 res=3 pi=234 RU864
-    0x11BAF000u, // bc=8 res=3 pi=235 RU864
-    0x11BB3000u, // bc=8 res=3 pi=236 RU864
-    0x11BB7000u, // bc=8 res=3 pi=237 RU864
-    0x11BBB000u, // bc=8 res=3 pi=238 RU864
-    0x11BC3000u, // bc=8 res=3 pi=240 RU864
-    0x11BC7000u, // bc=8 res=3 pi=241 RU864
-    0x11BCB000u, // bc=8 res=3 pi=242 RU864
-    0x11BCF000u, // bc=8 res=3 pi=243 RU864
-    0x11BD3000u, // bc=8 res=3 pi=244 RU864
-    0x11BD7000u, // bc=8 res=3 pi=245 RU864
-    0x11BDB000u, // bc=8 res=3 pi=246 RU864
-    0x11C03000u, // bc=8 res=3 pi=256 RU864
-    0x11C07000u, // bc=8 res=3 pi=257 RU864
-    0x11C0B000u, // bc=8 res=3 pi=258 RU864
-    0x11C0F000u, // bc=8 res=3 pi=259 RU864
-    0x11C13000u, // bc=8 res=3 pi=260 RU864
-    0x11C17000u, // bc=8 res=3 pi=261 RU864
-    0x11C1B000u, // bc=8 res=3 pi=262 RU864
-    0x11C23000u, // bc=8 res=3 pi=264 RU864
-    0x11C27000u, // bc=8 res=3 pi=265 RU864
-    0x11C2B000u, // bc=8 res=3 pi=266 RU864
-    0x11C2F000u, // bc=8 res=3 pi=267 RU864
-    0x11C33000u, // bc=8 res=3 pi=268 RU864
-    0x11C37000u, // bc=8 res=3 pi=269 RU864
-    0x11C3B000u, // bc=8 res=3 pi=270 RU864
-    0x11C43000u, // bc=8 res=3 pi=272 RU864
-    0x11C47000u, // bc=8 res=3 pi=273 RU864
-    0x11C4B000u, // bc=8 res=3 pi=274 RU864
-    0x11C4F000u, // bc=8 res=3 pi=275 RU864
-    0x11C53000u, // bc=8 res=3 pi=276 RU864
-    0x11C57000u, // bc=8 res=3 pi=277 RU864
-    0x11C5B000u, // bc=8 res=3 pi=278 RU864
-    0x11C63000u, // bc=8 res=3 pi=280 RU864
-    0x11C67000u, // bc=8 res=3 pi=281 RU864
-    0x11C6B000u, // bc=8 res=3 pi=282 RU864
-    0x11C6F000u, // bc=8 res=3 pi=283 RU864
-    0x11C73000u, // bc=8 res=3 pi=284 RU864
-    0x11C77000u, // bc=8 res=3 pi=285 RU864
-    0x11C7B000u, // bc=8 res=3 pi=286 RU864
-    0x11C80800u, // bc=8 res=3 pi=288 EU868
-    0x11C84800u, // bc=8 res=3 pi=289 EU868
-    0x11C88800u, // bc=8 res=3 pi=290 EU868
-    0x11C8C800u, // bc=8 res=3 pi=291 EU868
-    0x11C90800u, // bc=8 res=3 pi=292 EU868
-    0x11C94800u, // bc=8 res=3 pi=293 EU868
-    0x11C98800u, // bc=8 res=3 pi=294 EU868
     0x11CA0800u, // bc=8 res=3 pi=296 EU868
     0x11CA7000u, // bc=8 res=3 pi=297 RU864
     0x11CAB000u, // bc=8 res=3 pi=298 RU864
@@ -1755,89 +551,15 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x11CD0800u, // bc=8 res=3 pi=308 EU868
     0x11CD4800u, // bc=8 res=3 pi=309 EU868
     0x11CD8800u, // bc=8 res=3 pi=310 EU868
-    0x11D03000u, // bc=8 res=3 pi=320 RU864
-    0x11D07000u, // bc=8 res=3 pi=321 RU864
-    0x11D0B000u, // bc=8 res=3 pi=322 RU864
-    0x11D0F000u, // bc=8 res=3 pi=323 RU864
-    0x11D13000u, // bc=8 res=3 pi=324 RU864
-    0x11D17000u, // bc=8 res=3 pi=325 RU864
-    0x11D1B000u, // bc=8 res=3 pi=326 RU864
     0x11D23000u, // bc=8 res=3 pi=328 RU864
     0x11D27000u, // bc=8 res=3 pi=329 RU864
     0x11D2B000u, // bc=8 res=3 pi=330 RU864
+    0x11D2F000u, // bc=8 res=3 pi=331 RU864
     0x11D33000u, // bc=8 res=3 pi=332 RU864
     0x11D3B000u, // bc=8 res=3 pi=334 RU864
-    0x11D43000u, // bc=8 res=3 pi=336 RU864
-    0x11D47000u, // bc=8 res=3 pi=337 RU864
-    0x11D4B000u, // bc=8 res=3 pi=338 RU864
-    0x11D4F000u, // bc=8 res=3 pi=339 RU864
-    0x11D53000u, // bc=8 res=3 pi=340 RU864
-    0x11D57000u, // bc=8 res=3 pi=341 RU864
-    0x11D5B000u, // bc=8 res=3 pi=342 RU864
-    0x11D63000u, // bc=8 res=3 pi=344 RU864
-    0x11D67000u, // bc=8 res=3 pi=345 RU864
-    0x11D6B000u, // bc=8 res=3 pi=346 RU864
-    0x11D6F000u, // bc=8 res=3 pi=347 RU864
-    0x11D73000u, // bc=8 res=3 pi=348 RU864
-    0x11D77000u, // bc=8 res=3 pi=349 RU864
-    0x11D7B000u, // bc=8 res=3 pi=350 RU864
-    0x11D83000u, // bc=8 res=3 pi=352 RU864
-    0x11D87000u, // bc=8 res=3 pi=353 RU864
-    0x11D8B000u, // bc=8 res=3 pi=354 RU864
-    0x11D8F000u, // bc=8 res=3 pi=355 RU864
-    0x11D93000u, // bc=8 res=3 pi=356 RU864
-    0x11D97000u, // bc=8 res=3 pi=357 RU864
-    0x11D9B000u, // bc=8 res=3 pi=358 RU864
+    0x11DAB000u, // bc=8 res=3 pi=362 RU864
+    0x11DB3000u, // bc=8 res=3 pi=364 RU864
     0x11DBB000u, // bc=8 res=3 pi=366 RU864
-    0x11DC3000u, // bc=8 res=3 pi=368 RU864
-    0x11DC7000u, // bc=8 res=3 pi=369 RU864
-    0x11DCB000u, // bc=8 res=3 pi=370 RU864
-    0x11DCF000u, // bc=8 res=3 pi=371 RU864
-    0x11DD3000u, // bc=8 res=3 pi=372 RU864
-    0x11DD7000u, // bc=8 res=3 pi=373 RU864
-    0x11DDB000u, // bc=8 res=3 pi=374 RU864
-    0x11E03000u, // bc=8 res=3 pi=384 RU864
-    0x11E07000u, // bc=8 res=3 pi=385 RU864
-    0x11E0B000u, // bc=8 res=3 pi=386 RU864
-    0x11E0F000u, // bc=8 res=3 pi=387 RU864
-    0x11E13000u, // bc=8 res=3 pi=388 RU864
-    0x11E17000u, // bc=8 res=3 pi=389 RU864
-    0x11E1B000u, // bc=8 res=3 pi=390 RU864
-    0x11E23000u, // bc=8 res=3 pi=392 RU864
-    0x11E27000u, // bc=8 res=3 pi=393 RU864
-    0x11E2B000u, // bc=8 res=3 pi=394 RU864
-    0x11E2F000u, // bc=8 res=3 pi=395 RU864
-    0x11E33000u, // bc=8 res=3 pi=396 RU864
-    0x11E37000u, // bc=8 res=3 pi=397 RU864
-    0x11E3B000u, // bc=8 res=3 pi=398 RU864
-    0x11E43000u, // bc=8 res=3 pi=400 RU864
-    0x11E47000u, // bc=8 res=3 pi=401 RU864
-    0x11E4B000u, // bc=8 res=3 pi=402 RU864
-    0x11E4F000u, // bc=8 res=3 pi=403 RU864
-    0x11E53000u, // bc=8 res=3 pi=404 RU864
-    0x11E57000u, // bc=8 res=3 pi=405 RU864
-    0x11E5B000u, // bc=8 res=3 pi=406 RU864
-    0x11E63000u, // bc=8 res=3 pi=408 RU864
-    0x11E67000u, // bc=8 res=3 pi=409 RU864
-    0x11E6B000u, // bc=8 res=3 pi=410 RU864
-    0x11E6F000u, // bc=8 res=3 pi=411 RU864
-    0x11E73000u, // bc=8 res=3 pi=412 RU864
-    0x11E77000u, // bc=8 res=3 pi=413 RU864
-    0x11E7B000u, // bc=8 res=3 pi=414 RU864
-    0x11E83000u, // bc=8 res=3 pi=416 RU864
-    0x11E87000u, // bc=8 res=3 pi=417 RU864
-    0x11E8B000u, // bc=8 res=3 pi=418 RU864
-    0x11E8F000u, // bc=8 res=3 pi=419 RU864
-    0x11E93000u, // bc=8 res=3 pi=420 RU864
-    0x11E97000u, // bc=8 res=3 pi=421 RU864
-    0x11E9B000u, // bc=8 res=3 pi=422 RU864
-    0x11EA3000u, // bc=8 res=3 pi=424 RU864
-    0x11EA7000u, // bc=8 res=3 pi=425 RU864
-    0x11EAB000u, // bc=8 res=3 pi=426 RU864
-    0x11EAF000u, // bc=8 res=3 pi=427 RU864
-    0x11EB3000u, // bc=8 res=3 pi=428 RU864
-    0x11EB7000u, // bc=8 res=3 pi=429 RU864
-    0x11EBB000u, // bc=8 res=3 pi=430 RU864
     0x11EC3000u, // bc=8 res=3 pi=432 RU864
     0x11EC7000u, // bc=8 res=3 pi=433 RU864
     0x11EC8800u, // bc=8 res=3 pi=434 EU868
@@ -1847,371 +569,50 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x11ED8800u, // bc=8 res=3 pi=438 EU868
     0x12800400u, // bc=9 res=1 pi=0 US915
     0x12804400u, // bc=9 res=1 pi=1 US915
-    0x12808400u, // bc=9 res=1 pi=2 US915
     0x1280C400u, // bc=9 res=1 pi=3 US915
     0x12810400u, // bc=9 res=1 pi=4 US915
     0x12814400u, // bc=9 res=1 pi=5 US915
     0x12818400u, // bc=9 res=1 pi=6 US915
-    0x13800400u, // bc=9 res=3 pi=0 US915
-    0x13804400u, // bc=9 res=3 pi=1 US915
-    0x13808400u, // bc=9 res=3 pi=2 US915
-    0x1380C400u, // bc=9 res=3 pi=3 US915
-    0x13810400u, // bc=9 res=3 pi=4 US915
-    0x13814400u, // bc=9 res=3 pi=5 US915
-    0x13818400u, // bc=9 res=3 pi=6 US915
-    0x13820400u, // bc=9 res=3 pi=8 US915
-    0x13824400u, // bc=9 res=3 pi=9 US915
-    0x13828400u, // bc=9 res=3 pi=10 US915
-    0x1382C400u, // bc=9 res=3 pi=11 US915
-    0x13830400u, // bc=9 res=3 pi=12 US915
-    0x13834400u, // bc=9 res=3 pi=13 US915
-    0x13838400u, // bc=9 res=3 pi=14 US915
-    0x13840400u, // bc=9 res=3 pi=16 US915
-    0x13844400u, // bc=9 res=3 pi=17 US915
-    0x13848400u, // bc=9 res=3 pi=18 US915
-    0x1384C400u, // bc=9 res=3 pi=19 US915
-    0x13850400u, // bc=9 res=3 pi=20 US915
-    0x13854400u, // bc=9 res=3 pi=21 US915
-    0x13858400u, // bc=9 res=3 pi=22 US915
-    0x13860400u, // bc=9 res=3 pi=24 US915
-    0x13864400u, // bc=9 res=3 pi=25 US915
-    0x13868400u, // bc=9 res=3 pi=26 US915
-    0x1386C400u, // bc=9 res=3 pi=27 US915
-    0x13870400u, // bc=9 res=3 pi=28 US915
-    0x13874400u, // bc=9 res=3 pi=29 US915
-    0x13878400u, // bc=9 res=3 pi=30 US915
-    0x13880400u, // bc=9 res=3 pi=32 US915
-    0x13884400u, // bc=9 res=3 pi=33 US915
-    0x13888400u, // bc=9 res=3 pi=34 US915
-    0x1388C400u, // bc=9 res=3 pi=35 US915
-    0x13890400u, // bc=9 res=3 pi=36 US915
-    0x13894400u, // bc=9 res=3 pi=37 US915
-    0x13898400u, // bc=9 res=3 pi=38 US915
-    0x138A0400u, // bc=9 res=3 pi=40 US915
-    0x138A4400u, // bc=9 res=3 pi=41 US915
-    0x138A8400u, // bc=9 res=3 pi=42 US915
-    0x138AC400u, // bc=9 res=3 pi=43 US915
-    0x138B0400u, // bc=9 res=3 pi=44 US915
-    0x138B4400u, // bc=9 res=3 pi=45 US915
-    0x138B8400u, // bc=9 res=3 pi=46 US915
-    0x138C0400u, // bc=9 res=3 pi=48 US915
-    0x138C4400u, // bc=9 res=3 pi=49 US915
-    0x138C8400u, // bc=9 res=3 pi=50 US915
-    0x138CC400u, // bc=9 res=3 pi=51 US915
-    0x138D0400u, // bc=9 res=3 pi=52 US915
-    0x138D4400u, // bc=9 res=3 pi=53 US915
-    0x138D8400u, // bc=9 res=3 pi=54 US915
-    0x13900400u, // bc=9 res=3 pi=64 US915
-    0x13904400u, // bc=9 res=3 pi=65 US915
-    0x13908400u, // bc=9 res=3 pi=66 US915
-    0x1390C400u, // bc=9 res=3 pi=67 US915
-    0x13910400u, // bc=9 res=3 pi=68 US915
-    0x13914400u, // bc=9 res=3 pi=69 US915
-    0x13918400u, // bc=9 res=3 pi=70 US915
-    0x13920400u, // bc=9 res=3 pi=72 US915
-    0x13924400u, // bc=9 res=3 pi=73 US915
-    0x13928400u, // bc=9 res=3 pi=74 US915
-    0x1392C400u, // bc=9 res=3 pi=75 US915
-    0x13930400u, // bc=9 res=3 pi=76 US915
-    0x13934400u, // bc=9 res=3 pi=77 US915
-    0x13938400u, // bc=9 res=3 pi=78 US915
-    0x13940400u, // bc=9 res=3 pi=80 US915
-    0x13944400u, // bc=9 res=3 pi=81 US915
-    0x13948400u, // bc=9 res=3 pi=82 US915
-    0x1394C400u, // bc=9 res=3 pi=83 US915
-    0x13950400u, // bc=9 res=3 pi=84 US915
-    0x13954400u, // bc=9 res=3 pi=85 US915
-    0x13958400u, // bc=9 res=3 pi=86 US915
-    0x13960400u, // bc=9 res=3 pi=88 US915
-    0x13964400u, // bc=9 res=3 pi=89 US915
-    0x13968400u, // bc=9 res=3 pi=90 US915
-    0x1396C400u, // bc=9 res=3 pi=91 US915
-    0x13970400u, // bc=9 res=3 pi=92 US915
-    0x13974400u, // bc=9 res=3 pi=93 US915
-    0x13978400u, // bc=9 res=3 pi=94 US915
-    0x13980400u, // bc=9 res=3 pi=96 US915
-    0x13984400u, // bc=9 res=3 pi=97 US915
-    0x13988400u, // bc=9 res=3 pi=98 US915
-    0x1398C400u, // bc=9 res=3 pi=99 US915
-    0x13990400u, // bc=9 res=3 pi=100 US915
-    0x13994400u, // bc=9 res=3 pi=101 US915
-    0x13998400u, // bc=9 res=3 pi=102 US915
-    0x139A0400u, // bc=9 res=3 pi=104 US915
-    0x139A4400u, // bc=9 res=3 pi=105 US915
-    0x139A8400u, // bc=9 res=3 pi=106 US915
-    0x139AC400u, // bc=9 res=3 pi=107 US915
-    0x139B0400u, // bc=9 res=3 pi=108 US915
-    0x139B4400u, // bc=9 res=3 pi=109 US915
-    0x139B8400u, // bc=9 res=3 pi=110 US915
-    0x139C0400u, // bc=9 res=3 pi=112 US915
-    0x139C4400u, // bc=9 res=3 pi=113 US915
-    0x139C8400u, // bc=9 res=3 pi=114 US915
-    0x139CC400u, // bc=9 res=3 pi=115 US915
-    0x139D0400u, // bc=9 res=3 pi=116 US915
-    0x139D4400u, // bc=9 res=3 pi=117 US915
-    0x139D8400u, // bc=9 res=3 pi=118 US915
-    0x13A00400u, // bc=9 res=3 pi=128 US915
-    0x13A04400u, // bc=9 res=3 pi=129 US915
-    0x13A08400u, // bc=9 res=3 pi=130 US915
-    0x13A0C400u, // bc=9 res=3 pi=131 US915
-    0x13A10400u, // bc=9 res=3 pi=132 US915
-    0x13A14400u, // bc=9 res=3 pi=133 US915
-    0x13A18400u, // bc=9 res=3 pi=134 US915
-    0x13A20400u, // bc=9 res=3 pi=136 US915
-    0x13A24400u, // bc=9 res=3 pi=137 US915
-    0x13A28400u, // bc=9 res=3 pi=138 US915
-    0x13A2C400u, // bc=9 res=3 pi=139 US915
-    0x13A30400u, // bc=9 res=3 pi=140 US915
-    0x13A34400u, // bc=9 res=3 pi=141 US915
-    0x13A38400u, // bc=9 res=3 pi=142 US915
-    0x13A40400u, // bc=9 res=3 pi=144 US915
-    0x13A4C400u, // bc=9 res=3 pi=147 US915
-    0x13A50400u, // bc=9 res=3 pi=148 US915
-    0x13A54400u, // bc=9 res=3 pi=149 US915
+    0x13040400u, // bc=9 res=2 pi=16 US915
+    0x13044400u, // bc=9 res=2 pi=17 US915
+    0x13048400u, // bc=9 res=2 pi=18 US915
+    0x13050400u, // bc=9 res=2 pi=20 US915
+    0x13054400u, // bc=9 res=2 pi=21 US915
+    0x13058400u, // bc=9 res=2 pi=22 US915
     0x13A60400u, // bc=9 res=3 pi=152 US915
     0x13A64400u, // bc=9 res=3 pi=153 US915
     0x13A68400u, // bc=9 res=3 pi=154 US915
     0x13A6C400u, // bc=9 res=3 pi=155 US915
     0x13A70400u, // bc=9 res=3 pi=156 US915
     0x13A74400u, // bc=9 res=3 pi=157 US915
-    0x13A80400u, // bc=9 res=3 pi=160 US915
-    0x13A84400u, // bc=9 res=3 pi=161 US915
-    0x13A88400u, // bc=9 res=3 pi=162 US915
-    0x13A8C400u, // bc=9 res=3 pi=163 US915
-    0x13A90400u, // bc=9 res=3 pi=164 US915
-    0x13A94400u, // bc=9 res=3 pi=165 US915
-    0x13A98400u, // bc=9 res=3 pi=166 US915
-    0x13AA0400u, // bc=9 res=3 pi=168 US915
-    0x13AA4400u, // bc=9 res=3 pi=169 US915
-    0x13AA8400u, // bc=9 res=3 pi=170 US915
-    0x13AAC400u, // bc=9 res=3 pi=171 US915
-    0x13AB0400u, // bc=9 res=3 pi=172 US915
-    0x13AB4400u, // bc=9 res=3 pi=173 US915
-    0x13AB8400u, // bc=9 res=3 pi=174 US915
-    0x13AC0400u, // bc=9 res=3 pi=176 US915
-    0x13AC4400u, // bc=9 res=3 pi=177 US915
-    0x13AC8400u, // bc=9 res=3 pi=178 US915
-    0x13ACC400u, // bc=9 res=3 pi=179 US915
-    0x13AD0400u, // bc=9 res=3 pi=180 US915
-    0x13AD4400u, // bc=9 res=3 pi=181 US915
-    0x13AD8400u, // bc=9 res=3 pi=182 US915
-    0x13B00400u, // bc=9 res=3 pi=192 US915
-    0x13B04400u, // bc=9 res=3 pi=193 US915
-    0x13B08400u, // bc=9 res=3 pi=194 US915
-    0x13B0C400u, // bc=9 res=3 pi=195 US915
-    0x13B10400u, // bc=9 res=3 pi=196 US915
-    0x13B14400u, // bc=9 res=3 pi=197 US915
-    0x13B18400u, // bc=9 res=3 pi=198 US915
-    0x13B20400u, // bc=9 res=3 pi=200 US915
-    0x13B24400u, // bc=9 res=3 pi=201 US915
-    0x13B28400u, // bc=9 res=3 pi=202 US915
-    0x13B2C400u, // bc=9 res=3 pi=203 US915
-    0x13B30400u, // bc=9 res=3 pi=204 US915
-    0x13B34400u, // bc=9 res=3 pi=205 US915
-    0x13B38400u, // bc=9 res=3 pi=206 US915
-    0x13B40400u, // bc=9 res=3 pi=208 US915
-    0x13B44400u, // bc=9 res=3 pi=209 US915
-    0x13B48400u, // bc=9 res=3 pi=210 US915
-    0x13B4C400u, // bc=9 res=3 pi=211 US915
-    0x13B50400u, // bc=9 res=3 pi=212 US915
-    0x13B54400u, // bc=9 res=3 pi=213 US915
-    0x13B58400u, // bc=9 res=3 pi=214 US915
-    0x13B60400u, // bc=9 res=3 pi=216 US915
-    0x13B64400u, // bc=9 res=3 pi=217 US915
-    0x13B68400u, // bc=9 res=3 pi=218 US915
-    0x13B6C400u, // bc=9 res=3 pi=219 US915
-    0x13B70400u, // bc=9 res=3 pi=220 US915
-    0x13B74400u, // bc=9 res=3 pi=221 US915
-    0x13B78400u, // bc=9 res=3 pi=222 US915
-    0x13B80400u, // bc=9 res=3 pi=224 US915
-    0x13B84400u, // bc=9 res=3 pi=225 US915
-    0x13B88400u, // bc=9 res=3 pi=226 US915
-    0x13B8C400u, // bc=9 res=3 pi=227 US915
-    0x13B90400u, // bc=9 res=3 pi=228 US915
-    0x13B94400u, // bc=9 res=3 pi=229 US915
-    0x13B98400u, // bc=9 res=3 pi=230 US915
-    0x13BA0400u, // bc=9 res=3 pi=232 US915
-    0x13BA4400u, // bc=9 res=3 pi=233 US915
-    0x13BA8400u, // bc=9 res=3 pi=234 US915
-    0x13BAC400u, // bc=9 res=3 pi=235 US915
-    0x13BB0400u, // bc=9 res=3 pi=236 US915
-    0x13BB4400u, // bc=9 res=3 pi=237 US915
-    0x13BB8400u, // bc=9 res=3 pi=238 US915
-    0x13BC0400u, // bc=9 res=3 pi=240 US915
-    0x13BC4400u, // bc=9 res=3 pi=241 US915
-    0x13BC8400u, // bc=9 res=3 pi=242 US915
-    0x13BCC400u, // bc=9 res=3 pi=243 US915
-    0x13BD0400u, // bc=9 res=3 pi=244 US915
-    0x13BD4400u, // bc=9 res=3 pi=245 US915
-    0x13BD8400u, // bc=9 res=3 pi=246 US915
-    0x13C00400u, // bc=9 res=3 pi=256 US915
-    0x13C04400u, // bc=9 res=3 pi=257 US915
-    0x13C08400u, // bc=9 res=3 pi=258 US915
-    0x13C0C400u, // bc=9 res=3 pi=259 US915
-    0x13C10400u, // bc=9 res=3 pi=260 US915
-    0x13C14400u, // bc=9 res=3 pi=261 US915
-    0x13C18400u, // bc=9 res=3 pi=262 US915
-    0x13C20400u, // bc=9 res=3 pi=264 US915
-    0x13C24400u, // bc=9 res=3 pi=265 US915
-    0x13C28400u, // bc=9 res=3 pi=266 US915
-    0x13C2C400u, // bc=9 res=3 pi=267 US915
-    0x13C30400u, // bc=9 res=3 pi=268 US915
-    0x13C34400u, // bc=9 res=3 pi=269 US915
-    0x13C38400u, // bc=9 res=3 pi=270 US915
-    0x13C40400u, // bc=9 res=3 pi=272 US915
-    0x13C44400u, // bc=9 res=3 pi=273 US915
-    0x13C48400u, // bc=9 res=3 pi=274 US915
-    0x13C4C400u, // bc=9 res=3 pi=275 US915
-    0x13C50400u, // bc=9 res=3 pi=276 US915
-    0x13C54400u, // bc=9 res=3 pi=277 US915
-    0x13C58400u, // bc=9 res=3 pi=278 US915
-    0x13C60400u, // bc=9 res=3 pi=280 US915
-    0x13C64400u, // bc=9 res=3 pi=281 US915
-    0x13C68400u, // bc=9 res=3 pi=282 US915
-    0x13C6C400u, // bc=9 res=3 pi=283 US915
-    0x13C70400u, // bc=9 res=3 pi=284 US915
-    0x13C74400u, // bc=9 res=3 pi=285 US915
-    0x13C78400u, // bc=9 res=3 pi=286 US915
-    0x13C80400u, // bc=9 res=3 pi=288 US915
-    0x13C84400u, // bc=9 res=3 pi=289 US915
-    0x13C88400u, // bc=9 res=3 pi=290 US915
-    0x13C8C400u, // bc=9 res=3 pi=291 US915
-    0x13C90400u, // bc=9 res=3 pi=292 US915
-    0x13C94400u, // bc=9 res=3 pi=293 US915
-    0x13C98400u, // bc=9 res=3 pi=294 US915
-    0x13CA0400u, // bc=9 res=3 pi=296 US915
-    0x13CA4400u, // bc=9 res=3 pi=297 US915
-    0x13CA8400u, // bc=9 res=3 pi=298 US915
-    0x13CAC400u, // bc=9 res=3 pi=299 US915
-    0x13CB0400u, // bc=9 res=3 pi=300 US915
-    0x13CB4400u, // bc=9 res=3 pi=301 US915
-    0x13CB8400u, // bc=9 res=3 pi=302 US915
-    0x13CC0400u, // bc=9 res=3 pi=304 US915
-    0x13CC4400u, // bc=9 res=3 pi=305 US915
-    0x13CC8400u, // bc=9 res=3 pi=306 US915
-    0x13CCC400u, // bc=9 res=3 pi=307 US915
-    0x13CD0400u, // bc=9 res=3 pi=308 US915
-    0x13CD4400u, // bc=9 res=3 pi=309 US915
-    0x13CD8400u, // bc=9 res=3 pi=310 US915
-    0x13D00400u, // bc=9 res=3 pi=320 US915
-    0x13D04400u, // bc=9 res=3 pi=321 US915
-    0x13D08400u, // bc=9 res=3 pi=322 US915
-    0x13D0C400u, // bc=9 res=3 pi=323 US915
-    0x13D10400u, // bc=9 res=3 pi=324 US915
-    0x13D14400u, // bc=9 res=3 pi=325 US915
-    0x13D18400u, // bc=9 res=3 pi=326 US915
-    0x13D20400u, // bc=9 res=3 pi=328 US915
-    0x13D24400u, // bc=9 res=3 pi=329 US915
-    0x13D28400u, // bc=9 res=3 pi=330 US915
-    0x13D2C400u, // bc=9 res=3 pi=331 US915
-    0x13D30400u, // bc=9 res=3 pi=332 US915
-    0x13D34400u, // bc=9 res=3 pi=333 US915
-    0x13D38400u, // bc=9 res=3 pi=334 US915
-    0x13D40400u, // bc=9 res=3 pi=336 US915
-    0x13D44400u, // bc=9 res=3 pi=337 US915
-    0x13D48400u, // bc=9 res=3 pi=338 US915
-    0x13D4C400u, // bc=9 res=3 pi=339 US915
-    0x13D50400u, // bc=9 res=3 pi=340 US915
-    0x13D54400u, // bc=9 res=3 pi=341 US915
-    0x13D58400u, // bc=9 res=3 pi=342 US915
-    0x13D60400u, // bc=9 res=3 pi=344 US915
-    0x13D64400u, // bc=9 res=3 pi=345 US915
-    0x13D68400u, // bc=9 res=3 pi=346 US915
-    0x13D6C400u, // bc=9 res=3 pi=347 US915
-    0x13D70400u, // bc=9 res=3 pi=348 US915
-    0x13D74400u, // bc=9 res=3 pi=349 US915
-    0x13D78400u, // bc=9 res=3 pi=350 US915
-    0x13D80400u, // bc=9 res=3 pi=352 US915
-    0x13D84400u, // bc=9 res=3 pi=353 US915
-    0x13D88400u, // bc=9 res=3 pi=354 US915
-    0x13D8C400u, // bc=9 res=3 pi=355 US915
-    0x13D90400u, // bc=9 res=3 pi=356 US915
-    0x13D94400u, // bc=9 res=3 pi=357 US915
-    0x13D98400u, // bc=9 res=3 pi=358 US915
-    0x13DA0400u, // bc=9 res=3 pi=360 US915
-    0x13DA4400u, // bc=9 res=3 pi=361 US915
-    0x13DA8400u, // bc=9 res=3 pi=362 US915
-    0x13DAC400u, // bc=9 res=3 pi=363 US915
-    0x13DB0400u, // bc=9 res=3 pi=364 US915
-    0x13DB4400u, // bc=9 res=3 pi=365 US915
-    0x13DB8400u, // bc=9 res=3 pi=366 US915
-    0x13DC0400u, // bc=9 res=3 pi=368 US915
-    0x13DC4400u, // bc=9 res=3 pi=369 US915
-    0x13DC8400u, // bc=9 res=3 pi=370 US915
-    0x13DCC400u, // bc=9 res=3 pi=371 US915
-    0x13DD0400u, // bc=9 res=3 pi=372 US915
-    0x13DD4400u, // bc=9 res=3 pi=373 US915
-    0x13DD8400u, // bc=9 res=3 pi=374 US915
-    0x13E00400u, // bc=9 res=3 pi=384 US915
-    0x13E04400u, // bc=9 res=3 pi=385 US915
-    0x13E08400u, // bc=9 res=3 pi=386 US915
-    0x13E0C400u, // bc=9 res=3 pi=387 US915
-    0x13E10400u, // bc=9 res=3 pi=388 US915
-    0x13E14400u, // bc=9 res=3 pi=389 US915
-    0x13E18400u, // bc=9 res=3 pi=390 US915
-    0x13E20400u, // bc=9 res=3 pi=392 US915
-    0x13E24400u, // bc=9 res=3 pi=393 US915
-    0x13E28400u, // bc=9 res=3 pi=394 US915
-    0x13E2C400u, // bc=9 res=3 pi=395 US915
-    0x13E30400u, // bc=9 res=3 pi=396 US915
-    0x13E34400u, // bc=9 res=3 pi=397 US915
-    0x13E38400u, // bc=9 res=3 pi=398 US915
-    0x13E40400u, // bc=9 res=3 pi=400 US915
-    0x13E44400u, // bc=9 res=3 pi=401 US915
-    0x13E48400u, // bc=9 res=3 pi=402 US915
-    0x13E4C400u, // bc=9 res=3 pi=403 US915
-    0x13E50400u, // bc=9 res=3 pi=404 US915
-    0x13E54400u, // bc=9 res=3 pi=405 US915
-    0x13E58400u, // bc=9 res=3 pi=406 US915
-    0x13E60400u, // bc=9 res=3 pi=408 US915
-    0x13E64400u, // bc=9 res=3 pi=409 US915
-    0x13E68400u, // bc=9 res=3 pi=410 US915
-    0x13E6C400u, // bc=9 res=3 pi=411 US915
-    0x13E70400u, // bc=9 res=3 pi=412 US915
-    0x13E74400u, // bc=9 res=3 pi=413 US915
-    0x13E78400u, // bc=9 res=3 pi=414 US915
-    0x13E80400u, // bc=9 res=3 pi=416 US915
-    0x13E84400u, // bc=9 res=3 pi=417 US915
-    0x13E88400u, // bc=9 res=3 pi=418 US915
-    0x13E8C400u, // bc=9 res=3 pi=419 US915
-    0x13E90400u, // bc=9 res=3 pi=420 US915
-    0x13E94400u, // bc=9 res=3 pi=421 US915
-    0x13E98400u, // bc=9 res=3 pi=422 US915
-    0x13EA0400u, // bc=9 res=3 pi=424 US915
-    0x13EA4400u, // bc=9 res=3 pi=425 US915
-    0x13EA8400u, // bc=9 res=3 pi=426 US915
-    0x13EAC400u, // bc=9 res=3 pi=427 US915
-    0x13EB0400u, // bc=9 res=3 pi=428 US915
-    0x13EB4400u, // bc=9 res=3 pi=429 US915
-    0x13EB8400u, // bc=9 res=3 pi=430 US915
-    0x13EC0400u, // bc=9 res=3 pi=432 US915
-    0x13EC4400u, // bc=9 res=3 pi=433 US915
-    0x13EC8400u, // bc=9 res=3 pi=434 US915
-    0x13ECC400u, // bc=9 res=3 pi=435 US915
-    0x13ED0400u, // bc=9 res=3 pi=436 US915
-    0x13ED4400u, // bc=9 res=3 pi=437 US915
-    0x13ED8400u, // bc=9 res=3 pi=438 US915
-    0x14803000u, // bc=10 res=1 pi=0 RU864
-    0x14807000u, // bc=10 res=1 pi=1 RU864
-    0x1480B400u, // bc=10 res=1 pi=2 CN470
-    0x1480F000u, // bc=10 res=1 pi=3 RU864
     0x14813000u, // bc=10 res=1 pi=4 RU864
     0x14817000u, // bc=10 res=1 pi=5 RU864
-    0x1481B000u, // bc=10 res=1 pi=6 RU864
-    0x15803000u, // bc=10 res=3 pi=0 RU864
-    0x15807000u, // bc=10 res=3 pi=1 RU864
-    0x1580B000u, // bc=10 res=3 pi=2 RU864
-    0x1580F000u, // bc=10 res=3 pi=3 RU864
-    0x15813000u, // bc=10 res=3 pi=4 RU864
-    0x15817000u, // bc=10 res=3 pi=5 RU864
-    0x1581B000u, // bc=10 res=3 pi=6 RU864
-    0x15823000u, // bc=10 res=3 pi=8 RU864
-    0x15827000u, // bc=10 res=3 pi=9 RU864
-    0x1582B000u, // bc=10 res=3 pi=10 RU864
-    0x1582F000u, // bc=10 res=3 pi=11 RU864
-    0x15833000u, // bc=10 res=3 pi=12 RU864
-    0x15837000u, // bc=10 res=3 pi=13 RU864
-    0x1583B000u, // bc=10 res=3 pi=14 RU864
+    0x15003000u, // bc=10 res=2 pi=0 RU864
+    0x15007000u, // bc=10 res=2 pi=1 RU864
+    0x1500F000u, // bc=10 res=2 pi=3 RU864
+    0x15013000u, // bc=10 res=2 pi=4 RU864
+    0x15017000u, // bc=10 res=2 pi=5 RU864
+    0x15023000u, // bc=10 res=2 pi=8 RU864
+    0x15033000u, // bc=10 res=2 pi=12 RU864
+    0x15037000u, // bc=10 res=2 pi=13 RU864
+    0x1503B000u, // bc=10 res=2 pi=14 RU864
+    0x15043400u, // bc=10 res=2 pi=16 CN470
+    0x15047000u, // bc=10 res=2 pi=17 RU864
+    0x1504B400u, // bc=10 res=2 pi=18 CN470
+    0x1504F400u, // bc=10 res=2 pi=19 CN470
+    0x15053400u, // bc=10 res=2 pi=20 CN470
+    0x15057000u, // bc=10 res=2 pi=21 RU864
+    0x1505B400u, // bc=10 res=2 pi=22 CN470
+    0x15063000u, // bc=10 res=2 pi=24 RU864
+    0x1506B000u, // bc=10 res=2 pi=26 RU864
+    0x1506F000u, // bc=10 res=2 pi=27 RU864
+    0x15073000u, // bc=10 res=2 pi=28 RU864
+    0x1507B000u, // bc=10 res=2 pi=30 RU864
+    0x150C3000u, // bc=10 res=2 pi=48 RU864
+    0x150CB400u, // bc=10 res=2 pi=50 CN470
+    0x150CF400u, // bc=10 res=2 pi=51 CN470
+    0x150D3000u, // bc=10 res=2 pi=52 RU864
+    0x150D7000u, // bc=10 res=2 pi=53 RU864
     0x15843000u, // bc=10 res=3 pi=16 RU864
     0x15847000u, // bc=10 res=3 pi=17 RU864
     0x1584B400u, // bc=10 res=3 pi=18 CN470
@@ -2219,27 +620,6 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x15853400u, // bc=10 res=3 pi=20 CN470
     0x15857000u, // bc=10 res=3 pi=21 RU864
     0x1585B400u, // bc=10 res=3 pi=22 CN470
-    0x15863000u, // bc=10 res=3 pi=24 RU864
-    0x15867000u, // bc=10 res=3 pi=25 RU864
-    0x1586B000u, // bc=10 res=3 pi=26 RU864
-    0x1586F000u, // bc=10 res=3 pi=27 RU864
-    0x15873000u, // bc=10 res=3 pi=28 RU864
-    0x15877000u, // bc=10 res=3 pi=29 RU864
-    0x1587B000u, // bc=10 res=3 pi=30 RU864
-    0x15883000u, // bc=10 res=3 pi=32 RU864
-    0x15887000u, // bc=10 res=3 pi=33 RU864
-    0x1588B000u, // bc=10 res=3 pi=34 RU864
-    0x1588F000u, // bc=10 res=3 pi=35 RU864
-    0x15893000u, // bc=10 res=3 pi=36 RU864
-    0x15897000u, // bc=10 res=3 pi=37 RU864
-    0x1589B000u, // bc=10 res=3 pi=38 RU864
-    0x158A3000u, // bc=10 res=3 pi=40 RU864
-    0x158A7000u, // bc=10 res=3 pi=41 RU864
-    0x158AB000u, // bc=10 res=3 pi=42 RU864
-    0x158AF000u, // bc=10 res=3 pi=43 RU864
-    0x158B3000u, // bc=10 res=3 pi=44 RU864
-    0x158B7000u, // bc=10 res=3 pi=45 RU864
-    0x158BB000u, // bc=10 res=3 pi=46 RU864
     0x158C3000u, // bc=10 res=3 pi=48 RU864
     0x158C7000u, // bc=10 res=3 pi=49 RU864
     0x158CB400u, // bc=10 res=3 pi=50 CN470
@@ -2247,235 +627,31 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x158D3000u, // bc=10 res=3 pi=52 RU864
     0x158D7000u, // bc=10 res=3 pi=53 RU864
     0x158DB000u, // bc=10 res=3 pi=54 RU864
-    0x15903000u, // bc=10 res=3 pi=64 RU864
-    0x15907000u, // bc=10 res=3 pi=65 RU864
-    0x1590B000u, // bc=10 res=3 pi=66 RU864
-    0x1590F000u, // bc=10 res=3 pi=67 RU864
-    0x15913000u, // bc=10 res=3 pi=68 RU864
-    0x15917000u, // bc=10 res=3 pi=69 RU864
-    0x1591B000u, // bc=10 res=3 pi=70 RU864
+    0x15923000u, // bc=10 res=3 pi=72 RU864
     0x15927000u, // bc=10 res=3 pi=73 RU864
     0x15933000u, // bc=10 res=3 pi=76 RU864
     0x15937000u, // bc=10 res=3 pi=77 RU864
+    0x1593B000u, // bc=10 res=3 pi=78 RU864
     0x15943000u, // bc=10 res=3 pi=80 RU864
+    0x15947000u, // bc=10 res=3 pi=81 RU864
+    0x1594B000u, // bc=10 res=3 pi=82 RU864
     0x15953000u, // bc=10 res=3 pi=84 RU864
     0x15957000u, // bc=10 res=3 pi=85 RU864
     0x1595B000u, // bc=10 res=3 pi=86 RU864
-    0x15983000u, // bc=10 res=3 pi=96 RU864
-    0x15987000u, // bc=10 res=3 pi=97 RU864
-    0x1598B000u, // bc=10 res=3 pi=98 RU864
-    0x1598F000u, // bc=10 res=3 pi=99 RU864
-    0x15993000u, // bc=10 res=3 pi=100 RU864
-    0x15997000u, // bc=10 res=3 pi=101 RU864
-    0x1599B000u, // bc=10 res=3 pi=102 RU864
-    0x159A3000u, // bc=10 res=3 pi=104 RU864
-    0x159A7000u, // bc=10 res=3 pi=105 RU864
-    0x159AB000u, // bc=10 res=3 pi=106 RU864
-    0x159AF000u, // bc=10 res=3 pi=107 RU864
-    0x159B3000u, // bc=10 res=3 pi=108 RU864
-    0x159B7000u, // bc=10 res=3 pi=109 RU864
-    0x159BB000u, // bc=10 res=3 pi=110 RU864
-    0x159C3000u, // bc=10 res=3 pi=112 RU864
-    0x159C7000u, // bc=10 res=3 pi=113 RU864
-    0x159CB000u, // bc=10 res=3 pi=114 RU864
-    0x159CF000u, // bc=10 res=3 pi=115 RU864
-    0x159D3000u, // bc=10 res=3 pi=116 RU864
-    0x159D7000u, // bc=10 res=3 pi=117 RU864
-    0x159DB000u, // bc=10 res=3 pi=118 RU864
-    0x15A03400u, // bc=10 res=3 pi=128 CN470
-    0x15A07400u, // bc=10 res=3 pi=129 CN470
-    0x15A0B400u, // bc=10 res=3 pi=130 CN470
-    0x15A0F400u, // bc=10 res=3 pi=131 CN470
-    0x15A13400u, // bc=10 res=3 pi=132 CN470
-    0x15A17400u, // bc=10 res=3 pi=133 CN470
-    0x15A1B400u, // bc=10 res=3 pi=134 CN470
-    0x15A23000u, // bc=10 res=3 pi=136 RU864
-    0x15A27000u, // bc=10 res=3 pi=137 RU864
-    0x15A2B000u, // bc=10 res=3 pi=138 RU864
-    0x15A2F000u, // bc=10 res=3 pi=139 RU864
-    0x15A33000u, // bc=10 res=3 pi=140 RU864
-    0x15A37000u, // bc=10 res=3 pi=141 RU864
-    0x15A3B000u, // bc=10 res=3 pi=142 RU864
-    0x15A43400u, // bc=10 res=3 pi=144 CN470
-    0x15A47400u, // bc=10 res=3 pi=145 CN470
-    0x15A4B400u, // bc=10 res=3 pi=146 CN470
-    0x15A4F400u, // bc=10 res=3 pi=147 CN470
-    0x15A53400u, // bc=10 res=3 pi=148 CN470
-    0x15A57400u, // bc=10 res=3 pi=149 CN470
-    0x15A5B400u, // bc=10 res=3 pi=150 CN470
-    0x15A63400u, // bc=10 res=3 pi=152 CN470
-    0x15A67400u, // bc=10 res=3 pi=153 CN470
-    0x15A6B400u, // bc=10 res=3 pi=154 CN470
-    0x15A6F400u, // bc=10 res=3 pi=155 CN470
-    0x15A73400u, // bc=10 res=3 pi=156 CN470
-    0x15A77400u, // bc=10 res=3 pi=157 CN470
-    0x15A7B400u, // bc=10 res=3 pi=158 CN470
-    0x15A83400u, // bc=10 res=3 pi=160 CN470
-    0x15A87400u, // bc=10 res=3 pi=161 CN470
-    0x15A8B400u, // bc=10 res=3 pi=162 CN470
-    0x15A8F400u, // bc=10 res=3 pi=163 CN470
-    0x15A93400u, // bc=10 res=3 pi=164 CN470
-    0x15A97400u, // bc=10 res=3 pi=165 CN470
-    0x15A9B400u, // bc=10 res=3 pi=166 CN470
-    0x15AA3000u, // bc=10 res=3 pi=168 RU864
-    0x15AA7000u, // bc=10 res=3 pi=169 RU864
-    0x15AAB000u, // bc=10 res=3 pi=170 RU864
-    0x15AAF000u, // bc=10 res=3 pi=171 RU864
-    0x15AB3000u, // bc=10 res=3 pi=172 RU864
-    0x15AB7000u, // bc=10 res=3 pi=173 RU864
-    0x15ABB000u, // bc=10 res=3 pi=174 RU864
-    0x15AC3400u, // bc=10 res=3 pi=176 CN470
-    0x15AC7400u, // bc=10 res=3 pi=177 CN470
-    0x15ACB400u, // bc=10 res=3 pi=178 CN470
-    0x15ACF400u, // bc=10 res=3 pi=179 CN470
-    0x15AD3400u, // bc=10 res=3 pi=180 CN470
-    0x15AD7400u, // bc=10 res=3 pi=181 CN470
-    0x15ADB400u, // bc=10 res=3 pi=182 CN470
-    0x15B03000u, // bc=10 res=3 pi=192 RU864
-    0x15B07000u, // bc=10 res=3 pi=193 RU864
-    0x15B0B000u, // bc=10 res=3 pi=194 RU864
-    0x15B0F000u, // bc=10 res=3 pi=195 RU864
-    0x15B13000u, // bc=10 res=3 pi=196 RU864
-    0x15B17000u, // bc=10 res=3 pi=197 RU864
-    0x15B1B000u, // bc=10 res=3 pi=198 RU864
+    0x15963000u, // bc=10 res=3 pi=88 RU864
+    0x15973000u, // bc=10 res=3 pi=92 RU864
     0x15B23000u, // bc=10 res=3 pi=200 RU864
     0x15B2B000u, // bc=10 res=3 pi=202 RU864
+    0x15B2F000u, // bc=10 res=3 pi=203 RU864
     0x15B33000u, // bc=10 res=3 pi=204 RU864
     0x15B37000u, // bc=10 res=3 pi=205 RU864
-    0x15B43000u, // bc=10 res=3 pi=208 RU864
-    0x15B47000u, // bc=10 res=3 pi=209 RU864
-    0x15B4B000u, // bc=10 res=3 pi=210 RU864
-    0x15B4F000u, // bc=10 res=3 pi=211 RU864
-    0x15B53000u, // bc=10 res=3 pi=212 RU864
-    0x15B57000u, // bc=10 res=3 pi=213 RU864
-    0x15B5B000u, // bc=10 res=3 pi=214 RU864
-    0x15B67000u, // bc=10 res=3 pi=217 RU864
-    0x15B6F000u, // bc=10 res=3 pi=219 RU864
-    0x15B73000u, // bc=10 res=3 pi=220 RU864
-    0x15B7B000u, // bc=10 res=3 pi=222 RU864
-    0x15B83000u, // bc=10 res=3 pi=224 RU864
-    0x15B87000u, // bc=10 res=3 pi=225 RU864
-    0x15B8B000u, // bc=10 res=3 pi=226 RU864
-    0x15B8F000u, // bc=10 res=3 pi=227 RU864
-    0x15B93000u, // bc=10 res=3 pi=228 RU864
-    0x15B97000u, // bc=10 res=3 pi=229 RU864
-    0x15B9B000u, // bc=10 res=3 pi=230 RU864
+    0x15B3B000u, // bc=10 res=3 pi=206 RU864
     0x15BA3000u, // bc=10 res=3 pi=232 RU864
+    0x15BA7000u, // bc=10 res=3 pi=233 RU864
     0x15BAB000u, // bc=10 res=3 pi=234 RU864
     0x15BAF000u, // bc=10 res=3 pi=235 RU864
+    0x15BB3000u, // bc=10 res=3 pi=236 RU864
     0x15BBB000u, // bc=10 res=3 pi=238 RU864
-    0x15BC3000u, // bc=10 res=3 pi=240 RU864
-    0x15BC7000u, // bc=10 res=3 pi=241 RU864
-    0x15BCB000u, // bc=10 res=3 pi=242 RU864
-    0x15BCF000u, // bc=10 res=3 pi=243 RU864
-    0x15BD3000u, // bc=10 res=3 pi=244 RU864
-    0x15BD7000u, // bc=10 res=3 pi=245 RU864
-    0x15BDB000u, // bc=10 res=3 pi=246 RU864
-    0x15C03000u, // bc=10 res=3 pi=256 RU864
-    0x15C07000u, // bc=10 res=3 pi=257 RU864
-    0x15C0B000u, // bc=10 res=3 pi=258 RU864
-    0x15C0F000u, // bc=10 res=3 pi=259 RU864
-    0x15C13000u, // bc=10 res=3 pi=260 RU864
-    0x15C17000u, // bc=10 res=3 pi=261 RU864
-    0x15C1B000u, // bc=10 res=3 pi=262 RU864
-    0x15C23000u, // bc=10 res=3 pi=264 RU864
-    0x15C27000u, // bc=10 res=3 pi=265 RU864
-    0x15C2B000u, // bc=10 res=3 pi=266 RU864
-    0x15C2F000u, // bc=10 res=3 pi=267 RU864
-    0x15C33000u, // bc=10 res=3 pi=268 RU864
-    0x15C37000u, // bc=10 res=3 pi=269 RU864
-    0x15C3B000u, // bc=10 res=3 pi=270 RU864
-    0x15C43000u, // bc=10 res=3 pi=272 RU864
-    0x15C47000u, // bc=10 res=3 pi=273 RU864
-    0x15C4B000u, // bc=10 res=3 pi=274 RU864
-    0x15C4F000u, // bc=10 res=3 pi=275 RU864
-    0x15C53000u, // bc=10 res=3 pi=276 RU864
-    0x15C57000u, // bc=10 res=3 pi=277 RU864
-    0x15C5B000u, // bc=10 res=3 pi=278 RU864
-    0x15C63000u, // bc=10 res=3 pi=280 RU864
-    0x15C67000u, // bc=10 res=3 pi=281 RU864
-    0x15C6B000u, // bc=10 res=3 pi=282 RU864
-    0x15C6F000u, // bc=10 res=3 pi=283 RU864
-    0x15C73000u, // bc=10 res=3 pi=284 RU864
-    0x15C77000u, // bc=10 res=3 pi=285 RU864
-    0x15C7B000u, // bc=10 res=3 pi=286 RU864
-    0x15C83000u, // bc=10 res=3 pi=288 RU864
-    0x15C87000u, // bc=10 res=3 pi=289 RU864
-    0x15C8B000u, // bc=10 res=3 pi=290 RU864
-    0x15C8F000u, // bc=10 res=3 pi=291 RU864
-    0x15C93000u, // bc=10 res=3 pi=292 RU864
-    0x15C97000u, // bc=10 res=3 pi=293 RU864
-    0x15C9B000u, // bc=10 res=3 pi=294 RU864
-    0x15CA3000u, // bc=10 res=3 pi=296 RU864
-    0x15CA7000u, // bc=10 res=3 pi=297 RU864
-    0x15CAB000u, // bc=10 res=3 pi=298 RU864
-    0x15CAF000u, // bc=10 res=3 pi=299 RU864
-    0x15CB3000u, // bc=10 res=3 pi=300 RU864
-    0x15CB7000u, // bc=10 res=3 pi=301 RU864
-    0x15CBB000u, // bc=10 res=3 pi=302 RU864
-    0x15CC3000u, // bc=10 res=3 pi=304 RU864
-    0x15CC7000u, // bc=10 res=3 pi=305 RU864
-    0x15CCB000u, // bc=10 res=3 pi=306 RU864
-    0x15CCF000u, // bc=10 res=3 pi=307 RU864
-    0x15CD3000u, // bc=10 res=3 pi=308 RU864
-    0x15CD7000u, // bc=10 res=3 pi=309 RU864
-    0x15CDB000u, // bc=10 res=3 pi=310 RU864
-    0x15D03000u, // bc=10 res=3 pi=320 RU864
-    0x15D07000u, // bc=10 res=3 pi=321 RU864
-    0x15D0B000u, // bc=10 res=3 pi=322 RU864
-    0x15D0F000u, // bc=10 res=3 pi=323 RU864
-    0x15D13000u, // bc=10 res=3 pi=324 RU864
-    0x15D17000u, // bc=10 res=3 pi=325 RU864
-    0x15D1B000u, // bc=10 res=3 pi=326 RU864
-    0x15D23000u, // bc=10 res=3 pi=328 RU864
-    0x15D27000u, // bc=10 res=3 pi=329 RU864
-    0x15D2B000u, // bc=10 res=3 pi=330 RU864
-    0x15D2F000u, // bc=10 res=3 pi=331 RU864
-    0x15D33000u, // bc=10 res=3 pi=332 RU864
-    0x15D37000u, // bc=10 res=3 pi=333 RU864
-    0x15D3B000u, // bc=10 res=3 pi=334 RU864
-    0x15D43000u, // bc=10 res=3 pi=336 RU864
-    0x15D47000u, // bc=10 res=3 pi=337 RU864
-    0x15D4B000u, // bc=10 res=3 pi=338 RU864
-    0x15D4F000u, // bc=10 res=3 pi=339 RU864
-    0x15D53000u, // bc=10 res=3 pi=340 RU864
-    0x15D57000u, // bc=10 res=3 pi=341 RU864
-    0x15D5B000u, // bc=10 res=3 pi=342 RU864
-    0x15D63000u, // bc=10 res=3 pi=344 RU864
-    0x15D67000u, // bc=10 res=3 pi=345 RU864
-    0x15D6B000u, // bc=10 res=3 pi=346 RU864
-    0x15D6F000u, // bc=10 res=3 pi=347 RU864
-    0x15D73000u, // bc=10 res=3 pi=348 RU864
-    0x15D77000u, // bc=10 res=3 pi=349 RU864
-    0x15D7B000u, // bc=10 res=3 pi=350 RU864
-    0x15D83000u, // bc=10 res=3 pi=352 RU864
-    0x15D87000u, // bc=10 res=3 pi=353 RU864
-    0x15D8B000u, // bc=10 res=3 pi=354 RU864
-    0x15D8F000u, // bc=10 res=3 pi=355 RU864
-    0x15D93000u, // bc=10 res=3 pi=356 RU864
-    0x15D97000u, // bc=10 res=3 pi=357 RU864
-    0x15D9B000u, // bc=10 res=3 pi=358 RU864
-    0x15DA3000u, // bc=10 res=3 pi=360 RU864
-    0x15DA7000u, // bc=10 res=3 pi=361 RU864
-    0x15DAB000u, // bc=10 res=3 pi=362 RU864
-    0x15DAF000u, // bc=10 res=3 pi=363 RU864
-    0x15DB3000u, // bc=10 res=3 pi=364 RU864
-    0x15DB7000u, // bc=10 res=3 pi=365 RU864
-    0x15DBB000u, // bc=10 res=3 pi=366 RU864
-    0x15DC3000u, // bc=10 res=3 pi=368 RU864
-    0x15DC7000u, // bc=10 res=3 pi=369 RU864
-    0x15DCB000u, // bc=10 res=3 pi=370 RU864
-    0x15DCF000u, // bc=10 res=3 pi=371 RU864
-    0x15DD3000u, // bc=10 res=3 pi=372 RU864
-    0x15DD7000u, // bc=10 res=3 pi=373 RU864
-    0x15DDB000u, // bc=10 res=3 pi=374 RU864
-    0x15E03000u, // bc=10 res=3 pi=384 RU864
-    0x15E07000u, // bc=10 res=3 pi=385 RU864
-    0x15E0B000u, // bc=10 res=3 pi=386 RU864
-    0x15E0F000u, // bc=10 res=3 pi=387 RU864
-    0x15E13000u, // bc=10 res=3 pi=388 RU864
-    0x15E17000u, // bc=10 res=3 pi=389 RU864
-    0x15E1B000u, // bc=10 res=3 pi=390 RU864
     0x15E23400u, // bc=10 res=3 pi=392 CN470
     0x15E27400u, // bc=10 res=3 pi=393 CN470
     0x15E2B400u, // bc=10 res=3 pi=394 CN470
@@ -2483,459 +659,220 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x15E33000u, // bc=10 res=3 pi=396 RU864
     0x15E37400u, // bc=10 res=3 pi=397 CN470
     0x15E3B400u, // bc=10 res=3 pi=398 CN470
-    0x15E43400u, // bc=10 res=3 pi=400 CN470
-    0x15E47400u, // bc=10 res=3 pi=401 CN470
-    0x15E4F400u, // bc=10 res=3 pi=403 CN470
-    0x15E57400u, // bc=10 res=3 pi=405 CN470
-    0x15E63400u, // bc=10 res=3 pi=408 CN470
-    0x15E67400u, // bc=10 res=3 pi=409 CN470
-    0x15E6B400u, // bc=10 res=3 pi=410 CN470
-    0x15E6F400u, // bc=10 res=3 pi=411 CN470
-    0x15E73400u, // bc=10 res=3 pi=412 CN470
-    0x15E77400u, // bc=10 res=3 pi=413 CN470
-    0x15E7B400u, // bc=10 res=3 pi=414 CN470
-    0x15E83000u, // bc=10 res=3 pi=416 RU864
-    0x15E87000u, // bc=10 res=3 pi=417 RU864
-    0x15E8B000u, // bc=10 res=3 pi=418 RU864
-    0x15E8F000u, // bc=10 res=3 pi=419 RU864
-    0x15E93000u, // bc=10 res=3 pi=420 RU864
-    0x15E97000u, // bc=10 res=3 pi=421 RU864
-    0x15E9B000u, // bc=10 res=3 pi=422 RU864
-    0x15EA3000u, // bc=10 res=3 pi=424 RU864
-    0x15EA7000u, // bc=10 res=3 pi=425 RU864
-    0x15EAB000u, // bc=10 res=3 pi=426 RU864
-    0x15EAF000u, // bc=10 res=3 pi=427 RU864
-    0x15EB3000u, // bc=10 res=3 pi=428 RU864
-    0x15EB7000u, // bc=10 res=3 pi=429 RU864
-    0x15EBB000u, // bc=10 res=3 pi=430 RU864
+    0x15EC3000u, // bc=10 res=3 pi=432 RU864
     0x15EC7000u, // bc=10 res=3 pi=433 RU864
+    0x15ECF000u, // bc=10 res=3 pi=435 RU864
     0x15ED3000u, // bc=10 res=3 pi=436 RU864
     0x15ED7000u, // bc=10 res=3 pi=437 RU864
-    0x16813000u, // bc=11 res=1 pi=4 RU864
-    0x16817000u, // bc=11 res=1 pi=5 RU864
-    0x17007000u, // bc=11 res=2 pi=1 RU864
-    0x1700B000u, // bc=11 res=2 pi=2 RU864
-    0x17013000u, // bc=11 res=2 pi=4 RU864
     0x1701B000u, // bc=11 res=2 pi=6 RU864
-    0x1702C400u, // bc=11 res=2 pi=11 US915
-    0x17053000u, // bc=11 res=2 pi=20 RU864
-    0x1705B000u, // bc=11 res=2 pi=22 RU864
+    0x17083000u, // bc=11 res=2 pi=32 RU864
+    0x17093000u, // bc=11 res=2 pi=36 RU864
+    0x17097000u, // bc=11 res=2 pi=37 RU864
+    0x1709B000u, // bc=11 res=2 pi=38 RU864
+    0x170A3000u, // bc=11 res=2 pi=40 RU864
+    0x170B3000u, // bc=11 res=2 pi=44 RU864
+    0x170B7000u, // bc=11 res=2 pi=45 RU864
+    0x170BB000u, // bc=11 res=2 pi=46 RU864
     0x17807000u, // bc=11 res=3 pi=1 RU864
+    0x1780B000u, // bc=11 res=3 pi=2 RU864
     0x17813000u, // bc=11 res=3 pi=4 RU864
     0x1781B000u, // bc=11 res=3 pi=6 RU864
+    0x17823000u, // bc=11 res=3 pi=8 RU864
+    0x17833000u, // bc=11 res=3 pi=12 RU864
+    0x1783B000u, // bc=11 res=3 pi=14 RU864
+    0x17843000u, // bc=11 res=3 pi=16 RU864
+    0x1784B000u, // bc=11 res=3 pi=18 RU864
+    0x17853000u, // bc=11 res=3 pi=20 RU864
+    0x17857000u, // bc=11 res=3 pi=21 RU864
+    0x1785B000u, // bc=11 res=3 pi=22 RU864
+    0x17883000u, // bc=11 res=3 pi=32 RU864
+    0x1788B000u, // bc=11 res=3 pi=34 RU864
+    0x1788F000u, // bc=11 res=3 pi=35 RU864
+    0x17893000u, // bc=11 res=3 pi=36 RU864
+    0x17897000u, // bc=11 res=3 pi=37 RU864
+    0x1789B000u, // bc=11 res=3 pi=38 RU864
+    0x1792C400u, // bc=11 res=3 pi=75 US915
+    0x17940400u, // bc=11 res=3 pi=80 US915
+    0x17944400u, // bc=11 res=3 pi=81 US915
+    0x17948400u, // bc=11 res=3 pi=82 US915
     0x1794C400u, // bc=11 res=3 pi=83 US915
-    0x17C03000u, // bc=11 res=3 pi=256 RU864
-    0x17C07000u, // bc=11 res=3 pi=257 RU864
-    0x17C0B000u, // bc=11 res=3 pi=258 RU864
-    0x17C13000u, // bc=11 res=3 pi=260 RU864
-    0x17C17000u, // bc=11 res=3 pi=261 RU864
-    0x17C1B000u, // bc=11 res=3 pi=262 RU864
+    0x17960400u, // bc=11 res=3 pi=88 US915
+    0x17964400u, // bc=11 res=3 pi=89 US915
+    0x1796C400u, // bc=11 res=3 pi=91 US915
+    0x17978400u, // bc=11 res=3 pi=94 US915
+    0x17A83000u, // bc=11 res=3 pi=160 RU864
+    0x17A87000u, // bc=11 res=3 pi=161 RU864
+    0x17A8B000u, // bc=11 res=3 pi=162 RU864
+    0x17A93000u, // bc=11 res=3 pi=164 RU864
+    0x17A97000u, // bc=11 res=3 pi=165 RU864
+    0x17A9B000u, // bc=11 res=3 pi=166 RU864
+    0x17AC3000u, // bc=11 res=3 pi=176 RU864
+    0x17AC7000u, // bc=11 res=3 pi=177 RU864
+    0x17ACB000u, // bc=11 res=3 pi=178 RU864
+    0x17ACF000u, // bc=11 res=3 pi=179 RU864
+    0x17AD7000u, // bc=11 res=3 pi=181 RU864
     0x17C23000u, // bc=11 res=3 pi=264 RU864
     0x17C27000u, // bc=11 res=3 pi=265 RU864
+    0x17C2B000u, // bc=11 res=3 pi=266 RU864
     0x17C2F000u, // bc=11 res=3 pi=267 RU864
     0x17C33000u, // bc=11 res=3 pi=268 RU864
     0x17C37000u, // bc=11 res=3 pi=269 RU864
     0x17C43000u, // bc=11 res=3 pi=272 RU864
     0x17C47000u, // bc=11 res=3 pi=273 RU864
+    0x17C4F000u, // bc=11 res=3 pi=275 RU864
     0x17C53000u, // bc=11 res=3 pi=276 RU864
     0x17C57000u, // bc=11 res=3 pi=277 RU864
+    0x17C5B000u, // bc=11 res=3 pi=278 RU864
+    0x17C63000u, // bc=11 res=3 pi=280 RU864
     0x17C67000u, // bc=11 res=3 pi=281 RU864
+    0x17C6B000u, // bc=11 res=3 pi=282 RU864
     0x17C6F000u, // bc=11 res=3 pi=283 RU864
     0x17C73000u, // bc=11 res=3 pi=284 RU864
-    0x17C83000u, // bc=11 res=3 pi=288 RU864
-    0x17C87000u, // bc=11 res=3 pi=289 RU864
-    0x17C8B000u, // bc=11 res=3 pi=290 RU864
-    0x17C8F000u, // bc=11 res=3 pi=291 RU864
-    0x17C93000u, // bc=11 res=3 pi=292 RU864
-    0x17C97000u, // bc=11 res=3 pi=293 RU864
-    0x17C9B000u, // bc=11 res=3 pi=294 RU864
-    0x17CA3000u, // bc=11 res=3 pi=296 RU864
-    0x17CA7000u, // bc=11 res=3 pi=297 RU864
-    0x17CAB000u, // bc=11 res=3 pi=298 RU864
-    0x17CAF000u, // bc=11 res=3 pi=299 RU864
-    0x17CB3000u, // bc=11 res=3 pi=300 RU864
-    0x17CB7000u, // bc=11 res=3 pi=301 RU864
-    0x17CBB000u, // bc=11 res=3 pi=302 RU864
-    0x17CC3000u, // bc=11 res=3 pi=304 RU864
-    0x17CC7000u, // bc=11 res=3 pi=305 RU864
-    0x17CCB000u, // bc=11 res=3 pi=306 RU864
-    0x17CCF000u, // bc=11 res=3 pi=307 RU864
-    0x17CD3000u, // bc=11 res=3 pi=308 RU864
-    0x17CD7000u, // bc=11 res=3 pi=309 RU864
-    0x17CDB000u, // bc=11 res=3 pi=310 RU864
-    0x17D03000u, // bc=11 res=3 pi=320 RU864
-    0x17D07000u, // bc=11 res=3 pi=321 RU864
-    0x17D0B000u, // bc=11 res=3 pi=322 RU864
-    0x17D13000u, // bc=11 res=3 pi=324 RU864
-    0x17D17000u, // bc=11 res=3 pi=325 RU864
-    0x17D1B000u, // bc=11 res=3 pi=326 RU864
+    0x17C7B000u, // bc=11 res=3 pi=286 RU864
     0x17D43000u, // bc=11 res=3 pi=336 RU864
+    0x17D47000u, // bc=11 res=3 pi=337 RU864
+    0x17D4B000u, // bc=11 res=3 pi=338 RU864
     0x17D53000u, // bc=11 res=3 pi=340 RU864
     0x17D57000u, // bc=11 res=3 pi=341 RU864
     0x17D5B000u, // bc=11 res=3 pi=342 RU864
-    0x17D83000u, // bc=11 res=3 pi=352 RU864
-    0x17D87000u, // bc=11 res=3 pi=353 RU864
-    0x17D8B000u, // bc=11 res=3 pi=354 RU864
-    0x17D8F000u, // bc=11 res=3 pi=355 RU864
-    0x17D93000u, // bc=11 res=3 pi=356 RU864
-    0x17D97000u, // bc=11 res=3 pi=357 RU864
-    0x17D9B000u, // bc=11 res=3 pi=358 RU864
-    0x17DA3000u, // bc=11 res=3 pi=360 RU864
-    0x17DA7000u, // bc=11 res=3 pi=361 RU864
-    0x17DAB000u, // bc=11 res=3 pi=362 RU864
-    0x17DB3000u, // bc=11 res=3 pi=364 RU864
-    0x17DB7000u, // bc=11 res=3 pi=365 RU864
-    0x17DBB000u, // bc=11 res=3 pi=366 RU864
-    0x17DC3000u, // bc=11 res=3 pi=368 RU864
-    0x17DC7000u, // bc=11 res=3 pi=369 RU864
-    0x17DCB000u, // bc=11 res=3 pi=370 RU864
-    0x17DCF000u, // bc=11 res=3 pi=371 RU864
-    0x17DD3000u, // bc=11 res=3 pi=372 RU864
-    0x17DD7000u, // bc=11 res=3 pi=373 RU864
-    0x17DDB000u, // bc=11 res=3 pi=374 RU864
+    0x17D73000u, // bc=11 res=3 pi=348 RU864
+    0x17E23000u, // bc=11 res=3 pi=392 RU864
     0x17E27000u, // bc=11 res=3 pi=393 RU864
     0x17E2F000u, // bc=11 res=3 pi=395 RU864
     0x17E37000u, // bc=11 res=3 pi=397 RU864
-    0x18814800u, // bc=12 res=1 pi=5 EU868
-    0x19010800u, // bc=12 res=2 pi=4 EU868
+    0x17EA7000u, // bc=11 res=3 pi=425 RU864
+    0x17EAF000u, // bc=11 res=3 pi=427 RU864
+    0x17EDB000u, // bc=11 res=3 pi=438 RU864
     0x19014800u, // bc=12 res=2 pi=5 EU868
     0x19030800u, // bc=12 res=2 pi=12 EU868
     0x19034800u, // bc=12 res=2 pi=13 EU868
+    0x19038800u, // bc=12 res=2 pi=14 EU868
     0x19084800u, // bc=12 res=2 pi=33 EU868
     0x19094800u, // bc=12 res=2 pi=37 EU868
+    0x190A4800u, // bc=12 res=2 pi=41 EU868
+    0x190A8800u, // bc=12 res=2 pi=42 EU868
+    0x190AC800u, // bc=12 res=2 pi=43 EU868
     0x19804800u, // bc=12 res=3 pi=1 EU868
+    0x19810800u, // bc=12 res=3 pi=4 EU868
+    0x19814800u, // bc=12 res=3 pi=5 EU868
+    0x19830800u, // bc=12 res=3 pi=12 EU868
+    0x19880800u, // bc=12 res=3 pi=32 EU868
+    0x19884800u, // bc=12 res=3 pi=33 EU868
+    0x19888800u, // bc=12 res=3 pi=34 EU868
+    0x1988C800u, // bc=12 res=3 pi=35 EU868
+    0x19890800u, // bc=12 res=3 pi=36 EU868
+    0x19894800u, // bc=12 res=3 pi=37 EU868
+    0x19900800u, // bc=12 res=3 pi=64 EU868
+    0x19904800u, // bc=12 res=3 pi=65 EU868
     0x19910800u, // bc=12 res=3 pi=68 EU868
     0x19914800u, // bc=12 res=3 pi=69 EU868
     0x19918800u, // bc=12 res=3 pi=70 EU868
+    0x19920800u, // bc=12 res=3 pi=72 EU868
     0x19924800u, // bc=12 res=3 pi=73 EU868
+    0x19928800u, // bc=12 res=3 pi=74 EU868
     0x1992C800u, // bc=12 res=3 pi=75 EU868
+    0x19930800u, // bc=12 res=3 pi=76 EU868
     0x19934800u, // bc=12 res=3 pi=77 EU868
+    0x19964800u, // bc=12 res=3 pi=89 EU868
+    0x19968800u, // bc=12 res=3 pi=90 EU868
     0x1996C800u, // bc=12 res=3 pi=91 EU868
-    0x199C4800u, // bc=12 res=3 pi=113 EU868
-    0x199D0800u, // bc=12 res=3 pi=116 EU868
+    0x19C04800u, // bc=12 res=3 pi=257 EU868
+    0x19C0C800u, // bc=12 res=3 pi=259 EU868
+    0x19C14800u, // bc=12 res=3 pi=261 EU868
+    0x19C68800u, // bc=12 res=3 pi=282 EU868
+    0x19C74800u, // bc=12 res=3 pi=285 EU868
+    0x19C88800u, // bc=12 res=3 pi=290 EU868
     0x19C98800u, // bc=12 res=3 pi=294 EU868
     0x19D00800u, // bc=12 res=3 pi=320 EU868
     0x19D04800u, // bc=12 res=3 pi=321 EU868
     0x19D08800u, // bc=12 res=3 pi=322 EU868
     0x19D0C800u, // bc=12 res=3 pi=323 EU868
     0x19D18800u, // bc=12 res=3 pi=326 EU868
-    0x19D20800u, // bc=12 res=3 pi=328 EU868
-    0x19D24800u, // bc=12 res=3 pi=329 EU868
-    0x19D28800u, // bc=12 res=3 pi=330 EU868
-    0x19D2C800u, // bc=12 res=3 pi=331 EU868
-    0x19D34800u, // bc=12 res=3 pi=333 EU868
-    0x19D38800u, // bc=12 res=3 pi=334 EU868
-    0x19D40800u, // bc=12 res=3 pi=336 EU868
-    0x19D44800u, // bc=12 res=3 pi=337 EU868
-    0x19D48800u, // bc=12 res=3 pi=338 EU868
-    0x19D4C800u, // bc=12 res=3 pi=339 EU868
-    0x19D50800u, // bc=12 res=3 pi=340 EU868
-    0x19D54800u, // bc=12 res=3 pi=341 EU868
-    0x19D58800u, // bc=12 res=3 pi=342 EU868
-    0x19D60800u, // bc=12 res=3 pi=344 EU868
-    0x19D64800u, // bc=12 res=3 pi=345 EU868
-    0x19D68800u, // bc=12 res=3 pi=346 EU868
-    0x19D6C800u, // bc=12 res=3 pi=347 EU868
-    0x19D70800u, // bc=12 res=3 pi=348 EU868
-    0x19D74800u, // bc=12 res=3 pi=349 EU868
-    0x19D78800u, // bc=12 res=3 pi=350 EU868
     0x19DA0800u, // bc=12 res=3 pi=360 EU868
     0x19DA4800u, // bc=12 res=3 pi=361 EU868
     0x19DAC800u, // bc=12 res=3 pi=363 EU868
+    0x19DB0800u, // bc=12 res=3 pi=364 EU868
     0x19DB4800u, // bc=12 res=3 pi=365 EU868
+    0x19DC0800u, // bc=12 res=3 pi=368 EU868
     0x19DC8800u, // bc=12 res=3 pi=370 EU868
     0x19DCC800u, // bc=12 res=3 pi=371 EU868
     0x19DD8800u, // bc=12 res=3 pi=374 EU868
-    0x1A818400u, // bc=13 res=1 pi=6 US915
-    0x1B050400u, // bc=13 res=2 pi=20 US915
+    0x19EB4800u, // bc=12 res=3 pi=429 EU868
     0x1B090800u, // bc=13 res=2 pi=36 EU868
+    0x1B0C0400u, // bc=13 res=2 pi=48 US915
+    0x1B0C8400u, // bc=13 res=2 pi=50 US915
+    0x1B0CC400u, // bc=13 res=2 pi=51 US915
+    0x1B0D8400u, // bc=13 res=2 pi=54 US915
+    0x1BA10400u, // bc=13 res=3 pi=132 US915
+    0x1BA80400u, // bc=13 res=3 pi=160 US915
+    0x1BA88400u, // bc=13 res=3 pi=162 US915
+    0x1BA8C400u, // bc=13 res=3 pi=163 US915
+    0x1BA90400u, // bc=13 res=3 pi=164 US915
+    0x1BA98400u, // bc=13 res=3 pi=166 US915
+    0x1BAC0800u, // bc=13 res=3 pi=176 EU868
+    0x1BAC4400u, // bc=13 res=3 pi=177 US915
     0x1BAD0400u, // bc=13 res=3 pi=180 US915
     0x1BAD4400u, // bc=13 res=3 pi=181 US915
-    0x1BE00400u, // bc=13 res=3 pi=384 US915
-    0x1BE08400u, // bc=13 res=3 pi=386 US915
-    0x1BE0C400u, // bc=13 res=3 pi=387 US915
-    0x1BE10400u, // bc=13 res=3 pi=388 US915
-    0x1BE18400u, // bc=13 res=3 pi=390 US915
-    0x1BE40400u, // bc=13 res=3 pi=400 US915
-    0x1BE44400u, // bc=13 res=3 pi=401 US915
-    0x1BE48400u, // bc=13 res=3 pi=402 US915
-    0x1BE4C400u, // bc=13 res=3 pi=403 US915
-    0x1BE50400u, // bc=13 res=3 pi=404 US915
-    0x1BE54400u, // bc=13 res=3 pi=405 US915
-    0x1BE58400u, // bc=13 res=3 pi=406 US915
-    0x1BE60400u, // bc=13 res=3 pi=408 US915
-    0x1BE64400u, // bc=13 res=3 pi=409 US915
-    0x1BE68400u, // bc=13 res=3 pi=410 US915
-    0x1BE6C400u, // bc=13 res=3 pi=411 US915
-    0x1BE70400u, // bc=13 res=3 pi=412 US915
-    0x1BE78400u, // bc=13 res=3 pi=414 US915
+    0x1BCD4800u, // bc=13 res=3 pi=309 EU868
+    0x1BE28400u, // bc=13 res=3 pi=394 US915
     0x1BE88400u, // bc=13 res=3 pi=418 US915
-    0x1BEC0400u, // bc=13 res=3 pi=432 US915
-    0x1BEC4400u, // bc=13 res=3 pi=433 US915
-    0x1BEC8400u, // bc=13 res=3 pi=434 US915
-    0x1BECC400u, // bc=13 res=3 pi=435 US915
-    0x1BED0400u, // bc=13 res=3 pi=436 US915
-    0x1BED4400u, // bc=13 res=3 pi=437 US915
-    0x1BED8400u, // bc=13 res=3 pi=438 US915
+    0x1BE8C400u, // bc=13 res=3 pi=419 US915
+    0x1BE98400u, // bc=13 res=3 pi=422 US915
+    0x1DC80400u, // bc=14 res=3 pi=288 US915
+    0x1DC84400u, // bc=14 res=3 pi=289 US915
     0x1DC90400u, // bc=14 res=3 pi=292 US915
     0x1DC94400u, // bc=14 res=3 pi=293 US915
+    0x1DC98400u, // bc=14 res=3 pi=294 US915
+    0x1DCB4400u, // bc=14 res=3 pi=301 US915
+    0x1DCD0400u, // bc=14 res=3 pi=308 US915
+    0x1DED0400u, // bc=14 res=3 pi=436 US915
+    0x1DED8400u, // bc=14 res=3 pi=438 US915
     0x1E800800u, // bc=15 res=1 pi=0 EU868
-    0x1E804800u, // bc=15 res=1 pi=1 EU868
-    0x1E808800u, // bc=15 res=1 pi=2 EU868
     0x1E80C800u, // bc=15 res=1 pi=3 EU868
-    0x1E810800u, // bc=15 res=1 pi=4 EU868
-    0x1E814800u, // bc=15 res=1 pi=5 EU868
     0x1E818800u, // bc=15 res=1 pi=6 EU868
-    0x1F800800u, // bc=15 res=3 pi=0 EU868
-    0x1F804800u, // bc=15 res=3 pi=1 EU868
-    0x1F808800u, // bc=15 res=3 pi=2 EU868
-    0x1F80C800u, // bc=15 res=3 pi=3 EU868
-    0x1F810800u, // bc=15 res=3 pi=4 EU868
-    0x1F814800u, // bc=15 res=3 pi=5 EU868
-    0x1F818800u, // bc=15 res=3 pi=6 EU868
-    0x1F820800u, // bc=15 res=3 pi=8 EU868
-    0x1F824800u, // bc=15 res=3 pi=9 EU868
-    0x1F828800u, // bc=15 res=3 pi=10 EU868
-    0x1F82C800u, // bc=15 res=3 pi=11 EU868
-    0x1F830800u, // bc=15 res=3 pi=12 EU868
-    0x1F834800u, // bc=15 res=3 pi=13 EU868
-    0x1F838800u, // bc=15 res=3 pi=14 EU868
-    0x1F840800u, // bc=15 res=3 pi=16 EU868
-    0x1F844800u, // bc=15 res=3 pi=17 EU868
-    0x1F848800u, // bc=15 res=3 pi=18 EU868
-    0x1F84C800u, // bc=15 res=3 pi=19 EU868
-    0x1F850800u, // bc=15 res=3 pi=20 EU868
-    0x1F854800u, // bc=15 res=3 pi=21 EU868
-    0x1F858800u, // bc=15 res=3 pi=22 EU868
-    0x1F860800u, // bc=15 res=3 pi=24 EU868
-    0x1F864800u, // bc=15 res=3 pi=25 EU868
-    0x1F868800u, // bc=15 res=3 pi=26 EU868
-    0x1F86C800u, // bc=15 res=3 pi=27 EU868
-    0x1F870800u, // bc=15 res=3 pi=28 EU868
-    0x1F874800u, // bc=15 res=3 pi=29 EU868
-    0x1F878800u, // bc=15 res=3 pi=30 EU868
-    0x1F880800u, // bc=15 res=3 pi=32 EU868
-    0x1F884800u, // bc=15 res=3 pi=33 EU868
-    0x1F888800u, // bc=15 res=3 pi=34 EU868
-    0x1F88C800u, // bc=15 res=3 pi=35 EU868
-    0x1F890800u, // bc=15 res=3 pi=36 EU868
-    0x1F894800u, // bc=15 res=3 pi=37 EU868
-    0x1F898800u, // bc=15 res=3 pi=38 EU868
-    0x1F8A0800u, // bc=15 res=3 pi=40 EU868
-    0x1F8A4800u, // bc=15 res=3 pi=41 EU868
-    0x1F8A8800u, // bc=15 res=3 pi=42 EU868
-    0x1F8AC800u, // bc=15 res=3 pi=43 EU868
-    0x1F8B0800u, // bc=15 res=3 pi=44 EU868
-    0x1F8B4800u, // bc=15 res=3 pi=45 EU868
-    0x1F8B8800u, // bc=15 res=3 pi=46 EU868
-    0x1F8C0800u, // bc=15 res=3 pi=48 EU868
-    0x1F8C4800u, // bc=15 res=3 pi=49 EU868
-    0x1F8C8800u, // bc=15 res=3 pi=50 EU868
-    0x1F8CC800u, // bc=15 res=3 pi=51 EU868
-    0x1F8D0800u, // bc=15 res=3 pi=52 EU868
-    0x1F8D4800u, // bc=15 res=3 pi=53 EU868
-    0x1F8D8800u, // bc=15 res=3 pi=54 EU868
-    0x1F900800u, // bc=15 res=3 pi=64 EU868
-    0x1F904800u, // bc=15 res=3 pi=65 EU868
-    0x1F908800u, // bc=15 res=3 pi=66 EU868
-    0x1F90C800u, // bc=15 res=3 pi=67 EU868
-    0x1F910800u, // bc=15 res=3 pi=68 EU868
-    0x1F914800u, // bc=15 res=3 pi=69 EU868
-    0x1F918800u, // bc=15 res=3 pi=70 EU868
-    0x1F920800u, // bc=15 res=3 pi=72 EU868
-    0x1F924800u, // bc=15 res=3 pi=73 EU868
-    0x1F928800u, // bc=15 res=3 pi=74 EU868
-    0x1F92C800u, // bc=15 res=3 pi=75 EU868
-    0x1F930800u, // bc=15 res=3 pi=76 EU868
-    0x1F934800u, // bc=15 res=3 pi=77 EU868
-    0x1F938800u, // bc=15 res=3 pi=78 EU868
-    0x1F940800u, // bc=15 res=3 pi=80 EU868
-    0x1F944800u, // bc=15 res=3 pi=81 EU868
-    0x1F948800u, // bc=15 res=3 pi=82 EU868
-    0x1F94C800u, // bc=15 res=3 pi=83 EU868
-    0x1F950800u, // bc=15 res=3 pi=84 EU868
-    0x1F954800u, // bc=15 res=3 pi=85 EU868
-    0x1F958800u, // bc=15 res=3 pi=86 EU868
+    0x1F020800u, // bc=15 res=2 pi=8 EU868
+    0x1F024800u, // bc=15 res=2 pi=9 EU868
+    0x1F028800u, // bc=15 res=2 pi=10 EU868
+    0x1F030800u, // bc=15 res=2 pi=12 EU868
+    0x1F034800u, // bc=15 res=2 pi=13 EU868
+    0x1F038800u, // bc=15 res=2 pi=14 EU868
+    0x1F040800u, // bc=15 res=2 pi=16 EU868
+    0x1F044800u, // bc=15 res=2 pi=17 EU868
+    0x1F04C800u, // bc=15 res=2 pi=19 EU868
+    0x1F050800u, // bc=15 res=2 pi=20 EU868
+    0x1F054800u, // bc=15 res=2 pi=21 EU868
+    0x1F080800u, // bc=15 res=2 pi=32 EU868
+    0x1F084800u, // bc=15 res=2 pi=33 EU868
+    0x1F088800u, // bc=15 res=2 pi=34 EU868
+    0x1F08C800u, // bc=15 res=2 pi=35 EU868
+    0x1F090800u, // bc=15 res=2 pi=36 EU868
+    0x1F094800u, // bc=15 res=2 pi=37 EU868
+    0x1F0A0800u, // bc=15 res=2 pi=40 EU868
+    0x1F0A4800u, // bc=15 res=2 pi=41 EU868
+    0x1F0A8800u, // bc=15 res=2 pi=42 EU868
+    0x1F0AC800u, // bc=15 res=2 pi=43 EU868
+    0x1F0B0800u, // bc=15 res=2 pi=44 EU868
+    0x1F960800u, // bc=15 res=3 pi=88 EU868
+    0x1F964800u, // bc=15 res=3 pi=89 EU868
     0x1F968800u, // bc=15 res=3 pi=90 EU868
     0x1F970800u, // bc=15 res=3 pi=92 EU868
     0x1F974800u, // bc=15 res=3 pi=93 EU868
     0x1F978800u, // bc=15 res=3 pi=94 EU868
-    0x1F980800u, // bc=15 res=3 pi=96 EU868
-    0x1F984800u, // bc=15 res=3 pi=97 EU868
-    0x1F988800u, // bc=15 res=3 pi=98 EU868
-    0x1F98C800u, // bc=15 res=3 pi=99 EU868
-    0x1F990800u, // bc=15 res=3 pi=100 EU868
-    0x1F994800u, // bc=15 res=3 pi=101 EU868
-    0x1F998800u, // bc=15 res=3 pi=102 EU868
-    0x1F9A0800u, // bc=15 res=3 pi=104 EU868
-    0x1F9A4800u, // bc=15 res=3 pi=105 EU868
-    0x1F9A8800u, // bc=15 res=3 pi=106 EU868
-    0x1F9AC800u, // bc=15 res=3 pi=107 EU868
-    0x1F9B0800u, // bc=15 res=3 pi=108 EU868
-    0x1F9B4800u, // bc=15 res=3 pi=109 EU868
-    0x1F9B8800u, // bc=15 res=3 pi=110 EU868
-    0x1F9C0800u, // bc=15 res=3 pi=112 EU868
-    0x1F9C4800u, // bc=15 res=3 pi=113 EU868
-    0x1F9C8800u, // bc=15 res=3 pi=114 EU868
-    0x1F9CC800u, // bc=15 res=3 pi=115 EU868
-    0x1F9D0800u, // bc=15 res=3 pi=116 EU868
-    0x1F9D4800u, // bc=15 res=3 pi=117 EU868
-    0x1F9D8800u, // bc=15 res=3 pi=118 EU868
-    0x1FA00800u, // bc=15 res=3 pi=128 EU868
-    0x1FA04800u, // bc=15 res=3 pi=129 EU868
-    0x1FA0C800u, // bc=15 res=3 pi=131 EU868
-    0x1FA10800u, // bc=15 res=3 pi=132 EU868
-    0x1FA14800u, // bc=15 res=3 pi=133 EU868
-    0x1FA18800u, // bc=15 res=3 pi=134 EU868
-    0x1FA20800u, // bc=15 res=3 pi=136 EU868
-    0x1FA28800u, // bc=15 res=3 pi=138 EU868
-    0x1FA2C800u, // bc=15 res=3 pi=139 EU868
-    0x1FA38800u, // bc=15 res=3 pi=142 EU868
+    0x1FA40800u, // bc=15 res=3 pi=144 EU868
     0x1FA48800u, // bc=15 res=3 pi=146 EU868
     0x1FA50800u, // bc=15 res=3 pi=148 EU868
     0x1FA58800u, // bc=15 res=3 pi=150 EU868
-    0x1FA68800u, // bc=15 res=3 pi=154 EU868
-    0x1FA6C800u, // bc=15 res=3 pi=155 EU868
-    0x1FA74800u, // bc=15 res=3 pi=157 EU868
-    0x1FA80800u, // bc=15 res=3 pi=160 EU868
-    0x1FA84800u, // bc=15 res=3 pi=161 EU868
-    0x1FA88800u, // bc=15 res=3 pi=162 EU868
-    0x1FA8C800u, // bc=15 res=3 pi=163 EU868
-    0x1FA90800u, // bc=15 res=3 pi=164 EU868
-    0x1FA94800u, // bc=15 res=3 pi=165 EU868
-    0x1FA98800u, // bc=15 res=3 pi=166 EU868
-    0x1FAA0800u, // bc=15 res=3 pi=168 EU868
-    0x1FAA4800u, // bc=15 res=3 pi=169 EU868
-    0x1FAA8800u, // bc=15 res=3 pi=170 EU868
-    0x1FAAC800u, // bc=15 res=3 pi=171 EU868
-    0x1FAB0800u, // bc=15 res=3 pi=172 EU868
-    0x1FAB4800u, // bc=15 res=3 pi=173 EU868
     0x1FAC0800u, // bc=15 res=3 pi=176 EU868
     0x1FAC4800u, // bc=15 res=3 pi=177 EU868
     0x1FAC8800u, // bc=15 res=3 pi=178 EU868
-    0x1FB00800u, // bc=15 res=3 pi=192 EU868
-    0x1FB04800u, // bc=15 res=3 pi=193 EU868
-    0x1FB08800u, // bc=15 res=3 pi=194 EU868
-    0x1FB0C800u, // bc=15 res=3 pi=195 EU868
-    0x1FB10800u, // bc=15 res=3 pi=196 EU868
-    0x1FB14800u, // bc=15 res=3 pi=197 EU868
-    0x1FB18800u, // bc=15 res=3 pi=198 EU868
-    0x1FB20800u, // bc=15 res=3 pi=200 EU868
-    0x1FB24800u, // bc=15 res=3 pi=201 EU868
-    0x1FB28800u, // bc=15 res=3 pi=202 EU868
-    0x1FB2C800u, // bc=15 res=3 pi=203 EU868
-    0x1FB30800u, // bc=15 res=3 pi=204 EU868
-    0x1FB38800u, // bc=15 res=3 pi=206 EU868
-    0x1FB40800u, // bc=15 res=3 pi=208 EU868
-    0x1FB44800u, // bc=15 res=3 pi=209 EU868
-    0x1FB48800u, // bc=15 res=3 pi=210 EU868
-    0x1FB4C800u, // bc=15 res=3 pi=211 EU868
-    0x1FB50800u, // bc=15 res=3 pi=212 EU868
-    0x1FB54800u, // bc=15 res=3 pi=213 EU868
-    0x1FB60800u, // bc=15 res=3 pi=216 EU868
-    0x1FB64800u, // bc=15 res=3 pi=217 EU868
-    0x1FB68800u, // bc=15 res=3 pi=218 EU868
-    0x1FB6C800u, // bc=15 res=3 pi=219 EU868
-    0x1FB70800u, // bc=15 res=3 pi=220 EU868
-    0x1FB74800u, // bc=15 res=3 pi=221 EU868
-    0x1FB78800u, // bc=15 res=3 pi=222 EU868
-    0x1FB80800u, // bc=15 res=3 pi=224 EU868
-    0x1FB84800u, // bc=15 res=3 pi=225 EU868
-    0x1FB88800u, // bc=15 res=3 pi=226 EU868
-    0x1FB8C800u, // bc=15 res=3 pi=227 EU868
-    0x1FB90800u, // bc=15 res=3 pi=228 EU868
-    0x1FB94800u, // bc=15 res=3 pi=229 EU868
-    0x1FB98800u, // bc=15 res=3 pi=230 EU868
-    0x1FBA0800u, // bc=15 res=3 pi=232 EU868
-    0x1FBA4800u, // bc=15 res=3 pi=233 EU868
-    0x1FBA8800u, // bc=15 res=3 pi=234 EU868
-    0x1FBAC800u, // bc=15 res=3 pi=235 EU868
-    0x1FBB0800u, // bc=15 res=3 pi=236 EU868
-    0x1FBB4800u, // bc=15 res=3 pi=237 EU868
-    0x1FBB8800u, // bc=15 res=3 pi=238 EU868
-    0x1FBC0800u, // bc=15 res=3 pi=240 EU868
-    0x1FBC4800u, // bc=15 res=3 pi=241 EU868
-    0x1FBC8800u, // bc=15 res=3 pi=242 EU868
-    0x1FBCC800u, // bc=15 res=3 pi=243 EU868
-    0x1FBD0800u, // bc=15 res=3 pi=244 EU868
-    0x1FBD4800u, // bc=15 res=3 pi=245 EU868
-    0x1FBD8800u, // bc=15 res=3 pi=246 EU868
-    0x1FC00800u, // bc=15 res=3 pi=256 EU868
-    0x1FC04800u, // bc=15 res=3 pi=257 EU868
-    0x1FC08800u, // bc=15 res=3 pi=258 EU868
-    0x1FC0C800u, // bc=15 res=3 pi=259 EU868
-    0x1FC10800u, // bc=15 res=3 pi=260 EU868
-    0x1FC14800u, // bc=15 res=3 pi=261 EU868
-    0x1FC18800u, // bc=15 res=3 pi=262 EU868
-    0x1FC20800u, // bc=15 res=3 pi=264 EU868
-    0x1FC24800u, // bc=15 res=3 pi=265 EU868
-    0x1FC28800u, // bc=15 res=3 pi=266 EU868
-    0x1FC2C800u, // bc=15 res=3 pi=267 EU868
-    0x1FC34800u, // bc=15 res=3 pi=269 EU868
-    0x1FC38800u, // bc=15 res=3 pi=270 EU868
-    0x1FC40800u, // bc=15 res=3 pi=272 EU868
-    0x1FC44800u, // bc=15 res=3 pi=273 EU868
-    0x1FC48800u, // bc=15 res=3 pi=274 EU868
-    0x1FC4C800u, // bc=15 res=3 pi=275 EU868
-    0x1FC50800u, // bc=15 res=3 pi=276 EU868
-    0x1FC54800u, // bc=15 res=3 pi=277 EU868
-    0x1FC58800u, // bc=15 res=3 pi=278 EU868
-    0x1FC60800u, // bc=15 res=3 pi=280 EU868
-    0x1FC64800u, // bc=15 res=3 pi=281 EU868
-    0x1FC68800u, // bc=15 res=3 pi=282 EU868
-    0x1FC6C800u, // bc=15 res=3 pi=283 EU868
-    0x1FC70800u, // bc=15 res=3 pi=284 EU868
-    0x1FC74800u, // bc=15 res=3 pi=285 EU868
-    0x1FC78800u, // bc=15 res=3 pi=286 EU868
-    0x1FC84800u, // bc=15 res=3 pi=289 EU868
-    0x1FC88800u, // bc=15 res=3 pi=290 EU868
-    0x1FC8C800u, // bc=15 res=3 pi=291 EU868
-    0x1FC90800u, // bc=15 res=3 pi=292 EU868
-    0x1FC94800u, // bc=15 res=3 pi=293 EU868
-    0x1FC98800u, // bc=15 res=3 pi=294 EU868
-    0x1FCA0800u, // bc=15 res=3 pi=296 EU868
-    0x1FCA8800u, // bc=15 res=3 pi=298 EU868
-    0x1FCB0800u, // bc=15 res=3 pi=300 EU868
-    0x1FCB4800u, // bc=15 res=3 pi=301 EU868
-    0x1FCB8800u, // bc=15 res=3 pi=302 EU868
+    0x1FACC800u, // bc=15 res=3 pi=179 EU868
+    0x1FAD0800u, // bc=15 res=3 pi=180 EU868
+    0x1FAD4800u, // bc=15 res=3 pi=181 EU868
+    0x1FCC0800u, // bc=15 res=3 pi=304 EU868
     0x1FCC4800u, // bc=15 res=3 pi=305 EU868
+    0x1FCC8800u, // bc=15 res=3 pi=306 EU868
     0x1FCCC800u, // bc=15 res=3 pi=307 EU868
     0x1FCD4800u, // bc=15 res=3 pi=309 EU868
-    0x1FD00800u, // bc=15 res=3 pi=320 EU868
-    0x1FD04800u, // bc=15 res=3 pi=321 EU868
-    0x1FD08800u, // bc=15 res=3 pi=322 EU868
-    0x1FD0C800u, // bc=15 res=3 pi=323 EU868
-    0x1FD10800u, // bc=15 res=3 pi=324 EU868
-    0x1FD14800u, // bc=15 res=3 pi=325 EU868
-    0x1FD18800u, // bc=15 res=3 pi=326 EU868
-    0x1FD20800u, // bc=15 res=3 pi=328 EU868
-    0x1FD24800u, // bc=15 res=3 pi=329 EU868
-    0x1FD28800u, // bc=15 res=3 pi=330 EU868
-    0x1FD2C800u, // bc=15 res=3 pi=331 EU868
-    0x1FD30800u, // bc=15 res=3 pi=332 EU868
-    0x1FD34800u, // bc=15 res=3 pi=333 EU868
-    0x1FD38800u, // bc=15 res=3 pi=334 EU868
-    0x1FD40800u, // bc=15 res=3 pi=336 EU868
-    0x1FD44800u, // bc=15 res=3 pi=337 EU868
-    0x1FD48800u, // bc=15 res=3 pi=338 EU868
-    0x1FD4C800u, // bc=15 res=3 pi=339 EU868
-    0x1FD50800u, // bc=15 res=3 pi=340 EU868
-    0x1FD54800u, // bc=15 res=3 pi=341 EU868
-    0x1FD58800u, // bc=15 res=3 pi=342 EU868
-    0x1FD60800u, // bc=15 res=3 pi=344 EU868
-    0x1FD64800u, // bc=15 res=3 pi=345 EU868
-    0x1FD68800u, // bc=15 res=3 pi=346 EU868
-    0x1FD6C800u, // bc=15 res=3 pi=347 EU868
-    0x1FD70800u, // bc=15 res=3 pi=348 EU868
-    0x1FD74800u, // bc=15 res=3 pi=349 EU868
-    0x1FD78800u, // bc=15 res=3 pi=350 EU868
-    0x1FD80800u, // bc=15 res=3 pi=352 EU868
-    0x1FD84800u, // bc=15 res=3 pi=353 EU868
-    0x1FD88800u, // bc=15 res=3 pi=354 EU868
-    0x1FD8C800u, // bc=15 res=3 pi=355 EU868
-    0x1FD90800u, // bc=15 res=3 pi=356 EU868
-    0x1FD94800u, // bc=15 res=3 pi=357 EU868
-    0x1FD98800u, // bc=15 res=3 pi=358 EU868
     0x1FDA3000u, // bc=15 res=3 pi=360 RU864
     0x1FDA7000u, // bc=15 res=3 pi=361 RU864
     0x1FDA8800u, // bc=15 res=3 pi=362 EU868
@@ -2943,135 +880,44 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x1FDB0800u, // bc=15 res=3 pi=364 EU868
     0x1FDB7000u, // bc=15 res=3 pi=365 RU864
     0x1FDB8800u, // bc=15 res=3 pi=366 EU868
+    0x1FDC0800u, // bc=15 res=3 pi=368 EU868
     0x1FDC4800u, // bc=15 res=3 pi=369 EU868
+    0x1FDC8800u, // bc=15 res=3 pi=370 EU868
     0x1FDCF000u, // bc=15 res=3 pi=371 RU864
     0x1FDD4800u, // bc=15 res=3 pi=373 EU868
-    0x1FE00800u, // bc=15 res=3 pi=384 EU868
-    0x1FE04800u, // bc=15 res=3 pi=385 EU868
-    0x1FE08800u, // bc=15 res=3 pi=386 EU868
-    0x1FE0C800u, // bc=15 res=3 pi=387 EU868
-    0x1FE10800u, // bc=15 res=3 pi=388 EU868
-    0x1FE14800u, // bc=15 res=3 pi=389 EU868
-    0x1FE18800u, // bc=15 res=3 pi=390 EU868
-    0x1FE20800u, // bc=15 res=3 pi=392 EU868
-    0x1FE24800u, // bc=15 res=3 pi=393 EU868
-    0x1FE28800u, // bc=15 res=3 pi=394 EU868
-    0x1FE2C800u, // bc=15 res=3 pi=395 EU868
-    0x1FE30800u, // bc=15 res=3 pi=396 EU868
-    0x1FE34800u, // bc=15 res=3 pi=397 EU868
-    0x1FE38800u, // bc=15 res=3 pi=398 EU868
-    0x1FE40800u, // bc=15 res=3 pi=400 EU868
-    0x1FE44800u, // bc=15 res=3 pi=401 EU868
-    0x1FE48800u, // bc=15 res=3 pi=402 EU868
-    0x1FE4C800u, // bc=15 res=3 pi=403 EU868
-    0x1FE50800u, // bc=15 res=3 pi=404 EU868
-    0x1FE54800u, // bc=15 res=3 pi=405 EU868
-    0x1FE58800u, // bc=15 res=3 pi=406 EU868
-    0x1FE60800u, // bc=15 res=3 pi=408 EU868
-    0x1FE64800u, // bc=15 res=3 pi=409 EU868
-    0x1FE68800u, // bc=15 res=3 pi=410 EU868
-    0x1FE6C800u, // bc=15 res=3 pi=411 EU868
-    0x1FE70800u, // bc=15 res=3 pi=412 EU868
-    0x1FE74800u, // bc=15 res=3 pi=413 EU868
-    0x1FE78800u, // bc=15 res=3 pi=414 EU868
-    0x1FE80800u, // bc=15 res=3 pi=416 EU868
-    0x1FE84800u, // bc=15 res=3 pi=417 EU868
-    0x1FE88800u, // bc=15 res=3 pi=418 EU868
-    0x1FE8C800u, // bc=15 res=3 pi=419 EU868
-    0x1FE90800u, // bc=15 res=3 pi=420 EU868
-    0x1FE94800u, // bc=15 res=3 pi=421 EU868
-    0x1FE98800u, // bc=15 res=3 pi=422 EU868
-    0x1FEA0800u, // bc=15 res=3 pi=424 EU868
-    0x1FEA4800u, // bc=15 res=3 pi=425 EU868
-    0x1FEA8800u, // bc=15 res=3 pi=426 EU868
-    0x1FEAC800u, // bc=15 res=3 pi=427 EU868
-    0x1FEB0800u, // bc=15 res=3 pi=428 EU868
-    0x1FEB4800u, // bc=15 res=3 pi=429 EU868
-    0x1FEB8800u, // bc=15 res=3 pi=430 EU868
-    0x1FEC0800u, // bc=15 res=3 pi=432 EU868
-    0x1FEC4800u, // bc=15 res=3 pi=433 EU868
-    0x1FEC8800u, // bc=15 res=3 pi=434 EU868
-    0x1FECC800u, // bc=15 res=3 pi=435 EU868
-    0x1FED0800u, // bc=15 res=3 pi=436 EU868
-    0x1FED4800u, // bc=15 res=3 pi=437 EU868
-    0x1FED8800u, // bc=15 res=3 pi=438 EU868
+    0x1FDD8800u, // bc=15 res=3 pi=374 EU868
     0x20802C00u, // bc=16 res=1 pi=0 IN865
-    0x20806C00u, // bc=16 res=1 pi=1 IN865
-    0x2080F400u, // bc=16 res=1 pi=3 CN470
-    0x20812C00u, // bc=16 res=1 pi=4 IN865
-    0x20816C00u, // bc=16 res=1 pi=5 IN865
-    0x2081B800u, // bc=16 res=1 pi=6 EU433
-    0x21047400u, // bc=16 res=2 pi=17 CN470
+    0x21022C00u, // bc=16 res=2 pi=8 IN865
+    0x2102AC00u, // bc=16 res=2 pi=10 IN865
+    0x21037000u, // bc=16 res=2 pi=13 RU864
+    0x2103AC00u, // bc=16 res=2 pi=14 IN865
     0x2104D000u, // bc=16 res=2 pi=19 AS923-1
-    0x21053800u, // bc=16 res=2 pi=20 EU433
-    0x21057800u, // bc=16 res=2 pi=21 EU433
-    0x2105B800u, // bc=16 res=2 pi=22 EU433
-    0x21802C00u, // bc=16 res=3 pi=0 IN865
-    0x21806C00u, // bc=16 res=3 pi=1 IN865
-    0x2180AC00u, // bc=16 res=3 pi=2 IN865
-    0x2180EC00u, // bc=16 res=3 pi=3 IN865
-    0x21812C00u, // bc=16 res=3 pi=4 IN865
-    0x21816C00u, // bc=16 res=3 pi=5 IN865
-    0x2181AC00u, // bc=16 res=3 pi=6 IN865
-    0x21822C00u, // bc=16 res=3 pi=8 IN865
-    0x21826C00u, // bc=16 res=3 pi=9 IN865
-    0x2182AC00u, // bc=16 res=3 pi=10 IN865
-    0x2182EC00u, // bc=16 res=3 pi=11 IN865
-    0x21832C00u, // bc=16 res=3 pi=12 IN865
-    0x21836C00u, // bc=16 res=3 pi=13 IN865
-    0x2183AC00u, // bc=16 res=3 pi=14 IN865
-    0x21842C00u, // bc=16 res=3 pi=16 IN865
-    0x21846C00u, // bc=16 res=3 pi=17 IN865
-    0x2184AC00u, // bc=16 res=3 pi=18 IN865
-    0x21852C00u, // bc=16 res=3 pi=20 IN865
-    0x21856C00u, // bc=16 res=3 pi=21 IN865
-    0x2185AC00u, // bc=16 res=3 pi=22 IN865
-    0x21862C00u, // bc=16 res=3 pi=24 IN865
-    0x21866C00u, // bc=16 res=3 pi=25 IN865
-    0x2186EC00u, // bc=16 res=3 pi=27 IN865
-    0x21872C00u, // bc=16 res=3 pi=28 IN865
-    0x21876C00u, // bc=16 res=3 pi=29 IN865
-    0x2187AC00u, // bc=16 res=3 pi=30 IN865
-    0x21882C00u, // bc=16 res=3 pi=32 IN865
-    0x21886C00u, // bc=16 res=3 pi=33 IN865
-    0x2188AC00u, // bc=16 res=3 pi=34 IN865
-    0x2188EC00u, // bc=16 res=3 pi=35 IN865
-    0x21892C00u, // bc=16 res=3 pi=36 IN865
-    0x21896C00u, // bc=16 res=3 pi=37 IN865
-    0x2189AC00u, // bc=16 res=3 pi=38 IN865
-    0x218A2C00u, // bc=16 res=3 pi=40 IN865
-    0x218A6C00u, // bc=16 res=3 pi=41 IN865
-    0x218AAC00u, // bc=16 res=3 pi=42 IN865
-    0x218AEC00u, // bc=16 res=3 pi=43 IN865
-    0x218B2C00u, // bc=16 res=3 pi=44 IN865
-    0x218B6C00u, // bc=16 res=3 pi=45 IN865
-    0x218BAC00u, // bc=16 res=3 pi=46 IN865
-    0x218C2C00u, // bc=16 res=3 pi=48 IN865
-    0x218C6C00u, // bc=16 res=3 pi=49 IN865
-    0x218CAC00u, // bc=16 res=3 pi=50 IN865
-    0x218CEC00u, // bc=16 res=3 pi=51 IN865
-    0x218D2C00u, // bc=16 res=3 pi=52 IN865
-    0x218D6C00u, // bc=16 res=3 pi=53 IN865
-    0x218DAC00u, // bc=16 res=3 pi=54 IN865
-    0x21902C00u, // bc=16 res=3 pi=64 IN865
-    0x21906C00u, // bc=16 res=3 pi=65 IN865
-    0x2190AC00u, // bc=16 res=3 pi=66 IN865
-    0x2190EC00u, // bc=16 res=3 pi=67 IN865
-    0x21912C00u, // bc=16 res=3 pi=68 IN865
-    0x21916C00u, // bc=16 res=3 pi=69 IN865
-    0x2191AC00u, // bc=16 res=3 pi=70 IN865
+    0x21063400u, // bc=16 res=2 pi=24 CN470
+    0x21067400u, // bc=16 res=2 pi=25 CN470
+    0x2106B400u, // bc=16 res=2 pi=26 CN470
+    0x2106F400u, // bc=16 res=2 pi=27 CN470
+    0x21072C00u, // bc=16 res=2 pi=28 IN865
+    0x21077400u, // bc=16 res=2 pi=29 CN470
+    0x21086C00u, // bc=16 res=2 pi=33 IN865
+    0x2108AC00u, // bc=16 res=2 pi=34 IN865
+    0x2108EC00u, // bc=16 res=2 pi=35 IN865
+    0x21093000u, // bc=16 res=2 pi=36 RU864
+    0x2109AC00u, // bc=16 res=2 pi=38 IN865
+    0x210AAC00u, // bc=16 res=2 pi=42 IN865
+    0x210AEC00u, // bc=16 res=2 pi=43 IN865
+    0x210B3000u, // bc=16 res=2 pi=44 RU864
+    0x210B7000u, // bc=16 res=2 pi=45 RU864
+    0x210C3800u, // bc=16 res=2 pi=48 EU433
+    0x210CF800u, // bc=16 res=2 pi=51 EU433
+    0x210D3800u, // bc=16 res=2 pi=52 EU433
+    0x210D6C00u, // bc=16 res=2 pi=53 IN865
     0x21923000u, // bc=16 res=3 pi=72 RU864
+    0x21927000u, // bc=16 res=3 pi=73 RU864
     0x2192B400u, // bc=16 res=3 pi=74 CN470
+    0x2192F400u, // bc=16 res=3 pi=75 CN470
     0x21933000u, // bc=16 res=3 pi=76 RU864
     0x21937000u, // bc=16 res=3 pi=77 RU864
     0x2193AC00u, // bc=16 res=3 pi=78 IN865
-    0x21942C00u, // bc=16 res=3 pi=80 IN865
-    0x21946C00u, // bc=16 res=3 pi=81 IN865
-    0x2194AC00u, // bc=16 res=3 pi=82 IN865
-    0x2194EC00u, // bc=16 res=3 pi=83 IN865
-    0x21952C00u, // bc=16 res=3 pi=84 IN865
-    0x21956C00u, // bc=16 res=3 pi=85 IN865
-    0x2195AC00u, // bc=16 res=3 pi=86 IN865
     0x21963400u, // bc=16 res=3 pi=88 CN470
     0x21967400u, // bc=16 res=3 pi=89 CN470
     0x2196B400u, // bc=16 res=3 pi=90 CN470
@@ -3086,62 +932,35 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x21993000u, // bc=16 res=3 pi=100 RU864
     0x21997000u, // bc=16 res=3 pi=101 RU864
     0x2199AC00u, // bc=16 res=3 pi=102 IN865
-    0x219A3000u, // bc=16 res=3 pi=104 RU864
-    0x219A7000u, // bc=16 res=3 pi=105 RU864
-    0x219AB000u, // bc=16 res=3 pi=106 RU864
-    0x219AF000u, // bc=16 res=3 pi=107 RU864
-    0x219B3000u, // bc=16 res=3 pi=108 RU864
-    0x219B7000u, // bc=16 res=3 pi=109 RU864
-    0x219BB000u, // bc=16 res=3 pi=110 RU864
-    0x219C2C00u, // bc=16 res=3 pi=112 IN865
-    0x219C6C00u, // bc=16 res=3 pi=113 IN865
-    0x219CAC00u, // bc=16 res=3 pi=114 IN865
-    0x219CEC00u, // bc=16 res=3 pi=115 IN865
-    0x219D2C00u, // bc=16 res=3 pi=116 IN865
-    0x219D6C00u, // bc=16 res=3 pi=117 IN865
-    0x219DAC00u, // bc=16 res=3 pi=118 IN865
-    0x21B03400u, // bc=16 res=3 pi=192 CN470
-    0x21B07400u, // bc=16 res=3 pi=193 CN470
-    0x21B0B400u, // bc=16 res=3 pi=194 CN470
-    0x21B0F400u, // bc=16 res=3 pi=195 CN470
-    0x21B17400u, // bc=16 res=3 pi=197 CN470
-    0x21B1B400u, // bc=16 res=3 pi=198 CN470
-    0x21B23400u, // bc=16 res=3 pi=200 CN470
-    0x21B27400u, // bc=16 res=3 pi=201 CN470
-    0x21B2B400u, // bc=16 res=3 pi=202 CN470
-    0x21B2F400u, // bc=16 res=3 pi=203 CN470
-    0x21B33400u, // bc=16 res=3 pi=204 CN470
-    0x21B37400u, // bc=16 res=3 pi=205 CN470
-    0x21B3B400u, // bc=16 res=3 pi=206 CN470
-    0x21B43400u, // bc=16 res=3 pi=208 CN470
-    0x21B47400u, // bc=16 res=3 pi=209 CN470
-    0x21B4B400u, // bc=16 res=3 pi=210 CN470
-    0x21B4F400u, // bc=16 res=3 pi=211 CN470
-    0x21B53400u, // bc=16 res=3 pi=212 CN470
-    0x21B57400u, // bc=16 res=3 pi=213 CN470
-    0x21B5B400u, // bc=16 res=3 pi=214 CN470
-    0x21B63400u, // bc=16 res=3 pi=216 CN470
-    0x21B67400u, // bc=16 res=3 pi=217 CN470
-    0x21B6B400u, // bc=16 res=3 pi=218 CN470
-    0x21B6F400u, // bc=16 res=3 pi=219 CN470
-    0x21B73400u, // bc=16 res=3 pi=220 CN470
-    0x21B77400u, // bc=16 res=3 pi=221 CN470
-    0x21B7B400u, // bc=16 res=3 pi=222 CN470
-    0x21B82C00u, // bc=16 res=3 pi=224 IN865
-    0x21B86C00u, // bc=16 res=3 pi=225 IN865
-    0x21B8EC00u, // bc=16 res=3 pi=227 IN865
-    0x21B92C00u, // bc=16 res=3 pi=228 IN865
-    0x21B96C00u, // bc=16 res=3 pi=229 IN865
-    0x21B9AC00u, // bc=16 res=3 pi=230 IN865
-    0x21BA3400u, // bc=16 res=3 pi=232 CN470
-    0x21BA7400u, // bc=16 res=3 pi=233 CN470
-    0x21BAB400u, // bc=16 res=3 pi=234 CN470
-    0x21BAF400u, // bc=16 res=3 pi=235 CN470
-    0x21BB3400u, // bc=16 res=3 pi=236 CN470
-    0x21BB7400u, // bc=16 res=3 pi=237 CN470
-    0x21BBB400u, // bc=16 res=3 pi=238 CN470
+    0x21A0D000u, // bc=16 res=3 pi=131 AS923-1
+    0x21A23400u, // bc=16 res=3 pi=136 CN470
+    0x21A27400u, // bc=16 res=3 pi=137 CN470
+    0x21A2B400u, // bc=16 res=3 pi=138 CN470
+    0x21A2F400u, // bc=16 res=3 pi=139 CN470
+    0x21A33400u, // bc=16 res=3 pi=140 CN470
+    0x21A37400u, // bc=16 res=3 pi=141 CN470
+    0x21A45000u, // bc=16 res=3 pi=145 AS923-1
+    0x21A49000u, // bc=16 res=3 pi=146 AS923-1
+    0x21A4D000u, // bc=16 res=3 pi=147 AS923-1
+    0x21A83800u, // bc=16 res=3 pi=160 EU433
+    0x21A87800u, // bc=16 res=3 pi=161 EU433
+    0x21A8B800u, // bc=16 res=3 pi=162 EU433
+    0x21A93800u, // bc=16 res=3 pi=164 EU433
+    0x21A96C00u, // bc=16 res=3 pi=165 IN865
+    0x21A9B800u, // bc=16 res=3 pi=166 EU433
+    0x21AA3800u, // bc=16 res=3 pi=168 EU433
+    0x21AAF400u, // bc=16 res=3 pi=171 CN470
+    0x21AB3800u, // bc=16 res=3 pi=172 EU433
+    0x21ABB800u, // bc=16 res=3 pi=174 EU433
+    0x21AC3800u, // bc=16 res=3 pi=176 EU433
+    0x21AC7800u, // bc=16 res=3 pi=177 EU433
+    0x21AD3800u, // bc=16 res=3 pi=180 EU433
+    0x21AD7800u, // bc=16 res=3 pi=181 EU433
+    0x21BC3400u, // bc=16 res=3 pi=240 CN470
+    0x21BC7400u, // bc=16 res=3 pi=241 CN470
     0x21BCB400u, // bc=16 res=3 pi=242 CN470
     0x21BCF400u, // bc=16 res=3 pi=243 CN470
+    0x21BDB400u, // bc=16 res=3 pi=246 CN470
     0x21C02C00u, // bc=16 res=3 pi=256 IN865
     0x21C06C00u, // bc=16 res=3 pi=257 IN865
     0x21C0AC00u, // bc=16 res=3 pi=258 IN865
@@ -3149,34 +968,6 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x21C12C00u, // bc=16 res=3 pi=260 IN865
     0x21C17000u, // bc=16 res=3 pi=261 RU864
     0x21C1AC00u, // bc=16 res=3 pi=262 IN865
-    0x21C22C00u, // bc=16 res=3 pi=264 IN865
-    0x21C26C00u, // bc=16 res=3 pi=265 IN865
-    0x21C2AC00u, // bc=16 res=3 pi=266 IN865
-    0x21C2EC00u, // bc=16 res=3 pi=267 IN865
-    0x21C32C00u, // bc=16 res=3 pi=268 IN865
-    0x21C36C00u, // bc=16 res=3 pi=269 IN865
-    0x21C3AC00u, // bc=16 res=3 pi=270 IN865
-    0x21C42C00u, // bc=16 res=3 pi=272 IN865
-    0x21C46C00u, // bc=16 res=3 pi=273 IN865
-    0x21C4AC00u, // bc=16 res=3 pi=274 IN865
-    0x21C4EC00u, // bc=16 res=3 pi=275 IN865
-    0x21C52C00u, // bc=16 res=3 pi=276 IN865
-    0x21C56C00u, // bc=16 res=3 pi=277 IN865
-    0x21C5AC00u, // bc=16 res=3 pi=278 IN865
-    0x21C62C00u, // bc=16 res=3 pi=280 IN865
-    0x21C66C00u, // bc=16 res=3 pi=281 IN865
-    0x21C6AC00u, // bc=16 res=3 pi=282 IN865
-    0x21C6EC00u, // bc=16 res=3 pi=283 IN865
-    0x21C72C00u, // bc=16 res=3 pi=284 IN865
-    0x21C76C00u, // bc=16 res=3 pi=285 IN865
-    0x21C7AC00u, // bc=16 res=3 pi=286 IN865
-    0x21C83000u, // bc=16 res=3 pi=288 RU864
-    0x21C87000u, // bc=16 res=3 pi=289 RU864
-    0x21C8B000u, // bc=16 res=3 pi=290 RU864
-    0x21C8F000u, // bc=16 res=3 pi=291 RU864
-    0x21C93000u, // bc=16 res=3 pi=292 RU864
-    0x21C97000u, // bc=16 res=3 pi=293 RU864
-    0x21C9B000u, // bc=16 res=3 pi=294 RU864
     0x21CA3000u, // bc=16 res=3 pi=296 RU864
     0x21CA6C00u, // bc=16 res=3 pi=297 IN865
     0x21CAAC00u, // bc=16 res=3 pi=298 IN865
@@ -3184,13 +975,6 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x21CB3000u, // bc=16 res=3 pi=300 RU864
     0x21CB7000u, // bc=16 res=3 pi=301 RU864
     0x21CBB000u, // bc=16 res=3 pi=302 RU864
-    0x21CC2C00u, // bc=16 res=3 pi=304 IN865
-    0x21CC6C00u, // bc=16 res=3 pi=305 IN865
-    0x21CCAC00u, // bc=16 res=3 pi=306 IN865
-    0x21CCEC00u, // bc=16 res=3 pi=307 IN865
-    0x21CD2C00u, // bc=16 res=3 pi=308 IN865
-    0x21CD6C00u, // bc=16 res=3 pi=309 IN865
-    0x21CDAC00u, // bc=16 res=3 pi=310 IN865
     0x21D02C00u, // bc=16 res=3 pi=320 IN865
     0x21D07000u, // bc=16 res=3 pi=321 RU864
     0x21D0AC00u, // bc=16 res=3 pi=322 IN865
@@ -3205,34 +989,6 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x21D33000u, // bc=16 res=3 pi=332 RU864
     0x21D37000u, // bc=16 res=3 pi=333 RU864
     0x21D3AC00u, // bc=16 res=3 pi=334 IN865
-    0x21D42C00u, // bc=16 res=3 pi=336 IN865
-    0x21D46C00u, // bc=16 res=3 pi=337 IN865
-    0x21D4AC00u, // bc=16 res=3 pi=338 IN865
-    0x21D4EC00u, // bc=16 res=3 pi=339 IN865
-    0x21D52C00u, // bc=16 res=3 pi=340 IN865
-    0x21D56C00u, // bc=16 res=3 pi=341 IN865
-    0x21D5AC00u, // bc=16 res=3 pi=342 IN865
-    0x21D62C00u, // bc=16 res=3 pi=344 IN865
-    0x21D66C00u, // bc=16 res=3 pi=345 IN865
-    0x21D6AC00u, // bc=16 res=3 pi=346 IN865
-    0x21D6EC00u, // bc=16 res=3 pi=347 IN865
-    0x21D72C00u, // bc=16 res=3 pi=348 IN865
-    0x21D76C00u, // bc=16 res=3 pi=349 IN865
-    0x21D7AC00u, // bc=16 res=3 pi=350 IN865
-    0x21D83000u, // bc=16 res=3 pi=352 RU864
-    0x21D87000u, // bc=16 res=3 pi=353 RU864
-    0x21D8B000u, // bc=16 res=3 pi=354 RU864
-    0x21D8F000u, // bc=16 res=3 pi=355 RU864
-    0x21D93000u, // bc=16 res=3 pi=356 RU864
-    0x21D97000u, // bc=16 res=3 pi=357 RU864
-    0x21D9B000u, // bc=16 res=3 pi=358 RU864
-    0x21DA3000u, // bc=16 res=3 pi=360 RU864
-    0x21DA7000u, // bc=16 res=3 pi=361 RU864
-    0x21DAB000u, // bc=16 res=3 pi=362 RU864
-    0x21DAF000u, // bc=16 res=3 pi=363 RU864
-    0x21DB3000u, // bc=16 res=3 pi=364 RU864
-    0x21DB7000u, // bc=16 res=3 pi=365 RU864
-    0x21DBB000u, // bc=16 res=3 pi=366 RU864
     0x21DC2C00u, // bc=16 res=3 pi=368 IN865
     0x21DC6C00u, // bc=16 res=3 pi=369 IN865
     0x21DCAC00u, // bc=16 res=3 pi=370 IN865
@@ -3240,11 +996,6 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x21DD2C00u, // bc=16 res=3 pi=372 IN865
     0x21DD7000u, // bc=16 res=3 pi=373 RU864
     0x21DDAC00u, // bc=16 res=3 pi=374 IN865
-    0x21E03800u, // bc=16 res=3 pi=384 EU433
-    0x21E07800u, // bc=16 res=3 pi=385 EU433
-    0x21E0F800u, // bc=16 res=3 pi=387 EU433
-    0x21E13800u, // bc=16 res=3 pi=388 EU433
-    0x21E17800u, // bc=16 res=3 pi=389 EU433
     0x21E23800u, // bc=16 res=3 pi=392 EU433
     0x21E26C00u, // bc=16 res=3 pi=393 IN865
     0x21E2B800u, // bc=16 res=3 pi=394 EU433
@@ -3252,251 +1003,92 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x21E33800u, // bc=16 res=3 pi=396 EU433
     0x21E36C00u, // bc=16 res=3 pi=397 IN865
     0x21E3B800u, // bc=16 res=3 pi=398 EU433
-    0x21E63800u, // bc=16 res=3 pi=408 EU433
-    0x21E67800u, // bc=16 res=3 pi=409 EU433
-    0x21E6F800u, // bc=16 res=3 pi=411 EU433
-    0x21E73800u, // bc=16 res=3 pi=412 EU433
-    0x21E77800u, // bc=16 res=3 pi=413 EU433
-    0x21E83800u, // bc=16 res=3 pi=416 EU433
-    0x21E87800u, // bc=16 res=3 pi=417 EU433
-    0x21E8B800u, // bc=16 res=3 pi=418 EU433
-    0x21E8F800u, // bc=16 res=3 pi=419 EU433
-    0x21E93800u, // bc=16 res=3 pi=420 EU433
-    0x21E97800u, // bc=16 res=3 pi=421 EU433
-    0x21E9B800u, // bc=16 res=3 pi=422 EU433
-    0x21EA2C00u, // bc=16 res=3 pi=424 IN865
-    0x21EA6C00u, // bc=16 res=3 pi=425 IN865
-    0x21EAAC00u, // bc=16 res=3 pi=426 IN865
-    0x21EAEC00u, // bc=16 res=3 pi=427 IN865
-    0x21EB2C00u, // bc=16 res=3 pi=428 IN865
-    0x21EB6C00u, // bc=16 res=3 pi=429 IN865
-    0x21EBAC00u, // bc=16 res=3 pi=430 IN865
     0x21ED3800u, // bc=16 res=3 pi=436 EU433
     0x21ED7800u, // bc=16 res=3 pi=437 EU433
-    0x23068400u, // bc=17 res=2 pi=26 US915
-    0x23074400u, // bc=17 res=2 pi=29 US915
+    0x23960400u, // bc=17 res=3 pi=88 US915
+    0x23964400u, // bc=17 res=3 pi=89 US915
     0x23968400u, // bc=17 res=3 pi=90 US915
     0x2396C400u, // bc=17 res=3 pi=91 US915
+    0x23B00400u, // bc=17 res=3 pi=192 US915
+    0x23B08400u, // bc=17 res=3 pi=194 US915
+    0x23B10400u, // bc=17 res=3 pi=196 US915
     0x23B14400u, // bc=17 res=3 pi=197 US915
     0x23B18400u, // bc=17 res=3 pi=198 US915
+    0x23B40400u, // bc=17 res=3 pi=208 US915
+    0x23B44400u, // bc=17 res=3 pi=209 US915
+    0x23B48400u, // bc=17 res=3 pi=210 US915
+    0x23B50400u, // bc=17 res=3 pi=212 US915
+    0x23B54400u, // bc=17 res=3 pi=213 US915
+    0x23B58400u, // bc=17 res=3 pi=214 US915
+    0x23B60400u, // bc=17 res=3 pi=216 US915
+    0x23B68400u, // bc=17 res=3 pi=218 US915
+    0x23B6C400u, // bc=17 res=3 pi=219 US915
+    0x23BA0400u, // bc=17 res=3 pi=232 US915
+    0x23BA4400u, // bc=17 res=3 pi=233 US915
+    0x23BA8400u, // bc=17 res=3 pi=234 US915
+    0x23BB4400u, // bc=17 res=3 pi=237 US915
+    0x23BB8400u, // bc=17 res=3 pi=238 US915
     0x2480B400u, // bc=18 res=1 pi=2 CN470
-    0x2480F400u, // bc=18 res=1 pi=3 CN470
-    0x24813000u, // bc=18 res=1 pi=4 RU864
-    0x24817000u, // bc=18 res=1 pi=5 RU864
-    0x2481B400u, // bc=18 res=1 pi=6 CN470
     0x25027400u, // bc=18 res=2 pi=9 CN470
     0x2502F400u, // bc=18 res=2 pi=11 CN470
+    0x25063400u, // bc=18 res=2 pi=24 CN470
+    0x25067400u, // bc=18 res=2 pi=25 CN470
+    0x2506B400u, // bc=18 res=2 pi=26 CN470
+    0x2506F400u, // bc=18 res=2 pi=27 CN470
+    0x25077400u, // bc=18 res=2 pi=29 CN470
+    0x2507B400u, // bc=18 res=2 pi=30 CN470
+    0x25083000u, // bc=18 res=2 pi=32 RU864
+    0x25093000u, // bc=18 res=2 pi=36 RU864
+    0x25097000u, // bc=18 res=2 pi=37 RU864
+    0x2509B000u, // bc=18 res=2 pi=38 RU864
+    0x250A3000u, // bc=18 res=2 pi=40 RU864
+    0x250A7000u, // bc=18 res=2 pi=41 RU864
+    0x250B3000u, // bc=18 res=2 pi=44 RU864
+    0x250B7000u, // bc=18 res=2 pi=45 RU864
+    0x250BB000u, // bc=18 res=2 pi=46 RU864
+    0x250C3400u, // bc=18 res=2 pi=48 CN470
+    0x250C7400u, // bc=18 res=2 pi=49 CN470
+    0x250CB400u, // bc=18 res=2 pi=50 CN470
+    0x250CF400u, // bc=18 res=2 pi=51 CN470
+    0x250D3400u, // bc=18 res=2 pi=52 CN470
+    0x250DB400u, // bc=18 res=2 pi=54 CN470
+    0x25843400u, // bc=18 res=3 pi=16 CN470
+    0x25847400u, // bc=18 res=3 pi=17 CN470
     0x2584B400u, // bc=18 res=3 pi=18 CN470
     0x2584F400u, // bc=18 res=3 pi=19 CN470
     0x2585B400u, // bc=18 res=3 pi=22 CN470
+    0x25863400u, // bc=18 res=3 pi=24 CN470
+    0x25867400u, // bc=18 res=3 pi=25 CN470
     0x2586B400u, // bc=18 res=3 pi=26 CN470
     0x2586F400u, // bc=18 res=3 pi=27 CN470
+    0x25873400u, // bc=18 res=3 pi=28 CN470
     0x2587B400u, // bc=18 res=3 pi=30 CN470
+    0x25907400u, // bc=18 res=3 pi=65 CN470
     0x2590F400u, // bc=18 res=3 pi=67 CN470
-    0x25A03400u, // bc=18 res=3 pi=128 CN470
-    0x25A07400u, // bc=18 res=3 pi=129 CN470
-    0x25A0B400u, // bc=18 res=3 pi=130 CN470
-    0x25A0F400u, // bc=18 res=3 pi=131 CN470
-    0x25A13400u, // bc=18 res=3 pi=132 CN470
-    0x25A17400u, // bc=18 res=3 pi=133 CN470
-    0x25A1B400u, // bc=18 res=3 pi=134 CN470
-    0x25A23400u, // bc=18 res=3 pi=136 CN470
-    0x25A27400u, // bc=18 res=3 pi=137 CN470
-    0x25A2B400u, // bc=18 res=3 pi=138 CN470
-    0x25A2F400u, // bc=18 res=3 pi=139 CN470
-    0x25A33400u, // bc=18 res=3 pi=140 CN470
-    0x25A37400u, // bc=18 res=3 pi=141 CN470
-    0x25A3B400u, // bc=18 res=3 pi=142 CN470
-    0x25A43400u, // bc=18 res=3 pi=144 CN470
-    0x25A47400u, // bc=18 res=3 pi=145 CN470
-    0x25A4B400u, // bc=18 res=3 pi=146 CN470
-    0x25A4F400u, // bc=18 res=3 pi=147 CN470
-    0x25A53400u, // bc=18 res=3 pi=148 CN470
-    0x25A57400u, // bc=18 res=3 pi=149 CN470
-    0x25A5B400u, // bc=18 res=3 pi=150 CN470
-    0x25A63400u, // bc=18 res=3 pi=152 CN470
-    0x25A67400u, // bc=18 res=3 pi=153 CN470
-    0x25A6B400u, // bc=18 res=3 pi=154 CN470
-    0x25A6F400u, // bc=18 res=3 pi=155 CN470
-    0x25A73400u, // bc=18 res=3 pi=156 CN470
-    0x25A77400u, // bc=18 res=3 pi=157 CN470
-    0x25A7B400u, // bc=18 res=3 pi=158 CN470
-    0x25A83400u, // bc=18 res=3 pi=160 CN470
-    0x25A87400u, // bc=18 res=3 pi=161 CN470
-    0x25A8B400u, // bc=18 res=3 pi=162 CN470
-    0x25A8F400u, // bc=18 res=3 pi=163 CN470
-    0x25A93400u, // bc=18 res=3 pi=164 CN470
-    0x25A97400u, // bc=18 res=3 pi=165 CN470
-    0x25A9B400u, // bc=18 res=3 pi=166 CN470
-    0x25AA3400u, // bc=18 res=3 pi=168 CN470
-    0x25AA7400u, // bc=18 res=3 pi=169 CN470
-    0x25AAB400u, // bc=18 res=3 pi=170 CN470
-    0x25AAF400u, // bc=18 res=3 pi=171 CN470
-    0x25AB3400u, // bc=18 res=3 pi=172 CN470
-    0x25AB7400u, // bc=18 res=3 pi=173 CN470
-    0x25ABB400u, // bc=18 res=3 pi=174 CN470
-    0x25AC3400u, // bc=18 res=3 pi=176 CN470
-    0x25AC7400u, // bc=18 res=3 pi=177 CN470
-    0x25ACB400u, // bc=18 res=3 pi=178 CN470
-    0x25ACF400u, // bc=18 res=3 pi=179 CN470
-    0x25AD3400u, // bc=18 res=3 pi=180 CN470
-    0x25AD7400u, // bc=18 res=3 pi=181 CN470
-    0x25ADB400u, // bc=18 res=3 pi=182 CN470
-    0x25B03400u, // bc=18 res=3 pi=192 CN470
-    0x25B07400u, // bc=18 res=3 pi=193 CN470
-    0x25B0B400u, // bc=18 res=3 pi=194 CN470
-    0x25B0F400u, // bc=18 res=3 pi=195 CN470
-    0x25B13400u, // bc=18 res=3 pi=196 CN470
-    0x25B17400u, // bc=18 res=3 pi=197 CN470
-    0x25B1B400u, // bc=18 res=3 pi=198 CN470
-    0x25B23400u, // bc=18 res=3 pi=200 CN470
-    0x25B27400u, // bc=18 res=3 pi=201 CN470
-    0x25B2B400u, // bc=18 res=3 pi=202 CN470
-    0x25B2F400u, // bc=18 res=3 pi=203 CN470
-    0x25B33400u, // bc=18 res=3 pi=204 CN470
-    0x25B37400u, // bc=18 res=3 pi=205 CN470
-    0x25B3B400u, // bc=18 res=3 pi=206 CN470
-    0x25B43400u, // bc=18 res=3 pi=208 CN470
-    0x25B47400u, // bc=18 res=3 pi=209 CN470
-    0x25B4B400u, // bc=18 res=3 pi=210 CN470
-    0x25B4F400u, // bc=18 res=3 pi=211 CN470
-    0x25B53400u, // bc=18 res=3 pi=212 CN470
-    0x25B57400u, // bc=18 res=3 pi=213 CN470
-    0x25B5B400u, // bc=18 res=3 pi=214 CN470
-    0x25B63400u, // bc=18 res=3 pi=216 CN470
-    0x25B67400u, // bc=18 res=3 pi=217 CN470
-    0x25B6B400u, // bc=18 res=3 pi=218 CN470
-    0x25B6F400u, // bc=18 res=3 pi=219 CN470
-    0x25B73400u, // bc=18 res=3 pi=220 CN470
-    0x25B77400u, // bc=18 res=3 pi=221 CN470
-    0x25B7B400u, // bc=18 res=3 pi=222 CN470
+    0x2594B400u, // bc=18 res=3 pi=82 CN470
+    0x2594F400u, // bc=18 res=3 pi=83 CN470
+    0x25993000u, // bc=18 res=3 pi=100 RU864
+    0x25997000u, // bc=18 res=3 pi=101 RU864
+    0x259B7400u, // bc=18 res=3 pi=109 CN470
     0x25B83400u, // bc=18 res=3 pi=224 CN470
     0x25B87400u, // bc=18 res=3 pi=225 CN470
     0x25B8B400u, // bc=18 res=3 pi=226 CN470
     0x25B8F400u, // bc=18 res=3 pi=227 CN470
+    0x25B97400u, // bc=18 res=3 pi=229 CN470
     0x25B9B400u, // bc=18 res=3 pi=230 CN470
-    0x25BA3400u, // bc=18 res=3 pi=232 CN470
-    0x25BA7400u, // bc=18 res=3 pi=233 CN470
-    0x25BAB400u, // bc=18 res=3 pi=234 CN470
-    0x25BAF400u, // bc=18 res=3 pi=235 CN470
-    0x25BB3400u, // bc=18 res=3 pi=236 CN470
-    0x25BB7400u, // bc=18 res=3 pi=237 CN470
-    0x25BBB400u, // bc=18 res=3 pi=238 CN470
-    0x25BC3400u, // bc=18 res=3 pi=240 CN470
-    0x25BC7400u, // bc=18 res=3 pi=241 CN470
-    0x25BCB400u, // bc=18 res=3 pi=242 CN470
-    0x25BCF400u, // bc=18 res=3 pi=243 CN470
-    0x25BD3400u, // bc=18 res=3 pi=244 CN470
-    0x25BD7400u, // bc=18 res=3 pi=245 CN470
-    0x25BDB400u, // bc=18 res=3 pi=246 CN470
-    0x25C03000u, // bc=18 res=3 pi=256 RU864
-    0x25C07000u, // bc=18 res=3 pi=257 RU864
-    0x25C0F000u, // bc=18 res=3 pi=259 RU864
-    0x25C13000u, // bc=18 res=3 pi=260 RU864
-    0x25C17000u, // bc=18 res=3 pi=261 RU864
-    0x25C1B000u, // bc=18 res=3 pi=262 RU864
     0x25C33000u, // bc=18 res=3 pi=268 RU864
+    0x25C37000u, // bc=18 res=3 pi=269 RU864
     0x25C3B000u, // bc=18 res=3 pi=270 RU864
-    0x25C83000u, // bc=18 res=3 pi=288 RU864
-    0x25C87000u, // bc=18 res=3 pi=289 RU864
-    0x25C8B000u, // bc=18 res=3 pi=290 RU864
-    0x25C8F000u, // bc=18 res=3 pi=291 RU864
-    0x25C93000u, // bc=18 res=3 pi=292 RU864
-    0x25C97000u, // bc=18 res=3 pi=293 RU864
-    0x25C9B000u, // bc=18 res=3 pi=294 RU864
-    0x25CA3000u, // bc=18 res=3 pi=296 RU864
-    0x25CA7000u, // bc=18 res=3 pi=297 RU864
-    0x25CAB000u, // bc=18 res=3 pi=298 RU864
-    0x25CAF000u, // bc=18 res=3 pi=299 RU864
-    0x25CB3000u, // bc=18 res=3 pi=300 RU864
-    0x25CB7000u, // bc=18 res=3 pi=301 RU864
-    0x25CBB000u, // bc=18 res=3 pi=302 RU864
-    0x25CC3000u, // bc=18 res=3 pi=304 RU864
-    0x25CC7000u, // bc=18 res=3 pi=305 RU864
-    0x25CCB000u, // bc=18 res=3 pi=306 RU864
-    0x25CCF000u, // bc=18 res=3 pi=307 RU864
-    0x25CD3000u, // bc=18 res=3 pi=308 RU864
-    0x25CD7000u, // bc=18 res=3 pi=309 RU864
-    0x25CDB000u, // bc=18 res=3 pi=310 RU864
-    0x25D03000u, // bc=18 res=3 pi=320 RU864
-    0x25D07000u, // bc=18 res=3 pi=321 RU864
-    0x25D0B000u, // bc=18 res=3 pi=322 RU864
-    0x25D0F000u, // bc=18 res=3 pi=323 RU864
-    0x25D13000u, // bc=18 res=3 pi=324 RU864
-    0x25D17000u, // bc=18 res=3 pi=325 RU864
-    0x25D1B000u, // bc=18 res=3 pi=326 RU864
-    0x25D23000u, // bc=18 res=3 pi=328 RU864
-    0x25D27000u, // bc=18 res=3 pi=329 RU864
-    0x25D2B000u, // bc=18 res=3 pi=330 RU864
-    0x25D2F000u, // bc=18 res=3 pi=331 RU864
-    0x25D33000u, // bc=18 res=3 pi=332 RU864
-    0x25D37000u, // bc=18 res=3 pi=333 RU864
-    0x25D3B000u, // bc=18 res=3 pi=334 RU864
+    0x25C53000u, // bc=18 res=3 pi=276 RU864
+    0x25C77000u, // bc=18 res=3 pi=285 RU864
+    0x25D43000u, // bc=18 res=3 pi=336 RU864
+    0x25D47000u, // bc=18 res=3 pi=337 RU864
     0x25D53000u, // bc=18 res=3 pi=340 RU864
     0x25D57000u, // bc=18 res=3 pi=341 RU864
+    0x25D67000u, // bc=18 res=3 pi=345 RU864
+    0x25D73000u, // bc=18 res=3 pi=348 RU864
     0x25D77000u, // bc=18 res=3 pi=349 RU864
-    0x25D83000u, // bc=18 res=3 pi=352 RU864
-    0x25D87000u, // bc=18 res=3 pi=353 RU864
-    0x25D8B000u, // bc=18 res=3 pi=354 RU864
-    0x25D8F000u, // bc=18 res=3 pi=355 RU864
-    0x25D93000u, // bc=18 res=3 pi=356 RU864
-    0x25D97000u, // bc=18 res=3 pi=357 RU864
-    0x25D9B000u, // bc=18 res=3 pi=358 RU864
-    0x25DA3000u, // bc=18 res=3 pi=360 RU864
-    0x25DA7000u, // bc=18 res=3 pi=361 RU864
-    0x25DAB000u, // bc=18 res=3 pi=362 RU864
-    0x25DAF000u, // bc=18 res=3 pi=363 RU864
-    0x25DB3000u, // bc=18 res=3 pi=364 RU864
-    0x25DB7000u, // bc=18 res=3 pi=365 RU864
-    0x25DBB000u, // bc=18 res=3 pi=366 RU864
-    0x25DC3000u, // bc=18 res=3 pi=368 RU864
-    0x25DC7000u, // bc=18 res=3 pi=369 RU864
-    0x25DCB000u, // bc=18 res=3 pi=370 RU864
-    0x25DCF000u, // bc=18 res=3 pi=371 RU864
-    0x25DD3000u, // bc=18 res=3 pi=372 RU864
-    0x25DD7000u, // bc=18 res=3 pi=373 RU864
-    0x25DDB000u, // bc=18 res=3 pi=374 RU864
-    0x25E03400u, // bc=18 res=3 pi=384 CN470
-    0x25E07400u, // bc=18 res=3 pi=385 CN470
-    0x25E0B400u, // bc=18 res=3 pi=386 CN470
-    0x25E0F400u, // bc=18 res=3 pi=387 CN470
-    0x25E13400u, // bc=18 res=3 pi=388 CN470
-    0x25E17400u, // bc=18 res=3 pi=389 CN470
-    0x25E1B400u, // bc=18 res=3 pi=390 CN470
-    0x25E23400u, // bc=18 res=3 pi=392 CN470
-    0x25E2B400u, // bc=18 res=3 pi=394 CN470
-    0x25E2F400u, // bc=18 res=3 pi=395 CN470
-    0x25E33400u, // bc=18 res=3 pi=396 CN470
-    0x25E3B400u, // bc=18 res=3 pi=398 CN470
-    0x25E43400u, // bc=18 res=3 pi=400 CN470
-    0x25E47400u, // bc=18 res=3 pi=401 CN470
-    0x25E4B400u, // bc=18 res=3 pi=402 CN470
-    0x25E4F400u, // bc=18 res=3 pi=403 CN470
-    0x25E53400u, // bc=18 res=3 pi=404 CN470
-    0x25E57400u, // bc=18 res=3 pi=405 CN470
-    0x25E5B400u, // bc=18 res=3 pi=406 CN470
-    0x25E63400u, // bc=18 res=3 pi=408 CN470
-    0x25E67400u, // bc=18 res=3 pi=409 CN470
-    0x25E6B400u, // bc=18 res=3 pi=410 CN470
-    0x25E6F400u, // bc=18 res=3 pi=411 CN470
-    0x25E73400u, // bc=18 res=3 pi=412 CN470
-    0x25E77400u, // bc=18 res=3 pi=413 CN470
-    0x25E7B400u, // bc=18 res=3 pi=414 CN470
-    0x25E83400u, // bc=18 res=3 pi=416 CN470
-    0x25E87400u, // bc=18 res=3 pi=417 CN470
-    0x25E8B400u, // bc=18 res=3 pi=418 CN470
-    0x25E8F400u, // bc=18 res=3 pi=419 CN470
-    0x25E93400u, // bc=18 res=3 pi=420 CN470
-    0x25E97400u, // bc=18 res=3 pi=421 CN470
-    0x25E9B400u, // bc=18 res=3 pi=422 CN470
     0x25EAB400u, // bc=18 res=3 pi=426 CN470
-    0x25EC3400u, // bc=18 res=3 pi=432 CN470
-    0x25EC7400u, // bc=18 res=3 pi=433 CN470
-    0x25ECB400u, // bc=18 res=3 pi=434 CN470
-    0x25ECF400u, // bc=18 res=3 pi=435 CN470
-    0x25ED3400u, // bc=18 res=3 pi=436 CN470
-    0x25ED7400u, // bc=18 res=3 pi=437 CN470
-    0x25EDB400u, // bc=18 res=3 pi=438 CN470
     0x26800400u, // bc=19 res=1 pi=0 US915
     0x26804400u, // bc=19 res=1 pi=1 US915
     0x26808400u, // bc=19 res=1 pi=2 US915
@@ -3504,349 +1096,6 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x26810400u, // bc=19 res=1 pi=4 US915
     0x26814400u, // bc=19 res=1 pi=5 US915
     0x26818400u, // bc=19 res=1 pi=6 US915
-    0x27800400u, // bc=19 res=3 pi=0 US915
-    0x27804400u, // bc=19 res=3 pi=1 US915
-    0x27808400u, // bc=19 res=3 pi=2 US915
-    0x2780C400u, // bc=19 res=3 pi=3 US915
-    0x27810400u, // bc=19 res=3 pi=4 US915
-    0x27814400u, // bc=19 res=3 pi=5 US915
-    0x27818400u, // bc=19 res=3 pi=6 US915
-    0x27820400u, // bc=19 res=3 pi=8 US915
-    0x27824400u, // bc=19 res=3 pi=9 US915
-    0x27828400u, // bc=19 res=3 pi=10 US915
-    0x2782C400u, // bc=19 res=3 pi=11 US915
-    0x27830400u, // bc=19 res=3 pi=12 US915
-    0x27834400u, // bc=19 res=3 pi=13 US915
-    0x27838400u, // bc=19 res=3 pi=14 US915
-    0x27840400u, // bc=19 res=3 pi=16 US915
-    0x27844400u, // bc=19 res=3 pi=17 US915
-    0x27848400u, // bc=19 res=3 pi=18 US915
-    0x2784C400u, // bc=19 res=3 pi=19 US915
-    0x27850400u, // bc=19 res=3 pi=20 US915
-    0x27854400u, // bc=19 res=3 pi=21 US915
-    0x27858400u, // bc=19 res=3 pi=22 US915
-    0x27860400u, // bc=19 res=3 pi=24 US915
-    0x27864400u, // bc=19 res=3 pi=25 US915
-    0x27868400u, // bc=19 res=3 pi=26 US915
-    0x2786C400u, // bc=19 res=3 pi=27 US915
-    0x27870400u, // bc=19 res=3 pi=28 US915
-    0x27874400u, // bc=19 res=3 pi=29 US915
-    0x27878400u, // bc=19 res=3 pi=30 US915
-    0x27880400u, // bc=19 res=3 pi=32 US915
-    0x27884400u, // bc=19 res=3 pi=33 US915
-    0x27888400u, // bc=19 res=3 pi=34 US915
-    0x2788C400u, // bc=19 res=3 pi=35 US915
-    0x27890400u, // bc=19 res=3 pi=36 US915
-    0x27894400u, // bc=19 res=3 pi=37 US915
-    0x27898400u, // bc=19 res=3 pi=38 US915
-    0x278A0400u, // bc=19 res=3 pi=40 US915
-    0x278A4400u, // bc=19 res=3 pi=41 US915
-    0x278A8400u, // bc=19 res=3 pi=42 US915
-    0x278AC400u, // bc=19 res=3 pi=43 US915
-    0x278B0400u, // bc=19 res=3 pi=44 US915
-    0x278B4400u, // bc=19 res=3 pi=45 US915
-    0x278B8400u, // bc=19 res=3 pi=46 US915
-    0x278C0400u, // bc=19 res=3 pi=48 US915
-    0x278C4400u, // bc=19 res=3 pi=49 US915
-    0x278C8400u, // bc=19 res=3 pi=50 US915
-    0x278CC400u, // bc=19 res=3 pi=51 US915
-    0x278D0400u, // bc=19 res=3 pi=52 US915
-    0x278D4400u, // bc=19 res=3 pi=53 US915
-    0x278D8400u, // bc=19 res=3 pi=54 US915
-    0x27900400u, // bc=19 res=3 pi=64 US915
-    0x27904400u, // bc=19 res=3 pi=65 US915
-    0x27908400u, // bc=19 res=3 pi=66 US915
-    0x2790C400u, // bc=19 res=3 pi=67 US915
-    0x27910400u, // bc=19 res=3 pi=68 US915
-    0x27914400u, // bc=19 res=3 pi=69 US915
-    0x27918400u, // bc=19 res=3 pi=70 US915
-    0x27920400u, // bc=19 res=3 pi=72 US915
-    0x27924400u, // bc=19 res=3 pi=73 US915
-    0x27928400u, // bc=19 res=3 pi=74 US915
-    0x2792C400u, // bc=19 res=3 pi=75 US915
-    0x27930400u, // bc=19 res=3 pi=76 US915
-    0x27934400u, // bc=19 res=3 pi=77 US915
-    0x27938400u, // bc=19 res=3 pi=78 US915
-    0x27940400u, // bc=19 res=3 pi=80 US915
-    0x27944400u, // bc=19 res=3 pi=81 US915
-    0x27948400u, // bc=19 res=3 pi=82 US915
-    0x2794C400u, // bc=19 res=3 pi=83 US915
-    0x27950400u, // bc=19 res=3 pi=84 US915
-    0x27954400u, // bc=19 res=3 pi=85 US915
-    0x27958400u, // bc=19 res=3 pi=86 US915
-    0x27960400u, // bc=19 res=3 pi=88 US915
-    0x27964400u, // bc=19 res=3 pi=89 US915
-    0x27968400u, // bc=19 res=3 pi=90 US915
-    0x2796C400u, // bc=19 res=3 pi=91 US915
-    0x27970400u, // bc=19 res=3 pi=92 US915
-    0x27974400u, // bc=19 res=3 pi=93 US915
-    0x27978400u, // bc=19 res=3 pi=94 US915
-    0x27980400u, // bc=19 res=3 pi=96 US915
-    0x27984400u, // bc=19 res=3 pi=97 US915
-    0x27988400u, // bc=19 res=3 pi=98 US915
-    0x2798C400u, // bc=19 res=3 pi=99 US915
-    0x27990400u, // bc=19 res=3 pi=100 US915
-    0x27994400u, // bc=19 res=3 pi=101 US915
-    0x27998400u, // bc=19 res=3 pi=102 US915
-    0x279A0400u, // bc=19 res=3 pi=104 US915
-    0x279A4400u, // bc=19 res=3 pi=105 US915
-    0x279A8400u, // bc=19 res=3 pi=106 US915
-    0x279AC400u, // bc=19 res=3 pi=107 US915
-    0x279B0400u, // bc=19 res=3 pi=108 US915
-    0x279B4400u, // bc=19 res=3 pi=109 US915
-    0x279B8400u, // bc=19 res=3 pi=110 US915
-    0x279C0400u, // bc=19 res=3 pi=112 US915
-    0x279C4400u, // bc=19 res=3 pi=113 US915
-    0x279C8400u, // bc=19 res=3 pi=114 US915
-    0x279CC400u, // bc=19 res=3 pi=115 US915
-    0x279D0400u, // bc=19 res=3 pi=116 US915
-    0x279D4400u, // bc=19 res=3 pi=117 US915
-    0x279D8400u, // bc=19 res=3 pi=118 US915
-    0x27A00400u, // bc=19 res=3 pi=128 US915
-    0x27A04400u, // bc=19 res=3 pi=129 US915
-    0x27A08400u, // bc=19 res=3 pi=130 US915
-    0x27A0C400u, // bc=19 res=3 pi=131 US915
-    0x27A10400u, // bc=19 res=3 pi=132 US915
-    0x27A14400u, // bc=19 res=3 pi=133 US915
-    0x27A18400u, // bc=19 res=3 pi=134 US915
-    0x27A20400u, // bc=19 res=3 pi=136 US915
-    0x27A24400u, // bc=19 res=3 pi=137 US915
-    0x27A28400u, // bc=19 res=3 pi=138 US915
-    0x27A2C400u, // bc=19 res=3 pi=139 US915
-    0x27A30400u, // bc=19 res=3 pi=140 US915
-    0x27A34400u, // bc=19 res=3 pi=141 US915
-    0x27A38400u, // bc=19 res=3 pi=142 US915
-    0x27A40400u, // bc=19 res=3 pi=144 US915
-    0x27A44400u, // bc=19 res=3 pi=145 US915
-    0x27A48400u, // bc=19 res=3 pi=146 US915
-    0x27A4C400u, // bc=19 res=3 pi=147 US915
-    0x27A50400u, // bc=19 res=3 pi=148 US915
-    0x27A54400u, // bc=19 res=3 pi=149 US915
-    0x27A58400u, // bc=19 res=3 pi=150 US915
-    0x27A60400u, // bc=19 res=3 pi=152 US915
-    0x27A64400u, // bc=19 res=3 pi=153 US915
-    0x27A68400u, // bc=19 res=3 pi=154 US915
-    0x27A6C400u, // bc=19 res=3 pi=155 US915
-    0x27A70400u, // bc=19 res=3 pi=156 US915
-    0x27A74400u, // bc=19 res=3 pi=157 US915
-    0x27A78400u, // bc=19 res=3 pi=158 US915
-    0x27A80400u, // bc=19 res=3 pi=160 US915
-    0x27A84400u, // bc=19 res=3 pi=161 US915
-    0x27A88400u, // bc=19 res=3 pi=162 US915
-    0x27A8C400u, // bc=19 res=3 pi=163 US915
-    0x27A90400u, // bc=19 res=3 pi=164 US915
-    0x27A94400u, // bc=19 res=3 pi=165 US915
-    0x27A98400u, // bc=19 res=3 pi=166 US915
-    0x27AA0400u, // bc=19 res=3 pi=168 US915
-    0x27AA4400u, // bc=19 res=3 pi=169 US915
-    0x27AA8400u, // bc=19 res=3 pi=170 US915
-    0x27AAC400u, // bc=19 res=3 pi=171 US915
-    0x27AB0400u, // bc=19 res=3 pi=172 US915
-    0x27AB4400u, // bc=19 res=3 pi=173 US915
-    0x27AB8400u, // bc=19 res=3 pi=174 US915
-    0x27AC0400u, // bc=19 res=3 pi=176 US915
-    0x27AC4400u, // bc=19 res=3 pi=177 US915
-    0x27AC8400u, // bc=19 res=3 pi=178 US915
-    0x27ACC400u, // bc=19 res=3 pi=179 US915
-    0x27AD0400u, // bc=19 res=3 pi=180 US915
-    0x27AD4400u, // bc=19 res=3 pi=181 US915
-    0x27AD8400u, // bc=19 res=3 pi=182 US915
-    0x27B00400u, // bc=19 res=3 pi=192 US915
-    0x27B04400u, // bc=19 res=3 pi=193 US915
-    0x27B08400u, // bc=19 res=3 pi=194 US915
-    0x27B0C400u, // bc=19 res=3 pi=195 US915
-    0x27B10400u, // bc=19 res=3 pi=196 US915
-    0x27B14400u, // bc=19 res=3 pi=197 US915
-    0x27B18400u, // bc=19 res=3 pi=198 US915
-    0x27B20400u, // bc=19 res=3 pi=200 US915
-    0x27B24400u, // bc=19 res=3 pi=201 US915
-    0x27B28400u, // bc=19 res=3 pi=202 US915
-    0x27B2C400u, // bc=19 res=3 pi=203 US915
-    0x27B30400u, // bc=19 res=3 pi=204 US915
-    0x27B34400u, // bc=19 res=3 pi=205 US915
-    0x27B38400u, // bc=19 res=3 pi=206 US915
-    0x27B40400u, // bc=19 res=3 pi=208 US915
-    0x27B44400u, // bc=19 res=3 pi=209 US915
-    0x27B48400u, // bc=19 res=3 pi=210 US915
-    0x27B4C400u, // bc=19 res=3 pi=211 US915
-    0x27B50400u, // bc=19 res=3 pi=212 US915
-    0x27B54400u, // bc=19 res=3 pi=213 US915
-    0x27B58400u, // bc=19 res=3 pi=214 US915
-    0x27B60400u, // bc=19 res=3 pi=216 US915
-    0x27B64400u, // bc=19 res=3 pi=217 US915
-    0x27B68400u, // bc=19 res=3 pi=218 US915
-    0x27B6C400u, // bc=19 res=3 pi=219 US915
-    0x27B70400u, // bc=19 res=3 pi=220 US915
-    0x27B74400u, // bc=19 res=3 pi=221 US915
-    0x27B78400u, // bc=19 res=3 pi=222 US915
-    0x27B80400u, // bc=19 res=3 pi=224 US915
-    0x27B84400u, // bc=19 res=3 pi=225 US915
-    0x27B88400u, // bc=19 res=3 pi=226 US915
-    0x27B8C400u, // bc=19 res=3 pi=227 US915
-    0x27B90400u, // bc=19 res=3 pi=228 US915
-    0x27B94400u, // bc=19 res=3 pi=229 US915
-    0x27B98400u, // bc=19 res=3 pi=230 US915
-    0x27BA0400u, // bc=19 res=3 pi=232 US915
-    0x27BA4400u, // bc=19 res=3 pi=233 US915
-    0x27BA8400u, // bc=19 res=3 pi=234 US915
-    0x27BAC400u, // bc=19 res=3 pi=235 US915
-    0x27BB0400u, // bc=19 res=3 pi=236 US915
-    0x27BB4400u, // bc=19 res=3 pi=237 US915
-    0x27BB8400u, // bc=19 res=3 pi=238 US915
-    0x27BC0400u, // bc=19 res=3 pi=240 US915
-    0x27BC4400u, // bc=19 res=3 pi=241 US915
-    0x27BC8400u, // bc=19 res=3 pi=242 US915
-    0x27BCC400u, // bc=19 res=3 pi=243 US915
-    0x27BD0400u, // bc=19 res=3 pi=244 US915
-    0x27BD4400u, // bc=19 res=3 pi=245 US915
-    0x27BD8400u, // bc=19 res=3 pi=246 US915
-    0x27C00400u, // bc=19 res=3 pi=256 US915
-    0x27C04400u, // bc=19 res=3 pi=257 US915
-    0x27C08400u, // bc=19 res=3 pi=258 US915
-    0x27C0C400u, // bc=19 res=3 pi=259 US915
-    0x27C10400u, // bc=19 res=3 pi=260 US915
-    0x27C14400u, // bc=19 res=3 pi=261 US915
-    0x27C18400u, // bc=19 res=3 pi=262 US915
-    0x27C20400u, // bc=19 res=3 pi=264 US915
-    0x27C24400u, // bc=19 res=3 pi=265 US915
-    0x27C28400u, // bc=19 res=3 pi=266 US915
-    0x27C2C400u, // bc=19 res=3 pi=267 US915
-    0x27C30400u, // bc=19 res=3 pi=268 US915
-    0x27C34400u, // bc=19 res=3 pi=269 US915
-    0x27C38400u, // bc=19 res=3 pi=270 US915
-    0x27C40400u, // bc=19 res=3 pi=272 US915
-    0x27C44400u, // bc=19 res=3 pi=273 US915
-    0x27C48400u, // bc=19 res=3 pi=274 US915
-    0x27C4C400u, // bc=19 res=3 pi=275 US915
-    0x27C50400u, // bc=19 res=3 pi=276 US915
-    0x27C54400u, // bc=19 res=3 pi=277 US915
-    0x27C58400u, // bc=19 res=3 pi=278 US915
-    0x27C60400u, // bc=19 res=3 pi=280 US915
-    0x27C64400u, // bc=19 res=3 pi=281 US915
-    0x27C68400u, // bc=19 res=3 pi=282 US915
-    0x27C6C400u, // bc=19 res=3 pi=283 US915
-    0x27C70400u, // bc=19 res=3 pi=284 US915
-    0x27C74400u, // bc=19 res=3 pi=285 US915
-    0x27C78400u, // bc=19 res=3 pi=286 US915
-    0x27C80400u, // bc=19 res=3 pi=288 US915
-    0x27C84400u, // bc=19 res=3 pi=289 US915
-    0x27C88400u, // bc=19 res=3 pi=290 US915
-    0x27C8C400u, // bc=19 res=3 pi=291 US915
-    0x27C90400u, // bc=19 res=3 pi=292 US915
-    0x27C94400u, // bc=19 res=3 pi=293 US915
-    0x27C98400u, // bc=19 res=3 pi=294 US915
-    0x27CA0400u, // bc=19 res=3 pi=296 US915
-    0x27CA4400u, // bc=19 res=3 pi=297 US915
-    0x27CA8400u, // bc=19 res=3 pi=298 US915
-    0x27CAC400u, // bc=19 res=3 pi=299 US915
-    0x27CB0400u, // bc=19 res=3 pi=300 US915
-    0x27CB4400u, // bc=19 res=3 pi=301 US915
-    0x27CB8400u, // bc=19 res=3 pi=302 US915
-    0x27CC0400u, // bc=19 res=3 pi=304 US915
-    0x27CC4400u, // bc=19 res=3 pi=305 US915
-    0x27CC8400u, // bc=19 res=3 pi=306 US915
-    0x27CCC400u, // bc=19 res=3 pi=307 US915
-    0x27CD0400u, // bc=19 res=3 pi=308 US915
-    0x27CD4400u, // bc=19 res=3 pi=309 US915
-    0x27CD8400u, // bc=19 res=3 pi=310 US915
-    0x27D00400u, // bc=19 res=3 pi=320 US915
-    0x27D04400u, // bc=19 res=3 pi=321 US915
-    0x27D08400u, // bc=19 res=3 pi=322 US915
-    0x27D0C400u, // bc=19 res=3 pi=323 US915
-    0x27D10400u, // bc=19 res=3 pi=324 US915
-    0x27D14400u, // bc=19 res=3 pi=325 US915
-    0x27D18400u, // bc=19 res=3 pi=326 US915
-    0x27D20400u, // bc=19 res=3 pi=328 US915
-    0x27D24400u, // bc=19 res=3 pi=329 US915
-    0x27D28400u, // bc=19 res=3 pi=330 US915
-    0x27D2C400u, // bc=19 res=3 pi=331 US915
-    0x27D30400u, // bc=19 res=3 pi=332 US915
-    0x27D34400u, // bc=19 res=3 pi=333 US915
-    0x27D38400u, // bc=19 res=3 pi=334 US915
-    0x27D40400u, // bc=19 res=3 pi=336 US915
-    0x27D44400u, // bc=19 res=3 pi=337 US915
-    0x27D48400u, // bc=19 res=3 pi=338 US915
-    0x27D4C400u, // bc=19 res=3 pi=339 US915
-    0x27D50400u, // bc=19 res=3 pi=340 US915
-    0x27D54400u, // bc=19 res=3 pi=341 US915
-    0x27D58400u, // bc=19 res=3 pi=342 US915
-    0x27D60400u, // bc=19 res=3 pi=344 US915
-    0x27D64400u, // bc=19 res=3 pi=345 US915
-    0x27D68400u, // bc=19 res=3 pi=346 US915
-    0x27D6C400u, // bc=19 res=3 pi=347 US915
-    0x27D70400u, // bc=19 res=3 pi=348 US915
-    0x27D74400u, // bc=19 res=3 pi=349 US915
-    0x27D78400u, // bc=19 res=3 pi=350 US915
-    0x27D80400u, // bc=19 res=3 pi=352 US915
-    0x27D84400u, // bc=19 res=3 pi=353 US915
-    0x27D88400u, // bc=19 res=3 pi=354 US915
-    0x27D8C400u, // bc=19 res=3 pi=355 US915
-    0x27D90400u, // bc=19 res=3 pi=356 US915
-    0x27D94400u, // bc=19 res=3 pi=357 US915
-    0x27D98400u, // bc=19 res=3 pi=358 US915
-    0x27DA0400u, // bc=19 res=3 pi=360 US915
-    0x27DA4400u, // bc=19 res=3 pi=361 US915
-    0x27DA8400u, // bc=19 res=3 pi=362 US915
-    0x27DAC400u, // bc=19 res=3 pi=363 US915
-    0x27DB0400u, // bc=19 res=3 pi=364 US915
-    0x27DB4400u, // bc=19 res=3 pi=365 US915
-    0x27DB8400u, // bc=19 res=3 pi=366 US915
-    0x27DC0400u, // bc=19 res=3 pi=368 US915
-    0x27DC4400u, // bc=19 res=3 pi=369 US915
-    0x27DC8400u, // bc=19 res=3 pi=370 US915
-    0x27DCC400u, // bc=19 res=3 pi=371 US915
-    0x27DD0400u, // bc=19 res=3 pi=372 US915
-    0x27DD4400u, // bc=19 res=3 pi=373 US915
-    0x27DD8400u, // bc=19 res=3 pi=374 US915
-    0x27E00400u, // bc=19 res=3 pi=384 US915
-    0x27E04400u, // bc=19 res=3 pi=385 US915
-    0x27E08400u, // bc=19 res=3 pi=386 US915
-    0x27E0C400u, // bc=19 res=3 pi=387 US915
-    0x27E10400u, // bc=19 res=3 pi=388 US915
-    0x27E14400u, // bc=19 res=3 pi=389 US915
-    0x27E18400u, // bc=19 res=3 pi=390 US915
-    0x27E20400u, // bc=19 res=3 pi=392 US915
-    0x27E24400u, // bc=19 res=3 pi=393 US915
-    0x27E28400u, // bc=19 res=3 pi=394 US915
-    0x27E2C400u, // bc=19 res=3 pi=395 US915
-    0x27E30400u, // bc=19 res=3 pi=396 US915
-    0x27E34400u, // bc=19 res=3 pi=397 US915
-    0x27E38400u, // bc=19 res=3 pi=398 US915
-    0x27E40400u, // bc=19 res=3 pi=400 US915
-    0x27E44400u, // bc=19 res=3 pi=401 US915
-    0x27E48400u, // bc=19 res=3 pi=402 US915
-    0x27E4C400u, // bc=19 res=3 pi=403 US915
-    0x27E50400u, // bc=19 res=3 pi=404 US915
-    0x27E54400u, // bc=19 res=3 pi=405 US915
-    0x27E58400u, // bc=19 res=3 pi=406 US915
-    0x27E60400u, // bc=19 res=3 pi=408 US915
-    0x27E64400u, // bc=19 res=3 pi=409 US915
-    0x27E68400u, // bc=19 res=3 pi=410 US915
-    0x27E6C400u, // bc=19 res=3 pi=411 US915
-    0x27E70400u, // bc=19 res=3 pi=412 US915
-    0x27E74400u, // bc=19 res=3 pi=413 US915
-    0x27E78400u, // bc=19 res=3 pi=414 US915
-    0x27E80400u, // bc=19 res=3 pi=416 US915
-    0x27E84400u, // bc=19 res=3 pi=417 US915
-    0x27E88400u, // bc=19 res=3 pi=418 US915
-    0x27E8C400u, // bc=19 res=3 pi=419 US915
-    0x27E90400u, // bc=19 res=3 pi=420 US915
-    0x27E94400u, // bc=19 res=3 pi=421 US915
-    0x27E98400u, // bc=19 res=3 pi=422 US915
-    0x27EA0400u, // bc=19 res=3 pi=424 US915
-    0x27EA4400u, // bc=19 res=3 pi=425 US915
-    0x27EA8400u, // bc=19 res=3 pi=426 US915
-    0x27EAC400u, // bc=19 res=3 pi=427 US915
-    0x27EB0400u, // bc=19 res=3 pi=428 US915
-    0x27EB4400u, // bc=19 res=3 pi=429 US915
-    0x27EB8400u, // bc=19 res=3 pi=430 US915
-    0x27EC0400u, // bc=19 res=3 pi=432 US915
-    0x27EC4400u, // bc=19 res=3 pi=433 US915
-    0x27EC8400u, // bc=19 res=3 pi=434 US915
-    0x27ECC400u, // bc=19 res=3 pi=435 US915
-    0x27ED0400u, // bc=19 res=3 pi=436 US915
-    0x27ED4400u, // bc=19 res=3 pi=437 US915
-    0x27ED8400u, // bc=19 res=3 pi=438 US915
     0x28808400u, // bc=20 res=1 pi=2 US915
     0x28818400u, // bc=20 res=1 pi=6 US915
     0x29008400u, // bc=20 res=2 pi=2 US915
@@ -3855,263 +1104,78 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x29068400u, // bc=20 res=2 pi=26 US915
     0x2906C400u, // bc=20 res=2 pi=27 US915
     0x29078400u, // bc=20 res=2 pi=30 US915
+    0x29800400u, // bc=20 res=3 pi=0 US915
     0x29808400u, // bc=20 res=3 pi=2 US915
+    0x2980C400u, // bc=20 res=3 pi=3 US915
     0x29818400u, // bc=20 res=3 pi=6 US915
-    0x29A00400u, // bc=20 res=3 pi=128 US915
-    0x29A04400u, // bc=20 res=3 pi=129 US915
-    0x29A08400u, // bc=20 res=3 pi=130 US915
-    0x29A0C400u, // bc=20 res=3 pi=131 US915
-    0x29A10400u, // bc=20 res=3 pi=132 US915
-    0x29A14400u, // bc=20 res=3 pi=133 US915
-    0x29A18400u, // bc=20 res=3 pi=134 US915
-    0x29A20400u, // bc=20 res=3 pi=136 US915
-    0x29A24400u, // bc=20 res=3 pi=137 US915
-    0x29A28400u, // bc=20 res=3 pi=138 US915
-    0x29A2C400u, // bc=20 res=3 pi=139 US915
-    0x29A30400u, // bc=20 res=3 pi=140 US915
-    0x29A34400u, // bc=20 res=3 pi=141 US915
-    0x29A38400u, // bc=20 res=3 pi=142 US915
-    0x29A40400u, // bc=20 res=3 pi=144 US915
-    0x29A44400u, // bc=20 res=3 pi=145 US915
-    0x29A48400u, // bc=20 res=3 pi=146 US915
-    0x29A4C400u, // bc=20 res=3 pi=147 US915
-    0x29A50400u, // bc=20 res=3 pi=148 US915
-    0x29A54400u, // bc=20 res=3 pi=149 US915
-    0x29A58400u, // bc=20 res=3 pi=150 US915
-    0x29A60400u, // bc=20 res=3 pi=152 US915
-    0x29A64400u, // bc=20 res=3 pi=153 US915
-    0x29A68400u, // bc=20 res=3 pi=154 US915
-    0x29A6C400u, // bc=20 res=3 pi=155 US915
-    0x29A70400u, // bc=20 res=3 pi=156 US915
-    0x29A74400u, // bc=20 res=3 pi=157 US915
-    0x29A78400u, // bc=20 res=3 pi=158 US915
-    0x29A80400u, // bc=20 res=3 pi=160 US915
-    0x29A84400u, // bc=20 res=3 pi=161 US915
-    0x29A88400u, // bc=20 res=3 pi=162 US915
-    0x29A8C400u, // bc=20 res=3 pi=163 US915
-    0x29A90400u, // bc=20 res=3 pi=164 US915
-    0x29A94400u, // bc=20 res=3 pi=165 US915
-    0x29A98400u, // bc=20 res=3 pi=166 US915
-    0x29AA0400u, // bc=20 res=3 pi=168 US915
-    0x29AA4400u, // bc=20 res=3 pi=169 US915
-    0x29AA8400u, // bc=20 res=3 pi=170 US915
-    0x29AAC400u, // bc=20 res=3 pi=171 US915
-    0x29AB0400u, // bc=20 res=3 pi=172 US915
-    0x29AB4400u, // bc=20 res=3 pi=173 US915
-    0x29AB8400u, // bc=20 res=3 pi=174 US915
-    0x29AC0400u, // bc=20 res=3 pi=176 US915
-    0x29AC4400u, // bc=20 res=3 pi=177 US915
-    0x29AC8400u, // bc=20 res=3 pi=178 US915
-    0x29ACC400u, // bc=20 res=3 pi=179 US915
-    0x29AD0400u, // bc=20 res=3 pi=180 US915
-    0x29AD4400u, // bc=20 res=3 pi=181 US915
-    0x29AD8400u, // bc=20 res=3 pi=182 US915
     0x29B08400u, // bc=20 res=3 pi=194 US915
+    0x29B0C400u, // bc=20 res=3 pi=195 US915
     0x29B18400u, // bc=20 res=3 pi=198 US915
     0x29B28400u, // bc=20 res=3 pi=202 US915
+    0x29B2C400u, // bc=20 res=3 pi=203 US915
     0x29C48400u, // bc=20 res=3 pi=274 US915
-    0x29E00400u, // bc=20 res=3 pi=384 US915
-    0x29E04400u, // bc=20 res=3 pi=385 US915
-    0x29E08400u, // bc=20 res=3 pi=386 US915
-    0x29E0C400u, // bc=20 res=3 pi=387 US915
-    0x29E10400u, // bc=20 res=3 pi=388 US915
-    0x29E14400u, // bc=20 res=3 pi=389 US915
-    0x29E18400u, // bc=20 res=3 pi=390 US915
-    0x29E20400u, // bc=20 res=3 pi=392 US915
-    0x29E24400u, // bc=20 res=3 pi=393 US915
-    0x29E28400u, // bc=20 res=3 pi=394 US915
-    0x29E2C400u, // bc=20 res=3 pi=395 US915
-    0x29E30400u, // bc=20 res=3 pi=396 US915
-    0x29E34400u, // bc=20 res=3 pi=397 US915
-    0x29E38400u, // bc=20 res=3 pi=398 US915
-    0x29E40400u, // bc=20 res=3 pi=400 US915
-    0x29E44400u, // bc=20 res=3 pi=401 US915
-    0x29E48400u, // bc=20 res=3 pi=402 US915
-    0x29E4C400u, // bc=20 res=3 pi=403 US915
-    0x29E50400u, // bc=20 res=3 pi=404 US915
-    0x29E54400u, // bc=20 res=3 pi=405 US915
-    0x29E58400u, // bc=20 res=3 pi=406 US915
-    0x29E60400u, // bc=20 res=3 pi=408 US915
-    0x29E64400u, // bc=20 res=3 pi=409 US915
-    0x29E68400u, // bc=20 res=3 pi=410 US915
-    0x29E6C400u, // bc=20 res=3 pi=411 US915
-    0x29E70400u, // bc=20 res=3 pi=412 US915
-    0x29E74400u, // bc=20 res=3 pi=413 US915
-    0x29E78400u, // bc=20 res=3 pi=414 US915
-    0x29E80400u, // bc=20 res=3 pi=416 US915
-    0x29E84400u, // bc=20 res=3 pi=417 US915
-    0x29E88400u, // bc=20 res=3 pi=418 US915
-    0x29E8C400u, // bc=20 res=3 pi=419 US915
-    0x29E90400u, // bc=20 res=3 pi=420 US915
-    0x29E94400u, // bc=20 res=3 pi=421 US915
-    0x29E98400u, // bc=20 res=3 pi=422 US915
-    0x29EA0400u, // bc=20 res=3 pi=424 US915
-    0x29EA4400u, // bc=20 res=3 pi=425 US915
-    0x29EA8400u, // bc=20 res=3 pi=426 US915
-    0x29EAC400u, // bc=20 res=3 pi=427 US915
-    0x29EB0400u, // bc=20 res=3 pi=428 US915
-    0x29EB4400u, // bc=20 res=3 pi=429 US915
-    0x29EB8400u, // bc=20 res=3 pi=430 US915
-    0x29EC0400u, // bc=20 res=3 pi=432 US915
-    0x29EC4400u, // bc=20 res=3 pi=433 US915
-    0x29EC8400u, // bc=20 res=3 pi=434 US915
-    0x29ECC400u, // bc=20 res=3 pi=435 US915
-    0x29ED0400u, // bc=20 res=3 pi=436 US915
-    0x29ED4400u, // bc=20 res=3 pi=437 US915
-    0x29ED8400u, // bc=20 res=3 pi=438 US915
+    0x29C4C400u, // bc=20 res=3 pi=275 US915
+    0x29C58400u, // bc=20 res=3 pi=278 US915
+    0x29C68400u, // bc=20 res=3 pi=282 US915
     0x2A808400u, // bc=21 res=1 pi=2 US915
-    0x2A810400u, // bc=21 res=1 pi=4 US915
     0x2A818400u, // bc=21 res=1 pi=6 US915
     0x2B008400u, // bc=21 res=2 pi=2 US915
-    0x2B018400u, // bc=21 res=2 pi=6 US915
     0x2B068400u, // bc=21 res=2 pi=26 US915
-    0x2B078400u, // bc=21 res=2 pi=30 US915
+    0x2B080400u, // bc=21 res=2 pi=32 US915
+    0x2B088400u, // bc=21 res=2 pi=34 US915
+    0x2B08C400u, // bc=21 res=2 pi=35 US915
+    0x2B090400u, // bc=21 res=2 pi=36 US915
+    0x2B098400u, // bc=21 res=2 pi=38 US915
+    0x2B810400u, // bc=21 res=3 pi=4 US915
+    0x2B818400u, // bc=21 res=3 pi=6 US915
+    0x2B868400u, // bc=21 res=3 pi=26 US915
+    0x2B878400u, // bc=21 res=3 pi=30 US915
+    0x2B8C0400u, // bc=21 res=3 pi=48 US915
+    0x2B8C4400u, // bc=21 res=3 pi=49 US915
+    0x2B8C8400u, // bc=21 res=3 pi=50 US915
+    0x2B8CC400u, // bc=21 res=3 pi=51 US915
+    0x2B8D0400u, // bc=21 res=3 pi=52 US915
+    0x2B8D8400u, // bc=21 res=3 pi=54 US915
     0x2B930400u, // bc=21 res=3 pi=76 US915
-    0x2BA00400u, // bc=21 res=3 pi=128 US915
-    0x2BA04400u, // bc=21 res=3 pi=129 US915
-    0x2BA08400u, // bc=21 res=3 pi=130 US915
-    0x2BA0C400u, // bc=21 res=3 pi=131 US915
-    0x2BA10400u, // bc=21 res=3 pi=132 US915
-    0x2BA14400u, // bc=21 res=3 pi=133 US915
-    0x2BA18400u, // bc=21 res=3 pi=134 US915
-    0x2BA20400u, // bc=21 res=3 pi=136 US915
-    0x2BA24400u, // bc=21 res=3 pi=137 US915
-    0x2BA28400u, // bc=21 res=3 pi=138 US915
-    0x2BA2C400u, // bc=21 res=3 pi=139 US915
-    0x2BA30400u, // bc=21 res=3 pi=140 US915
-    0x2BA34400u, // bc=21 res=3 pi=141 US915
-    0x2BA38400u, // bc=21 res=3 pi=142 US915
-    0x2BA40400u, // bc=21 res=3 pi=144 US915
-    0x2BA44400u, // bc=21 res=3 pi=145 US915
-    0x2BA48400u, // bc=21 res=3 pi=146 US915
-    0x2BA4C400u, // bc=21 res=3 pi=147 US915
-    0x2BA50400u, // bc=21 res=3 pi=148 US915
-    0x2BA54400u, // bc=21 res=3 pi=149 US915
-    0x2BA58400u, // bc=21 res=3 pi=150 US915
-    0x2BA60400u, // bc=21 res=3 pi=152 US915
-    0x2BA64400u, // bc=21 res=3 pi=153 US915
-    0x2BA68400u, // bc=21 res=3 pi=154 US915
-    0x2BA6C400u, // bc=21 res=3 pi=155 US915
-    0x2BA70400u, // bc=21 res=3 pi=156 US915
-    0x2BA74400u, // bc=21 res=3 pi=157 US915
-    0x2BA78400u, // bc=21 res=3 pi=158 US915
-    0x2BA80400u, // bc=21 res=3 pi=160 US915
-    0x2BA84400u, // bc=21 res=3 pi=161 US915
-    0x2BA88400u, // bc=21 res=3 pi=162 US915
-    0x2BA8C400u, // bc=21 res=3 pi=163 US915
-    0x2BA90400u, // bc=21 res=3 pi=164 US915
-    0x2BA94400u, // bc=21 res=3 pi=165 US915
-    0x2BA98400u, // bc=21 res=3 pi=166 US915
-    0x2BAA0400u, // bc=21 res=3 pi=168 US915
-    0x2BAA4400u, // bc=21 res=3 pi=169 US915
-    0x2BAA8400u, // bc=21 res=3 pi=170 US915
-    0x2BAAC400u, // bc=21 res=3 pi=171 US915
-    0x2BAB0400u, // bc=21 res=3 pi=172 US915
-    0x2BAB4400u, // bc=21 res=3 pi=173 US915
-    0x2BAB8400u, // bc=21 res=3 pi=174 US915
-    0x2BAC0400u, // bc=21 res=3 pi=176 US915
-    0x2BAC4400u, // bc=21 res=3 pi=177 US915
-    0x2BAC8400u, // bc=21 res=3 pi=178 US915
-    0x2BACC400u, // bc=21 res=3 pi=179 US915
-    0x2BAD0400u, // bc=21 res=3 pi=180 US915
-    0x2BAD4400u, // bc=21 res=3 pi=181 US915
-    0x2BAD8400u, // bc=21 res=3 pi=182 US915
-    0x2BC00400u, // bc=21 res=3 pi=256 US915
-    0x2BC04400u, // bc=21 res=3 pi=257 US915
-    0x2BC08400u, // bc=21 res=3 pi=258 US915
-    0x2BC0C400u, // bc=21 res=3 pi=259 US915
-    0x2BC10400u, // bc=21 res=3 pi=260 US915
-    0x2BC14400u, // bc=21 res=3 pi=261 US915
-    0x2BC18400u, // bc=21 res=3 pi=262 US915
+    0x2B9A8400u, // bc=21 res=3 pi=106 US915
+    0x2BB18400u, // bc=21 res=3 pi=198 US915
+    0x2BBC0400u, // bc=21 res=3 pi=240 US915
+    0x2BBC4400u, // bc=21 res=3 pi=241 US915
+    0x2BBC8400u, // bc=21 res=3 pi=242 US915
+    0x2BBCC400u, // bc=21 res=3 pi=243 US915
+    0x2BBD0400u, // bc=21 res=3 pi=244 US915
+    0x2BBD8400u, // bc=21 res=3 pi=246 US915
     0x2BC28400u, // bc=21 res=3 pi=266 US915
+    0x2BC30400u, // bc=21 res=3 pi=268 US915
     0x2BC38400u, // bc=21 res=3 pi=270 US915
-    0x2BC40400u, // bc=21 res=3 pi=272 US915
-    0x2BC44400u, // bc=21 res=3 pi=273 US915
-    0x2BC48400u, // bc=21 res=3 pi=274 US915
-    0x2BC4C400u, // bc=21 res=3 pi=275 US915
-    0x2BC50400u, // bc=21 res=3 pi=276 US915
-    0x2BC54400u, // bc=21 res=3 pi=277 US915
-    0x2BC58400u, // bc=21 res=3 pi=278 US915
-    0x2BC60400u, // bc=21 res=3 pi=280 US915
-    0x2BC68400u, // bc=21 res=3 pi=282 US915
-    0x2BC70400u, // bc=21 res=3 pi=284 US915
-    0x2BC74400u, // bc=21 res=3 pi=285 US915
-    0x2BC78400u, // bc=21 res=3 pi=286 US915
-    0x2BC80400u, // bc=21 res=3 pi=288 US915
-    0x2BC88400u, // bc=21 res=3 pi=290 US915
-    0x2BC8C400u, // bc=21 res=3 pi=291 US915
-    0x2BC90400u, // bc=21 res=3 pi=292 US915
-    0x2BC94400u, // bc=21 res=3 pi=293 US915
-    0x2BC98400u, // bc=21 res=3 pi=294 US915
+    0x2BCA0400u, // bc=21 res=3 pi=296 US915
     0x2BCA4400u, // bc=21 res=3 pi=297 US915
     0x2BCA8400u, // bc=21 res=3 pi=298 US915
+    0x2BCB0400u, // bc=21 res=3 pi=300 US915
     0x2BCB8400u, // bc=21 res=3 pi=302 US915
-    0x2BCC0400u, // bc=21 res=3 pi=304 US915
-    0x2BCC4400u, // bc=21 res=3 pi=305 US915
-    0x2BCC8400u, // bc=21 res=3 pi=306 US915
-    0x2BCCC400u, // bc=21 res=3 pi=307 US915
-    0x2BCD0400u, // bc=21 res=3 pi=308 US915
-    0x2BCD4400u, // bc=21 res=3 pi=309 US915
-    0x2BCD8400u, // bc=21 res=3 pi=310 US915
-    0x2BE00400u, // bc=21 res=3 pi=384 US915
-    0x2BE04400u, // bc=21 res=3 pi=385 US915
-    0x2BE08400u, // bc=21 res=3 pi=386 US915
-    0x2BE0C400u, // bc=21 res=3 pi=387 US915
-    0x2BE10400u, // bc=21 res=3 pi=388 US915
-    0x2BE14400u, // bc=21 res=3 pi=389 US915
-    0x2BE18400u, // bc=21 res=3 pi=390 US915
-    0x2BE20400u, // bc=21 res=3 pi=392 US915
-    0x2BE24400u, // bc=21 res=3 pi=393 US915
-    0x2BE28400u, // bc=21 res=3 pi=394 US915
-    0x2BE2C400u, // bc=21 res=3 pi=395 US915
-    0x2BE30400u, // bc=21 res=3 pi=396 US915
-    0x2BE34400u, // bc=21 res=3 pi=397 US915
-    0x2BE38400u, // bc=21 res=3 pi=398 US915
-    0x2BE40400u, // bc=21 res=3 pi=400 US915
-    0x2BE44400u, // bc=21 res=3 pi=401 US915
-    0x2BE48400u, // bc=21 res=3 pi=402 US915
-    0x2BE4C400u, // bc=21 res=3 pi=403 US915
-    0x2BE50400u, // bc=21 res=3 pi=404 US915
-    0x2BE54400u, // bc=21 res=3 pi=405 US915
-    0x2BE58400u, // bc=21 res=3 pi=406 US915
-    0x2BE60400u, // bc=21 res=3 pi=408 US915
-    0x2BE64400u, // bc=21 res=3 pi=409 US915
-    0x2BE68400u, // bc=21 res=3 pi=410 US915
-    0x2BE6C400u, // bc=21 res=3 pi=411 US915
-    0x2BE70400u, // bc=21 res=3 pi=412 US915
-    0x2BE74400u, // bc=21 res=3 pi=413 US915
-    0x2BE78400u, // bc=21 res=3 pi=414 US915
-    0x2BE80400u, // bc=21 res=3 pi=416 US915
-    0x2BE84400u, // bc=21 res=3 pi=417 US915
-    0x2BE88400u, // bc=21 res=3 pi=418 US915
-    0x2BE8C400u, // bc=21 res=3 pi=419 US915
-    0x2BE90400u, // bc=21 res=3 pi=420 US915
-    0x2BE94400u, // bc=21 res=3 pi=421 US915
-    0x2BE98400u, // bc=21 res=3 pi=422 US915
-    0x2BEA0400u, // bc=21 res=3 pi=424 US915
-    0x2BEA4400u, // bc=21 res=3 pi=425 US915
-    0x2BEA8400u, // bc=21 res=3 pi=426 US915
-    0x2BEAC400u, // bc=21 res=3 pi=427 US915
-    0x2BEB0400u, // bc=21 res=3 pi=428 US915
-    0x2BEB4400u, // bc=21 res=3 pi=429 US915
-    0x2BEB8400u, // bc=21 res=3 pi=430 US915
-    0x2BEC0400u, // bc=21 res=3 pi=432 US915
-    0x2BEC4400u, // bc=21 res=3 pi=433 US915
-    0x2BEC8400u, // bc=21 res=3 pi=434 US915
-    0x2BECC400u, // bc=21 res=3 pi=435 US915
-    0x2BED0400u, // bc=21 res=3 pi=436 US915
-    0x2BED4400u, // bc=21 res=3 pi=437 US915
-    0x2BED8400u, // bc=21 res=3 pi=438 US915
-    0x2C800800u, // bc=22 res=1 pi=0 EU868
-    0x2C806C00u, // bc=22 res=1 pi=1 IN865
     0x2C808800u, // bc=22 res=1 pi=2 EU868
-    0x2C810800u, // bc=22 res=1 pi=4 EU868
-    0x2C817000u, // bc=22 res=1 pi=5 RU864
-    0x2C818800u, // bc=22 res=1 pi=6 EU868
-    0x2D064800u, // bc=22 res=2 pi=25 EU868
+    0x2D008800u, // bc=22 res=2 pi=2 EU868
+    0x2D00C800u, // bc=22 res=2 pi=3 EU868
+    0x2D010800u, // bc=22 res=2 pi=4 EU868
+    0x2D018800u, // bc=22 res=2 pi=6 EU868
+    0x2D022C00u, // bc=22 res=2 pi=8 IN865
+    0x2D026C00u, // bc=22 res=2 pi=9 IN865
+    0x2D036C00u, // bc=22 res=2 pi=13 IN865
     0x2D068800u, // bc=22 res=2 pi=26 EU868
     0x2D06C800u, // bc=22 res=2 pi=27 EU868
     0x2D078800u, // bc=22 res=2 pi=30 EU868
+    0x2D080800u, // bc=22 res=2 pi=32 EU868
+    0x2D088800u, // bc=22 res=2 pi=34 EU868
+    0x2D08C800u, // bc=22 res=2 pi=35 EU868
+    0x2D098800u, // bc=22 res=2 pi=38 EU868
+    0x2D0A3000u, // bc=22 res=2 pi=40 RU864
+    0x2D0A7000u, // bc=22 res=2 pi=41 RU864
+    0x2D0AF000u, // bc=22 res=2 pi=43 RU864
+    0x2D0B0800u, // bc=22 res=2 pi=44 EU868
+    0x2D0C4800u, // bc=22 res=2 pi=49 EU868
+    0x2D0CC800u, // bc=22 res=2 pi=51 EU868
+    0x2D0D0800u, // bc=22 res=2 pi=52 EU868
+    0x2D0D4800u, // bc=22 res=2 pi=53 EU868
     0x2D800800u, // bc=22 res=3 pi=0 EU868
     0x2D804800u, // bc=22 res=3 pi=1 EU868
     0x2D808800u, // bc=22 res=3 pi=2 EU868
@@ -4126,25 +1190,6 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x2D833800u, // bc=22 res=3 pi=12 EU433
     0x2D837000u, // bc=22 res=3 pi=13 RU864
     0x2D83B800u, // bc=22 res=3 pi=14 EU433
-    0x2D840800u, // bc=22 res=3 pi=16 EU868
-    0x2D844800u, // bc=22 res=3 pi=17 EU868
-    0x2D848800u, // bc=22 res=3 pi=18 EU868
-    0x2D84C800u, // bc=22 res=3 pi=19 EU868
-    0x2D850800u, // bc=22 res=3 pi=20 EU868
-    0x2D854800u, // bc=22 res=3 pi=21 EU868
-    0x2D858800u, // bc=22 res=3 pi=22 EU868
-    0x2D860800u, // bc=22 res=3 pi=24 EU868
-    0x2D864800u, // bc=22 res=3 pi=25 EU868
-    0x2D868800u, // bc=22 res=3 pi=26 EU868
-    0x2D86C800u, // bc=22 res=3 pi=27 EU868
-    0x2D870800u, // bc=22 res=3 pi=28 EU868
-    0x2D874800u, // bc=22 res=3 pi=29 EU868
-    0x2D878800u, // bc=22 res=3 pi=30 EU868
-    0x2D880800u, // bc=22 res=3 pi=32 EU868
-    0x2D884800u, // bc=22 res=3 pi=33 EU868
-    0x2D888800u, // bc=22 res=3 pi=34 EU868
-    0x2D88C800u, // bc=22 res=3 pi=35 EU868
-    0x2D898800u, // bc=22 res=3 pi=38 EU868
     0x2D8A0800u, // bc=22 res=3 pi=40 EU868
     0x2D8A7000u, // bc=22 res=3 pi=41 RU864
     0x2D8A8800u, // bc=22 res=3 pi=42 EU868
@@ -4152,26 +1197,11 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x2D8B0800u, // bc=22 res=3 pi=44 EU868
     0x2D8B7000u, // bc=22 res=3 pi=45 RU864
     0x2D8B8800u, // bc=22 res=3 pi=46 EU868
-    0x2D8C0800u, // bc=22 res=3 pi=48 EU868
-    0x2D8C4800u, // bc=22 res=3 pi=49 EU868
-    0x2D8C8800u, // bc=22 res=3 pi=50 EU868
-    0x2D8CC800u, // bc=22 res=3 pi=51 EU868
-    0x2D8D0800u, // bc=22 res=3 pi=52 EU868
-    0x2D8D4800u, // bc=22 res=3 pi=53 EU868
-    0x2D8D8800u, // bc=22 res=3 pi=54 EU868
-    0x2D902C00u, // bc=22 res=3 pi=64 IN865
-    0x2D906C00u, // bc=22 res=3 pi=65 IN865
-    0x2D90AC00u, // bc=22 res=3 pi=66 IN865
-    0x2D90EC00u, // bc=22 res=3 pi=67 IN865
-    0x2D91AC00u, // bc=22 res=3 pi=70 IN865
-    0x2D922C00u, // bc=22 res=3 pi=72 IN865
-    0x2D926C00u, // bc=22 res=3 pi=73 IN865
-    0x2D92AC00u, // bc=22 res=3 pi=74 IN865
-    0x2D92EC00u, // bc=22 res=3 pi=75 IN865
-    0x2D932C00u, // bc=22 res=3 pi=76 IN865
-    0x2D936C00u, // bc=22 res=3 pi=77 IN865
-    0x2D93AC00u, // bc=22 res=3 pi=78 IN865
     0x2D946C00u, // bc=22 res=3 pi=81 IN865
+    0x2D94B800u, // bc=22 res=3 pi=82 EU433
+    0x2D94EC00u, // bc=22 res=3 pi=83 IN865
+    0x2D956C00u, // bc=22 res=3 pi=85 IN865
+    0x2D95B800u, // bc=22 res=3 pi=86 EU433
     0x2D962C00u, // bc=22 res=3 pi=88 IN865
     0x2D966C00u, // bc=22 res=3 pi=89 IN865
     0x2D96AC00u, // bc=22 res=3 pi=90 IN865
@@ -4186,114 +1216,35 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x2D993000u, // bc=22 res=3 pi=100 RU864
     0x2D996C00u, // bc=22 res=3 pi=101 IN865
     0x2D99B000u, // bc=22 res=3 pi=102 RU864
-    0x2D9A2C00u, // bc=22 res=3 pi=104 IN865
-    0x2D9A6C00u, // bc=22 res=3 pi=105 IN865
-    0x2D9AAC00u, // bc=22 res=3 pi=106 IN865
-    0x2D9AEC00u, // bc=22 res=3 pi=107 IN865
-    0x2D9B2C00u, // bc=22 res=3 pi=108 IN865
-    0x2D9B6C00u, // bc=22 res=3 pi=109 IN865
-    0x2D9BAC00u, // bc=22 res=3 pi=110 IN865
     0x2D9C3000u, // bc=22 res=3 pi=112 RU864
+    0x2D9CB000u, // bc=22 res=3 pi=114 RU864
     0x2D9D3000u, // bc=22 res=3 pi=116 RU864
     0x2D9D7000u, // bc=22 res=3 pi=117 RU864
     0x2D9DB000u, // bc=22 res=3 pi=118 RU864
-    0x2DA00800u, // bc=22 res=3 pi=128 EU868
-    0x2DA04800u, // bc=22 res=3 pi=129 EU868
-    0x2DA08800u, // bc=22 res=3 pi=130 EU868
-    0x2DA0C800u, // bc=22 res=3 pi=131 EU868
-    0x2DA10800u, // bc=22 res=3 pi=132 EU868
-    0x2DA14800u, // bc=22 res=3 pi=133 EU868
-    0x2DA18800u, // bc=22 res=3 pi=134 EU868
-    0x2DA20800u, // bc=22 res=3 pi=136 EU868
-    0x2DA24800u, // bc=22 res=3 pi=137 EU868
-    0x2DA28800u, // bc=22 res=3 pi=138 EU868
-    0x2DA2C800u, // bc=22 res=3 pi=139 EU868
-    0x2DA30800u, // bc=22 res=3 pi=140 EU868
-    0x2DA34800u, // bc=22 res=3 pi=141 EU868
-    0x2DA38800u, // bc=22 res=3 pi=142 EU868
-    0x2DA40800u, // bc=22 res=3 pi=144 EU868
-    0x2DA44800u, // bc=22 res=3 pi=145 EU868
-    0x2DA48800u, // bc=22 res=3 pi=146 EU868
-    0x2DA4C800u, // bc=22 res=3 pi=147 EU868
-    0x2DA50800u, // bc=22 res=3 pi=148 EU868
-    0x2DA54800u, // bc=22 res=3 pi=149 EU868
-    0x2DA58800u, // bc=22 res=3 pi=150 EU868
-    0x2DA60800u, // bc=22 res=3 pi=152 EU868
-    0x2DA64800u, // bc=22 res=3 pi=153 EU868
-    0x2DA68800u, // bc=22 res=3 pi=154 EU868
-    0x2DA6C800u, // bc=22 res=3 pi=155 EU868
-    0x2DA70800u, // bc=22 res=3 pi=156 EU868
-    0x2DA74800u, // bc=22 res=3 pi=157 EU868
-    0x2DA78800u, // bc=22 res=3 pi=158 EU868
-    0x2DA80800u, // bc=22 res=3 pi=160 EU868
-    0x2DA84800u, // bc=22 res=3 pi=161 EU868
-    0x2DA88800u, // bc=22 res=3 pi=162 EU868
-    0x2DA8C800u, // bc=22 res=3 pi=163 EU868
-    0x2DA90800u, // bc=22 res=3 pi=164 EU868
-    0x2DA94800u, // bc=22 res=3 pi=165 EU868
-    0x2DA98800u, // bc=22 res=3 pi=166 EU868
-    0x2DAA0800u, // bc=22 res=3 pi=168 EU868
-    0x2DAA4800u, // bc=22 res=3 pi=169 EU868
-    0x2DAA8800u, // bc=22 res=3 pi=170 EU868
-    0x2DAAC800u, // bc=22 res=3 pi=171 EU868
-    0x2DAB0800u, // bc=22 res=3 pi=172 EU868
-    0x2DAB4800u, // bc=22 res=3 pi=173 EU868
-    0x2DAB8800u, // bc=22 res=3 pi=174 EU868
-    0x2DAC0800u, // bc=22 res=3 pi=176 EU868
-    0x2DAC4800u, // bc=22 res=3 pi=177 EU868
-    0x2DAC8800u, // bc=22 res=3 pi=178 EU868
-    0x2DACC800u, // bc=22 res=3 pi=179 EU868
-    0x2DAD0800u, // bc=22 res=3 pi=180 EU868
-    0x2DAD4800u, // bc=22 res=3 pi=181 EU868
-    0x2DAD8800u, // bc=22 res=3 pi=182 EU868
+    0x2DB00800u, // bc=22 res=3 pi=192 EU868
+    0x2DB04800u, // bc=22 res=3 pi=193 EU868
     0x2DB08800u, // bc=22 res=3 pi=194 EU868
     0x2DB0C800u, // bc=22 res=3 pi=195 EU868
     0x2DB18800u, // bc=22 res=3 pi=198 EU868
+    0x2DB20800u, // bc=22 res=3 pi=200 EU868
+    0x2DB28800u, // bc=22 res=3 pi=202 EU868
+    0x2DB2C800u, // bc=22 res=3 pi=203 EU868
+    0x2DB30800u, // bc=22 res=3 pi=204 EU868
+    0x2DB38800u, // bc=22 res=3 pi=206 EU868
     0x2DB93800u, // bc=22 res=3 pi=228 EU433
-    0x2DC00800u, // bc=22 res=3 pi=256 EU868
-    0x2DC04800u, // bc=22 res=3 pi=257 EU868
-    0x2DC08800u, // bc=22 res=3 pi=258 EU868
-    0x2DC0C800u, // bc=22 res=3 pi=259 EU868
-    0x2DC10800u, // bc=22 res=3 pi=260 EU868
-    0x2DC18800u, // bc=22 res=3 pi=262 EU868
-    0x2DC40800u, // bc=22 res=3 pi=272 EU868
-    0x2DC44800u, // bc=22 res=3 pi=273 EU868
-    0x2DC48800u, // bc=22 res=3 pi=274 EU868
-    0x2DC4C800u, // bc=22 res=3 pi=275 EU868
-    0x2DC50800u, // bc=22 res=3 pi=276 EU868
-    0x2DC54800u, // bc=22 res=3 pi=277 EU868
-    0x2DC58800u, // bc=22 res=3 pi=278 EU868
-    0x2DC60800u, // bc=22 res=3 pi=280 EU868
-    0x2DC64800u, // bc=22 res=3 pi=281 EU868
-    0x2DC68800u, // bc=22 res=3 pi=282 EU868
-    0x2DC6C800u, // bc=22 res=3 pi=283 EU868
-    0x2DC70800u, // bc=22 res=3 pi=284 EU868
-    0x2DC74800u, // bc=22 res=3 pi=285 EU868
-    0x2DC78800u, // bc=22 res=3 pi=286 EU868
+    0x2DB97800u, // bc=22 res=3 pi=229 EU433
+    0x2DB9B800u, // bc=22 res=3 pi=230 EU433
+    0x2DBA6C00u, // bc=22 res=3 pi=233 IN865
+    0x2DC27000u, // bc=22 res=3 pi=265 RU864
+    0x2DC28800u, // bc=22 res=3 pi=266 EU868
+    0x2DC38800u, // bc=22 res=3 pi=270 EU868
+    0x2DC88800u, // bc=22 res=3 pi=290 EU868
+    0x2DC8C800u, // bc=22 res=3 pi=291 EU868
+    0x2DC98800u, // bc=22 res=3 pi=294 EU868
     0x2DCA0800u, // bc=22 res=3 pi=296 EU868
     0x2DCA4800u, // bc=22 res=3 pi=297 EU868
+    0x2DCB0800u, // bc=22 res=3 pi=300 EU868
     0x2DCB4800u, // bc=22 res=3 pi=301 EU868
-    0x2DCC0800u, // bc=22 res=3 pi=304 EU868
-    0x2DCC4800u, // bc=22 res=3 pi=305 EU868
-    0x2DCC8800u, // bc=22 res=3 pi=306 EU868
-    0x2DCCC800u, // bc=22 res=3 pi=307 EU868
-    0x2DCD0800u, // bc=22 res=3 pi=308 EU868
-    0x2DCD4800u, // bc=22 res=3 pi=309 EU868
-    0x2DCD8800u, // bc=22 res=3 pi=310 EU868
-    0x2DD03000u, // bc=22 res=3 pi=320 RU864
-    0x2DD07000u, // bc=22 res=3 pi=321 RU864
-    0x2DD0B000u, // bc=22 res=3 pi=322 RU864
-    0x2DD0F000u, // bc=22 res=3 pi=323 RU864
-    0x2DD13000u, // bc=22 res=3 pi=324 RU864
-    0x2DD17000u, // bc=22 res=3 pi=325 RU864
-    0x2DD1B000u, // bc=22 res=3 pi=326 RU864
-    0x2DD23000u, // bc=22 res=3 pi=328 RU864
-    0x2DD27000u, // bc=22 res=3 pi=329 RU864
-    0x2DD2B000u, // bc=22 res=3 pi=330 RU864
-    0x2DD2F000u, // bc=22 res=3 pi=331 RU864
-    0x2DD33000u, // bc=22 res=3 pi=332 RU864
-    0x2DD37000u, // bc=22 res=3 pi=333 RU864
-    0x2DD3B000u, // bc=22 res=3 pi=334 RU864
     0x2DD43000u, // bc=22 res=3 pi=336 RU864
     0x2DD47000u, // bc=22 res=3 pi=337 RU864
     0x2DD48800u, // bc=22 res=3 pi=338 EU868
@@ -4301,20 +1252,6 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x2DD53000u, // bc=22 res=3 pi=340 RU864
     0x2DD57000u, // bc=22 res=3 pi=341 RU864
     0x2DD58800u, // bc=22 res=3 pi=342 EU868
-    0x2DD63000u, // bc=22 res=3 pi=344 RU864
-    0x2DD67000u, // bc=22 res=3 pi=345 RU864
-    0x2DD6B000u, // bc=22 res=3 pi=346 RU864
-    0x2DD6F000u, // bc=22 res=3 pi=347 RU864
-    0x2DD73000u, // bc=22 res=3 pi=348 RU864
-    0x2DD77000u, // bc=22 res=3 pi=349 RU864
-    0x2DD7B000u, // bc=22 res=3 pi=350 RU864
-    0x2DD80800u, // bc=22 res=3 pi=352 EU868
-    0x2DD84800u, // bc=22 res=3 pi=353 EU868
-    0x2DD88800u, // bc=22 res=3 pi=354 EU868
-    0x2DD8C800u, // bc=22 res=3 pi=355 EU868
-    0x2DD90800u, // bc=22 res=3 pi=356 EU868
-    0x2DD94800u, // bc=22 res=3 pi=357 EU868
-    0x2DD98800u, // bc=22 res=3 pi=358 EU868
     0x2DDA3000u, // bc=22 res=3 pi=360 RU864
     0x2DDA7000u, // bc=22 res=3 pi=361 RU864
     0x2DDAB000u, // bc=22 res=3 pi=362 RU864
@@ -4326,7 +1263,9 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x2DDC7000u, // bc=22 res=3 pi=369 RU864
     0x2DDCB000u, // bc=22 res=3 pi=370 RU864
     0x2DDCF000u, // bc=22 res=3 pi=371 RU864
+    0x2DDD0800u, // bc=22 res=3 pi=372 EU868
     0x2DDD4800u, // bc=22 res=3 pi=373 EU868
+    0x2DDDB000u, // bc=22 res=3 pi=374 RU864
     0x2DE00800u, // bc=22 res=3 pi=384 EU868
     0x2DE04800u, // bc=22 res=3 pi=385 EU868
     0x2DE0AC00u, // bc=22 res=3 pi=386 IN865
@@ -4334,13 +1273,6 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x2DE10800u, // bc=22 res=3 pi=388 EU868
     0x2DE14800u, // bc=22 res=3 pi=389 EU868
     0x2DE18800u, // bc=22 res=3 pi=390 EU868
-    0x2DE20800u, // bc=22 res=3 pi=392 EU868
-    0x2DE24800u, // bc=22 res=3 pi=393 EU868
-    0x2DE28800u, // bc=22 res=3 pi=394 EU868
-    0x2DE2C800u, // bc=22 res=3 pi=395 EU868
-    0x2DE30800u, // bc=22 res=3 pi=396 EU868
-    0x2DE34800u, // bc=22 res=3 pi=397 EU868
-    0x2DE38800u, // bc=22 res=3 pi=398 EU868
     0x2DE40800u, // bc=22 res=3 pi=400 EU868
     0x2DE44800u, // bc=22 res=3 pi=401 EU868
     0x2DE48800u, // bc=22 res=3 pi=402 EU868
@@ -4348,531 +1280,294 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x2DE52C00u, // bc=22 res=3 pi=404 IN865
     0x2DE56C00u, // bc=22 res=3 pi=405 IN865
     0x2DE5AC00u, // bc=22 res=3 pi=406 IN865
-    0x2DE60800u, // bc=22 res=3 pi=408 EU868
-    0x2DE64800u, // bc=22 res=3 pi=409 EU868
-    0x2DE68800u, // bc=22 res=3 pi=410 EU868
-    0x2DE6C800u, // bc=22 res=3 pi=411 EU868
-    0x2DE70800u, // bc=22 res=3 pi=412 EU868
-    0x2DE74800u, // bc=22 res=3 pi=413 EU868
-    0x2DE78800u, // bc=22 res=3 pi=414 EU868
-    0x2DE84800u, // bc=22 res=3 pi=417 EU868
-    0x2DE8C800u, // bc=22 res=3 pi=419 EU868
-    0x2DE90800u, // bc=22 res=3 pi=420 EU868
-    0x2DE94800u, // bc=22 res=3 pi=421 EU868
-    0x2DEA0800u, // bc=22 res=3 pi=424 EU868
-    0x2DEA4800u, // bc=22 res=3 pi=425 EU868
-    0x2DEA8800u, // bc=22 res=3 pi=426 EU868
-    0x2DEAC800u, // bc=22 res=3 pi=427 EU868
-    0x2DEB0800u, // bc=22 res=3 pi=428 EU868
-    0x2DEB4800u, // bc=22 res=3 pi=429 EU868
-    0x2DEB8800u, // bc=22 res=3 pi=430 EU868
     0x2DEC2400u, // bc=22 res=3 pi=432 AS923-4
     0x2DEC4800u, // bc=22 res=3 pi=433 EU868
     0x2DECAC00u, // bc=22 res=3 pi=434 IN865
     0x2DECEC00u, // bc=22 res=3 pi=435 IN865
+    0x2DED4800u, // bc=22 res=3 pi=437 EU868
+    0x2DEDA400u, // bc=22 res=3 pi=438 AS923-4
     0x2F005000u, // bc=23 res=2 pi=1 AS923-1
+    0x2F00D000u, // bc=23 res=2 pi=3 AS923-1
     0x2F031000u, // bc=23 res=2 pi=12 AS923-1
     0x2F035000u, // bc=23 res=2 pi=13 AS923-1
     0x2F039000u, // bc=23 res=2 pi=14 AS923-1
-    0x2F047000u, // bc=23 res=2 pi=17 RU864
-    0x2F05B000u, // bc=23 res=2 pi=22 RU864
-    0x2F067000u, // bc=23 res=2 pi=25 RU864
-    0x2F06B000u, // bc=23 res=2 pi=26 RU864
-    0x2F06F000u, // bc=23 res=2 pi=27 RU864
-    0x2F0AD000u, // bc=23 res=2 pi=43 AS923-1
-    0x2F865000u, // bc=23 res=3 pi=25 AS923-1
-    0x2F869000u, // bc=23 res=3 pi=26 AS923-1
-    0x2F86D000u, // bc=23 res=3 pi=27 AS923-1
-    0x2F879000u, // bc=23 res=3 pi=30 AS923-1
+    0x2F805000u, // bc=23 res=3 pi=1 AS923-1
+    0x2F80D000u, // bc=23 res=3 pi=3 AS923-1
+    0x2F84B000u, // bc=23 res=3 pi=18 RU864
+    0x2F84D000u, // bc=23 res=3 pi=19 AS923-1
+    0x2F8A1000u, // bc=23 res=3 pi=40 AS923-1
     0x2F8A5000u, // bc=23 res=3 pi=41 AS923-1
+    0x2F8A9000u, // bc=23 res=3 pi=42 AS923-1
     0x2F8AD000u, // bc=23 res=3 pi=43 AS923-1
+    0x2F8B5000u, // bc=23 res=3 pi=45 AS923-1
+    0x2F911000u, // bc=23 res=3 pi=68 AS923-1
+    0x2F915000u, // bc=23 res=3 pi=69 AS923-1
+    0x2F919000u, // bc=23 res=3 pi=70 AS923-1
+    0x2F922800u, // bc=23 res=3 pi=72 KR920
+    0x2F926800u, // bc=23 res=3 pi=73 KR920
+    0x2F92E800u, // bc=23 res=3 pi=75 KR920
+    0x2F931000u, // bc=23 res=3 pi=76 AS923-1
+    0x2FA13000u, // bc=23 res=3 pi=132 RU864
+    0x2FA23000u, // bc=23 res=3 pi=136 RU864
+    0x2FA27000u, // bc=23 res=3 pi=137 RU864
+    0x2FA2B000u, // bc=23 res=3 pi=138 RU864
+    0x2FA2F000u, // bc=23 res=3 pi=139 RU864
+    0x2FA33000u, // bc=23 res=3 pi=140 RU864
+    0x2FA37000u, // bc=23 res=3 pi=141 RU864
+    0x2FA63000u, // bc=23 res=3 pi=152 RU864
     0x2FA67000u, // bc=23 res=3 pi=153 RU864
     0x2FA6F000u, // bc=23 res=3 pi=155 RU864
     0x2FA77000u, // bc=23 res=3 pi=157 RU864
+    0x2FA83000u, // bc=23 res=3 pi=160 RU864
     0x2FA87000u, // bc=23 res=3 pi=161 RU864
     0x2FA8B000u, // bc=23 res=3 pi=162 RU864
+    0x2FA8F000u, // bc=23 res=3 pi=163 RU864
+    0x2FAA1000u, // bc=23 res=3 pi=168 AS923-1
     0x2FAA5000u, // bc=23 res=3 pi=169 AS923-1
+    0x2FAAD000u, // bc=23 res=3 pi=171 AS923-1
     0x2FAB1000u, // bc=23 res=3 pi=172 AS923-1
     0x2FAB5000u, // bc=23 res=3 pi=173 AS923-1
+    0x2FABB000u, // bc=23 res=3 pi=174 RU864
+    0x2FAC3000u, // bc=23 res=3 pi=176 RU864
+    0x2FAC7000u, // bc=23 res=3 pi=177 RU864
+    0x2FAD7000u, // bc=23 res=3 pi=181 RU864
+    0x2FADB000u, // bc=23 res=3 pi=182 RU864
+    0x2FB03000u, // bc=23 res=3 pi=192 RU864
     0x2FB07000u, // bc=23 res=3 pi=193 RU864
     0x2FB0B000u, // bc=23 res=3 pi=194 RU864
     0x2FB0F000u, // bc=23 res=3 pi=195 RU864
+    0x2FB23000u, // bc=23 res=3 pi=200 RU864
+    0x2FB27000u, // bc=23 res=3 pi=201 RU864
+    0x2FB2B000u, // bc=23 res=3 pi=202 RU864
+    0x2FB2F400u, // bc=23 res=3 pi=203 CN470
+    0x2FB33000u, // bc=23 res=3 pi=204 RU864
+    0x2FB37000u, // bc=23 res=3 pi=205 RU864
+    0x2FB3B000u, // bc=23 res=3 pi=206 RU864
+    0x2FB43000u, // bc=23 res=3 pi=208 RU864
+    0x2FB47000u, // bc=23 res=3 pi=209 RU864
+    0x2FB4B000u, // bc=23 res=3 pi=210 RU864
+    0x2FB4F000u, // bc=23 res=3 pi=211 RU864
+    0x2FB57000u, // bc=23 res=3 pi=213 RU864
+    0x2FB5B000u, // bc=23 res=3 pi=214 RU864
+    0x2FB63000u, // bc=23 res=3 pi=216 RU864
+    0x2FB67400u, // bc=23 res=3 pi=217 CN470
+    0x2FB6B000u, // bc=23 res=3 pi=218 RU864
+    0x2FB6F400u, // bc=23 res=3 pi=219 CN470
+    0x2FB73000u, // bc=23 res=3 pi=220 RU864
+    0x2FB77000u, // bc=23 res=3 pi=221 RU864
+    0x2FB7B000u, // bc=23 res=3 pi=222 RU864
+    0x2FB81000u, // bc=23 res=3 pi=224 AS923-1
     0x2FB91000u, // bc=23 res=3 pi=228 AS923-1
     0x2FB99000u, // bc=23 res=3 pi=230 AS923-1
+    0x2FBAB000u, // bc=23 res=3 pi=234 RU864
     0x2FBAF000u, // bc=23 res=3 pi=235 RU864
+    0x2FBC1000u, // bc=23 res=3 pi=240 AS923-1
+    0x2FBC9000u, // bc=23 res=3 pi=242 AS923-1
     0x2FBD1000u, // bc=23 res=3 pi=244 AS923-1
+    0x2FBD5000u, // bc=23 res=3 pi=245 AS923-1
     0x2FBD9000u, // bc=23 res=3 pi=246 AS923-1
     0x2FD05000u, // bc=23 res=3 pi=321 AS923-1
-    0x30803400u, // bc=24 res=1 pi=0 CN470
-    0x3080B400u, // bc=24 res=1 pi=2 CN470
-    0x3080E800u, // bc=24 res=1 pi=3 KR920
+    0x2FD0D000u, // bc=23 res=3 pi=323 AS923-1
+    0x2FD29000u, // bc=23 res=3 pi=330 AS923-1
+    0x2FD39000u, // bc=23 res=3 pi=334 AS923-1
+    0x2FD61000u, // bc=23 res=3 pi=344 AS923-1
+    0x2FD65000u, // bc=23 res=3 pi=345 AS923-1
+    0x2FD69000u, // bc=23 res=3 pi=346 AS923-1
+    0x2FD6D000u, // bc=23 res=3 pi=347 AS923-1
+    0x2FD75000u, // bc=23 res=3 pi=349 AS923-1
+    0x2FD79000u, // bc=23 res=3 pi=350 AS923-1
+    0x2FDA1000u, // bc=23 res=3 pi=360 AS923-1
+    0x2FDA9000u, // bc=23 res=3 pi=362 AS923-1
+    0x2FDB1000u, // bc=23 res=3 pi=364 AS923-1
+    0x2FDB9000u, // bc=23 res=3 pi=366 AS923-1
     0x30813400u, // bc=24 res=1 pi=4 CN470
     0x3081B400u, // bc=24 res=1 pi=6 CN470
+    0x31003400u, // bc=24 res=2 pi=0 CN470
+    0x3100B400u, // bc=24 res=2 pi=2 CN470
+    0x31013400u, // bc=24 res=2 pi=4 CN470
+    0x3101B400u, // bc=24 res=2 pi=6 CN470
+    0x31043400u, // bc=24 res=2 pi=16 CN470
+    0x3104B400u, // bc=24 res=2 pi=18 CN470
+    0x3104F400u, // bc=24 res=2 pi=19 CN470
+    0x31053400u, // bc=24 res=2 pi=20 CN470
+    0x3105B400u, // bc=24 res=2 pi=22 CN470
+    0x31062800u, // bc=24 res=2 pi=24 KR920
+    0x31072800u, // bc=24 res=2 pi=28 KR920
+    0x31076800u, // bc=24 res=2 pi=29 KR920
     0x310AB400u, // bc=24 res=2 pi=42 CN470
-    0x310B3400u, // bc=24 res=2 pi=44 CN470
     0x310BB400u, // bc=24 res=2 pi=46 CN470
-    0x31803400u, // bc=24 res=3 pi=0 CN470
-    0x31813400u, // bc=24 res=3 pi=4 CN470
-    0x31817400u, // bc=24 res=3 pi=5 CN470
-    0x3181B400u, // bc=24 res=3 pi=6 CN470
-    0x31843400u, // bc=24 res=3 pi=16 CN470
-    0x31847400u, // bc=24 res=3 pi=17 CN470
-    0x3184B400u, // bc=24 res=3 pi=18 CN470
-    0x3184F400u, // bc=24 res=3 pi=19 CN470
-    0x31853400u, // bc=24 res=3 pi=20 CN470
-    0x31857400u, // bc=24 res=3 pi=21 CN470
-    0x3185B400u, // bc=24 res=3 pi=22 CN470
+    0x31863400u, // bc=24 res=3 pi=24 CN470
+    0x31866800u, // bc=24 res=3 pi=25 KR920
+    0x3186B400u, // bc=24 res=3 pi=26 CN470
+    0x31873400u, // bc=24 res=3 pi=28 CN470
+    0x31876800u, // bc=24 res=3 pi=29 KR920
     0x3187B400u, // bc=24 res=3 pi=30 CN470
-    0x31883400u, // bc=24 res=3 pi=32 CN470
-    0x31887400u, // bc=24 res=3 pi=33 CN470
-    0x3188B400u, // bc=24 res=3 pi=34 CN470
-    0x3188F400u, // bc=24 res=3 pi=35 CN470
-    0x31893400u, // bc=24 res=3 pi=36 CN470
-    0x31897400u, // bc=24 res=3 pi=37 CN470
-    0x3189B400u, // bc=24 res=3 pi=38 CN470
+    0x318AB400u, // bc=24 res=3 pi=42 CN470
+    0x318AE800u, // bc=24 res=3 pi=43 KR920
+    0x318B3400u, // bc=24 res=3 pi=44 CN470
     0x318BB400u, // bc=24 res=3 pi=46 CN470
-    0x318C3400u, // bc=24 res=3 pi=48 CN470
-    0x318C7400u, // bc=24 res=3 pi=49 CN470
-    0x318CB400u, // bc=24 res=3 pi=50 CN470
-    0x318CF400u, // bc=24 res=3 pi=51 CN470
-    0x318D3400u, // bc=24 res=3 pi=52 CN470
-    0x318D7400u, // bc=24 res=3 pi=53 CN470
-    0x318DB400u, // bc=24 res=3 pi=54 CN470
-    0x31A03400u, // bc=24 res=3 pi=128 CN470
-    0x31A07400u, // bc=24 res=3 pi=129 CN470
-    0x31A0B400u, // bc=24 res=3 pi=130 CN470
-    0x31A0F400u, // bc=24 res=3 pi=131 CN470
-    0x31A13400u, // bc=24 res=3 pi=132 CN470
-    0x31A17400u, // bc=24 res=3 pi=133 CN470
-    0x31A1B400u, // bc=24 res=3 pi=134 CN470
+    0x31A2B400u, // bc=24 res=3 pi=138 CN470
+    0x31A33400u, // bc=24 res=3 pi=140 CN470
     0x31A3B400u, // bc=24 res=3 pi=142 CN470
-    0x31A43400u, // bc=24 res=3 pi=144 CN470
-    0x31A47400u, // bc=24 res=3 pi=145 CN470
-    0x31A4B400u, // bc=24 res=3 pi=146 CN470
-    0x31A4F400u, // bc=24 res=3 pi=147 CN470
-    0x31A53400u, // bc=24 res=3 pi=148 CN470
-    0x31A57400u, // bc=24 res=3 pi=149 CN470
-    0x31A5B400u, // bc=24 res=3 pi=150 CN470
-    0x31A63400u, // bc=24 res=3 pi=152 CN470
-    0x31A67400u, // bc=24 res=3 pi=153 CN470
-    0x31A6B400u, // bc=24 res=3 pi=154 CN470
-    0x31A6F400u, // bc=24 res=3 pi=155 CN470
-    0x31A73400u, // bc=24 res=3 pi=156 CN470
-    0x31A77400u, // bc=24 res=3 pi=157 CN470
-    0x31A7B400u, // bc=24 res=3 pi=158 CN470
-    0x31A83400u, // bc=24 res=3 pi=160 CN470
-    0x31A87400u, // bc=24 res=3 pi=161 CN470
-    0x31A8B400u, // bc=24 res=3 pi=162 CN470
-    0x31A8F400u, // bc=24 res=3 pi=163 CN470
-    0x31A93400u, // bc=24 res=3 pi=164 CN470
-    0x31A97400u, // bc=24 res=3 pi=165 CN470
-    0x31A9B400u, // bc=24 res=3 pi=166 CN470
+    0x31AA3400u, // bc=24 res=3 pi=168 CN470
+    0x31AAB400u, // bc=24 res=3 pi=170 CN470
     0x31AB3400u, // bc=24 res=3 pi=172 CN470
+    0x31AB7400u, // bc=24 res=3 pi=173 CN470
     0x31ABB400u, // bc=24 res=3 pi=174 CN470
-    0x31AC3400u, // bc=24 res=3 pi=176 CN470
-    0x31AC7400u, // bc=24 res=3 pi=177 CN470
-    0x31ACB400u, // bc=24 res=3 pi=178 CN470
-    0x31ACF400u, // bc=24 res=3 pi=179 CN470
-    0x31AD3400u, // bc=24 res=3 pi=180 CN470
-    0x31AD7400u, // bc=24 res=3 pi=181 CN470
-    0x31ADB400u, // bc=24 res=3 pi=182 CN470
-    0x31B02800u, // bc=24 res=3 pi=192 KR920
-    0x31B06800u, // bc=24 res=3 pi=193 KR920
-    0x31B0A800u, // bc=24 res=3 pi=194 KR920
-    0x31B0E800u, // bc=24 res=3 pi=195 KR920
-    0x31B12800u, // bc=24 res=3 pi=196 KR920
-    0x31B16800u, // bc=24 res=3 pi=197 KR920
-    0x31B1A800u, // bc=24 res=3 pi=198 KR920
+    0x31B21000u, // bc=24 res=3 pi=200 AS923-1
+    0x31B25000u, // bc=24 res=3 pi=201 AS923-1
     0x31B29000u, // bc=24 res=3 pi=202 AS923-1
     0x31B2D000u, // bc=24 res=3 pi=203 AS923-1
+    0x31B32800u, // bc=24 res=3 pi=204 KR920
+    0x31B39000u, // bc=24 res=3 pi=206 AS923-1
+    0x31B42800u, // bc=24 res=3 pi=208 KR920
     0x31B46800u, // bc=24 res=3 pi=209 KR920
+    0x31B4E800u, // bc=24 res=3 pi=211 KR920
+    0x31B52800u, // bc=24 res=3 pi=212 KR920
     0x31B56800u, // bc=24 res=3 pi=213 KR920
     0x31B61000u, // bc=24 res=3 pi=216 AS923-1
     0x31B65000u, // bc=24 res=3 pi=217 AS923-1
+    0x31B69000u, // bc=24 res=3 pi=218 AS923-1
     0x31B6D000u, // bc=24 res=3 pi=219 AS923-1
+    0x31B72800u, // bc=24 res=3 pi=220 KR920
     0x31B75000u, // bc=24 res=3 pi=221 AS923-1
-    0x31B82800u, // bc=24 res=3 pi=224 KR920
-    0x31B86800u, // bc=24 res=3 pi=225 KR920
-    0x31B8A800u, // bc=24 res=3 pi=226 KR920
-    0x31B8E800u, // bc=24 res=3 pi=227 KR920
-    0x31BA2800u, // bc=24 res=3 pi=232 KR920
-    0x31BAA800u, // bc=24 res=3 pi=234 KR920
-    0x31BB2800u, // bc=24 res=3 pi=236 KR920
-    0x31BBA800u, // bc=24 res=3 pi=238 KR920
+    0x31BC6800u, // bc=24 res=3 pi=241 KR920
     0x31BCE800u, // bc=24 res=3 pi=243 KR920
-    0x31C03400u, // bc=24 res=3 pi=256 CN470
-    0x31C07400u, // bc=24 res=3 pi=257 CN470
-    0x31C0B400u, // bc=24 res=3 pi=258 CN470
-    0x31C0F400u, // bc=24 res=3 pi=259 CN470
-    0x31C13400u, // bc=24 res=3 pi=260 CN470
-    0x31C17400u, // bc=24 res=3 pi=261 CN470
-    0x31C1B400u, // bc=24 res=3 pi=262 CN470
-    0x31C23400u, // bc=24 res=3 pi=264 CN470
-    0x31C27400u, // bc=24 res=3 pi=265 CN470
-    0x31C2B400u, // bc=24 res=3 pi=266 CN470
-    0x31C2F400u, // bc=24 res=3 pi=267 CN470
-    0x31C33400u, // bc=24 res=3 pi=268 CN470
-    0x31C37400u, // bc=24 res=3 pi=269 CN470
-    0x31C3B400u, // bc=24 res=3 pi=270 CN470
-    0x31C43400u, // bc=24 res=3 pi=272 CN470
-    0x31C47400u, // bc=24 res=3 pi=273 CN470
-    0x31C4B400u, // bc=24 res=3 pi=274 CN470
-    0x31C4F400u, // bc=24 res=3 pi=275 CN470
-    0x31C53400u, // bc=24 res=3 pi=276 CN470
-    0x31C57400u, // bc=24 res=3 pi=277 CN470
-    0x31C5B400u, // bc=24 res=3 pi=278 CN470
-    0x31C63400u, // bc=24 res=3 pi=280 CN470
-    0x31C67400u, // bc=24 res=3 pi=281 CN470
-    0x31C6B400u, // bc=24 res=3 pi=282 CN470
-    0x31C6F400u, // bc=24 res=3 pi=283 CN470
-    0x31C73400u, // bc=24 res=3 pi=284 CN470
-    0x31C77400u, // bc=24 res=3 pi=285 CN470
-    0x31C7B400u, // bc=24 res=3 pi=286 CN470
-    0x31C83400u, // bc=24 res=3 pi=288 CN470
-    0x31C87400u, // bc=24 res=3 pi=289 CN470
-    0x31C8B400u, // bc=24 res=3 pi=290 CN470
-    0x31C8F400u, // bc=24 res=3 pi=291 CN470
-    0x31C93400u, // bc=24 res=3 pi=292 CN470
-    0x31C97400u, // bc=24 res=3 pi=293 CN470
-    0x31CA3400u, // bc=24 res=3 pi=296 CN470
-    0x31CA7400u, // bc=24 res=3 pi=297 CN470
-    0x31CAB400u, // bc=24 res=3 pi=298 CN470
-    0x31CAF400u, // bc=24 res=3 pi=299 CN470
-    0x31CB3400u, // bc=24 res=3 pi=300 CN470
-    0x31CB7400u, // bc=24 res=3 pi=301 CN470
-    0x31CBB400u, // bc=24 res=3 pi=302 CN470
-    0x31CC3400u, // bc=24 res=3 pi=304 CN470
-    0x31CC7400u, // bc=24 res=3 pi=305 CN470
-    0x31CCB400u, // bc=24 res=3 pi=306 CN470
-    0x31CCF400u, // bc=24 res=3 pi=307 CN470
-    0x31CD7400u, // bc=24 res=3 pi=309 CN470
+    0x31BD6800u, // bc=24 res=3 pi=245 KR920
+    0x31D03400u, // bc=24 res=3 pi=320 CN470
     0x31D0B400u, // bc=24 res=3 pi=322 CN470
     0x31D13400u, // bc=24 res=3 pi=324 CN470
+    0x31D17400u, // bc=24 res=3 pi=325 CN470
     0x31D1B400u, // bc=24 res=3 pi=326 CN470
+    0x31D66800u, // bc=24 res=3 pi=345 KR920
+    0x31D6E800u, // bc=24 res=3 pi=347 KR920
+    0x31D83400u, // bc=24 res=3 pi=352 CN470
+    0x31D87400u, // bc=24 res=3 pi=353 CN470
+    0x31D8B400u, // bc=24 res=3 pi=354 CN470
+    0x31D8F400u, // bc=24 res=3 pi=355 CN470
+    0x31D93400u, // bc=24 res=3 pi=356 CN470
+    0x31D97000u, // bc=24 res=3 pi=357 RU864
+    0x31D9B400u, // bc=24 res=3 pi=358 CN470
+    0x31DA3000u, // bc=24 res=3 pi=360 RU864
+    0x31DAB000u, // bc=24 res=3 pi=362 RU864
     0x31DB3000u, // bc=24 res=3 pi=364 RU864
     0x31DB7000u, // bc=24 res=3 pi=365 RU864
     0x31DBB000u, // bc=24 res=3 pi=366 RU864
-    0x31E03400u, // bc=24 res=3 pi=384 CN470
-    0x31E07400u, // bc=24 res=3 pi=385 CN470
-    0x31E0B400u, // bc=24 res=3 pi=386 CN470
-    0x31E0F400u, // bc=24 res=3 pi=387 CN470
-    0x31E13400u, // bc=24 res=3 pi=388 CN470
-    0x31E17400u, // bc=24 res=3 pi=389 CN470
-    0x31E1B400u, // bc=24 res=3 pi=390 CN470
-    0x31E23400u, // bc=24 res=3 pi=392 CN470
-    0x31E27400u, // bc=24 res=3 pi=393 CN470
-    0x31E2B400u, // bc=24 res=3 pi=394 CN470
-    0x31E2F400u, // bc=24 res=3 pi=395 CN470
-    0x31E33400u, // bc=24 res=3 pi=396 CN470
-    0x31E37400u, // bc=24 res=3 pi=397 CN470
-    0x31E3B400u, // bc=24 res=3 pi=398 CN470
-    0x31E43400u, // bc=24 res=3 pi=400 CN470
-    0x31E47400u, // bc=24 res=3 pi=401 CN470
-    0x31E4B400u, // bc=24 res=3 pi=402 CN470
-    0x31E4F400u, // bc=24 res=3 pi=403 CN470
-    0x31E53400u, // bc=24 res=3 pi=404 CN470
-    0x31E57400u, // bc=24 res=3 pi=405 CN470
-    0x31E5B400u, // bc=24 res=3 pi=406 CN470
-    0x31E63400u, // bc=24 res=3 pi=408 CN470
-    0x31E67400u, // bc=24 res=3 pi=409 CN470
-    0x31E6B400u, // bc=24 res=3 pi=410 CN470
-    0x31E6F400u, // bc=24 res=3 pi=411 CN470
-    0x31E73400u, // bc=24 res=3 pi=412 CN470
-    0x31E77400u, // bc=24 res=3 pi=413 CN470
-    0x31E7B400u, // bc=24 res=3 pi=414 CN470
-    0x31E83400u, // bc=24 res=3 pi=416 CN470
-    0x31E87400u, // bc=24 res=3 pi=417 CN470
-    0x31E8B400u, // bc=24 res=3 pi=418 CN470
-    0x31E8F400u, // bc=24 res=3 pi=419 CN470
-    0x31E93400u, // bc=24 res=3 pi=420 CN470
-    0x31E97400u, // bc=24 res=3 pi=421 CN470
-    0x31E9B400u, // bc=24 res=3 pi=422 CN470
-    0x31EA3400u, // bc=24 res=3 pi=424 CN470
-    0x31EA7400u, // bc=24 res=3 pi=425 CN470
-    0x31EAB400u, // bc=24 res=3 pi=426 CN470
-    0x31EAF400u, // bc=24 res=3 pi=427 CN470
-    0x31EB3400u, // bc=24 res=3 pi=428 CN470
-    0x31EB7400u, // bc=24 res=3 pi=429 CN470
-    0x31EBB400u, // bc=24 res=3 pi=430 CN470
-    0x31EC3400u, // bc=24 res=3 pi=432 CN470
-    0x31EC7400u, // bc=24 res=3 pi=433 CN470
-    0x31ECB400u, // bc=24 res=3 pi=434 CN470
-    0x31ECF400u, // bc=24 res=3 pi=435 CN470
-    0x31ED3400u, // bc=24 res=3 pi=436 CN470
-    0x31ED7400u, // bc=24 res=3 pi=437 CN470
-    0x31EDB400u, // bc=24 res=3 pi=438 CN470
+    0x35880800u, // bc=26 res=3 pi=32 EU868
+    0x35888800u, // bc=26 res=3 pi=34 EU868
     0x35898800u, // bc=26 res=3 pi=38 EU868
+    0x358D0800u, // bc=26 res=3 pi=52 EU868
+    0x35900800u, // bc=26 res=3 pi=64 EU868
+    0x35904800u, // bc=26 res=3 pi=65 EU868
+    0x3590C800u, // bc=26 res=3 pi=67 EU868
+    0x35930800u, // bc=26 res=3 pi=76 EU868
+    0x35934800u, // bc=26 res=3 pi=77 EU868
+    0x35938800u, // bc=26 res=3 pi=78 EU868
+    0x35974800u, // bc=26 res=3 pi=93 EU868
+    0x35980800u, // bc=26 res=3 pi=96 EU868
     0x35990800u, // bc=26 res=3 pi=100 EU868
     0x35998800u, // bc=26 res=3 pi=102 EU868
     0x359A4800u, // bc=26 res=3 pi=105 EU868
+    0x359A8800u, // bc=26 res=3 pi=106 EU868
+    0x359AC800u, // bc=26 res=3 pi=107 EU868
     0x359B4800u, // bc=26 res=3 pi=109 EU868
     0x359B8800u, // bc=26 res=3 pi=110 EU868
+    0x35C68800u, // bc=26 res=3 pi=282 EU868
+    0x35C6C800u, // bc=26 res=3 pi=283 EU868
+    0x35EA0800u, // bc=26 res=3 pi=424 EU868
+    0x35EA4800u, // bc=26 res=3 pi=425 EU868
+    0x35EA8800u, // bc=26 res=3 pi=426 EU868
+    0x35EB8800u, // bc=26 res=3 pi=430 EU868
     0x38800800u, // bc=28 res=1 pi=0 EU868
-    0x38804800u, // bc=28 res=1 pi=1 EU868
     0x38808800u, // bc=28 res=1 pi=2 EU868
     0x3880C800u, // bc=28 res=1 pi=3 EU868
-    0x38810800u, // bc=28 res=1 pi=4 EU868
-    0x38818800u, // bc=28 res=1 pi=6 EU868
+    0x39020800u, // bc=28 res=2 pi=8 EU868
+    0x39028800u, // bc=28 res=2 pi=10 EU868
+    0x3902C800u, // bc=28 res=2 pi=11 EU868
+    0x39034800u, // bc=28 res=2 pi=13 EU868
+    0x39038800u, // bc=28 res=2 pi=14 EU868
+    0x39080800u, // bc=28 res=2 pi=32 EU868
+    0x39084800u, // bc=28 res=2 pi=33 EU868
+    0x3908C800u, // bc=28 res=2 pi=35 EU868
+    0x39090800u, // bc=28 res=2 pi=36 EU868
+    0x39094800u, // bc=28 res=2 pi=37 EU868
     0x390A8800u, // bc=28 res=2 pi=42 EU868
     0x390B0800u, // bc=28 res=2 pi=44 EU868
-    0x390B4800u, // bc=28 res=2 pi=45 EU868
     0x390B8800u, // bc=28 res=2 pi=46 EU868
-    0x39800800u, // bc=28 res=3 pi=0 EU868
-    0x39804800u, // bc=28 res=3 pi=1 EU868
-    0x39808800u, // bc=28 res=3 pi=2 EU868
-    0x3980C800u, // bc=28 res=3 pi=3 EU868
-    0x39810800u, // bc=28 res=3 pi=4 EU868
-    0x39814800u, // bc=28 res=3 pi=5 EU868
-    0x39818800u, // bc=28 res=3 pi=6 EU868
-    0x39820800u, // bc=28 res=3 pi=8 EU868
-    0x39824800u, // bc=28 res=3 pi=9 EU868
-    0x39828800u, // bc=28 res=3 pi=10 EU868
-    0x3982C800u, // bc=28 res=3 pi=11 EU868
-    0x39830800u, // bc=28 res=3 pi=12 EU868
-    0x39834800u, // bc=28 res=3 pi=13 EU868
-    0x39838800u, // bc=28 res=3 pi=14 EU868
-    0x39840800u, // bc=28 res=3 pi=16 EU868
-    0x39844800u, // bc=28 res=3 pi=17 EU868
-    0x39848800u, // bc=28 res=3 pi=18 EU868
-    0x3984C800u, // bc=28 res=3 pi=19 EU868
-    0x39850800u, // bc=28 res=3 pi=20 EU868
-    0x39854800u, // bc=28 res=3 pi=21 EU868
-    0x39858800u, // bc=28 res=3 pi=22 EU868
-    0x39860800u, // bc=28 res=3 pi=24 EU868
-    0x39864800u, // bc=28 res=3 pi=25 EU868
-    0x39868800u, // bc=28 res=3 pi=26 EU868
-    0x3986C800u, // bc=28 res=3 pi=27 EU868
-    0x39870800u, // bc=28 res=3 pi=28 EU868
-    0x39874800u, // bc=28 res=3 pi=29 EU868
-    0x39878800u, // bc=28 res=3 pi=30 EU868
-    0x3988C800u, // bc=28 res=3 pi=35 EU868
-    0x39890800u, // bc=28 res=3 pi=36 EU868
-    0x39894800u, // bc=28 res=3 pi=37 EU868
-    0x398A0800u, // bc=28 res=3 pi=40 EU868
-    0x398A4800u, // bc=28 res=3 pi=41 EU868
-    0x398A8800u, // bc=28 res=3 pi=42 EU868
-    0x398AC800u, // bc=28 res=3 pi=43 EU868
-    0x398B8800u, // bc=28 res=3 pi=46 EU868
-    0x398C0800u, // bc=28 res=3 pi=48 EU868
-    0x398C4800u, // bc=28 res=3 pi=49 EU868
-    0x398C8800u, // bc=28 res=3 pi=50 EU868
-    0x398CC800u, // bc=28 res=3 pi=51 EU868
-    0x398D0800u, // bc=28 res=3 pi=52 EU868
-    0x398D4800u, // bc=28 res=3 pi=53 EU868
-    0x398D8800u, // bc=28 res=3 pi=54 EU868
-    0x39900800u, // bc=28 res=3 pi=64 EU868
-    0x39904800u, // bc=28 res=3 pi=65 EU868
-    0x39908800u, // bc=28 res=3 pi=66 EU868
-    0x3990C800u, // bc=28 res=3 pi=67 EU868
-    0x39910800u, // bc=28 res=3 pi=68 EU868
-    0x39914800u, // bc=28 res=3 pi=69 EU868
-    0x39918800u, // bc=28 res=3 pi=70 EU868
+    0x390C4800u, // bc=28 res=2 pi=49 EU868
+    0x390CC800u, // bc=28 res=2 pi=51 EU868
+    0x39920800u, // bc=28 res=3 pi=72 EU868
     0x39928800u, // bc=28 res=3 pi=74 EU868
     0x39930800u, // bc=28 res=3 pi=76 EU868
+    0x39934800u, // bc=28 res=3 pi=77 EU868
     0x39938800u, // bc=28 res=3 pi=78 EU868
-    0x39940800u, // bc=28 res=3 pi=80 EU868
-    0x39944800u, // bc=28 res=3 pi=81 EU868
-    0x39948800u, // bc=28 res=3 pi=82 EU868
-    0x3994C800u, // bc=28 res=3 pi=83 EU868
-    0x39950800u, // bc=28 res=3 pi=84 EU868
-    0x39954800u, // bc=28 res=3 pi=85 EU868
-    0x39958800u, // bc=28 res=3 pi=86 EU868
-    0x39960800u, // bc=28 res=3 pi=88 EU868
-    0x39964800u, // bc=28 res=3 pi=89 EU868
-    0x39968800u, // bc=28 res=3 pi=90 EU868
-    0x3996C800u, // bc=28 res=3 pi=91 EU868
-    0x39970800u, // bc=28 res=3 pi=92 EU868
-    0x39974800u, // bc=28 res=3 pi=93 EU868
-    0x39978800u, // bc=28 res=3 pi=94 EU868
+    0x39980800u, // bc=28 res=3 pi=96 EU868
+    0x39984800u, // bc=28 res=3 pi=97 EU868
     0x39988800u, // bc=28 res=3 pi=98 EU868
     0x3998C800u, // bc=28 res=3 pi=99 EU868
-    0x399A0800u, // bc=28 res=3 pi=104 EU868
-    0x399A8800u, // bc=28 res=3 pi=106 EU868
-    0x399B8800u, // bc=28 res=3 pi=110 EU868
-    0x399C0800u, // bc=28 res=3 pi=112 EU868
-    0x399C4800u, // bc=28 res=3 pi=113 EU868
-    0x399C8800u, // bc=28 res=3 pi=114 EU868
-    0x399CC800u, // bc=28 res=3 pi=115 EU868
-    0x399D0800u, // bc=28 res=3 pi=116 EU868
-    0x399D4800u, // bc=28 res=3 pi=117 EU868
-    0x399D8800u, // bc=28 res=3 pi=118 EU868
-    0x39A00800u, // bc=28 res=3 pi=128 EU868
-    0x39A04800u, // bc=28 res=3 pi=129 EU868
-    0x39A08800u, // bc=28 res=3 pi=130 EU868
-    0x39A0C800u, // bc=28 res=3 pi=131 EU868
-    0x39A10800u, // bc=28 res=3 pi=132 EU868
-    0x39A14800u, // bc=28 res=3 pi=133 EU868
-    0x39A18800u, // bc=28 res=3 pi=134 EU868
-    0x39A20800u, // bc=28 res=3 pi=136 EU868
-    0x39A24800u, // bc=28 res=3 pi=137 EU868
-    0x39A28800u, // bc=28 res=3 pi=138 EU868
-    0x39A2C800u, // bc=28 res=3 pi=139 EU868
-    0x39A30800u, // bc=28 res=3 pi=140 EU868
-    0x39A34800u, // bc=28 res=3 pi=141 EU868
-    0x39A38800u, // bc=28 res=3 pi=142 EU868
-    0x39A40800u, // bc=28 res=3 pi=144 EU868
-    0x39A44800u, // bc=28 res=3 pi=145 EU868
-    0x39A48800u, // bc=28 res=3 pi=146 EU868
-    0x39A4C800u, // bc=28 res=3 pi=147 EU868
-    0x39A50800u, // bc=28 res=3 pi=148 EU868
-    0x39A54800u, // bc=28 res=3 pi=149 EU868
-    0x39A58800u, // bc=28 res=3 pi=150 EU868
-    0x39A60800u, // bc=28 res=3 pi=152 EU868
-    0x39A64800u, // bc=28 res=3 pi=153 EU868
-    0x39A68800u, // bc=28 res=3 pi=154 EU868
-    0x39A6C800u, // bc=28 res=3 pi=155 EU868
-    0x39A70800u, // bc=28 res=3 pi=156 EU868
-    0x39A74800u, // bc=28 res=3 pi=157 EU868
-    0x39A78800u, // bc=28 res=3 pi=158 EU868
-    0x39A80800u, // bc=28 res=3 pi=160 EU868
-    0x39A84800u, // bc=28 res=3 pi=161 EU868
-    0x39A88800u, // bc=28 res=3 pi=162 EU868
-    0x39A8C800u, // bc=28 res=3 pi=163 EU868
-    0x39A90800u, // bc=28 res=3 pi=164 EU868
-    0x39A94800u, // bc=28 res=3 pi=165 EU868
-    0x39A98800u, // bc=28 res=3 pi=166 EU868
-    0x39AA0800u, // bc=28 res=3 pi=168 EU868
-    0x39AA4800u, // bc=28 res=3 pi=169 EU868
-    0x39AA8800u, // bc=28 res=3 pi=170 EU868
-    0x39AAC800u, // bc=28 res=3 pi=171 EU868
-    0x39AB0800u, // bc=28 res=3 pi=172 EU868
-    0x39AB4800u, // bc=28 res=3 pi=173 EU868
-    0x39AB8800u, // bc=28 res=3 pi=174 EU868
-    0x39AC0800u, // bc=28 res=3 pi=176 EU868
-    0x39AC4800u, // bc=28 res=3 pi=177 EU868
-    0x39AC8800u, // bc=28 res=3 pi=178 EU868
-    0x39ACC800u, // bc=28 res=3 pi=179 EU868
-    0x39AD0800u, // bc=28 res=3 pi=180 EU868
-    0x39AD4800u, // bc=28 res=3 pi=181 EU868
-    0x39AD8800u, // bc=28 res=3 pi=182 EU868
-    0x39B00800u, // bc=28 res=3 pi=192 EU868
-    0x39B04800u, // bc=28 res=3 pi=193 EU868
-    0x39B08800u, // bc=28 res=3 pi=194 EU868
-    0x39B0C800u, // bc=28 res=3 pi=195 EU868
-    0x39B10800u, // bc=28 res=3 pi=196 EU868
-    0x39B14800u, // bc=28 res=3 pi=197 EU868
-    0x39B18800u, // bc=28 res=3 pi=198 EU868
-    0x39B20800u, // bc=28 res=3 pi=200 EU868
-    0x39B24800u, // bc=28 res=3 pi=201 EU868
-    0x39B28800u, // bc=28 res=3 pi=202 EU868
-    0x39B2C800u, // bc=28 res=3 pi=203 EU868
-    0x39B30800u, // bc=28 res=3 pi=204 EU868
-    0x39B34800u, // bc=28 res=3 pi=205 EU868
-    0x39B38800u, // bc=28 res=3 pi=206 EU868
-    0x39B40800u, // bc=28 res=3 pi=208 EU868
-    0x39B44800u, // bc=28 res=3 pi=209 EU868
-    0x39B48800u, // bc=28 res=3 pi=210 EU868
-    0x39B4C800u, // bc=28 res=3 pi=211 EU868
-    0x39B50800u, // bc=28 res=3 pi=212 EU868
-    0x39B54800u, // bc=28 res=3 pi=213 EU868
-    0x39B58800u, // bc=28 res=3 pi=214 EU868
-    0x39B60800u, // bc=28 res=3 pi=216 EU868
-    0x39B64800u, // bc=28 res=3 pi=217 EU868
-    0x39B68800u, // bc=28 res=3 pi=218 EU868
-    0x39B6C800u, // bc=28 res=3 pi=219 EU868
-    0x39B70800u, // bc=28 res=3 pi=220 EU868
-    0x39B74800u, // bc=28 res=3 pi=221 EU868
-    0x39B78800u, // bc=28 res=3 pi=222 EU868
-    0x39B80800u, // bc=28 res=3 pi=224 EU868
-    0x39B84800u, // bc=28 res=3 pi=225 EU868
-    0x39B88800u, // bc=28 res=3 pi=226 EU868
-    0x39B8C800u, // bc=28 res=3 pi=227 EU868
-    0x39B90800u, // bc=28 res=3 pi=228 EU868
-    0x39B94800u, // bc=28 res=3 pi=229 EU868
-    0x39B98800u, // bc=28 res=3 pi=230 EU868
-    0x39BA0800u, // bc=28 res=3 pi=232 EU868
-    0x39BA4800u, // bc=28 res=3 pi=233 EU868
-    0x39BA8800u, // bc=28 res=3 pi=234 EU868
-    0x39BAC800u, // bc=28 res=3 pi=235 EU868
-    0x39BB0800u, // bc=28 res=3 pi=236 EU868
-    0x39BB4800u, // bc=28 res=3 pi=237 EU868
-    0x39BB8800u, // bc=28 res=3 pi=238 EU868
-    0x39BC0800u, // bc=28 res=3 pi=240 EU868
-    0x39BC4800u, // bc=28 res=3 pi=241 EU868
-    0x39BC8800u, // bc=28 res=3 pi=242 EU868
-    0x39BCC800u, // bc=28 res=3 pi=243 EU868
-    0x39BD0800u, // bc=28 res=3 pi=244 EU868
-    0x39BD4800u, // bc=28 res=3 pi=245 EU868
-    0x39BD8800u, // bc=28 res=3 pi=246 EU868
-    0x39C00800u, // bc=28 res=3 pi=256 EU868
-    0x39C04800u, // bc=28 res=3 pi=257 EU868
-    0x39C08800u, // bc=28 res=3 pi=258 EU868
-    0x39C0C800u, // bc=28 res=3 pi=259 EU868
-    0x39C10800u, // bc=28 res=3 pi=260 EU868
-    0x39C14800u, // bc=28 res=3 pi=261 EU868
-    0x39C18800u, // bc=28 res=3 pi=262 EU868
-    0x39C20800u, // bc=28 res=3 pi=264 EU868
-    0x39C24800u, // bc=28 res=3 pi=265 EU868
-    0x39C28800u, // bc=28 res=3 pi=266 EU868
-    0x39C2C800u, // bc=28 res=3 pi=267 EU868
-    0x39C30800u, // bc=28 res=3 pi=268 EU868
-    0x39C34800u, // bc=28 res=3 pi=269 EU868
-    0x39C38800u, // bc=28 res=3 pi=270 EU868
+    0x39994800u, // bc=28 res=3 pi=101 EU868
+    0x39998800u, // bc=28 res=3 pi=102 EU868
     0x39C40800u, // bc=28 res=3 pi=272 EU868
     0x39C44800u, // bc=28 res=3 pi=273 EU868
+    0x39C4C800u, // bc=28 res=3 pi=275 EU868
+    0x39C50800u, // bc=28 res=3 pi=276 EU868
     0x39C54800u, // bc=28 res=3 pi=277 EU868
-    0x39C60800u, // bc=28 res=3 pi=280 EU868
-    0x39C64800u, // bc=28 res=3 pi=281 EU868
-    0x39C68800u, // bc=28 res=3 pi=282 EU868
-    0x39C70800u, // bc=28 res=3 pi=284 EU868
-    0x39C74800u, // bc=28 res=3 pi=285 EU868
-    0x39C78800u, // bc=28 res=3 pi=286 EU868
-    0x39C80800u, // bc=28 res=3 pi=288 EU868
-    0x39C84800u, // bc=28 res=3 pi=289 EU868
-    0x39C88800u, // bc=28 res=3 pi=290 EU868
-    0x39C8C800u, // bc=28 res=3 pi=291 EU868
-    0x39C90800u, // bc=28 res=3 pi=292 EU868
-    0x39C94800u, // bc=28 res=3 pi=293 EU868
-    0x39CA0800u, // bc=28 res=3 pi=296 EU868
-    0x39CA4800u, // bc=28 res=3 pi=297 EU868
-    0x39CA8800u, // bc=28 res=3 pi=298 EU868
-    0x39CAC800u, // bc=28 res=3 pi=299 EU868
-    0x39CB0800u, // bc=28 res=3 pi=300 EU868
-    0x39CB4800u, // bc=28 res=3 pi=301 EU868
-    0x39CB8800u, // bc=28 res=3 pi=302 EU868
     0x39CC4800u, // bc=28 res=3 pi=305 EU868
     0x39CCC800u, // bc=28 res=3 pi=307 EU868
+    0x39D00800u, // bc=28 res=3 pi=320 EU868
+    0x39D08800u, // bc=28 res=3 pi=322 EU868
     0x39D0C800u, // bc=28 res=3 pi=323 EU868
     0x39D10800u, // bc=28 res=3 pi=324 EU868
     0x39D14800u, // bc=28 res=3 pi=325 EU868
+    0x39D18800u, // bc=28 res=3 pi=326 EU868
     0x39D24800u, // bc=28 res=3 pi=329 EU868
+    0x39D68800u, // bc=28 res=3 pi=346 EU868
+    0x39D6C800u, // bc=28 res=3 pi=347 EU868
     0x39D70800u, // bc=28 res=3 pi=348 EU868
+    0x39D74800u, // bc=28 res=3 pi=349 EU868
+    0x39DA0800u, // bc=28 res=3 pi=360 EU868
+    0x39DA4800u, // bc=28 res=3 pi=361 EU868
+    0x39DAC800u, // bc=28 res=3 pi=363 EU868
+    0x39DB0800u, // bc=28 res=3 pi=364 EU868
+    0x39DB4800u, // bc=28 res=3 pi=365 EU868
+    0x39DB8800u, // bc=28 res=3 pi=366 EU868
     0x39E00800u, // bc=28 res=3 pi=384 EU868
     0x39E04800u, // bc=28 res=3 pi=385 EU868
     0x39E08800u, // bc=28 res=3 pi=386 EU868
     0x39E0C800u, // bc=28 res=3 pi=387 EU868
     0x39E14800u, // bc=28 res=3 pi=389 EU868
-    0x39E20800u, // bc=28 res=3 pi=392 EU868
-    0x39E24800u, // bc=28 res=3 pi=393 EU868
-    0x39E28800u, // bc=28 res=3 pi=394 EU868
-    0x39E2C800u, // bc=28 res=3 pi=395 EU868
-    0x39E30800u, // bc=28 res=3 pi=396 EU868
-    0x39E34800u, // bc=28 res=3 pi=397 EU868
-    0x39E38800u, // bc=28 res=3 pi=398 EU868
+    0x39E18800u, // bc=28 res=3 pi=390 EU868
+    0x39E40800u, // bc=28 res=3 pi=400 EU868
     0x39E44800u, // bc=28 res=3 pi=401 EU868
     0x39E48800u, // bc=28 res=3 pi=402 EU868
     0x39E4C800u, // bc=28 res=3 pi=403 EU868
-    0x39E60800u, // bc=28 res=3 pi=408 EU868
-    0x39E64800u, // bc=28 res=3 pi=409 EU868
-    0x39E68800u, // bc=28 res=3 pi=410 EU868
-    0x39E6C800u, // bc=28 res=3 pi=411 EU868
-    0x39E70800u, // bc=28 res=3 pi=412 EU868
-    0x39E74800u, // bc=28 res=3 pi=413 EU868
-    0x39E78800u, // bc=28 res=3 pi=414 EU868
+    0x39EA0800u, // bc=28 res=3 pi=424 EU868
     0x39EA4800u, // bc=28 res=3 pi=425 EU868
     0x39EA8800u, // bc=28 res=3 pi=426 EU868
     0x39EAC800u, // bc=28 res=3 pi=427 EU868
-    0x3C803400u, // bc=30 res=1 pi=0 CN470
-    0x3C807400u, // bc=30 res=1 pi=1 CN470
-    0x3C80AC00u, // bc=30 res=1 pi=2 IN865
-    0x3C80D000u, // bc=30 res=1 pi=3 AS923-1
-    0x3C813400u, // bc=30 res=1 pi=4 CN470
+    0x39EB4800u, // bc=28 res=3 pi=429 EU868
     0x3C817400u, // bc=30 res=1 pi=5 CN470
     0x3C81AC00u, // bc=30 res=1 pi=6 IN865
-    0x3D803400u, // bc=30 res=3 pi=0 CN470
-    0x3D807400u, // bc=30 res=3 pi=1 CN470
-    0x3D813400u, // bc=30 res=3 pi=4 CN470
-    0x3D817400u, // bc=30 res=3 pi=5 CN470
+    0x3D003400u, // bc=30 res=2 pi=0 CN470
+    0x3D00AC00u, // bc=30 res=2 pi=2 IN865
+    0x3D00EC00u, // bc=30 res=2 pi=3 IN865
+    0x3D013400u, // bc=30 res=2 pi=4 CN470
+    0x3D017400u, // bc=30 res=2 pi=5 CN470
+    0x3D023400u, // bc=30 res=2 pi=8 CN470
+    0x3D027400u, // bc=30 res=2 pi=9 CN470
+    0x3D033400u, // bc=30 res=2 pi=12 CN470
+    0x3D037400u, // bc=30 res=2 pi=13 CN470
+    0x3D03B400u, // bc=30 res=2 pi=14 CN470
+    0x3D042C00u, // bc=30 res=2 pi=16 IN865
+    0x3D04AC00u, // bc=30 res=2 pi=18 IN865
+    0x3D052C00u, // bc=30 res=2 pi=20 IN865
+    0x3D056C00u, // bc=30 res=2 pi=21 IN865
+    0x3D05AC00u, // bc=30 res=2 pi=22 IN865
+    0x3D065000u, // bc=30 res=2 pi=25 AS923-1
+    0x3D06D000u, // bc=30 res=2 pi=27 AS923-1
+    0x3D087400u, // bc=30 res=2 pi=33 CN470
+    0x3D08AC00u, // bc=30 res=2 pi=34 IN865
+    0x3D097400u, // bc=30 res=2 pi=37 CN470
     0x3D823400u, // bc=30 res=3 pi=8 CN470
     0x3D827400u, // bc=30 res=3 pi=9 CN470
     0x3D828800u, // bc=30 res=3 pi=10 EU868
@@ -4880,48 +1575,11 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x3D833400u, // bc=30 res=3 pi=12 CN470
     0x3D837400u, // bc=30 res=3 pi=13 CN470
     0x3D83B400u, // bc=30 res=3 pi=14 CN470
-    0x3D842C00u, // bc=30 res=3 pi=16 IN865
-    0x3D846C00u, // bc=30 res=3 pi=17 IN865
-    0x3D84AC00u, // bc=30 res=3 pi=18 IN865
-    0x3D84EC00u, // bc=30 res=3 pi=19 IN865
-    0x3D852C00u, // bc=30 res=3 pi=20 IN865
-    0x3D856C00u, // bc=30 res=3 pi=21 IN865
-    0x3D85AC00u, // bc=30 res=3 pi=22 IN865
-    0x3D862C00u, // bc=30 res=3 pi=24 IN865
-    0x3D866C00u, // bc=30 res=3 pi=25 IN865
-    0x3D86AC00u, // bc=30 res=3 pi=26 IN865
-    0x3D86EC00u, // bc=30 res=3 pi=27 IN865
-    0x3D87AC00u, // bc=30 res=3 pi=30 IN865
-    0x3D883400u, // bc=30 res=3 pi=32 CN470
-    0x3D887400u, // bc=30 res=3 pi=33 CN470
-    0x3D88B400u, // bc=30 res=3 pi=34 CN470
-    0x3D88F400u, // bc=30 res=3 pi=35 CN470
-    0x3D893400u, // bc=30 res=3 pi=36 CN470
-    0x3D897400u, // bc=30 res=3 pi=37 CN470
-    0x3D89B400u, // bc=30 res=3 pi=38 CN470
-    0x3D8A3400u, // bc=30 res=3 pi=40 CN470
-    0x3D8A7400u, // bc=30 res=3 pi=41 CN470
-    0x3D8AB400u, // bc=30 res=3 pi=42 CN470
-    0x3D8AF400u, // bc=30 res=3 pi=43 CN470
-    0x3D8B3400u, // bc=30 res=3 pi=44 CN470
-    0x3D8B7400u, // bc=30 res=3 pi=45 CN470
-    0x3D8BB400u, // bc=30 res=3 pi=46 CN470
+    0x3D8C7400u, // bc=30 res=3 pi=49 CN470
     0x3D8CAC00u, // bc=30 res=3 pi=50 IN865
+    0x3D8CEC00u, // bc=30 res=3 pi=51 IN865
+    0x3D8D7400u, // bc=30 res=3 pi=53 CN470
     0x3D8DAC00u, // bc=30 res=3 pi=54 IN865
-    0x3D903400u, // bc=30 res=3 pi=64 CN470
-    0x3D907400u, // bc=30 res=3 pi=65 CN470
-    0x3D90B400u, // bc=30 res=3 pi=66 CN470
-    0x3D90F400u, // bc=30 res=3 pi=67 CN470
-    0x3D913400u, // bc=30 res=3 pi=68 CN470
-    0x3D917400u, // bc=30 res=3 pi=69 CN470
-    0x3D91B400u, // bc=30 res=3 pi=70 CN470
-    0x3D923400u, // bc=30 res=3 pi=72 CN470
-    0x3D927400u, // bc=30 res=3 pi=73 CN470
-    0x3D92B400u, // bc=30 res=3 pi=74 CN470
-    0x3D92F400u, // bc=30 res=3 pi=75 CN470
-    0x3D933400u, // bc=30 res=3 pi=76 CN470
-    0x3D937400u, // bc=30 res=3 pi=77 CN470
-    0x3D93B400u, // bc=30 res=3 pi=78 CN470
     0x3D943400u, // bc=30 res=3 pi=80 CN470
     0x3D946C00u, // bc=30 res=3 pi=81 IN865
     0x3D94AC00u, // bc=30 res=3 pi=82 IN865
@@ -4936,69 +1594,16 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x3D972C00u, // bc=30 res=3 pi=92 IN865
     0x3D977400u, // bc=30 res=3 pi=93 CN470
     0x3D97AC00u, // bc=30 res=3 pi=94 IN865
-    0x3D983400u, // bc=30 res=3 pi=96 CN470
-    0x3D987400u, // bc=30 res=3 pi=97 CN470
-    0x3D98B400u, // bc=30 res=3 pi=98 CN470
-    0x3D98F400u, // bc=30 res=3 pi=99 CN470
-    0x3D993400u, // bc=30 res=3 pi=100 CN470
-    0x3D997400u, // bc=30 res=3 pi=101 CN470
-    0x3D99B400u, // bc=30 res=3 pi=102 CN470
-    0x3D9A3400u, // bc=30 res=3 pi=104 CN470
-    0x3D9A7400u, // bc=30 res=3 pi=105 CN470
-    0x3D9AB400u, // bc=30 res=3 pi=106 CN470
-    0x3D9AF400u, // bc=30 res=3 pi=107 CN470
-    0x3D9B3400u, // bc=30 res=3 pi=108 CN470
-    0x3D9B7400u, // bc=30 res=3 pi=109 CN470
-    0x3D9BB400u, // bc=30 res=3 pi=110 CN470
-    0x3D9C3400u, // bc=30 res=3 pi=112 CN470
-    0x3D9C7400u, // bc=30 res=3 pi=113 CN470
-    0x3D9CB400u, // bc=30 res=3 pi=114 CN470
-    0x3D9CF400u, // bc=30 res=3 pi=115 CN470
-    0x3D9D3400u, // bc=30 res=3 pi=116 CN470
-    0x3D9D7400u, // bc=30 res=3 pi=117 CN470
-    0x3D9DB400u, // bc=30 res=3 pi=118 CN470
-    0x3DA02C00u, // bc=30 res=3 pi=128 IN865
-    0x3DA06C00u, // bc=30 res=3 pi=129 IN865
-    0x3DA0AC00u, // bc=30 res=3 pi=130 IN865
-    0x3DA0EC00u, // bc=30 res=3 pi=131 IN865
-    0x3DA12C00u, // bc=30 res=3 pi=132 IN865
-    0x3DA16C00u, // bc=30 res=3 pi=133 IN865
-    0x3DA1AC00u, // bc=30 res=3 pi=134 IN865
     0x3DA22C00u, // bc=30 res=3 pi=136 IN865
     0x3DA26C00u, // bc=30 res=3 pi=137 IN865
+    0x3DA2AC00u, // bc=30 res=3 pi=138 IN865
     0x3DA32C00u, // bc=30 res=3 pi=140 IN865
     0x3DA36C00u, // bc=30 res=3 pi=141 IN865
     0x3DA3AC00u, // bc=30 res=3 pi=142 IN865
-    0x3DA42C00u, // bc=30 res=3 pi=144 IN865
-    0x3DA46C00u, // bc=30 res=3 pi=145 IN865
-    0x3DA4AC00u, // bc=30 res=3 pi=146 IN865
-    0x3DA4EC00u, // bc=30 res=3 pi=147 IN865
-    0x3DA52C00u, // bc=30 res=3 pi=148 IN865
-    0x3DA56C00u, // bc=30 res=3 pi=149 IN865
-    0x3DA5AC00u, // bc=30 res=3 pi=150 IN865
+    0x3DA62C00u, // bc=30 res=3 pi=152 IN865
     0x3DA72C00u, // bc=30 res=3 pi=156 IN865
     0x3DA76C00u, // bc=30 res=3 pi=157 IN865
-    0x3DA82C00u, // bc=30 res=3 pi=160 IN865
-    0x3DA86C00u, // bc=30 res=3 pi=161 IN865
-    0x3DA8AC00u, // bc=30 res=3 pi=162 IN865
-    0x3DA8EC00u, // bc=30 res=3 pi=163 IN865
-    0x3DA92C00u, // bc=30 res=3 pi=164 IN865
-    0x3DA96C00u, // bc=30 res=3 pi=165 IN865
-    0x3DA9AC00u, // bc=30 res=3 pi=166 IN865
-    0x3DAA2C00u, // bc=30 res=3 pi=168 IN865
-    0x3DAA6C00u, // bc=30 res=3 pi=169 IN865
-    0x3DAAAC00u, // bc=30 res=3 pi=170 IN865
-    0x3DAAEC00u, // bc=30 res=3 pi=171 IN865
-    0x3DAB2C00u, // bc=30 res=3 pi=172 IN865
-    0x3DAB6C00u, // bc=30 res=3 pi=173 IN865
-    0x3DABAC00u, // bc=30 res=3 pi=174 IN865
-    0x3DAC2C00u, // bc=30 res=3 pi=176 IN865
-    0x3DAC6C00u, // bc=30 res=3 pi=177 IN865
-    0x3DACAC00u, // bc=30 res=3 pi=178 IN865
-    0x3DACEC00u, // bc=30 res=3 pi=179 IN865
-    0x3DAD2C00u, // bc=30 res=3 pi=180 IN865
-    0x3DAD6C00u, // bc=30 res=3 pi=181 IN865
-    0x3DADAC00u, // bc=30 res=3 pi=182 IN865
+    0x3DA7AC00u, // bc=30 res=3 pi=158 IN865
     0x3DB01000u, // bc=30 res=3 pi=192 AS923-1
     0x3DB05000u, // bc=30 res=3 pi=193 AS923-1
     0x3DB09000u, // bc=30 res=3 pi=194 AS923-1
@@ -5006,22 +1611,9 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x3DB11000u, // bc=30 res=3 pi=196 AS923-1
     0x3DB16C00u, // bc=30 res=3 pi=197 IN865
     0x3DB19000u, // bc=30 res=3 pi=198 AS923-1
-    0x3DB21000u, // bc=30 res=3 pi=200 AS923-1
-    0x3DB25000u, // bc=30 res=3 pi=201 AS923-1
-    0x3DB29000u, // bc=30 res=3 pi=202 AS923-1
-    0x3DB2D000u, // bc=30 res=3 pi=203 AS923-1
-    0x3DB31000u, // bc=30 res=3 pi=204 AS923-1
-    0x3DB35000u, // bc=30 res=3 pi=205 AS923-1
-    0x3DB39000u, // bc=30 res=3 pi=206 AS923-1
+    0x3DB45000u, // bc=30 res=3 pi=209 AS923-1
     0x3DB51000u, // bc=30 res=3 pi=212 AS923-1
     0x3DB55000u, // bc=30 res=3 pi=213 AS923-1
-    0x3DB61000u, // bc=30 res=3 pi=216 AS923-1
-    0x3DB65000u, // bc=30 res=3 pi=217 AS923-1
-    0x3DB69000u, // bc=30 res=3 pi=218 AS923-1
-    0x3DB6D000u, // bc=30 res=3 pi=219 AS923-1
-    0x3DB71000u, // bc=30 res=3 pi=220 AS923-1
-    0x3DB75000u, // bc=30 res=3 pi=221 AS923-1
-    0x3DB79000u, // bc=30 res=3 pi=222 AS923-1
     0x3DB82C00u, // bc=30 res=3 pi=224 IN865
     0x3DB86C00u, // bc=30 res=3 pi=225 IN865
     0x3DB89000u, // bc=30 res=3 pi=226 AS923-1
@@ -5050,22 +1642,10 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x3DC12C00u, // bc=30 res=3 pi=260 IN865
     0x3DC17400u, // bc=30 res=3 pi=261 CN470
     0x3DC1AC00u, // bc=30 res=3 pi=262 IN865
-    0x3DC23400u, // bc=30 res=3 pi=264 CN470
-    0x3DC27400u, // bc=30 res=3 pi=265 CN470
-    0x3DC2B400u, // bc=30 res=3 pi=266 CN470
-    0x3DC2F400u, // bc=30 res=3 pi=267 CN470
-    0x3DC33400u, // bc=30 res=3 pi=268 CN470
-    0x3DC37400u, // bc=30 res=3 pi=269 CN470
-    0x3DC3B400u, // bc=30 res=3 pi=270 CN470
-    0x3DC42C00u, // bc=30 res=3 pi=272 IN865
-    0x3DC46C00u, // bc=30 res=3 pi=273 IN865
-    0x3DC4AC00u, // bc=30 res=3 pi=274 IN865
-    0x3DC4EC00u, // bc=30 res=3 pi=275 IN865
-    0x3DC52C00u, // bc=30 res=3 pi=276 IN865
-    0x3DC56C00u, // bc=30 res=3 pi=277 IN865
-    0x3DC5AC00u, // bc=30 res=3 pi=278 IN865
     0x3DC63400u, // bc=30 res=3 pi=280 CN470
     0x3DC67400u, // bc=30 res=3 pi=281 CN470
+    0x3DC6AC00u, // bc=30 res=3 pi=282 IN865
+    0x3DC6F400u, // bc=30 res=3 pi=283 CN470
     0x3DC73400u, // bc=30 res=3 pi=284 CN470
     0x3DC77400u, // bc=30 res=3 pi=285 CN470
     0x3DC7AC00u, // bc=30 res=3 pi=286 IN865
@@ -5076,13 +1656,6 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x3DC91000u, // bc=30 res=3 pi=292 AS923-1
     0x3DC97400u, // bc=30 res=3 pi=293 CN470
     0x3DC99000u, // bc=30 res=3 pi=294 AS923-1
-    0x3DCA3400u, // bc=30 res=3 pi=296 CN470
-    0x3DCA7400u, // bc=30 res=3 pi=297 CN470
-    0x3DCAB400u, // bc=30 res=3 pi=298 CN470
-    0x3DCAF400u, // bc=30 res=3 pi=299 CN470
-    0x3DCB3400u, // bc=30 res=3 pi=300 CN470
-    0x3DCB7400u, // bc=30 res=3 pi=301 CN470
-    0x3DCBB400u, // bc=30 res=3 pi=302 CN470
     0x3DCC2C00u, // bc=30 res=3 pi=304 IN865
     0x3DCC6C00u, // bc=30 res=3 pi=305 IN865
     0x3DCCAC00u, // bc=30 res=3 pi=306 IN865
@@ -5090,143 +1663,23 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x3DCD2C00u, // bc=30 res=3 pi=308 IN865
     0x3DCD6C00u, // bc=30 res=3 pi=309 IN865
     0x3DCD9000u, // bc=30 res=3 pi=310 AS923-1
-    0x3DD03400u, // bc=30 res=3 pi=320 CN470
-    0x3DD07400u, // bc=30 res=3 pi=321 CN470
-    0x3DD0B400u, // bc=30 res=3 pi=322 CN470
-    0x3DD0F400u, // bc=30 res=3 pi=323 CN470
-    0x3DD13400u, // bc=30 res=3 pi=324 CN470
-    0x3DD17400u, // bc=30 res=3 pi=325 CN470
-    0x3DD1B400u, // bc=30 res=3 pi=326 CN470
-    0x3DD23400u, // bc=30 res=3 pi=328 CN470
-    0x3DD27400u, // bc=30 res=3 pi=329 CN470
-    0x3DD2B400u, // bc=30 res=3 pi=330 CN470
-    0x3DD2F400u, // bc=30 res=3 pi=331 CN470
-    0x3DD33400u, // bc=30 res=3 pi=332 CN470
-    0x3DD37400u, // bc=30 res=3 pi=333 CN470
-    0x3DD3B400u, // bc=30 res=3 pi=334 CN470
-    0x3DD43400u, // bc=30 res=3 pi=336 CN470
-    0x3DD47400u, // bc=30 res=3 pi=337 CN470
-    0x3DD4B400u, // bc=30 res=3 pi=338 CN470
-    0x3DD4F400u, // bc=30 res=3 pi=339 CN470
-    0x3DD53400u, // bc=30 res=3 pi=340 CN470
-    0x3DD57400u, // bc=30 res=3 pi=341 CN470
-    0x3DD5B400u, // bc=30 res=3 pi=342 CN470
-    0x3DD63400u, // bc=30 res=3 pi=344 CN470
-    0x3DD67400u, // bc=30 res=3 pi=345 CN470
-    0x3DD6B400u, // bc=30 res=3 pi=346 CN470
-    0x3DD6F400u, // bc=30 res=3 pi=347 CN470
-    0x3DD73400u, // bc=30 res=3 pi=348 CN470
-    0x3DD77400u, // bc=30 res=3 pi=349 CN470
-    0x3DD7B400u, // bc=30 res=3 pi=350 CN470
-    0x3DD83400u, // bc=30 res=3 pi=352 CN470
-    0x3DD87400u, // bc=30 res=3 pi=353 CN470
-    0x3DD8B400u, // bc=30 res=3 pi=354 CN470
-    0x3DD8F400u, // bc=30 res=3 pi=355 CN470
-    0x3DD93400u, // bc=30 res=3 pi=356 CN470
-    0x3DD97400u, // bc=30 res=3 pi=357 CN470
-    0x3DD9B400u, // bc=30 res=3 pi=358 CN470
-    0x3DDA3400u, // bc=30 res=3 pi=360 CN470
-    0x3DDA7400u, // bc=30 res=3 pi=361 CN470
-    0x3DDAB400u, // bc=30 res=3 pi=362 CN470
-    0x3DDAF400u, // bc=30 res=3 pi=363 CN470
-    0x3DDB3400u, // bc=30 res=3 pi=364 CN470
-    0x3DDB7400u, // bc=30 res=3 pi=365 CN470
-    0x3DDBB400u, // bc=30 res=3 pi=366 CN470
-    0x3DDC3400u, // bc=30 res=3 pi=368 CN470
-    0x3DDC7400u, // bc=30 res=3 pi=369 CN470
-    0x3DDCB400u, // bc=30 res=3 pi=370 CN470
-    0x3DDCF400u, // bc=30 res=3 pi=371 CN470
-    0x3DDD3400u, // bc=30 res=3 pi=372 CN470
-    0x3DDD7400u, // bc=30 res=3 pi=373 CN470
-    0x3DDDB400u, // bc=30 res=3 pi=374 CN470
-    0x3DE02C00u, // bc=30 res=3 pi=384 IN865
-    0x3DE06C00u, // bc=30 res=3 pi=385 IN865
-    0x3DE0AC00u, // bc=30 res=3 pi=386 IN865
-    0x3DE0EC00u, // bc=30 res=3 pi=387 IN865
-    0x3DE12C00u, // bc=30 res=3 pi=388 IN865
-    0x3DE16C00u, // bc=30 res=3 pi=389 IN865
-    0x3DE1AC00u, // bc=30 res=3 pi=390 IN865
-    0x3DE22C00u, // bc=30 res=3 pi=392 IN865
-    0x3DE26C00u, // bc=30 res=3 pi=393 IN865
-    0x3DE2AC00u, // bc=30 res=3 pi=394 IN865
-    0x3DE2EC00u, // bc=30 res=3 pi=395 IN865
-    0x3DE32C00u, // bc=30 res=3 pi=396 IN865
-    0x3DE36C00u, // bc=30 res=3 pi=397 IN865
-    0x3DE3AC00u, // bc=30 res=3 pi=398 IN865
-    0x3DE42C00u, // bc=30 res=3 pi=400 IN865
-    0x3DE46C00u, // bc=30 res=3 pi=401 IN865
-    0x3DE4AC00u, // bc=30 res=3 pi=402 IN865
-    0x3DE4EC00u, // bc=30 res=3 pi=403 IN865
-    0x3DE52C00u, // bc=30 res=3 pi=404 IN865
-    0x3DE56C00u, // bc=30 res=3 pi=405 IN865
-    0x3DE5AC00u, // bc=30 res=3 pi=406 IN865
-    0x3DE62C00u, // bc=30 res=3 pi=408 IN865
-    0x3DE66C00u, // bc=30 res=3 pi=409 IN865
-    0x3DE6AC00u, // bc=30 res=3 pi=410 IN865
-    0x3DE6EC00u, // bc=30 res=3 pi=411 IN865
-    0x3DE72C00u, // bc=30 res=3 pi=412 IN865
-    0x3DE76C00u, // bc=30 res=3 pi=413 IN865
-    0x3DE7AC00u, // bc=30 res=3 pi=414 IN865
-    0x3DE82C00u, // bc=30 res=3 pi=416 IN865
-    0x3DE86C00u, // bc=30 res=3 pi=417 IN865
-    0x3DE8AC00u, // bc=30 res=3 pi=418 IN865
-    0x3DE8EC00u, // bc=30 res=3 pi=419 IN865
-    0x3DE92C00u, // bc=30 res=3 pi=420 IN865
-    0x3DE96C00u, // bc=30 res=3 pi=421 IN865
-    0x3DE9AC00u, // bc=30 res=3 pi=422 IN865
-    0x3DEA2C00u, // bc=30 res=3 pi=424 IN865
-    0x3DEA6C00u, // bc=30 res=3 pi=425 IN865
-    0x3DEAAC00u, // bc=30 res=3 pi=426 IN865
-    0x3DEAEC00u, // bc=30 res=3 pi=427 IN865
-    0x3DEB2C00u, // bc=30 res=3 pi=428 IN865
-    0x3DEB6C00u, // bc=30 res=3 pi=429 IN865
-    0x3DEBAC00u, // bc=30 res=3 pi=430 IN865
-    0x3DEC2C00u, // bc=30 res=3 pi=432 IN865
-    0x3DEC6C00u, // bc=30 res=3 pi=433 IN865
-    0x3DECAC00u, // bc=30 res=3 pi=434 IN865
-    0x3DECEC00u, // bc=30 res=3 pi=435 IN865
-    0x3DED2C00u, // bc=30 res=3 pi=436 IN865
-    0x3DED6C00u, // bc=30 res=3 pi=437 IN865
-    0x3DEDAC00u, // bc=30 res=3 pi=438 IN865
-    0x3E804800u, // bc=31 res=1 pi=1 EU868
-    0x3E808800u, // bc=31 res=1 pi=2 EU868
     0x3F004800u, // bc=31 res=2 pi=1 EU868
     0x3F014800u, // bc=31 res=2 pi=5 EU868
+    0x3F020800u, // bc=31 res=2 pi=8 EU868
+    0x3F024800u, // bc=31 res=2 pi=9 EU868
+    0x3F028800u, // bc=31 res=2 pi=10 EU868
+    0x3F02C800u, // bc=31 res=2 pi=11 EU868
+    0x3F030800u, // bc=31 res=2 pi=12 EU868
+    0x3F038800u, // bc=31 res=2 pi=14 EU868
+    0x3F040800u, // bc=31 res=2 pi=16 EU868
+    0x3F044800u, // bc=31 res=2 pi=17 EU868
+    0x3F04C800u, // bc=31 res=2 pi=19 EU868
     0x3F070800u, // bc=31 res=2 pi=28 EU868
     0x3F074800u, // bc=31 res=2 pi=29 EU868
     0x3F0B0800u, // bc=31 res=2 pi=44 EU868
     0x3F0B4800u, // bc=31 res=2 pi=45 EU868
     0x3F0B8800u, // bc=31 res=2 pi=46 EU868
-    0x3F900800u, // bc=31 res=3 pi=64 EU868
-    0x3F904800u, // bc=31 res=3 pi=65 EU868
-    0x3F908800u, // bc=31 res=3 pi=66 EU868
-    0x3F90C800u, // bc=31 res=3 pi=67 EU868
-    0x3F910800u, // bc=31 res=3 pi=68 EU868
-    0x3F914800u, // bc=31 res=3 pi=69 EU868
-    0x3F918800u, // bc=31 res=3 pi=70 EU868
-    0x3F924800u, // bc=31 res=3 pi=73 EU868
-    0x3F928800u, // bc=31 res=3 pi=74 EU868
-    0x3F934800u, // bc=31 res=3 pi=77 EU868
-    0x3F938800u, // bc=31 res=3 pi=78 EU868
-    0x3F940800u, // bc=31 res=3 pi=80 EU868
-    0x3F944800u, // bc=31 res=3 pi=81 EU868
-    0x3F948800u, // bc=31 res=3 pi=82 EU868
-    0x3F94C800u, // bc=31 res=3 pi=83 EU868
-    0x3F950800u, // bc=31 res=3 pi=84 EU868
-    0x3F954800u, // bc=31 res=3 pi=85 EU868
-    0x3F958800u, // bc=31 res=3 pi=86 EU868
-    0x3F960800u, // bc=31 res=3 pi=88 EU868
-    0x3F964800u, // bc=31 res=3 pi=89 EU868
-    0x3F968800u, // bc=31 res=3 pi=90 EU868
-    0x3F96C800u, // bc=31 res=3 pi=91 EU868
-    0x3F970800u, // bc=31 res=3 pi=92 EU868
-    0x3F974800u, // bc=31 res=3 pi=93 EU868
-    0x3F978800u, // bc=31 res=3 pi=94 EU868
-    0x3F980800u, // bc=31 res=3 pi=96 EU868
-    0x3F984800u, // bc=31 res=3 pi=97 EU868
-    0x3F988800u, // bc=31 res=3 pi=98 EU868
-    0x3F98C800u, // bc=31 res=3 pi=99 EU868
-    0x3F998800u, // bc=31 res=3 pi=102 EU868
+    0x3F864800u, // bc=31 res=3 pi=25 EU868
     0x3F9A0800u, // bc=31 res=3 pi=104 EU868
     0x3F9A4800u, // bc=31 res=3 pi=105 EU868
     0x3F9A8800u, // bc=31 res=3 pi=106 EU868
@@ -5234,25 +1687,6 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x3F9B2400u, // bc=31 res=3 pi=108 AS923-4
     0x3F9B6C00u, // bc=31 res=3 pi=109 IN865
     0x3F9B8800u, // bc=31 res=3 pi=110 EU868
-    0x3F9C0800u, // bc=31 res=3 pi=112 EU868
-    0x3F9C4800u, // bc=31 res=3 pi=113 EU868
-    0x3F9C8800u, // bc=31 res=3 pi=114 EU868
-    0x3F9CC800u, // bc=31 res=3 pi=115 EU868
-    0x3F9D0800u, // bc=31 res=3 pi=116 EU868
-    0x3F9D4800u, // bc=31 res=3 pi=117 EU868
-    0x3F9D8800u, // bc=31 res=3 pi=118 EU868
-    0x3FA00800u, // bc=31 res=3 pi=128 EU868
-    0x3FA04800u, // bc=31 res=3 pi=129 EU868
-    0x3FA08800u, // bc=31 res=3 pi=130 EU868
-    0x3FA0C800u, // bc=31 res=3 pi=131 EU868
-    0x3FA10800u, // bc=31 res=3 pi=132 EU868
-    0x3FA18800u, // bc=31 res=3 pi=134 EU868
-    0x3FA20800u, // bc=31 res=3 pi=136 EU868
-    0x3FA24800u, // bc=31 res=3 pi=137 EU868
-    0x3FA28800u, // bc=31 res=3 pi=138 EU868
-    0x3FA2C800u, // bc=31 res=3 pi=139 EU868
-    0x3FA30800u, // bc=31 res=3 pi=140 EU868
-    0x3FA38800u, // bc=31 res=3 pi=142 EU868
     0x3FA40800u, // bc=31 res=3 pi=144 EU868
     0x3FA44800u, // bc=31 res=3 pi=145 EU868
     0x3FA4AC00u, // bc=31 res=3 pi=146 IN865
@@ -5260,104 +1694,64 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x3FA52C00u, // bc=31 res=3 pi=148 IN865
     0x3FA54800u, // bc=31 res=3 pi=149 EU868
     0x3FA5AC00u, // bc=31 res=3 pi=150 IN865
-    0x3FA60800u, // bc=31 res=3 pi=152 EU868
-    0x3FA64800u, // bc=31 res=3 pi=153 EU868
-    0x3FA68800u, // bc=31 res=3 pi=154 EU868
-    0x3FA6C800u, // bc=31 res=3 pi=155 EU868
-    0x3FA70800u, // bc=31 res=3 pi=156 EU868
-    0x3FA74800u, // bc=31 res=3 pi=157 EU868
-    0x3FA78800u, // bc=31 res=3 pi=158 EU868
+    0x3FA88800u, // bc=31 res=3 pi=162 EU868
+    0x3FAA8800u, // bc=31 res=3 pi=170 EU868
     0x3FAC0800u, // bc=31 res=3 pi=176 EU868
     0x3FAC4800u, // bc=31 res=3 pi=177 EU868
     0x3FACAC00u, // bc=31 res=3 pi=178 IN865
     0x3FACC800u, // bc=31 res=3 pi=179 EU868
+    0x3FAD2C00u, // bc=31 res=3 pi=180 IN865
     0x3FAD4800u, // bc=31 res=3 pi=181 EU868
     0x3FADAC00u, // bc=31 res=3 pi=182 IN865
+    0x3FB10800u, // bc=31 res=3 pi=196 EU868
+    0x3FB14800u, // bc=31 res=3 pi=197 EU868
+    0x3FB40800u, // bc=31 res=3 pi=208 EU868
     0x3FB48800u, // bc=31 res=3 pi=210 EU868
+    0x3FB50800u, // bc=31 res=3 pi=212 EU868
     0x3FB58800u, // bc=31 res=3 pi=214 EU868
+    0x3FBC4800u, // bc=31 res=3 pi=241 EU868
+    0x3FBD4800u, // bc=31 res=3 pi=245 EU868
+    0x3FC80800u, // bc=31 res=3 pi=288 EU868
     0x3FC90800u, // bc=31 res=3 pi=292 EU868
+    0x3FC94800u, // bc=31 res=3 pi=293 EU868
     0x3FC98800u, // bc=31 res=3 pi=294 EU868
+    0x3FCA0800u, // bc=31 res=3 pi=296 EU868
     0x3FCA4800u, // bc=31 res=3 pi=297 EU868
+    0x3FCAC800u, // bc=31 res=3 pi=299 EU868
     0x3FCB0800u, // bc=31 res=3 pi=300 EU868
     0x3FCB4800u, // bc=31 res=3 pi=301 EU868
+    0x3FCC0800u, // bc=31 res=3 pi=304 EU868
+    0x3FCC8800u, // bc=31 res=3 pi=306 EU868
     0x3FCD0800u, // bc=31 res=3 pi=308 EU868
     0x3FCD4800u, // bc=31 res=3 pi=309 EU868
+    0x3FCD8800u, // bc=31 res=3 pi=310 EU868
     0x3FD10800u, // bc=31 res=3 pi=324 EU868
+    0x3FD14800u, // bc=31 res=3 pi=325 EU868
+    0x3FD18800u, // bc=31 res=3 pi=326 EU868
     0x3FD34800u, // bc=31 res=3 pi=333 EU868
+    0x3FD4C800u, // bc=31 res=3 pi=339 EU868
+    0x3FD50800u, // bc=31 res=3 pi=340 EU868
+    0x3FD64800u, // bc=31 res=3 pi=345 EU868
     0x3FD68800u, // bc=31 res=3 pi=346 EU868
     0x3FD6C800u, // bc=31 res=3 pi=347 EU868
+    0x3FD78800u, // bc=31 res=3 pi=350 EU868
+    0x3FE48800u, // bc=31 res=3 pi=402 EU868
+    0x3FE58800u, // bc=31 res=3 pi=406 EU868
+    0x3FEC0800u, // bc=31 res=3 pi=432 EU868
     0x3FEC8800u, // bc=31 res=3 pi=434 EU868
+    0x3FED0800u, // bc=31 res=3 pi=436 EU868
     0x3FED8800u, // bc=31 res=3 pi=438 EU868
     0x40803400u, // bc=32 res=1 pi=0 CN470
-    0x40807400u, // bc=32 res=1 pi=1 CN470
     0x4080B400u, // bc=32 res=1 pi=2 CN470
     0x4080F400u, // bc=32 res=1 pi=3 CN470
     0x4081B400u, // bc=32 res=1 pi=6 CN470
+    0x41023400u, // bc=32 res=2 pi=8 CN470
+    0x4102B400u, // bc=32 res=2 pi=10 CN470
+    0x4103B400u, // bc=32 res=2 pi=14 CN470
     0x41087400u, // bc=32 res=2 pi=33 CN470
-    0x4108B400u, // bc=32 res=2 pi=34 CN470
     0x4108F400u, // bc=32 res=2 pi=35 CN470
-    0x410A5000u, // bc=32 res=2 pi=41 AS923-1
-    0x410AB400u, // bc=32 res=2 pi=42 CN470
-    0x410ADC00u, // bc=32 res=2 pi=43 AS923-2
-    0x410B1C00u, // bc=32 res=2 pi=44 AS923-2
     0x410B5000u, // bc=32 res=2 pi=45 AS923-1
     0x410BB400u, // bc=32 res=2 pi=46 CN470
-    0x41803400u, // bc=32 res=3 pi=0 CN470
-    0x41807400u, // bc=32 res=3 pi=1 CN470
-    0x4180B400u, // bc=32 res=3 pi=2 CN470
-    0x4180F400u, // bc=32 res=3 pi=3 CN470
-    0x41813400u, // bc=32 res=3 pi=4 CN470
-    0x41817400u, // bc=32 res=3 pi=5 CN470
-    0x4181B400u, // bc=32 res=3 pi=6 CN470
-    0x41823400u, // bc=32 res=3 pi=8 CN470
-    0x41827400u, // bc=32 res=3 pi=9 CN470
-    0x4182B400u, // bc=32 res=3 pi=10 CN470
-    0x4182F400u, // bc=32 res=3 pi=11 CN470
-    0x41833400u, // bc=32 res=3 pi=12 CN470
-    0x41837400u, // bc=32 res=3 pi=13 CN470
-    0x4183B400u, // bc=32 res=3 pi=14 CN470
-    0x41843400u, // bc=32 res=3 pi=16 CN470
-    0x41847400u, // bc=32 res=3 pi=17 CN470
-    0x4184B400u, // bc=32 res=3 pi=18 CN470
-    0x4184F400u, // bc=32 res=3 pi=19 CN470
-    0x41853400u, // bc=32 res=3 pi=20 CN470
-    0x41857400u, // bc=32 res=3 pi=21 CN470
-    0x4185B400u, // bc=32 res=3 pi=22 CN470
-    0x41863400u, // bc=32 res=3 pi=24 CN470
-    0x41867400u, // bc=32 res=3 pi=25 CN470
-    0x4186B400u, // bc=32 res=3 pi=26 CN470
-    0x4186F400u, // bc=32 res=3 pi=27 CN470
-    0x41873400u, // bc=32 res=3 pi=28 CN470
-    0x41877400u, // bc=32 res=3 pi=29 CN470
-    0x4187B400u, // bc=32 res=3 pi=30 CN470
-    0x41883400u, // bc=32 res=3 pi=32 CN470
-    0x41887400u, // bc=32 res=3 pi=33 CN470
-    0x4188B400u, // bc=32 res=3 pi=34 CN470
-    0x4188F400u, // bc=32 res=3 pi=35 CN470
-    0x41893400u, // bc=32 res=3 pi=36 CN470
-    0x41897400u, // bc=32 res=3 pi=37 CN470
-    0x4189B400u, // bc=32 res=3 pi=38 CN470
-    0x418A3400u, // bc=32 res=3 pi=40 CN470
-    0x418A7400u, // bc=32 res=3 pi=41 CN470
-    0x418AB400u, // bc=32 res=3 pi=42 CN470
-    0x418AF400u, // bc=32 res=3 pi=43 CN470
-    0x418B3400u, // bc=32 res=3 pi=44 CN470
-    0x418B7400u, // bc=32 res=3 pi=45 CN470
-    0x418BB400u, // bc=32 res=3 pi=46 CN470
-    0x418C3400u, // bc=32 res=3 pi=48 CN470
-    0x418C7400u, // bc=32 res=3 pi=49 CN470
-    0x418CB400u, // bc=32 res=3 pi=50 CN470
-    0x418CF400u, // bc=32 res=3 pi=51 CN470
-    0x418D3400u, // bc=32 res=3 pi=52 CN470
-    0x418D7400u, // bc=32 res=3 pi=53 CN470
-    0x418DB400u, // bc=32 res=3 pi=54 CN470
-    0x41903400u, // bc=32 res=3 pi=64 CN470
-    0x41907400u, // bc=32 res=3 pi=65 CN470
-    0x4190B400u, // bc=32 res=3 pi=66 CN470
-    0x4190F400u, // bc=32 res=3 pi=67 CN470
-    0x41913400u, // bc=32 res=3 pi=68 CN470
-    0x41917400u, // bc=32 res=3 pi=69 CN470
-    0x4191B400u, // bc=32 res=3 pi=70 CN470
     0x41921000u, // bc=32 res=3 pi=72 AS923-1
     0x41925000u, // bc=32 res=3 pi=73 AS923-1
     0x41929000u, // bc=32 res=3 pi=74 AS923-1
@@ -5365,13 +1759,6 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x41933400u, // bc=32 res=3 pi=76 CN470
     0x41935000u, // bc=32 res=3 pi=77 AS923-1
     0x41939000u, // bc=32 res=3 pi=78 AS923-1
-    0x41943400u, // bc=32 res=3 pi=80 CN470
-    0x41947400u, // bc=32 res=3 pi=81 CN470
-    0x4194B400u, // bc=32 res=3 pi=82 CN470
-    0x4194F400u, // bc=32 res=3 pi=83 CN470
-    0x41953400u, // bc=32 res=3 pi=84 CN470
-    0x41957400u, // bc=32 res=3 pi=85 CN470
-    0x4195B400u, // bc=32 res=3 pi=86 CN470
     0x41963400u, // bc=32 res=3 pi=88 CN470
     0x41965000u, // bc=32 res=3 pi=89 AS923-1
     0x4196B400u, // bc=32 res=3 pi=90 CN470
@@ -5393,170 +1780,67 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x419B3400u, // bc=32 res=3 pi=108 CN470
     0x419B5000u, // bc=32 res=3 pi=109 AS923-1
     0x419BB400u, // bc=32 res=3 pi=110 CN470
-    0x419C3400u, // bc=32 res=3 pi=112 CN470
-    0x419C7400u, // bc=32 res=3 pi=113 CN470
-    0x419CB400u, // bc=32 res=3 pi=114 CN470
-    0x419CF400u, // bc=32 res=3 pi=115 CN470
-    0x419D3400u, // bc=32 res=3 pi=116 CN470
-    0x419D7400u, // bc=32 res=3 pi=117 CN470
-    0x419DB400u, // bc=32 res=3 pi=118 CN470
-    0x41A03400u, // bc=32 res=3 pi=128 CN470
-    0x41A07400u, // bc=32 res=3 pi=129 CN470
-    0x41A0B400u, // bc=32 res=3 pi=130 CN470
-    0x41A0F400u, // bc=32 res=3 pi=131 CN470
-    0x41A13400u, // bc=32 res=3 pi=132 CN470
-    0x41A17400u, // bc=32 res=3 pi=133 CN470
-    0x41A1B400u, // bc=32 res=3 pi=134 CN470
-    0x41A23400u, // bc=32 res=3 pi=136 CN470
-    0x41A27400u, // bc=32 res=3 pi=137 CN470
-    0x41A2B400u, // bc=32 res=3 pi=138 CN470
-    0x41A2F400u, // bc=32 res=3 pi=139 CN470
-    0x41A33400u, // bc=32 res=3 pi=140 CN470
-    0x41A37400u, // bc=32 res=3 pi=141 CN470
-    0x41A3B400u, // bc=32 res=3 pi=142 CN470
-    0x41A43400u, // bc=32 res=3 pi=144 CN470
-    0x41A47400u, // bc=32 res=3 pi=145 CN470
-    0x41A4B400u, // bc=32 res=3 pi=146 CN470
-    0x41A4F400u, // bc=32 res=3 pi=147 CN470
-    0x41A53400u, // bc=32 res=3 pi=148 CN470
-    0x41A57400u, // bc=32 res=3 pi=149 CN470
-    0x41A5B400u, // bc=32 res=3 pi=150 CN470
-    0x41A63400u, // bc=32 res=3 pi=152 CN470
-    0x41A67400u, // bc=32 res=3 pi=153 CN470
-    0x41A6B400u, // bc=32 res=3 pi=154 CN470
-    0x41A6F400u, // bc=32 res=3 pi=155 CN470
-    0x41A73400u, // bc=32 res=3 pi=156 CN470
-    0x41A77400u, // bc=32 res=3 pi=157 CN470
-    0x41A7B400u, // bc=32 res=3 pi=158 CN470
-    0x41A83400u, // bc=32 res=3 pi=160 CN470
-    0x41A87400u, // bc=32 res=3 pi=161 CN470
-    0x41A8B400u, // bc=32 res=3 pi=162 CN470
-    0x41A8F400u, // bc=32 res=3 pi=163 CN470
-    0x41A93400u, // bc=32 res=3 pi=164 CN470
-    0x41A97400u, // bc=32 res=3 pi=165 CN470
-    0x41A9B400u, // bc=32 res=3 pi=166 CN470
-    0x41AA3400u, // bc=32 res=3 pi=168 CN470
-    0x41AA7400u, // bc=32 res=3 pi=169 CN470
-    0x41AAB400u, // bc=32 res=3 pi=170 CN470
-    0x41AAF400u, // bc=32 res=3 pi=171 CN470
-    0x41AB3400u, // bc=32 res=3 pi=172 CN470
-    0x41AB7400u, // bc=32 res=3 pi=173 CN470
-    0x41ABB400u, // bc=32 res=3 pi=174 CN470
-    0x41AC3400u, // bc=32 res=3 pi=176 CN470
-    0x41AC7400u, // bc=32 res=3 pi=177 CN470
-    0x41ACB400u, // bc=32 res=3 pi=178 CN470
-    0x41ACF400u, // bc=32 res=3 pi=179 CN470
-    0x41AD3400u, // bc=32 res=3 pi=180 CN470
-    0x41AD7400u, // bc=32 res=3 pi=181 CN470
-    0x41ADB400u, // bc=32 res=3 pi=182 CN470
-    0x41B03400u, // bc=32 res=3 pi=192 CN470
-    0x41B07400u, // bc=32 res=3 pi=193 CN470
-    0x41B0B400u, // bc=32 res=3 pi=194 CN470
-    0x41B0F400u, // bc=32 res=3 pi=195 CN470
-    0x41B13400u, // bc=32 res=3 pi=196 CN470
-    0x41B17400u, // bc=32 res=3 pi=197 CN470
-    0x41B1B400u, // bc=32 res=3 pi=198 CN470
-    0x41B23400u, // bc=32 res=3 pi=200 CN470
-    0x41B27400u, // bc=32 res=3 pi=201 CN470
-    0x41B2B400u, // bc=32 res=3 pi=202 CN470
-    0x41B2F400u, // bc=32 res=3 pi=203 CN470
-    0x41B33400u, // bc=32 res=3 pi=204 CN470
-    0x41B37400u, // bc=32 res=3 pi=205 CN470
-    0x41B3B400u, // bc=32 res=3 pi=206 CN470
-    0x41B43400u, // bc=32 res=3 pi=208 CN470
-    0x41B47400u, // bc=32 res=3 pi=209 CN470
-    0x41B4B400u, // bc=32 res=3 pi=210 CN470
-    0x41B4F400u, // bc=32 res=3 pi=211 CN470
-    0x41B53400u, // bc=32 res=3 pi=212 CN470
-    0x41B57400u, // bc=32 res=3 pi=213 CN470
-    0x41B5B400u, // bc=32 res=3 pi=214 CN470
-    0x41B63400u, // bc=32 res=3 pi=216 CN470
-    0x41B67400u, // bc=32 res=3 pi=217 CN470
-    0x41B6B400u, // bc=32 res=3 pi=218 CN470
-    0x41B6F400u, // bc=32 res=3 pi=219 CN470
-    0x41B73400u, // bc=32 res=3 pi=220 CN470
-    0x41B77400u, // bc=32 res=3 pi=221 CN470
-    0x41B7B400u, // bc=32 res=3 pi=222 CN470
-    0x41B83400u, // bc=32 res=3 pi=224 CN470
-    0x41B87400u, // bc=32 res=3 pi=225 CN470
-    0x41B8B400u, // bc=32 res=3 pi=226 CN470
-    0x41B8F400u, // bc=32 res=3 pi=227 CN470
-    0x41B93400u, // bc=32 res=3 pi=228 CN470
-    0x41B97400u, // bc=32 res=3 pi=229 CN470
-    0x41B9B400u, // bc=32 res=3 pi=230 CN470
-    0x41BA3400u, // bc=32 res=3 pi=232 CN470
-    0x41BA7400u, // bc=32 res=3 pi=233 CN470
-    0x41BAB400u, // bc=32 res=3 pi=234 CN470
-    0x41BAF400u, // bc=32 res=3 pi=235 CN470
-    0x41BB3400u, // bc=32 res=3 pi=236 CN470
-    0x41BB7400u, // bc=32 res=3 pi=237 CN470
-    0x41BBB400u, // bc=32 res=3 pi=238 CN470
-    0x41BC3400u, // bc=32 res=3 pi=240 CN470
-    0x41BC7400u, // bc=32 res=3 pi=241 CN470
-    0x41BCB400u, // bc=32 res=3 pi=242 CN470
-    0x41BCF400u, // bc=32 res=3 pi=243 CN470
-    0x41BD3400u, // bc=32 res=3 pi=244 CN470
-    0x41BD7400u, // bc=32 res=3 pi=245 CN470
-    0x41BDB400u, // bc=32 res=3 pi=246 CN470
+    0x41C0B400u, // bc=32 res=3 pi=258 CN470
     0x41C0F400u, // bc=32 res=3 pi=259 CN470
+    0x41C43400u, // bc=32 res=3 pi=272 CN470
+    0x41C47400u, // bc=32 res=3 pi=273 CN470
+    0x41C4B400u, // bc=32 res=3 pi=274 CN470
+    0x41C4F400u, // bc=32 res=3 pi=275 CN470
+    0x41C57400u, // bc=32 res=3 pi=277 CN470
+    0x41C5B400u, // bc=32 res=3 pi=278 CN470
+    0x41CB7400u, // bc=32 res=3 pi=301 CN470
+    0x41CC5000u, // bc=32 res=3 pi=305 AS923-1
+    0x41CCD000u, // bc=32 res=3 pi=307 AS923-1
+    0x41D01C00u, // bc=32 res=3 pi=320 AS923-2
     0x41D05C00u, // bc=32 res=3 pi=321 AS923-2
     0x41D09C00u, // bc=32 res=3 pi=322 AS923-2
     0x41D0DC00u, // bc=32 res=3 pi=323 AS923-2
-    0x41E03400u, // bc=32 res=3 pi=384 CN470
-    0x41E07400u, // bc=32 res=3 pi=385 CN470
-    0x41E0B400u, // bc=32 res=3 pi=386 CN470
-    0x41E0F400u, // bc=32 res=3 pi=387 CN470
-    0x41E13400u, // bc=32 res=3 pi=388 CN470
-    0x41E17400u, // bc=32 res=3 pi=389 CN470
-    0x41E1B400u, // bc=32 res=3 pi=390 CN470
-    0x41E23400u, // bc=32 res=3 pi=392 CN470
-    0x41E27400u, // bc=32 res=3 pi=393 CN470
-    0x41E2B400u, // bc=32 res=3 pi=394 CN470
-    0x41E2F400u, // bc=32 res=3 pi=395 CN470
-    0x41E33400u, // bc=32 res=3 pi=396 CN470
-    0x41E37400u, // bc=32 res=3 pi=397 CN470
-    0x41E3B400u, // bc=32 res=3 pi=398 CN470
-    0x41E43400u, // bc=32 res=3 pi=400 CN470
-    0x41E47400u, // bc=32 res=3 pi=401 CN470
-    0x41E4B400u, // bc=32 res=3 pi=402 CN470
-    0x41E4F400u, // bc=32 res=3 pi=403 CN470
-    0x41E53400u, // bc=32 res=3 pi=404 CN470
-    0x41E57400u, // bc=32 res=3 pi=405 CN470
-    0x41E5B400u, // bc=32 res=3 pi=406 CN470
-    0x41E63400u, // bc=32 res=3 pi=408 CN470
-    0x41E67400u, // bc=32 res=3 pi=409 CN470
-    0x41E6B400u, // bc=32 res=3 pi=410 CN470
-    0x41E6F400u, // bc=32 res=3 pi=411 CN470
-    0x41E73400u, // bc=32 res=3 pi=412 CN470
-    0x41E77400u, // bc=32 res=3 pi=413 CN470
-    0x41E7B400u, // bc=32 res=3 pi=414 CN470
-    0x41E83400u, // bc=32 res=3 pi=416 CN470
-    0x41E87400u, // bc=32 res=3 pi=417 CN470
-    0x41E8B400u, // bc=32 res=3 pi=418 CN470
-    0x41E8F400u, // bc=32 res=3 pi=419 CN470
-    0x41E97400u, // bc=32 res=3 pi=421 CN470
-    0x41E9B400u, // bc=32 res=3 pi=422 CN470
-    0x41EA3400u, // bc=32 res=3 pi=424 CN470
-    0x41EA7400u, // bc=32 res=3 pi=425 CN470
-    0x41EAB400u, // bc=32 res=3 pi=426 CN470
-    0x41EAF400u, // bc=32 res=3 pi=427 CN470
-    0x41EB3400u, // bc=32 res=3 pi=428 CN470
-    0x41EB7400u, // bc=32 res=3 pi=429 CN470
-    0x41EBB400u, // bc=32 res=3 pi=430 CN470
-    0x41EC3400u, // bc=32 res=3 pi=432 CN470
-    0x41EC7400u, // bc=32 res=3 pi=433 CN470
-    0x41ECB400u, // bc=32 res=3 pi=434 CN470
-    0x41ECF400u, // bc=32 res=3 pi=435 CN470
-    0x41ED7400u, // bc=32 res=3 pi=437 CN470
-    0x41EDB400u, // bc=32 res=3 pi=438 CN470
-    0x42801000u, // bc=33 res=1 pi=0 AS923-1
-    0x42805000u, // bc=33 res=1 pi=1 AS923-1
-    0x4280EC00u, // bc=33 res=1 pi=3 IN865
+    0x41D15C00u, // bc=32 res=3 pi=325 AS923-2
+    0x41D19C00u, // bc=32 res=3 pi=326 AS923-2
+    0x41D21000u, // bc=32 res=3 pi=328 AS923-1
+    0x41D25000u, // bc=32 res=3 pi=329 AS923-1
+    0x41D29C00u, // bc=32 res=3 pi=330 AS923-2
+    0x41D2D000u, // bc=32 res=3 pi=331 AS923-1
+    0x41D31C00u, // bc=32 res=3 pi=332 AS923-2
+    0x41D35000u, // bc=32 res=3 pi=333 AS923-1
+    0x41D39000u, // bc=32 res=3 pi=334 AS923-1
+    0x41D43400u, // bc=32 res=3 pi=336 CN470
+    0x41D47400u, // bc=32 res=3 pi=337 CN470
+    0x41D4B400u, // bc=32 res=3 pi=338 CN470
+    0x41D4F400u, // bc=32 res=3 pi=339 CN470
+    0x41D53400u, // bc=32 res=3 pi=340 CN470
+    0x41D55C00u, // bc=32 res=3 pi=341 AS923-2
+    0x41D5B400u, // bc=32 res=3 pi=342 CN470
+    0x41D61C00u, // bc=32 res=3 pi=344 AS923-2
+    0x41D65C00u, // bc=32 res=3 pi=345 AS923-2
+    0x41D6B400u, // bc=32 res=3 pi=346 CN470
+    0x41D6F400u, // bc=32 res=3 pi=347 CN470
+    0x41D71C00u, // bc=32 res=3 pi=348 AS923-2
+    0x41D75C00u, // bc=32 res=3 pi=349 AS923-2
+    0x41D79C00u, // bc=32 res=3 pi=350 AS923-2
+    0x41D81C00u, // bc=32 res=3 pi=352 AS923-2
+    0x41D85C00u, // bc=32 res=3 pi=353 AS923-2
+    0x41D8B400u, // bc=32 res=3 pi=354 CN470
+    0x41D8DC00u, // bc=32 res=3 pi=355 AS923-2
+    0x41D91C00u, // bc=32 res=3 pi=356 AS923-2
+    0x41D95C00u, // bc=32 res=3 pi=357 AS923-2
     0x42810800u, // bc=33 res=1 pi=4 EU868
-    0x42818800u, // bc=33 res=1 pi=6 EU868
-    0x430A8800u, // bc=33 res=2 pi=42 EU868
+    0x43005000u, // bc=33 res=2 pi=1 AS923-1
+    0x43015000u, // bc=33 res=2 pi=5 AS923-1
+    0x43018800u, // bc=33 res=2 pi=6 EU868
+    0x43021000u, // bc=33 res=2 pi=8 AS923-1
+    0x43035000u, // bc=33 res=2 pi=13 AS923-1
+    0x43039000u, // bc=33 res=2 pi=14 AS923-1
+    0x43062C00u, // bc=33 res=2 pi=24 IN865
+    0x43066C00u, // bc=33 res=2 pi=25 IN865
     0x430B0800u, // bc=33 res=2 pi=44 EU868
     0x430B8800u, // bc=33 res=2 pi=46 EU868
+    0x430C0800u, // bc=33 res=2 pi=48 EU868
+    0x430C8800u, // bc=33 res=2 pi=50 EU868
+    0x430CC800u, // bc=33 res=2 pi=51 EU868
+    0x430D0800u, // bc=33 res=2 pi=52 EU868
+    0x430D4800u, // bc=33 res=2 pi=53 EU868
+    0x430D8800u, // bc=33 res=2 pi=54 EU868
     0x43801000u, // bc=33 res=3 pi=0 AS923-1
     0x43805000u, // bc=33 res=3 pi=1 AS923-1
     0x43809000u, // bc=33 res=3 pi=2 AS923-1
@@ -5564,13 +1848,9 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x43810800u, // bc=33 res=3 pi=4 EU868
     0x43815000u, // bc=33 res=3 pi=5 AS923-1
     0x43819000u, // bc=33 res=3 pi=6 AS923-1
-    0x43821000u, // bc=33 res=3 pi=8 AS923-1
-    0x43825000u, // bc=33 res=3 pi=9 AS923-1
-    0x43829000u, // bc=33 res=3 pi=10 AS923-1
-    0x4382D000u, // bc=33 res=3 pi=11 AS923-1
-    0x43831000u, // bc=33 res=3 pi=12 AS923-1
-    0x43835000u, // bc=33 res=3 pi=13 AS923-1
-    0x43839000u, // bc=33 res=3 pi=14 AS923-1
+    0x43855000u, // bc=33 res=3 pi=21 AS923-1
+    0x43865000u, // bc=33 res=3 pi=25 AS923-1
+    0x43871000u, // bc=33 res=3 pi=28 AS923-1
     0x43875000u, // bc=33 res=3 pi=29 AS923-1
     0x43880800u, // bc=33 res=3 pi=32 EU868
     0x43885000u, // bc=33 res=3 pi=33 AS923-1
@@ -5579,23 +1859,6 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x43890800u, // bc=33 res=3 pi=36 EU868
     0x43894800u, // bc=33 res=3 pi=37 EU868
     0x43898800u, // bc=33 res=3 pi=38 EU868
-    0x438A1000u, // bc=33 res=3 pi=40 AS923-1
-    0x438A5000u, // bc=33 res=3 pi=41 AS923-1
-    0x438A9000u, // bc=33 res=3 pi=42 AS923-1
-    0x438AD000u, // bc=33 res=3 pi=43 AS923-1
-    0x438B9000u, // bc=33 res=3 pi=46 AS923-1
-    0x438C0800u, // bc=33 res=3 pi=48 EU868
-    0x438C4800u, // bc=33 res=3 pi=49 EU868
-    0x438CC800u, // bc=33 res=3 pi=51 EU868
-    0x438D0800u, // bc=33 res=3 pi=52 EU868
-    0x438D4800u, // bc=33 res=3 pi=53 EU868
-    0x43901000u, // bc=33 res=3 pi=64 AS923-1
-    0x43905000u, // bc=33 res=3 pi=65 AS923-1
-    0x43909000u, // bc=33 res=3 pi=66 AS923-1
-    0x4390D000u, // bc=33 res=3 pi=67 AS923-1
-    0x43911000u, // bc=33 res=3 pi=68 AS923-1
-    0x43915000u, // bc=33 res=3 pi=69 AS923-1
-    0x43919000u, // bc=33 res=3 pi=70 AS923-1
     0x43922C00u, // bc=33 res=3 pi=72 IN865
     0x43926C00u, // bc=33 res=3 pi=73 IN865
     0x4392AC00u, // bc=33 res=3 pi=74 IN865
@@ -5617,41 +1880,20 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x43971000u, // bc=33 res=3 pi=92 AS923-1
     0x43976C00u, // bc=33 res=3 pi=93 IN865
     0x4397AC00u, // bc=33 res=3 pi=94 IN865
+    0x43981000u, // bc=33 res=3 pi=96 AS923-1
     0x43985000u, // bc=33 res=3 pi=97 AS923-1
     0x43989000u, // bc=33 res=3 pi=98 AS923-1
     0x4398D000u, // bc=33 res=3 pi=99 AS923-1
-    0x439A1000u, // bc=33 res=3 pi=104 AS923-1
-    0x439A5000u, // bc=33 res=3 pi=105 AS923-1
-    0x439A9000u, // bc=33 res=3 pi=106 AS923-1
-    0x439AD000u, // bc=33 res=3 pi=107 AS923-1
-    0x439B1000u, // bc=33 res=3 pi=108 AS923-1
-    0x439B5000u, // bc=33 res=3 pi=109 AS923-1
-    0x439B9000u, // bc=33 res=3 pi=110 AS923-1
-    0x439C1000u, // bc=33 res=3 pi=112 AS923-1
-    0x439C5000u, // bc=33 res=3 pi=113 AS923-1
-    0x439C9000u, // bc=33 res=3 pi=114 AS923-1
-    0x439CD000u, // bc=33 res=3 pi=115 AS923-1
-    0x439D5000u, // bc=33 res=3 pi=117 AS923-1
-    0x439D9000u, // bc=33 res=3 pi=118 AS923-1
-    0x43B02C00u, // bc=33 res=3 pi=192 IN865
-    0x43B06C00u, // bc=33 res=3 pi=193 IN865
-    0x43B0AC00u, // bc=33 res=3 pi=194 IN865
-    0x43B0EC00u, // bc=33 res=3 pi=195 IN865
-    0x43B12C00u, // bc=33 res=3 pi=196 IN865
-    0x43B16C00u, // bc=33 res=3 pi=197 IN865
-    0x43B1AC00u, // bc=33 res=3 pi=198 IN865
-    0x43B22C00u, // bc=33 res=3 pi=200 IN865
-    0x43B26C00u, // bc=33 res=3 pi=201 IN865
-    0x43B2AC00u, // bc=33 res=3 pi=202 IN865
-    0x43B2EC00u, // bc=33 res=3 pi=203 IN865
-    0x43B32C00u, // bc=33 res=3 pi=204 IN865
-    0x43B36C00u, // bc=33 res=3 pi=205 IN865
-    0x43B3AC00u, // bc=33 res=3 pi=206 IN865
+    0x43999000u, // bc=33 res=3 pi=102 AS923-1
+    0x43A90800u, // bc=33 res=3 pi=164 EU868
     0x43B46C00u, // bc=33 res=3 pi=209 IN865
+    0x43B56C00u, // bc=33 res=3 pi=213 IN865
+    0x43B62C00u, // bc=33 res=3 pi=216 IN865
     0x43B66C00u, // bc=33 res=3 pi=217 IN865
     0x43B6EC00u, // bc=33 res=3 pi=219 IN865
     0x43B72C00u, // bc=33 res=3 pi=220 IN865
     0x43B76C00u, // bc=33 res=3 pi=221 IN865
+    0x43B7AC00u, // bc=33 res=3 pi=222 IN865
     0x43B81000u, // bc=33 res=3 pi=224 AS923-1
     0x43B85000u, // bc=33 res=3 pi=225 AS923-1
     0x43B8AC00u, // bc=33 res=3 pi=226 IN865
@@ -5666,823 +1908,509 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x43BB2C00u, // bc=33 res=3 pi=236 IN865
     0x43BB6C00u, // bc=33 res=3 pi=237 IN865
     0x43BB9000u, // bc=33 res=3 pi=238 AS923-1
-    0x43C00800u, // bc=33 res=3 pi=256 EU868
-    0x43C04800u, // bc=33 res=3 pi=257 EU868
-    0x43C08800u, // bc=33 res=3 pi=258 EU868
-    0x43C0C800u, // bc=33 res=3 pi=259 EU868
-    0x43C10800u, // bc=33 res=3 pi=260 EU868
-    0x43C14800u, // bc=33 res=3 pi=261 EU868
-    0x43C18800u, // bc=33 res=3 pi=262 EU868
-    0x43C20800u, // bc=33 res=3 pi=264 EU868
-    0x43C24800u, // bc=33 res=3 pi=265 EU868
-    0x43C28800u, // bc=33 res=3 pi=266 EU868
-    0x43C2C800u, // bc=33 res=3 pi=267 EU868
-    0x43C30800u, // bc=33 res=3 pi=268 EU868
-    0x43C34800u, // bc=33 res=3 pi=269 EU868
-    0x43C38800u, // bc=33 res=3 pi=270 EU868
-    0x43C40800u, // bc=33 res=3 pi=272 EU868
-    0x43C44800u, // bc=33 res=3 pi=273 EU868
-    0x43C48800u, // bc=33 res=3 pi=274 EU868
-    0x43C4C800u, // bc=33 res=3 pi=275 EU868
-    0x43C50800u, // bc=33 res=3 pi=276 EU868
-    0x43C54800u, // bc=33 res=3 pi=277 EU868
-    0x43C60800u, // bc=33 res=3 pi=280 EU868
-    0x43C64800u, // bc=33 res=3 pi=281 EU868
-    0x43C68800u, // bc=33 res=3 pi=282 EU868
-    0x43C6C800u, // bc=33 res=3 pi=283 EU868
-    0x43C70800u, // bc=33 res=3 pi=284 EU868
-    0x43C74800u, // bc=33 res=3 pi=285 EU868
-    0x43C78800u, // bc=33 res=3 pi=286 EU868
-    0x43C80800u, // bc=33 res=3 pi=288 EU868
-    0x43C84800u, // bc=33 res=3 pi=289 EU868
-    0x43C88800u, // bc=33 res=3 pi=290 EU868
-    0x43C8C800u, // bc=33 res=3 pi=291 EU868
-    0x43C90800u, // bc=33 res=3 pi=292 EU868
-    0x43C94800u, // bc=33 res=3 pi=293 EU868
-    0x43C98800u, // bc=33 res=3 pi=294 EU868
-    0x43CA0800u, // bc=33 res=3 pi=296 EU868
-    0x43CA4800u, // bc=33 res=3 pi=297 EU868
-    0x43CA8800u, // bc=33 res=3 pi=298 EU868
-    0x43CAC800u, // bc=33 res=3 pi=299 EU868
-    0x43CB0800u, // bc=33 res=3 pi=300 EU868
-    0x43CB4800u, // bc=33 res=3 pi=301 EU868
-    0x43CB8800u, // bc=33 res=3 pi=302 EU868
-    0x43CC0800u, // bc=33 res=3 pi=304 EU868
-    0x43CC4800u, // bc=33 res=3 pi=305 EU868
-    0x43CC8800u, // bc=33 res=3 pi=306 EU868
-    0x43CCC800u, // bc=33 res=3 pi=307 EU868
-    0x43CD0800u, // bc=33 res=3 pi=308 EU868
-    0x43CD4800u, // bc=33 res=3 pi=309 EU868
-    0x43CD8800u, // bc=33 res=3 pi=310 EU868
-    0x43E00800u, // bc=33 res=3 pi=384 EU868
-    0x43E04800u, // bc=33 res=3 pi=385 EU868
-    0x43E08800u, // bc=33 res=3 pi=386 EU868
-    0x43E0C800u, // bc=33 res=3 pi=387 EU868
-    0x43E10800u, // bc=33 res=3 pi=388 EU868
-    0x43E14800u, // bc=33 res=3 pi=389 EU868
-    0x43E18800u, // bc=33 res=3 pi=390 EU868
+    0x43BC6C00u, // bc=33 res=3 pi=241 IN865
+    0x43BD5000u, // bc=33 res=3 pi=245 AS923-1
+    0x43D10800u, // bc=33 res=3 pi=324 EU868
+    0x43D18800u, // bc=33 res=3 pi=326 EU868
+    0x43D40800u, // bc=33 res=3 pi=336 EU868
+    0x43D49000u, // bc=33 res=3 pi=338 AS923-1
+    0x43D50800u, // bc=33 res=3 pi=340 EU868
+    0x43D54800u, // bc=33 res=3 pi=341 EU868
+    0x43D58800u, // bc=33 res=3 pi=342 EU868
+    0x43D6D000u, // bc=33 res=3 pi=347 AS923-1
     0x43E20800u, // bc=33 res=3 pi=392 EU868
     0x43E28800u, // bc=33 res=3 pi=394 EU868
+    0x43E2C800u, // bc=33 res=3 pi=395 EU868
     0x43E30800u, // bc=33 res=3 pi=396 EU868
+    0x43E34800u, // bc=33 res=3 pi=397 EU868
     0x43E38800u, // bc=33 res=3 pi=398 EU868
-    0x43E40800u, // bc=33 res=3 pi=400 EU868
-    0x43E44800u, // bc=33 res=3 pi=401 EU868
-    0x43E48800u, // bc=33 res=3 pi=402 EU868
-    0x43E4C800u, // bc=33 res=3 pi=403 EU868
-    0x43E50800u, // bc=33 res=3 pi=404 EU868
-    0x43E54800u, // bc=33 res=3 pi=405 EU868
-    0x43E58800u, // bc=33 res=3 pi=406 EU868
-    0x43E60800u, // bc=33 res=3 pi=408 EU868
-    0x43E70800u, // bc=33 res=3 pi=412 EU868
-    0x43E74800u, // bc=33 res=3 pi=413 EU868
-    0x43E78800u, // bc=33 res=3 pi=414 EU868
-    0x43E80800u, // bc=33 res=3 pi=416 EU868
-    0x43E84800u, // bc=33 res=3 pi=417 EU868
-    0x43E88800u, // bc=33 res=3 pi=418 EU868
-    0x43E8C800u, // bc=33 res=3 pi=419 EU868
-    0x43E90800u, // bc=33 res=3 pi=420 EU868
-    0x43E98800u, // bc=33 res=3 pi=422 EU868
-    0x43EA4800u, // bc=33 res=3 pi=425 EU868
-    0x43EA8800u, // bc=33 res=3 pi=426 EU868
-    0x43EB0800u, // bc=33 res=3 pi=428 EU868
-    0x43EB4800u, // bc=33 res=3 pi=429 EU868
-    0x43EB8800u, // bc=33 res=3 pi=430 EU868
-    0x43EC0800u, // bc=33 res=3 pi=432 EU868
-    0x43EC4800u, // bc=33 res=3 pi=433 EU868
-    0x43EC8800u, // bc=33 res=3 pi=434 EU868
-    0x43ECC800u, // bc=33 res=3 pi=435 EU868
-    0x43ED0800u, // bc=33 res=3 pi=436 EU868
-    0x43ED4800u, // bc=33 res=3 pi=437 EU868
-    0x43ED8800u, // bc=33 res=3 pi=438 EU868
-    0x44804400u, // bc=34 res=1 pi=1 US915
-    0x4480C400u, // bc=34 res=1 pi=3 US915
-    0x4501A000u, // bc=34 res=2 pi=6 AS923-3
+    0x45020400u, // bc=34 res=2 pi=8 US915
+    0x45024400u, // bc=34 res=2 pi=9 US915
+    0x45028400u, // bc=34 res=2 pi=10 US915
+    0x4502C400u, // bc=34 res=2 pi=11 US915
+    0x45034400u, // bc=34 res=2 pi=13 US915
     0x45050400u, // bc=34 res=2 pi=20 US915
-    0x45054400u, // bc=34 res=2 pi=21 US915
     0x45058400u, // bc=34 res=2 pi=22 US915
+    0x45060400u, // bc=34 res=2 pi=24 US915
+    0x45064400u, // bc=34 res=2 pi=25 US915
+    0x4506C400u, // bc=34 res=2 pi=27 US915
+    0x45070400u, // bc=34 res=2 pi=28 US915
+    0x45074400u, // bc=34 res=2 pi=29 US915
+    0x45078400u, // bc=34 res=2 pi=30 US915
     0x45084400u, // bc=34 res=2 pi=33 US915
     0x45090C00u, // bc=34 res=2 pi=36 AU915
-    0x45094400u, // bc=34 res=2 pi=37 US915
     0x45098C00u, // bc=34 res=2 pi=38 AU915
-    0x450C6000u, // bc=34 res=2 pi=49 AS923-3
+    0x450B8400u, // bc=34 res=2 pi=46 US915
     0x450CA000u, // bc=34 res=2 pi=50 AS923-3
-    0x450CE000u, // bc=34 res=2 pi=51 AS923-3
+    0x45840400u, // bc=34 res=3 pi=16 US915
     0x45848400u, // bc=34 res=3 pi=18 US915
     0x4584C400u, // bc=34 res=3 pi=19 US915
+    0x45850400u, // bc=34 res=3 pi=20 US915
+    0x45854400u, // bc=34 res=3 pi=21 US915
     0x45858400u, // bc=34 res=3 pi=22 US915
+    0x45860400u, // bc=34 res=3 pi=24 US915
     0x45868400u, // bc=34 res=3 pi=26 US915
     0x4586C400u, // bc=34 res=3 pi=27 US915
     0x45878400u, // bc=34 res=3 pi=30 US915
-    0x45900400u, // bc=34 res=3 pi=64 US915
-    0x45904400u, // bc=34 res=3 pi=65 US915
-    0x45908400u, // bc=34 res=3 pi=66 US915
-    0x4590C400u, // bc=34 res=3 pi=67 US915
-    0x45910400u, // bc=34 res=3 pi=68 US915
-    0x45914400u, // bc=34 res=3 pi=69 US915
-    0x45918400u, // bc=34 res=3 pi=70 US915
-    0x45920400u, // bc=34 res=3 pi=72 US915
-    0x45924400u, // bc=34 res=3 pi=73 US915
-    0x45928400u, // bc=34 res=3 pi=74 US915
-    0x4592C400u, // bc=34 res=3 pi=75 US915
-    0x45930400u, // bc=34 res=3 pi=76 US915
-    0x45934400u, // bc=34 res=3 pi=77 US915
-    0x45938400u, // bc=34 res=3 pi=78 US915
-    0x45940400u, // bc=34 res=3 pi=80 US915
-    0x45944400u, // bc=34 res=3 pi=81 US915
-    0x45948400u, // bc=34 res=3 pi=82 US915
-    0x4594C400u, // bc=34 res=3 pi=83 US915
-    0x45954400u, // bc=34 res=3 pi=85 US915
-    0x45960400u, // bc=34 res=3 pi=88 US915
-    0x45964400u, // bc=34 res=3 pi=89 US915
-    0x45968400u, // bc=34 res=3 pi=90 US915
-    0x4596C400u, // bc=34 res=3 pi=91 US915
-    0x45970400u, // bc=34 res=3 pi=92 US915
-    0x45974400u, // bc=34 res=3 pi=93 US915
-    0x45978400u, // bc=34 res=3 pi=94 US915
-    0x459A0400u, // bc=34 res=3 pi=104 US915
-    0x459A4400u, // bc=34 res=3 pi=105 US915
-    0x459A8400u, // bc=34 res=3 pi=106 US915
-    0x459AC400u, // bc=34 res=3 pi=107 US915
-    0x459B0400u, // bc=34 res=3 pi=108 US915
-    0x459B4400u, // bc=34 res=3 pi=109 US915
-    0x459B8400u, // bc=34 res=3 pi=110 US915
+    0x45890400u, // bc=34 res=3 pi=36 US915
+    0x458C2000u, // bc=34 res=3 pi=48 AS923-3
+    0x458CA000u, // bc=34 res=3 pi=50 AS923-3
+    0x458D2000u, // bc=34 res=3 pi=52 AS923-3
+    0x458D6000u, // bc=34 res=3 pi=53 AS923-3
+    0x458DA000u, // bc=34 res=3 pi=54 AS923-3
+    0x45984400u, // bc=34 res=3 pi=97 US915
+    0x4598C400u, // bc=34 res=3 pi=99 US915
     0x459C4400u, // bc=34 res=3 pi=113 US915
+    0x459C8400u, // bc=34 res=3 pi=114 US915
     0x459CC400u, // bc=34 res=3 pi=115 US915
+    0x45A00400u, // bc=34 res=3 pi=128 US915
     0x45A10400u, // bc=34 res=3 pi=132 US915
     0x45A14400u, // bc=34 res=3 pi=133 US915
     0x45A18400u, // bc=34 res=3 pi=134 US915
-    0x45B00400u, // bc=34 res=3 pi=192 US915
-    0x45B04400u, // bc=34 res=3 pi=193 US915
-    0x45B08400u, // bc=34 res=3 pi=194 US915
-    0x45B0C400u, // bc=34 res=3 pi=195 US915
-    0x45B10400u, // bc=34 res=3 pi=196 US915
-    0x45B14400u, // bc=34 res=3 pi=197 US915
-    0x45B18400u, // bc=34 res=3 pi=198 US915
-    0x45B20400u, // bc=34 res=3 pi=200 US915
-    0x45B24400u, // bc=34 res=3 pi=201 US915
-    0x45B28400u, // bc=34 res=3 pi=202 US915
-    0x45B2C400u, // bc=34 res=3 pi=203 US915
-    0x45B30400u, // bc=34 res=3 pi=204 US915
-    0x45B34400u, // bc=34 res=3 pi=205 US915
-    0x45B38400u, // bc=34 res=3 pi=206 US915
+    0x45AA0400u, // bc=34 res=3 pi=168 US915
+    0x45AA4400u, // bc=34 res=3 pi=169 US915
+    0x45AAC400u, // bc=34 res=3 pi=171 US915
+    0x45AB0400u, // bc=34 res=3 pi=172 US915
+    0x45AB4400u, // bc=34 res=3 pi=173 US915
+    0x45AB8400u, // bc=34 res=3 pi=174 US915
     0x45B40400u, // bc=34 res=3 pi=208 US915
     0x45B44400u, // bc=34 res=3 pi=209 US915
+    0x45B48400u, // bc=34 res=3 pi=210 US915
     0x45B4C400u, // bc=34 res=3 pi=211 US915
+    0x45B50400u, // bc=34 res=3 pi=212 US915
     0x45B54400u, // bc=34 res=3 pi=213 US915
-    0x45B60400u, // bc=34 res=3 pi=216 US915
-    0x45B64400u, // bc=34 res=3 pi=217 US915
-    0x45B68400u, // bc=34 res=3 pi=218 US915
-    0x45B6C400u, // bc=34 res=3 pi=219 US915
-    0x45B70400u, // bc=34 res=3 pi=220 US915
-    0x45B74400u, // bc=34 res=3 pi=221 US915
-    0x45B78400u, // bc=34 res=3 pi=222 US915
-    0x45B80400u, // bc=34 res=3 pi=224 US915
-    0x45B84400u, // bc=34 res=3 pi=225 US915
-    0x45B88400u, // bc=34 res=3 pi=226 US915
-    0x45B8C400u, // bc=34 res=3 pi=227 US915
-    0x45B90400u, // bc=34 res=3 pi=228 US915
-    0x45B94400u, // bc=34 res=3 pi=229 US915
-    0x45BA0400u, // bc=34 res=3 pi=232 US915
-    0x45BA4400u, // bc=34 res=3 pi=233 US915
-    0x45BA8400u, // bc=34 res=3 pi=234 US915
-    0x45BAC400u, // bc=34 res=3 pi=235 US915
-    0x45BB0400u, // bc=34 res=3 pi=236 US915
-    0x45BB4400u, // bc=34 res=3 pi=237 US915
-    0x45BB8400u, // bc=34 res=3 pi=238 US915
-    0x45BC0400u, // bc=34 res=3 pi=240 US915
-    0x45BC4400u, // bc=34 res=3 pi=241 US915
-    0x45BCC400u, // bc=34 res=3 pi=243 US915
-    0x45BD0400u, // bc=34 res=3 pi=244 US915
-    0x45BD4400u, // bc=34 res=3 pi=245 US915
-    0x45BD8400u, // bc=34 res=3 pi=246 US915
+    0x45C00400u, // bc=34 res=3 pi=256 US915
     0x45C04400u, // bc=34 res=3 pi=257 US915
+    0x45C0C400u, // bc=34 res=3 pi=259 US915
+    0x45C10C00u, // bc=34 res=3 pi=260 AU915
     0x45C14C00u, // bc=34 res=3 pi=261 AU915
-    0x45DC4400u, // bc=34 res=3 pi=369 US915
-    0x45DC8400u, // bc=34 res=3 pi=370 US915
-    0x45DD8400u, // bc=34 res=3 pi=374 US915
+    0x45C18C00u, // bc=34 res=3 pi=262 AU915
+    0x45C40C00u, // bc=34 res=3 pi=272 AU915
+    0x45C50C00u, // bc=34 res=3 pi=276 AU915
+    0x45C58C00u, // bc=34 res=3 pi=278 AU915
+    0x45C64400u, // bc=34 res=3 pi=281 US915
+    0x45C6E000u, // bc=34 res=3 pi=283 AS923-3
+    0x45C74400u, // bc=34 res=3 pi=285 US915
+    0x45CA0400u, // bc=34 res=3 pi=296 US915
+    0x45CA4400u, // bc=34 res=3 pi=297 US915
+    0x45CA8400u, // bc=34 res=3 pi=298 US915
+    0x45CAC400u, // bc=34 res=3 pi=299 US915
+    0x45CB0C00u, // bc=34 res=3 pi=300 AU915
+    0x45CB4C00u, // bc=34 res=3 pi=301 AU915
+    0x45CB8C00u, // bc=34 res=3 pi=302 AU915
+    0x45D18400u, // bc=34 res=3 pi=326 US915
+    0x45D40400u, // bc=34 res=3 pi=336 US915
+    0x45D50400u, // bc=34 res=3 pi=340 US915
+    0x45D54400u, // bc=34 res=3 pi=341 US915
+    0x45D58400u, // bc=34 res=3 pi=342 US915
+    0x45D90400u, // bc=34 res=3 pi=356 US915
+    0x45D94400u, // bc=34 res=3 pi=357 US915
+    0x45DA4400u, // bc=34 res=3 pi=361 US915
+    0x45DB4400u, // bc=34 res=3 pi=365 US915
+    0x45E06000u, // bc=34 res=3 pi=385 AS923-3
     0x45E0A000u, // bc=34 res=3 pi=386 AS923-3
     0x45E0E000u, // bc=34 res=3 pi=387 AS923-3
+    0x45E22000u, // bc=34 res=3 pi=392 AS923-3
+    0x45E26000u, // bc=34 res=3 pi=393 AS923-3
+    0x45E2A000u, // bc=34 res=3 pi=394 AS923-3
+    0x45E2C400u, // bc=34 res=3 pi=395 US915
+    0x45E32000u, // bc=34 res=3 pi=396 AS923-3
+    0x45E36000u, // bc=34 res=3 pi=397 AS923-3
+    0x45E3A000u, // bc=34 res=3 pi=398 AS923-3
+    0x45E62000u, // bc=34 res=3 pi=408 AS923-3
+    0x45E64400u, // bc=34 res=3 pi=409 US915
+    0x45E68400u, // bc=34 res=3 pi=410 US915
+    0x45E6C400u, // bc=34 res=3 pi=411 US915
+    0x45E72000u, // bc=34 res=3 pi=412 AS923-3
+    0x45E76000u, // bc=34 res=3 pi=413 AS923-3
+    0x45E7A000u, // bc=34 res=3 pi=414 AS923-3
+    0x45EA6000u, // bc=34 res=3 pi=425 AS923-3
     0x45EAE000u, // bc=34 res=3 pi=427 AS923-3
+    0x45EC0C00u, // bc=34 res=3 pi=432 AU915
     0x45EC8C00u, // bc=34 res=3 pi=434 AU915
+    0x45ECCC00u, // bc=34 res=3 pi=435 AU915
+    0x45ED0C00u, // bc=34 res=3 pi=436 AU915
     0x45ED8C00u, // bc=34 res=3 pi=438 AU915
     0x47804400u, // bc=35 res=3 pi=1 US915
+    0x47818400u, // bc=35 res=3 pi=6 US915
+    0x47820400u, // bc=35 res=3 pi=8 US915
+    0x47824400u, // bc=35 res=3 pi=9 US915
+    0x478CC400u, // bc=35 res=3 pi=51 US915
+    0x47908400u, // bc=35 res=3 pi=66 US915
+    0x4790C400u, // bc=35 res=3 pi=67 US915
+    0x47920400u, // bc=35 res=3 pi=72 US915
+    0x47924400u, // bc=35 res=3 pi=73 US915
+    0x4792C400u, // bc=35 res=3 pi=75 US915
     0x47938400u, // bc=35 res=3 pi=78 US915
+    0x47950400u, // bc=35 res=3 pi=84 US915
+    0x47974400u, // bc=35 res=3 pi=93 US915
+    0x47B40400u, // bc=35 res=3 pi=208 US915
+    0x47B54400u, // bc=35 res=3 pi=213 US915
+    0x47E10400u, // bc=35 res=3 pi=388 US915
+    0x47E14400u, // bc=35 res=3 pi=389 US915
     0x47E34400u, // bc=35 res=3 pi=397 US915
-    0x48808400u, // bc=36 res=1 pi=2 US915
+    0x47E88400u, // bc=35 res=3 pi=418 US915
+    0x47E8C400u, // bc=35 res=3 pi=419 US915
+    0x47EA8400u, // bc=35 res=3 pi=426 US915
+    0x47EB8400u, // bc=35 res=3 pi=430 US915
     0x4880C400u, // bc=36 res=1 pi=3 US915
-    0x48818400u, // bc=36 res=1 pi=6 US915
+    0x49004400u, // bc=36 res=2 pi=1 US915
     0x49008400u, // bc=36 res=2 pi=2 US915
     0x4900C400u, // bc=36 res=2 pi=3 US915
     0x49028400u, // bc=36 res=2 pi=10 US915
     0x4902C400u, // bc=36 res=2 pi=11 US915
-    0x49084400u, // bc=36 res=2 pi=33 US915
+    0x49040400u, // bc=36 res=2 pi=16 US915
+    0x49044400u, // bc=36 res=2 pi=17 US915
+    0x4904C400u, // bc=36 res=2 pi=19 US915
+    0x49050400u, // bc=36 res=2 pi=20 US915
+    0x49054400u, // bc=36 res=2 pi=21 US915
+    0x49058400u, // bc=36 res=2 pi=22 US915
+    0x490C0400u, // bc=36 res=2 pi=48 US915
+    0x490C4400u, // bc=36 res=2 pi=49 US915
+    0x490C8400u, // bc=36 res=2 pi=50 US915
+    0x490CC400u, // bc=36 res=2 pi=51 US915
+    0x490D4400u, // bc=36 res=2 pi=53 US915
+    0x490D8400u, // bc=36 res=2 pi=54 US915
+    0x49800400u, // bc=36 res=3 pi=0 US915
+    0x49804400u, // bc=36 res=3 pi=1 US915
     0x49808400u, // bc=36 res=3 pi=2 US915
     0x4980C400u, // bc=36 res=3 pi=3 US915
+    0x49814400u, // bc=36 res=3 pi=5 US915
     0x49818400u, // bc=36 res=3 pi=6 US915
-    0x49828400u, // bc=36 res=3 pi=10 US915
-    0x4982C400u, // bc=36 res=3 pi=11 US915
-    0x49834400u, // bc=36 res=3 pi=13 US915
-    0x49838400u, // bc=36 res=3 pi=14 US915
+    0x4988C400u, // bc=36 res=3 pi=35 US915
+    0x498A0400u, // bc=36 res=3 pi=40 US915
+    0x498A4400u, // bc=36 res=3 pi=41 US915
     0x498A8400u, // bc=36 res=3 pi=42 US915
     0x498AC400u, // bc=36 res=3 pi=43 US915
+    0x498B8400u, // bc=36 res=3 pi=46 US915
+    0x498C0400u, // bc=36 res=3 pi=48 US915
     0x498C8400u, // bc=36 res=3 pi=50 US915
     0x498CC400u, // bc=36 res=3 pi=51 US915
+    0x498D0400u, // bc=36 res=3 pi=52 US915
+    0x498D4400u, // bc=36 res=3 pi=53 US915
     0x498D8400u, // bc=36 res=3 pi=54 US915
+    0x49900400u, // bc=36 res=3 pi=64 US915
     0x49908400u, // bc=36 res=3 pi=66 US915
+    0x4990C400u, // bc=36 res=3 pi=67 US915
+    0x49918400u, // bc=36 res=3 pi=70 US915
+    0x49928400u, // bc=36 res=3 pi=74 US915
+    0x4992C400u, // bc=36 res=3 pi=75 US915
+    0x49930400u, // bc=36 res=3 pi=76 US915
+    0x49998400u, // bc=36 res=3 pi=102 US915
     0x499A8400u, // bc=36 res=3 pi=106 US915
+    0x499C0400u, // bc=36 res=3 pi=112 US915
+    0x499C4400u, // bc=36 res=3 pi=113 US915
     0x499C8400u, // bc=36 res=3 pi=114 US915
     0x499CC400u, // bc=36 res=3 pi=115 US915
-    0x49A00400u, // bc=36 res=3 pi=128 US915
-    0x49A04400u, // bc=36 res=3 pi=129 US915
-    0x49A08400u, // bc=36 res=3 pi=130 US915
-    0x49A0C400u, // bc=36 res=3 pi=131 US915
-    0x49A10400u, // bc=36 res=3 pi=132 US915
-    0x49A14400u, // bc=36 res=3 pi=133 US915
-    0x49A18400u, // bc=36 res=3 pi=134 US915
-    0x49A20400u, // bc=36 res=3 pi=136 US915
-    0x49A24400u, // bc=36 res=3 pi=137 US915
-    0x49A28400u, // bc=36 res=3 pi=138 US915
-    0x49A2C400u, // bc=36 res=3 pi=139 US915
-    0x49A30400u, // bc=36 res=3 pi=140 US915
-    0x49A34400u, // bc=36 res=3 pi=141 US915
-    0x49A38400u, // bc=36 res=3 pi=142 US915
+    0x499D8400u, // bc=36 res=3 pi=118 US915
     0x49A40400u, // bc=36 res=3 pi=144 US915
     0x49A44400u, // bc=36 res=3 pi=145 US915
+    0x49A48400u, // bc=36 res=3 pi=146 US915
     0x49A4C400u, // bc=36 res=3 pi=147 US915
+    0x49A50400u, // bc=36 res=3 pi=148 US915
     0x49A54400u, // bc=36 res=3 pi=149 US915
-    0x49A60400u, // bc=36 res=3 pi=152 US915
-    0x49A64400u, // bc=36 res=3 pi=153 US915
-    0x49A68400u, // bc=36 res=3 pi=154 US915
-    0x49A6C400u, // bc=36 res=3 pi=155 US915
-    0x49A70400u, // bc=36 res=3 pi=156 US915
-    0x49A74400u, // bc=36 res=3 pi=157 US915
-    0x49A78400u, // bc=36 res=3 pi=158 US915
-    0x49A80400u, // bc=36 res=3 pi=160 US915
-    0x49A84400u, // bc=36 res=3 pi=161 US915
-    0x49A88400u, // bc=36 res=3 pi=162 US915
-    0x49A8C400u, // bc=36 res=3 pi=163 US915
-    0x49A90400u, // bc=36 res=3 pi=164 US915
-    0x49A94400u, // bc=36 res=3 pi=165 US915
-    0x49A98400u, // bc=36 res=3 pi=166 US915
-    0x49AA0400u, // bc=36 res=3 pi=168 US915
-    0x49AA4400u, // bc=36 res=3 pi=169 US915
-    0x49AA8400u, // bc=36 res=3 pi=170 US915
-    0x49AAC400u, // bc=36 res=3 pi=171 US915
-    0x49AB0400u, // bc=36 res=3 pi=172 US915
-    0x49AB4400u, // bc=36 res=3 pi=173 US915
-    0x49AB8400u, // bc=36 res=3 pi=174 US915
-    0x49AC0400u, // bc=36 res=3 pi=176 US915
-    0x49AC4400u, // bc=36 res=3 pi=177 US915
-    0x49ACC400u, // bc=36 res=3 pi=179 US915
-    0x49AD0400u, // bc=36 res=3 pi=180 US915
-    0x49AD4400u, // bc=36 res=3 pi=181 US915
-    0x49B00400u, // bc=36 res=3 pi=192 US915
-    0x49B04400u, // bc=36 res=3 pi=193 US915
-    0x49B08400u, // bc=36 res=3 pi=194 US915
-    0x49B0C400u, // bc=36 res=3 pi=195 US915
-    0x49B10400u, // bc=36 res=3 pi=196 US915
-    0x49B14400u, // bc=36 res=3 pi=197 US915
-    0x49B18400u, // bc=36 res=3 pi=198 US915
-    0x49B20400u, // bc=36 res=3 pi=200 US915
-    0x49B24400u, // bc=36 res=3 pi=201 US915
-    0x49B28400u, // bc=36 res=3 pi=202 US915
-    0x49B2C400u, // bc=36 res=3 pi=203 US915
-    0x49B30400u, // bc=36 res=3 pi=204 US915
-    0x49B34400u, // bc=36 res=3 pi=205 US915
-    0x49B38400u, // bc=36 res=3 pi=206 US915
-    0x49B40400u, // bc=36 res=3 pi=208 US915
-    0x49B44400u, // bc=36 res=3 pi=209 US915
-    0x49B48400u, // bc=36 res=3 pi=210 US915
-    0x49B4C400u, // bc=36 res=3 pi=211 US915
-    0x49B50400u, // bc=36 res=3 pi=212 US915
-    0x49B54400u, // bc=36 res=3 pi=213 US915
-    0x49B58400u, // bc=36 res=3 pi=214 US915
-    0x49B60400u, // bc=36 res=3 pi=216 US915
-    0x49B64400u, // bc=36 res=3 pi=217 US915
-    0x49B68400u, // bc=36 res=3 pi=218 US915
-    0x49B6C400u, // bc=36 res=3 pi=219 US915
-    0x49B70400u, // bc=36 res=3 pi=220 US915
-    0x49B74400u, // bc=36 res=3 pi=221 US915
-    0x49B78400u, // bc=36 res=3 pi=222 US915
-    0x49B80400u, // bc=36 res=3 pi=224 US915
-    0x49B84400u, // bc=36 res=3 pi=225 US915
-    0x49B88400u, // bc=36 res=3 pi=226 US915
-    0x49B8C400u, // bc=36 res=3 pi=227 US915
-    0x49B90400u, // bc=36 res=3 pi=228 US915
-    0x49B94400u, // bc=36 res=3 pi=229 US915
-    0x49B98400u, // bc=36 res=3 pi=230 US915
-    0x49BA0400u, // bc=36 res=3 pi=232 US915
-    0x49BA4400u, // bc=36 res=3 pi=233 US915
-    0x49BA8400u, // bc=36 res=3 pi=234 US915
-    0x49BAC400u, // bc=36 res=3 pi=235 US915
-    0x49BB0400u, // bc=36 res=3 pi=236 US915
-    0x49BB4400u, // bc=36 res=3 pi=237 US915
-    0x49BB8400u, // bc=36 res=3 pi=238 US915
-    0x49BC0400u, // bc=36 res=3 pi=240 US915
-    0x49BC4400u, // bc=36 res=3 pi=241 US915
-    0x49BC8400u, // bc=36 res=3 pi=242 US915
-    0x49BCC400u, // bc=36 res=3 pi=243 US915
-    0x49BD0400u, // bc=36 res=3 pi=244 US915
-    0x49BD4400u, // bc=36 res=3 pi=245 US915
-    0x49BD8400u, // bc=36 res=3 pi=246 US915
-    0x49E00400u, // bc=36 res=3 pi=384 US915
-    0x49E04400u, // bc=36 res=3 pi=385 US915
-    0x49E08400u, // bc=36 res=3 pi=386 US915
-    0x49E0C400u, // bc=36 res=3 pi=387 US915
-    0x49E10400u, // bc=36 res=3 pi=388 US915
-    0x49E14400u, // bc=36 res=3 pi=389 US915
-    0x49E18400u, // bc=36 res=3 pi=390 US915
-    0x49E20400u, // bc=36 res=3 pi=392 US915
-    0x49E24400u, // bc=36 res=3 pi=393 US915
-    0x49E28400u, // bc=36 res=3 pi=394 US915
-    0x49E2C400u, // bc=36 res=3 pi=395 US915
-    0x49E30400u, // bc=36 res=3 pi=396 US915
-    0x49E34400u, // bc=36 res=3 pi=397 US915
-    0x49E38400u, // bc=36 res=3 pi=398 US915
-    0x49E40400u, // bc=36 res=3 pi=400 US915
-    0x49E44400u, // bc=36 res=3 pi=401 US915
-    0x49E4C400u, // bc=36 res=3 pi=403 US915
-    0x49E50400u, // bc=36 res=3 pi=404 US915
-    0x49E54400u, // bc=36 res=3 pi=405 US915
-    0x49E58400u, // bc=36 res=3 pi=406 US915
-    0x49E60400u, // bc=36 res=3 pi=408 US915
-    0x49E64400u, // bc=36 res=3 pi=409 US915
-    0x49E68400u, // bc=36 res=3 pi=410 US915
-    0x49E6C400u, // bc=36 res=3 pi=411 US915
-    0x49E70400u, // bc=36 res=3 pi=412 US915
-    0x49E74400u, // bc=36 res=3 pi=413 US915
-    0x49E78400u, // bc=36 res=3 pi=414 US915
+    0x49C20400u, // bc=36 res=3 pi=264 US915
+    0x49C24400u, // bc=36 res=3 pi=265 US915
+    0x49C2C400u, // bc=36 res=3 pi=267 US915
+    0x49DC0400u, // bc=36 res=3 pi=368 US915
+    0x49DC4400u, // bc=36 res=3 pi=369 US915
+    0x49DD4400u, // bc=36 res=3 pi=373 US915
+    0x49E84400u, // bc=36 res=3 pi=417 US915
     0x49E88400u, // bc=36 res=3 pi=418 US915
     0x49E8C400u, // bc=36 res=3 pi=419 US915
-    0x49EA0400u, // bc=36 res=3 pi=424 US915
-    0x49EA4400u, // bc=36 res=3 pi=425 US915
-    0x49EA8400u, // bc=36 res=3 pi=426 US915
-    0x49EAC400u, // bc=36 res=3 pi=427 US915
-    0x49EB8400u, // bc=36 res=3 pi=430 US915
-    0x49EC0400u, // bc=36 res=3 pi=432 US915
-    0x49EC4400u, // bc=36 res=3 pi=433 US915
-    0x49EC8400u, // bc=36 res=3 pi=434 US915
-    0x49ECC400u, // bc=36 res=3 pi=435 US915
-    0x49ED4400u, // bc=36 res=3 pi=437 US915
-    0x49ED8400u, // bc=36 res=3 pi=438 US915
     0x4B09B400u, // bc=37 res=2 pi=38 CN470
     0x4B0B1000u, // bc=37 res=2 pi=44 AS923-1
     0x4B0B9000u, // bc=37 res=2 pi=46 AS923-1
-    0x4B0D1000u, // bc=37 res=2 pi=52 AS923-1
-    0x4B0D5000u, // bc=37 res=2 pi=53 AS923-1
+    0x4B805000u, // bc=37 res=3 pi=1 AS923-1
+    0x4B815000u, // bc=37 res=3 pi=5 AS923-1
+    0x4B881000u, // bc=37 res=3 pi=32 AS923-1
+    0x4B891000u, // bc=37 res=3 pi=36 AS923-1
+    0x4B895000u, // bc=37 res=3 pi=37 AS923-1
     0x4B899000u, // bc=37 res=3 pi=38 AS923-1
+    0x4B8A9000u, // bc=37 res=3 pi=42 AS923-1
+    0x4B8B9000u, // bc=37 res=3 pi=46 AS923-1
+    0x4B8D5000u, // bc=37 res=3 pi=53 AS923-1
+    0x4B8D9000u, // bc=37 res=3 pi=54 AS923-1
+    0x4B921000u, // bc=37 res=3 pi=72 AS923-1
+    0x4B929000u, // bc=37 res=3 pi=74 AS923-1
+    0x4B931000u, // bc=37 res=3 pi=76 AS923-1
+    0x4B935000u, // bc=37 res=3 pi=77 AS923-1
+    0x4B939000u, // bc=37 res=3 pi=78 AS923-1
+    0x4B9A1000u, // bc=37 res=3 pi=104 AS923-1
+    0x4B9A5000u, // bc=37 res=3 pi=105 AS923-1
+    0x4B9AD000u, // bc=37 res=3 pi=107 AS923-1
+    0x4BA4A000u, // bc=37 res=3 pi=146 AS923-3
     0x4BA5A000u, // bc=37 res=3 pi=150 AS923-3
+    0x4BADA000u, // bc=37 res=3 pi=182 AS923-3
+    0x4BBB9000u, // bc=37 res=3 pi=238 AS923-1
     0x4BC25000u, // bc=37 res=3 pi=265 AS923-1
+    0x4BC29000u, // bc=37 res=3 pi=266 AS923-1
+    0x4BC2D000u, // bc=37 res=3 pi=267 AS923-1
+    0x4BC49000u, // bc=37 res=3 pi=274 AS923-1
+    0x4BC53400u, // bc=37 res=3 pi=276 CN470
+    0x4BC61000u, // bc=37 res=3 pi=280 AS923-1
+    0x4BC65000u, // bc=37 res=3 pi=281 AS923-1
+    0x4BC6D000u, // bc=37 res=3 pi=283 AS923-1
+    0x4BC83400u, // bc=37 res=3 pi=288 CN470
+    0x4BC8B400u, // bc=37 res=3 pi=290 CN470
     0x4BC9B400u, // bc=37 res=3 pi=294 CN470
+    0x4BCA5000u, // bc=37 res=3 pi=297 AS923-1
+    0x4BD51000u, // bc=37 res=3 pi=340 AS923-1
     0x4BD59000u, // bc=37 res=3 pi=342 AS923-1
+    0x4BDA5000u, // bc=37 res=3 pi=361 AS923-1
     0x4BDB1000u, // bc=37 res=3 pi=364 AS923-1
     0x4BDB5000u, // bc=37 res=3 pi=365 AS923-1
+    0x4BDB9000u, // bc=37 res=3 pi=366 AS923-1
+    0x4BE01000u, // bc=37 res=3 pi=384 AS923-1
     0x4BE0A000u, // bc=37 res=3 pi=386 AS923-3
     0x4BE11000u, // bc=37 res=3 pi=388 AS923-1
     0x4BE19000u, // bc=37 res=3 pi=390 AS923-1
     0x4BE46000u, // bc=37 res=3 pi=401 AS923-3
+    0x4BE4A000u, // bc=37 res=3 pi=402 AS923-3
     0x4BE4E000u, // bc=37 res=3 pi=403 AS923-3
+    0x4BE55000u, // bc=37 res=3 pi=405 AS923-1
+    0x4BE6A000u, // bc=37 res=3 pi=410 AS923-3
+    0x4BE72000u, // bc=37 res=3 pi=412 AS923-3
     0x4BE7A000u, // bc=37 res=3 pi=414 AS923-3
+    0x4BE81000u, // bc=37 res=3 pi=416 AS923-1
+    0x4BE85000u, // bc=37 res=3 pi=417 AS923-1
+    0x4BE89000u, // bc=37 res=3 pi=418 AS923-1
+    0x4BE8D000u, // bc=37 res=3 pi=419 AS923-1
+    0x4BE93400u, // bc=37 res=3 pi=420 CN470
+    0x4BE95000u, // bc=37 res=3 pi=421 AS923-1
+    0x4BE99000u, // bc=37 res=3 pi=422 AS923-1
+    0x4BEA1000u, // bc=37 res=3 pi=424 AS923-1
+    0x4BEA5000u, // bc=37 res=3 pi=425 AS923-1
+    0x4BEA9000u, // bc=37 res=3 pi=426 AS923-1
+    0x4BEAD000u, // bc=37 res=3 pi=427 AS923-1
+    0x4BEB5000u, // bc=37 res=3 pi=429 AS923-1
+    0x4BEB9000u, // bc=37 res=3 pi=430 AS923-1
+    0x4BEC1000u, // bc=37 res=3 pi=432 AS923-1
     0x4BEC5000u, // bc=37 res=3 pi=433 AS923-1
+    0x4BECD000u, // bc=37 res=3 pi=435 AS923-1
+    0x4BED1000u, // bc=37 res=3 pi=436 AS923-1
     0x4BED5000u, // bc=37 res=3 pi=437 AS923-1
-    0x4C808400u, // bc=38 res=1 pi=2 US915
-    0x4D068C00u, // bc=38 res=2 pi=26 AU915
-    0x4D074400u, // bc=38 res=2 pi=29 US915
     0x4D078C00u, // bc=38 res=2 pi=30 AU915
     0x4DA00400u, // bc=38 res=3 pi=128 US915
     0x4DA04C00u, // bc=38 res=3 pi=129 AU915
     0x4DA08400u, // bc=38 res=3 pi=130 US915
     0x4DA0C400u, // bc=38 res=3 pi=131 US915
+    0x4DA10400u, // bc=38 res=3 pi=132 US915
+    0x4DA14400u, // bc=38 res=3 pi=133 US915
     0x4DA18400u, // bc=38 res=3 pi=134 US915
     0x4DA20C00u, // bc=38 res=3 pi=136 AU915
     0x4DA24C00u, // bc=38 res=3 pi=137 AU915
+    0x4DA2CC00u, // bc=38 res=3 pi=139 AU915
+    0x4DA30C00u, // bc=38 res=3 pi=140 AU915
     0x4DA34C00u, // bc=38 res=3 pi=141 AU915
+    0x4DA38400u, // bc=38 res=3 pi=142 US915
     0x4DA40400u, // bc=38 res=3 pi=144 US915
     0x4DA44400u, // bc=38 res=3 pi=145 US915
     0x4DA48400u, // bc=38 res=3 pi=146 US915
+    0x4DA4E000u, // bc=38 res=3 pi=147 AS923-3
     0x4DA50400u, // bc=38 res=3 pi=148 US915
     0x4DA54400u, // bc=38 res=3 pi=149 US915
     0x4DA58400u, // bc=38 res=3 pi=150 US915
     0x4DA62000u, // bc=38 res=3 pi=152 AS923-3
+    0x4DA66000u, // bc=38 res=3 pi=153 AS923-3
     0x4DA6A000u, // bc=38 res=3 pi=154 AS923-3
+    0x4DA6E000u, // bc=38 res=3 pi=155 AS923-3
     0x4DA70400u, // bc=38 res=3 pi=156 US915
+    0x4DA76000u, // bc=38 res=3 pi=157 AS923-3
     0x4DA7A000u, // bc=38 res=3 pi=158 AS923-3
+    0x4DAA0C00u, // bc=38 res=3 pi=168 AU915
+    0x4DAA4C00u, // bc=38 res=3 pi=169 AU915
     0x4DAA8C00u, // bc=38 res=3 pi=170 AU915
+    0x4DAACC00u, // bc=38 res=3 pi=171 AU915
+    0x4DAC0400u, // bc=38 res=3 pi=176 US915
+    0x4DAC4400u, // bc=38 res=3 pi=177 US915
     0x4DAC8400u, // bc=38 res=3 pi=178 US915
     0x4DACC400u, // bc=38 res=3 pi=179 US915
+    0x4DB00400u, // bc=38 res=3 pi=192 US915
+    0x4DB04400u, // bc=38 res=3 pi=193 US915
+    0x4DB08C00u, // bc=38 res=3 pi=194 AU915
+    0x4DB10400u, // bc=38 res=3 pi=196 US915
     0x4DB14400u, // bc=38 res=3 pi=197 US915
     0x4DB18C00u, // bc=38 res=3 pi=198 AU915
+    0x4DB40C00u, // bc=38 res=3 pi=208 AU915
+    0x4DB44C00u, // bc=38 res=3 pi=209 AU915
+    0x4DB48C00u, // bc=38 res=3 pi=210 AU915
+    0x4DB50C00u, // bc=38 res=3 pi=212 AU915
+    0x4DB54C00u, // bc=38 res=3 pi=213 AU915
+    0x4DB58C00u, // bc=38 res=3 pi=214 AU915
+    0x4DB8C400u, // bc=38 res=3 pi=227 US915
+    0x4DBA0400u, // bc=38 res=3 pi=232 US915
+    0x4DBA4400u, // bc=38 res=3 pi=233 US915
+    0x4DBA8400u, // bc=38 res=3 pi=234 US915
+    0x4DBAC400u, // bc=38 res=3 pi=235 US915
+    0x4DBB0C00u, // bc=38 res=3 pi=236 AU915
+    0x4DBB4C00u, // bc=38 res=3 pi=237 AU915
+    0x4DBB8400u, // bc=38 res=3 pi=238 US915
+    0x4DD24800u, // bc=38 res=3 pi=329 EU868
     0x4DD2CC00u, // bc=38 res=3 pi=331 AU915
+    0x4F908400u, // bc=39 res=3 pi=66 US915
+    0x4F918400u, // bc=39 res=3 pi=70 US915
+    0x4F954400u, // bc=39 res=3 pi=85 US915
+    0x4F980400u, // bc=39 res=3 pi=96 US915
+    0x4F988400u, // bc=39 res=3 pi=98 US915
+    0x4F990400u, // bc=39 res=3 pi=100 US915
+    0x4F998400u, // bc=39 res=3 pi=102 US915
     0x4F9C4400u, // bc=39 res=3 pi=113 US915
     0x4FAB1000u, // bc=39 res=3 pi=172 AS923-1
+    0x4FB25000u, // bc=39 res=3 pi=201 AS923-1
     0x4FD24400u, // bc=39 res=3 pi=329 US915
-    0x52800800u, // bc=41 res=1 pi=0 EU868
-    0x52808800u, // bc=41 res=1 pi=2 EU868
+    0x4FD28400u, // bc=39 res=3 pi=330 US915
+    0x4FD2C400u, // bc=39 res=3 pi=331 US915
     0x52810800u, // bc=41 res=1 pi=4 EU868
     0x52814800u, // bc=41 res=1 pi=5 EU868
+    0x53000800u, // bc=41 res=2 pi=0 EU868
+    0x53004800u, // bc=41 res=2 pi=1 EU868
+    0x53010800u, // bc=41 res=2 pi=4 EU868
+    0x53014800u, // bc=41 res=2 pi=5 EU868
+    0x53018800u, // bc=41 res=2 pi=6 EU868
     0x53030800u, // bc=41 res=2 pi=12 EU868
     0x53034800u, // bc=41 res=2 pi=13 EU868
     0x53038800u, // bc=41 res=2 pi=14 EU868
-    0x53064800u, // bc=41 res=2 pi=25 EU868
+    0x53040800u, // bc=41 res=2 pi=16 EU868
+    0x53044800u, // bc=41 res=2 pi=17 EU868
+    0x53048800u, // bc=41 res=2 pi=18 EU868
+    0x5304C800u, // bc=41 res=2 pi=19 EU868
+    0x53050800u, // bc=41 res=2 pi=20 EU868
     0x53068800u, // bc=41 res=2 pi=26 EU868
     0x5306C800u, // bc=41 res=2 pi=27 EU868
     0x530D0800u, // bc=41 res=2 pi=52 EU868
-    0x53800800u, // bc=41 res=3 pi=0 EU868
-    0x53804800u, // bc=41 res=3 pi=1 EU868
-    0x53808800u, // bc=41 res=3 pi=2 EU868
-    0x5380C800u, // bc=41 res=3 pi=3 EU868
-    0x53810800u, // bc=41 res=3 pi=4 EU868
-    0x53814800u, // bc=41 res=3 pi=5 EU868
-    0x53818800u, // bc=41 res=3 pi=6 EU868
-    0x53820800u, // bc=41 res=3 pi=8 EU868
-    0x53824800u, // bc=41 res=3 pi=9 EU868
-    0x53830800u, // bc=41 res=3 pi=12 EU868
-    0x53834800u, // bc=41 res=3 pi=13 EU868
-    0x53838800u, // bc=41 res=3 pi=14 EU868
     0x53840800u, // bc=41 res=3 pi=16 EU868
     0x53844800u, // bc=41 res=3 pi=17 EU868
     0x53848800u, // bc=41 res=3 pi=18 EU868
     0x5384C800u, // bc=41 res=3 pi=19 EU868
     0x53850800u, // bc=41 res=3 pi=20 EU868
     0x53854800u, // bc=41 res=3 pi=21 EU868
-    0x53880800u, // bc=41 res=3 pi=32 EU868
-    0x53884800u, // bc=41 res=3 pi=33 EU868
-    0x53888800u, // bc=41 res=3 pi=34 EU868
-    0x5388C800u, // bc=41 res=3 pi=35 EU868
-    0x53890800u, // bc=41 res=3 pi=36 EU868
-    0x53894800u, // bc=41 res=3 pi=37 EU868
-    0x53898800u, // bc=41 res=3 pi=38 EU868
-    0x538A0800u, // bc=41 res=3 pi=40 EU868
-    0x538A4800u, // bc=41 res=3 pi=41 EU868
-    0x538A8800u, // bc=41 res=3 pi=42 EU868
-    0x538AC800u, // bc=41 res=3 pi=43 EU868
-    0x538B0800u, // bc=41 res=3 pi=44 EU868
-    0x538B4800u, // bc=41 res=3 pi=45 EU868
-    0x538B8800u, // bc=41 res=3 pi=46 EU868
-    0x538C0800u, // bc=41 res=3 pi=48 EU868
-    0x538C4800u, // bc=41 res=3 pi=49 EU868
-    0x538C8800u, // bc=41 res=3 pi=50 EU868
-    0x538CC800u, // bc=41 res=3 pi=51 EU868
-    0x538D0800u, // bc=41 res=3 pi=52 EU868
-    0x538D4800u, // bc=41 res=3 pi=53 EU868
-    0x538D8800u, // bc=41 res=3 pi=54 EU868
+    0x53860800u, // bc=41 res=3 pi=24 EU868
+    0x53870800u, // bc=41 res=3 pi=28 EU868
+    0x53874800u, // bc=41 res=3 pi=29 EU868
+    0x53878800u, // bc=41 res=3 pi=30 EU868
     0x53910800u, // bc=41 res=3 pi=68 EU868
+    0x53914800u, // bc=41 res=3 pi=69 EU868
+    0x53920800u, // bc=41 res=3 pi=72 EU868
+    0x53924800u, // bc=41 res=3 pi=73 EU868
+    0x53930800u, // bc=41 res=3 pi=76 EU868
     0x53934800u, // bc=41 res=3 pi=77 EU868
-    0x53A00800u, // bc=41 res=3 pi=128 EU868
-    0x53A04800u, // bc=41 res=3 pi=129 EU868
-    0x53A08800u, // bc=41 res=3 pi=130 EU868
-    0x53A0C800u, // bc=41 res=3 pi=131 EU868
-    0x53A10800u, // bc=41 res=3 pi=132 EU868
-    0x53A14800u, // bc=41 res=3 pi=133 EU868
-    0x53A18800u, // bc=41 res=3 pi=134 EU868
-    0x53A20800u, // bc=41 res=3 pi=136 EU868
-    0x53A24800u, // bc=41 res=3 pi=137 EU868
-    0x53A28800u, // bc=41 res=3 pi=138 EU868
-    0x53A2C800u, // bc=41 res=3 pi=139 EU868
-    0x53A30800u, // bc=41 res=3 pi=140 EU868
-    0x53A34800u, // bc=41 res=3 pi=141 EU868
-    0x53A38800u, // bc=41 res=3 pi=142 EU868
-    0x53A40800u, // bc=41 res=3 pi=144 EU868
-    0x53A44800u, // bc=41 res=3 pi=145 EU868
-    0x53A48800u, // bc=41 res=3 pi=146 EU868
-    0x53A4C800u, // bc=41 res=3 pi=147 EU868
-    0x53A50800u, // bc=41 res=3 pi=148 EU868
-    0x53A54800u, // bc=41 res=3 pi=149 EU868
-    0x53A60800u, // bc=41 res=3 pi=152 EU868
-    0x53A64800u, // bc=41 res=3 pi=153 EU868
-    0x53A68800u, // bc=41 res=3 pi=154 EU868
-    0x53A6C800u, // bc=41 res=3 pi=155 EU868
-    0x53A70800u, // bc=41 res=3 pi=156 EU868
-    0x53A74800u, // bc=41 res=3 pi=157 EU868
-    0x53A78800u, // bc=41 res=3 pi=158 EU868
-    0x53A80800u, // bc=41 res=3 pi=160 EU868
-    0x53A84800u, // bc=41 res=3 pi=161 EU868
-    0x53A88800u, // bc=41 res=3 pi=162 EU868
-    0x53A8C800u, // bc=41 res=3 pi=163 EU868
-    0x53A90800u, // bc=41 res=3 pi=164 EU868
-    0x53A94800u, // bc=41 res=3 pi=165 EU868
-    0x53A98800u, // bc=41 res=3 pi=166 EU868
+    0x53950800u, // bc=41 res=3 pi=84 EU868
+    0x53958800u, // bc=41 res=3 pi=86 EU868
     0x53AA0800u, // bc=41 res=3 pi=168 EU868
+    0x53AA4800u, // bc=41 res=3 pi=169 EU868
     0x53AA8800u, // bc=41 res=3 pi=170 EU868
     0x53AAC800u, // bc=41 res=3 pi=171 EU868
     0x53AB0800u, // bc=41 res=3 pi=172 EU868
     0x53AB8800u, // bc=41 res=3 pi=174 EU868
+    0x53AC0800u, // bc=41 res=3 pi=176 EU868
     0x53AC4800u, // bc=41 res=3 pi=177 EU868
     0x53ACC800u, // bc=41 res=3 pi=179 EU868
     0x53AD4800u, // bc=41 res=3 pi=181 EU868
+    0x53B0C800u, // bc=41 res=3 pi=195 EU868
+    0x53B20800u, // bc=41 res=3 pi=200 EU868
+    0x53B24800u, // bc=41 res=3 pi=201 EU868
+    0x53B28800u, // bc=41 res=3 pi=202 EU868
+    0x53B2C800u, // bc=41 res=3 pi=203 EU868
+    0x53B34800u, // bc=41 res=3 pi=205 EU868
+    0x53B38800u, // bc=41 res=3 pi=206 EU868
+    0x53BC0800u, // bc=41 res=3 pi=240 EU868
     0x53BC8800u, // bc=41 res=3 pi=242 EU868
+    0x53BCC800u, // bc=41 res=3 pi=243 EU868
     0x53BD8800u, // bc=41 res=3 pi=246 EU868
-    0x53C00800u, // bc=41 res=3 pi=256 EU868
-    0x53C04800u, // bc=41 res=3 pi=257 EU868
-    0x53C08800u, // bc=41 res=3 pi=258 EU868
-    0x53C0C800u, // bc=41 res=3 pi=259 EU868
-    0x53C10800u, // bc=41 res=3 pi=260 EU868
-    0x53C14800u, // bc=41 res=3 pi=261 EU868
-    0x53C18800u, // bc=41 res=3 pi=262 EU868
-    0x53C20800u, // bc=41 res=3 pi=264 EU868
-    0x53C24800u, // bc=41 res=3 pi=265 EU868
-    0x53C28800u, // bc=41 res=3 pi=266 EU868
-    0x53C2C800u, // bc=41 res=3 pi=267 EU868
-    0x53C30800u, // bc=41 res=3 pi=268 EU868
-    0x53C34800u, // bc=41 res=3 pi=269 EU868
-    0x53C38800u, // bc=41 res=3 pi=270 EU868
-    0x53C40800u, // bc=41 res=3 pi=272 EU868
-    0x53C44800u, // bc=41 res=3 pi=273 EU868
-    0x53C4C800u, // bc=41 res=3 pi=275 EU868
-    0x53C50800u, // bc=41 res=3 pi=276 EU868
-    0x53C54800u, // bc=41 res=3 pi=277 EU868
-    0x53C58800u, // bc=41 res=3 pi=278 EU868
-    0x53C60800u, // bc=41 res=3 pi=280 EU868
-    0x53C64800u, // bc=41 res=3 pi=281 EU868
-    0x53C68800u, // bc=41 res=3 pi=282 EU868
-    0x53C6C800u, // bc=41 res=3 pi=283 EU868
-    0x53C70800u, // bc=41 res=3 pi=284 EU868
-    0x53C74800u, // bc=41 res=3 pi=285 EU868
-    0x53C78800u, // bc=41 res=3 pi=286 EU868
-    0x53C80800u, // bc=41 res=3 pi=288 EU868
-    0x53C84800u, // bc=41 res=3 pi=289 EU868
-    0x53C88800u, // bc=41 res=3 pi=290 EU868
-    0x53C8C800u, // bc=41 res=3 pi=291 EU868
-    0x53C90800u, // bc=41 res=3 pi=292 EU868
-    0x53C94800u, // bc=41 res=3 pi=293 EU868
-    0x53C98800u, // bc=41 res=3 pi=294 EU868
-    0x53CA0800u, // bc=41 res=3 pi=296 EU868
-    0x53CA4800u, // bc=41 res=3 pi=297 EU868
-    0x53CA8800u, // bc=41 res=3 pi=298 EU868
-    0x53CAC800u, // bc=41 res=3 pi=299 EU868
-    0x53CB0800u, // bc=41 res=3 pi=300 EU868
-    0x53CB4800u, // bc=41 res=3 pi=301 EU868
-    0x53CB8800u, // bc=41 res=3 pi=302 EU868
-    0x53CC0800u, // bc=41 res=3 pi=304 EU868
-    0x53CC4800u, // bc=41 res=3 pi=305 EU868
-    0x53CC8800u, // bc=41 res=3 pi=306 EU868
-    0x53CCC800u, // bc=41 res=3 pi=307 EU868
-    0x53CD0800u, // bc=41 res=3 pi=308 EU868
-    0x53CD4800u, // bc=41 res=3 pi=309 EU868
-    0x53CD8800u, // bc=41 res=3 pi=310 EU868
-    0x53D00800u, // bc=41 res=3 pi=320 EU868
-    0x53D04800u, // bc=41 res=3 pi=321 EU868
-    0x53D08800u, // bc=41 res=3 pi=322 EU868
-    0x53D0C800u, // bc=41 res=3 pi=323 EU868
-    0x53D10800u, // bc=41 res=3 pi=324 EU868
-    0x53D14800u, // bc=41 res=3 pi=325 EU868
-    0x53D18800u, // bc=41 res=3 pi=326 EU868
-    0x53D20800u, // bc=41 res=3 pi=328 EU868
-    0x53D24800u, // bc=41 res=3 pi=329 EU868
-    0x53D28800u, // bc=41 res=3 pi=330 EU868
-    0x53D2C800u, // bc=41 res=3 pi=331 EU868
-    0x53D30800u, // bc=41 res=3 pi=332 EU868
-    0x53D34800u, // bc=41 res=3 pi=333 EU868
-    0x53D38800u, // bc=41 res=3 pi=334 EU868
-    0x53D40800u, // bc=41 res=3 pi=336 EU868
-    0x53D44800u, // bc=41 res=3 pi=337 EU868
-    0x53D48800u, // bc=41 res=3 pi=338 EU868
-    0x53D4C800u, // bc=41 res=3 pi=339 EU868
-    0x53D50800u, // bc=41 res=3 pi=340 EU868
-    0x53D54800u, // bc=41 res=3 pi=341 EU868
-    0x53D58800u, // bc=41 res=3 pi=342 EU868
-    0x53D60800u, // bc=41 res=3 pi=344 EU868
-    0x53D64800u, // bc=41 res=3 pi=345 EU868
-    0x53D68800u, // bc=41 res=3 pi=346 EU868
-    0x53D6C800u, // bc=41 res=3 pi=347 EU868
-    0x53D70800u, // bc=41 res=3 pi=348 EU868
-    0x53D74800u, // bc=41 res=3 pi=349 EU868
-    0x53D78800u, // bc=41 res=3 pi=350 EU868
-    0x53D80800u, // bc=41 res=3 pi=352 EU868
-    0x53D88800u, // bc=41 res=3 pi=354 EU868
-    0x53D8C800u, // bc=41 res=3 pi=355 EU868
-    0x53D98800u, // bc=41 res=3 pi=358 EU868
-    0x53DA8800u, // bc=41 res=3 pi=362 EU868
-    0x53DB8800u, // bc=41 res=3 pi=366 EU868
-    0x53DC0800u, // bc=41 res=3 pi=368 EU868
-    0x53DC4800u, // bc=41 res=3 pi=369 EU868
-    0x53DC8800u, // bc=41 res=3 pi=370 EU868
-    0x53DCC800u, // bc=41 res=3 pi=371 EU868
-    0x53DD0800u, // bc=41 res=3 pi=372 EU868
-    0x53DD4800u, // bc=41 res=3 pi=373 EU868
-    0x53DD8800u, // bc=41 res=3 pi=374 EU868
+    0x53E24800u, // bc=41 res=3 pi=393 EU868
+    0x53E28800u, // bc=41 res=3 pi=394 EU868
     0x53E2C800u, // bc=41 res=3 pi=395 EU868
+    0x53E34800u, // bc=41 res=3 pi=397 EU868
+    0x53E64800u, // bc=41 res=3 pi=409 EU868
+    0x53EA0800u, // bc=41 res=3 pi=424 EU868
     0x53EA4800u, // bc=41 res=3 pi=425 EU868
+    0x53EAC800u, // bc=41 res=3 pi=427 EU868
+    0x53EB0800u, // bc=41 res=3 pi=428 EU868
     0x53EB4800u, // bc=41 res=3 pi=429 EU868
+    0x53EB8800u, // bc=41 res=3 pi=430 EU868
+    0x53EC0800u, // bc=41 res=3 pi=432 EU868
     0x53ED0800u, // bc=41 res=3 pi=436 EU868
     0x53ED4800u, // bc=41 res=3 pi=437 EU868
-    0x54800800u, // bc=42 res=1 pi=0 EU868
+    0x53ED8800u, // bc=41 res=3 pi=438 EU868
     0x54804800u, // bc=42 res=1 pi=1 EU868
     0x54810800u, // bc=42 res=1 pi=4 EU868
     0x54814800u, // bc=42 res=1 pi=5 EU868
-    0x55058800u, // bc=42 res=2 pi=22 EU868
+    0x55000800u, // bc=42 res=2 pi=0 EU868
+    0x55004800u, // bc=42 res=2 pi=1 EU868
+    0x5500C800u, // bc=42 res=2 pi=3 EU868
+    0x55010800u, // bc=42 res=2 pi=4 EU868
+    0x55014800u, // bc=42 res=2 pi=5 EU868
+    0x55018800u, // bc=42 res=2 pi=6 EU868
     0x55070800u, // bc=42 res=2 pi=28 EU868
     0x55074800u, // bc=42 res=2 pi=29 EU868
-    0x55078800u, // bc=42 res=2 pi=30 EU868
     0x550D4800u, // bc=42 res=2 pi=53 EU868
-    0x55800800u, // bc=42 res=3 pi=0 EU868
-    0x55804800u, // bc=42 res=3 pi=1 EU868
-    0x55808800u, // bc=42 res=3 pi=2 EU868
-    0x5580C800u, // bc=42 res=3 pi=3 EU868
-    0x55810800u, // bc=42 res=3 pi=4 EU868
-    0x55814800u, // bc=42 res=3 pi=5 EU868
-    0x55818800u, // bc=42 res=3 pi=6 EU868
-    0x55820800u, // bc=42 res=3 pi=8 EU868
-    0x55824800u, // bc=42 res=3 pi=9 EU868
-    0x55828800u, // bc=42 res=3 pi=10 EU868
-    0x5582C800u, // bc=42 res=3 pi=11 EU868
-    0x55830800u, // bc=42 res=3 pi=12 EU868
-    0x55834800u, // bc=42 res=3 pi=13 EU868
-    0x55838800u, // bc=42 res=3 pi=14 EU868
     0x55840800u, // bc=42 res=3 pi=16 EU868
     0x55844800u, // bc=42 res=3 pi=17 EU868
     0x5584C800u, // bc=42 res=3 pi=19 EU868
     0x55850800u, // bc=42 res=3 pi=20 EU868
     0x55854800u, // bc=42 res=3 pi=21 EU868
-    0x55860800u, // bc=42 res=3 pi=24 EU868
-    0x55864800u, // bc=42 res=3 pi=25 EU868
-    0x55868800u, // bc=42 res=3 pi=26 EU868
-    0x5586C800u, // bc=42 res=3 pi=27 EU868
-    0x55870800u, // bc=42 res=3 pi=28 EU868
-    0x55874800u, // bc=42 res=3 pi=29 EU868
-    0x55878800u, // bc=42 res=3 pi=30 EU868
-    0x55880800u, // bc=42 res=3 pi=32 EU868
-    0x55884800u, // bc=42 res=3 pi=33 EU868
-    0x55888800u, // bc=42 res=3 pi=34 EU868
-    0x5588C800u, // bc=42 res=3 pi=35 EU868
-    0x55890800u, // bc=42 res=3 pi=36 EU868
-    0x55894800u, // bc=42 res=3 pi=37 EU868
-    0x55898800u, // bc=42 res=3 pi=38 EU868
-    0x558A0800u, // bc=42 res=3 pi=40 EU868
-    0x558A4800u, // bc=42 res=3 pi=41 EU868
-    0x558A8800u, // bc=42 res=3 pi=42 EU868
-    0x558AC800u, // bc=42 res=3 pi=43 EU868
-    0x558B0800u, // bc=42 res=3 pi=44 EU868
-    0x558B4800u, // bc=42 res=3 pi=45 EU868
-    0x558B8800u, // bc=42 res=3 pi=46 EU868
-    0x558C0800u, // bc=42 res=3 pi=48 EU868
-    0x558C4800u, // bc=42 res=3 pi=49 EU868
-    0x558C8800u, // bc=42 res=3 pi=50 EU868
-    0x558CC800u, // bc=42 res=3 pi=51 EU868
-    0x558D0800u, // bc=42 res=3 pi=52 EU868
-    0x558D4800u, // bc=42 res=3 pi=53 EU868
-    0x558D8800u, // bc=42 res=3 pi=54 EU868
-    0x55900800u, // bc=42 res=3 pi=64 EU868
-    0x55904800u, // bc=42 res=3 pi=65 EU868
-    0x55908800u, // bc=42 res=3 pi=66 EU868
-    0x5590C800u, // bc=42 res=3 pi=67 EU868
-    0x55910800u, // bc=42 res=3 pi=68 EU868
-    0x55914800u, // bc=42 res=3 pi=69 EU868
-    0x55918800u, // bc=42 res=3 pi=70 EU868
-    0x55920800u, // bc=42 res=3 pi=72 EU868
-    0x55924800u, // bc=42 res=3 pi=73 EU868
-    0x55928800u, // bc=42 res=3 pi=74 EU868
-    0x5592C800u, // bc=42 res=3 pi=75 EU868
-    0x55930800u, // bc=42 res=3 pi=76 EU868
-    0x55934800u, // bc=42 res=3 pi=77 EU868
-    0x55938800u, // bc=42 res=3 pi=78 EU868
-    0x55940800u, // bc=42 res=3 pi=80 EU868
-    0x55944800u, // bc=42 res=3 pi=81 EU868
-    0x55948800u, // bc=42 res=3 pi=82 EU868
-    0x5594C800u, // bc=42 res=3 pi=83 EU868
-    0x55950800u, // bc=42 res=3 pi=84 EU868
-    0x55954800u, // bc=42 res=3 pi=85 EU868
-    0x55958800u, // bc=42 res=3 pi=86 EU868
-    0x55960800u, // bc=42 res=3 pi=88 EU868
-    0x55964800u, // bc=42 res=3 pi=89 EU868
-    0x55968800u, // bc=42 res=3 pi=90 EU868
-    0x5596C800u, // bc=42 res=3 pi=91 EU868
-    0x55970800u, // bc=42 res=3 pi=92 EU868
-    0x55974800u, // bc=42 res=3 pi=93 EU868
-    0x55978800u, // bc=42 res=3 pi=94 EU868
-    0x55980800u, // bc=42 res=3 pi=96 EU868
-    0x55984800u, // bc=42 res=3 pi=97 EU868
-    0x55988800u, // bc=42 res=3 pi=98 EU868
-    0x5598C800u, // bc=42 res=3 pi=99 EU868
-    0x55990800u, // bc=42 res=3 pi=100 EU868
-    0x55994800u, // bc=42 res=3 pi=101 EU868
-    0x55998800u, // bc=42 res=3 pi=102 EU868
-    0x559A0800u, // bc=42 res=3 pi=104 EU868
-    0x559A4800u, // bc=42 res=3 pi=105 EU868
-    0x559A8800u, // bc=42 res=3 pi=106 EU868
-    0x559AC800u, // bc=42 res=3 pi=107 EU868
-    0x559B0800u, // bc=42 res=3 pi=108 EU868
-    0x559B4800u, // bc=42 res=3 pi=109 EU868
-    0x559B8800u, // bc=42 res=3 pi=110 EU868
-    0x559C0800u, // bc=42 res=3 pi=112 EU868
-    0x559C4800u, // bc=42 res=3 pi=113 EU868
-    0x559C8800u, // bc=42 res=3 pi=114 EU868
-    0x559CC800u, // bc=42 res=3 pi=115 EU868
-    0x559D0800u, // bc=42 res=3 pi=116 EU868
-    0x559D4800u, // bc=42 res=3 pi=117 EU868
-    0x559D8800u, // bc=42 res=3 pi=118 EU868
     0x55A50800u, // bc=42 res=3 pi=148 EU868
+    0x55A58800u, // bc=42 res=3 pi=150 EU868
+    0x55AA0800u, // bc=42 res=3 pi=168 EU868
+    0x55AA4800u, // bc=42 res=3 pi=169 EU868
+    0x55AB0800u, // bc=42 res=3 pi=172 EU868
     0x55AB4800u, // bc=42 res=3 pi=173 EU868
+    0x55AC0800u, // bc=42 res=3 pi=176 EU868
+    0x55AC8800u, // bc=42 res=3 pi=178 EU868
+    0x55ACC800u, // bc=42 res=3 pi=179 EU868
+    0x55AD0800u, // bc=42 res=3 pi=180 EU868
+    0x55AD8800u, // bc=42 res=3 pi=182 EU868
+    0x55B00800u, // bc=42 res=3 pi=192 EU868
+    0x55B04800u, // bc=42 res=3 pi=193 EU868
     0x55B10800u, // bc=42 res=3 pi=196 EU868
     0x55B14800u, // bc=42 res=3 pi=197 EU868
+    0x55B18800u, // bc=42 res=3 pi=198 EU868
+    0x55B20800u, // bc=42 res=3 pi=200 EU868
+    0x55B24800u, // bc=42 res=3 pi=201 EU868
     0x55B30800u, // bc=42 res=3 pi=204 EU868
     0x55B34800u, // bc=42 res=3 pi=205 EU868
-    0x55C00800u, // bc=42 res=3 pi=256 EU868
-    0x55C04800u, // bc=42 res=3 pi=257 EU868
-    0x55C08800u, // bc=42 res=3 pi=258 EU868
-    0x55C0C800u, // bc=42 res=3 pi=259 EU868
-    0x55C10800u, // bc=42 res=3 pi=260 EU868
-    0x55C14800u, // bc=42 res=3 pi=261 EU868
-    0x55C18800u, // bc=42 res=3 pi=262 EU868
-    0x55C20800u, // bc=42 res=3 pi=264 EU868
-    0x55C24800u, // bc=42 res=3 pi=265 EU868
-    0x55C28800u, // bc=42 res=3 pi=266 EU868
-    0x55C2C800u, // bc=42 res=3 pi=267 EU868
-    0x55C30800u, // bc=42 res=3 pi=268 EU868
-    0x55C34800u, // bc=42 res=3 pi=269 EU868
-    0x55C38800u, // bc=42 res=3 pi=270 EU868
-    0x55C40800u, // bc=42 res=3 pi=272 EU868
-    0x55C44800u, // bc=42 res=3 pi=273 EU868
-    0x55C48800u, // bc=42 res=3 pi=274 EU868
-    0x55C4C800u, // bc=42 res=3 pi=275 EU868
-    0x55C50800u, // bc=42 res=3 pi=276 EU868
-    0x55C54800u, // bc=42 res=3 pi=277 EU868
-    0x55C60800u, // bc=42 res=3 pi=280 EU868
-    0x55C64800u, // bc=42 res=3 pi=281 EU868
-    0x55C68800u, // bc=42 res=3 pi=282 EU868
-    0x55C6C800u, // bc=42 res=3 pi=283 EU868
-    0x55C70800u, // bc=42 res=3 pi=284 EU868
-    0x55C74800u, // bc=42 res=3 pi=285 EU868
-    0x55C78800u, // bc=42 res=3 pi=286 EU868
-    0x55C80800u, // bc=42 res=3 pi=288 EU868
-    0x55C84800u, // bc=42 res=3 pi=289 EU868
-    0x55C88800u, // bc=42 res=3 pi=290 EU868
-    0x55C8C800u, // bc=42 res=3 pi=291 EU868
-    0x55C90800u, // bc=42 res=3 pi=292 EU868
-    0x55C94800u, // bc=42 res=3 pi=293 EU868
-    0x55C98800u, // bc=42 res=3 pi=294 EU868
-    0x55CA0800u, // bc=42 res=3 pi=296 EU868
-    0x55CA4800u, // bc=42 res=3 pi=297 EU868
-    0x55CA8800u, // bc=42 res=3 pi=298 EU868
-    0x55CAC800u, // bc=42 res=3 pi=299 EU868
-    0x55CB0800u, // bc=42 res=3 pi=300 EU868
-    0x55CB4800u, // bc=42 res=3 pi=301 EU868
-    0x55CB8800u, // bc=42 res=3 pi=302 EU868
-    0x55CC0800u, // bc=42 res=3 pi=304 EU868
-    0x55CC4800u, // bc=42 res=3 pi=305 EU868
-    0x55CC8800u, // bc=42 res=3 pi=306 EU868
-    0x55CCC800u, // bc=42 res=3 pi=307 EU868
-    0x55CD0800u, // bc=42 res=3 pi=308 EU868
-    0x55CD4800u, // bc=42 res=3 pi=309 EU868
-    0x55D00800u, // bc=42 res=3 pi=320 EU868
-    0x55D04800u, // bc=42 res=3 pi=321 EU868
-    0x55D08800u, // bc=42 res=3 pi=322 EU868
-    0x55D0C800u, // bc=42 res=3 pi=323 EU868
-    0x55D10800u, // bc=42 res=3 pi=324 EU868
-    0x55D14800u, // bc=42 res=3 pi=325 EU868
-    0x55D18800u, // bc=42 res=3 pi=326 EU868
-    0x55D20800u, // bc=42 res=3 pi=328 EU868
-    0x55D24800u, // bc=42 res=3 pi=329 EU868
-    0x55D28800u, // bc=42 res=3 pi=330 EU868
-    0x55D2C800u, // bc=42 res=3 pi=331 EU868
-    0x55D30800u, // bc=42 res=3 pi=332 EU868
-    0x55D34800u, // bc=42 res=3 pi=333 EU868
-    0x55D38800u, // bc=42 res=3 pi=334 EU868
-    0x55D40800u, // bc=42 res=3 pi=336 EU868
-    0x55D44800u, // bc=42 res=3 pi=337 EU868
-    0x55D48800u, // bc=42 res=3 pi=338 EU868
-    0x55D4C800u, // bc=42 res=3 pi=339 EU868
-    0x55D50800u, // bc=42 res=3 pi=340 EU868
-    0x55D54800u, // bc=42 res=3 pi=341 EU868
-    0x55D58800u, // bc=42 res=3 pi=342 EU868
-    0x55D60800u, // bc=42 res=3 pi=344 EU868
-    0x55D64800u, // bc=42 res=3 pi=345 EU868
-    0x55D68800u, // bc=42 res=3 pi=346 EU868
-    0x55D6C800u, // bc=42 res=3 pi=347 EU868
-    0x55D70800u, // bc=42 res=3 pi=348 EU868
-    0x55D74800u, // bc=42 res=3 pi=349 EU868
-    0x55D78800u, // bc=42 res=3 pi=350 EU868
-    0x55D80800u, // bc=42 res=3 pi=352 EU868
-    0x55D84800u, // bc=42 res=3 pi=353 EU868
-    0x55D88800u, // bc=42 res=3 pi=354 EU868
-    0x55D8C800u, // bc=42 res=3 pi=355 EU868
-    0x55D90800u, // bc=42 res=3 pi=356 EU868
-    0x55D94800u, // bc=42 res=3 pi=357 EU868
-    0x55D98800u, // bc=42 res=3 pi=358 EU868
-    0x55DA0800u, // bc=42 res=3 pi=360 EU868
-    0x55DA4800u, // bc=42 res=3 pi=361 EU868
-    0x55DA8800u, // bc=42 res=3 pi=362 EU868
-    0x55DAC800u, // bc=42 res=3 pi=363 EU868
-    0x55DB0800u, // bc=42 res=3 pi=364 EU868
-    0x55DB4800u, // bc=42 res=3 pi=365 EU868
-    0x55DB8800u, // bc=42 res=3 pi=366 EU868
-    0x55DC0800u, // bc=42 res=3 pi=368 EU868
-    0x55DC4800u, // bc=42 res=3 pi=369 EU868
-    0x55DC8800u, // bc=42 res=3 pi=370 EU868
-    0x55DCC800u, // bc=42 res=3 pi=371 EU868
-    0x55DD0800u, // bc=42 res=3 pi=372 EU868
-    0x55DD4800u, // bc=42 res=3 pi=373 EU868
-    0x55DD8800u, // bc=42 res=3 pi=374 EU868
+    0x55BC0800u, // bc=42 res=3 pi=240 EU868
+    0x55BC4800u, // bc=42 res=3 pi=241 EU868
+    0x55BCC800u, // bc=42 res=3 pi=243 EU868
+    0x55BD0800u, // bc=42 res=3 pi=244 EU868
+    0x55BD4800u, // bc=42 res=3 pi=245 EU868
+    0x55BD8800u, // bc=42 res=3 pi=246 EU868
+    0x55E34800u, // bc=42 res=3 pi=397 EU868
     0x57D24800u, // bc=43 res=3 pi=329 EU868
     0x57D30800u, // bc=43 res=3 pi=332 EU868
     0x57D34800u, // bc=43 res=3 pi=333 EU868
-    0x58802C00u, // bc=44 res=1 pi=0 IN865
-    0x58804800u, // bc=44 res=1 pi=1 EU868
-    0x58808800u, // bc=44 res=1 pi=2 EU868
+    0x57DAC800u, // bc=43 res=3 pi=363 EU868
     0x5880C800u, // bc=44 res=1 pi=3 EU868
-    0x58810800u, // bc=44 res=1 pi=4 EU868
-    0x58816C00u, // bc=44 res=1 pi=5 IN865
-    0x58818800u, // bc=44 res=1 pi=6 EU868
+    0x5900C800u, // bc=44 res=2 pi=3 EU868
+    0x59012C00u, // bc=44 res=2 pi=4 IN865
+    0x59016C00u, // bc=44 res=2 pi=5 IN865
+    0x59024800u, // bc=44 res=2 pi=9 EU868
+    0x5902C800u, // bc=44 res=2 pi=11 EU868
+    0x59032C00u, // bc=44 res=2 pi=12 IN865
+    0x59034800u, // bc=44 res=2 pi=13 EU868
+    0x5903AC00u, // bc=44 res=2 pi=14 IN865
+    0x59040800u, // bc=44 res=2 pi=16 EU868
+    0x59044800u, // bc=44 res=2 pi=17 EU868
+    0x59050800u, // bc=44 res=2 pi=20 EU868
+    0x59054800u, // bc=44 res=2 pi=21 EU868
+    0x59058800u, // bc=44 res=2 pi=22 EU868
+    0x59080800u, // bc=44 res=2 pi=32 EU868
+    0x59088800u, // bc=44 res=2 pi=34 EU868
+    0x5908C800u, // bc=44 res=2 pi=35 EU868
+    0x59090800u, // bc=44 res=2 pi=36 EU868
+    0x59094800u, // bc=44 res=2 pi=37 EU868
+    0x59098800u, // bc=44 res=2 pi=38 EU868
+    0x590A6C00u, // bc=44 res=2 pi=41 IN865
+    0x590AAC00u, // bc=44 res=2 pi=42 IN865
+    0x590AEC00u, // bc=44 res=2 pi=43 IN865
+    0x590B0800u, // bc=44 res=2 pi=44 EU868
+    0x590B8800u, // bc=44 res=2 pi=46 EU868
+    0x590C0800u, // bc=44 res=2 pi=48 EU868
+    0x590C8800u, // bc=44 res=2 pi=50 EU868
+    0x590CC800u, // bc=44 res=2 pi=51 EU868
+    0x590D0800u, // bc=44 res=2 pi=52 EU868
+    0x590D8800u, // bc=44 res=2 pi=54 EU868
     0x59802C00u, // bc=44 res=3 pi=0 IN865
     0x59806C00u, // bc=44 res=3 pi=1 IN865
     0x59808800u, // bc=44 res=3 pi=2 EU868
@@ -6504,27 +2432,6 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x59852C00u, // bc=44 res=3 pi=20 IN865
     0x59854800u, // bc=44 res=3 pi=21 EU868
     0x5985AC00u, // bc=44 res=3 pi=22 IN865
-    0x59860800u, // bc=44 res=3 pi=24 EU868
-    0x59864800u, // bc=44 res=3 pi=25 EU868
-    0x59868800u, // bc=44 res=3 pi=26 EU868
-    0x5986C800u, // bc=44 res=3 pi=27 EU868
-    0x59870800u, // bc=44 res=3 pi=28 EU868
-    0x59874800u, // bc=44 res=3 pi=29 EU868
-    0x59878800u, // bc=44 res=3 pi=30 EU868
-    0x59882C00u, // bc=44 res=3 pi=32 IN865
-    0x59886C00u, // bc=44 res=3 pi=33 IN865
-    0x5988AC00u, // bc=44 res=3 pi=34 IN865
-    0x5988EC00u, // bc=44 res=3 pi=35 IN865
-    0x59892C00u, // bc=44 res=3 pi=36 IN865
-    0x59896C00u, // bc=44 res=3 pi=37 IN865
-    0x5989AC00u, // bc=44 res=3 pi=38 IN865
-    0x598A2C00u, // bc=44 res=3 pi=40 IN865
-    0x598A6C00u, // bc=44 res=3 pi=41 IN865
-    0x598AAC00u, // bc=44 res=3 pi=42 IN865
-    0x598AEC00u, // bc=44 res=3 pi=43 IN865
-    0x598B2C00u, // bc=44 res=3 pi=44 IN865
-    0x598B6C00u, // bc=44 res=3 pi=45 IN865
-    0x598BAC00u, // bc=44 res=3 pi=46 IN865
     0x598C2C00u, // bc=44 res=3 pi=48 IN865
     0x598C6C00u, // bc=44 res=3 pi=49 IN865
     0x598CAC00u, // bc=44 res=3 pi=50 IN865
@@ -6539,13 +2446,6 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x59912C00u, // bc=44 res=3 pi=68 IN865
     0x59914800u, // bc=44 res=3 pi=69 EU868
     0x5991AC00u, // bc=44 res=3 pi=70 IN865
-    0x59920800u, // bc=44 res=3 pi=72 EU868
-    0x59924800u, // bc=44 res=3 pi=73 EU868
-    0x59928800u, // bc=44 res=3 pi=74 EU868
-    0x5992C800u, // bc=44 res=3 pi=75 EU868
-    0x59930800u, // bc=44 res=3 pi=76 EU868
-    0x59934800u, // bc=44 res=3 pi=77 EU868
-    0x59938800u, // bc=44 res=3 pi=78 EU868
     0x59940800u, // bc=44 res=3 pi=80 EU868
     0x59944800u, // bc=44 res=3 pi=81 EU868
     0x59948800u, // bc=44 res=3 pi=82 EU868
@@ -6553,131 +2453,16 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x59950800u, // bc=44 res=3 pi=84 EU868
     0x59956C00u, // bc=44 res=3 pi=85 IN865
     0x59958800u, // bc=44 res=3 pi=86 EU868
-    0x59960800u, // bc=44 res=3 pi=88 EU868
-    0x59964800u, // bc=44 res=3 pi=89 EU868
-    0x59968800u, // bc=44 res=3 pi=90 EU868
-    0x5996C800u, // bc=44 res=3 pi=91 EU868
-    0x59970800u, // bc=44 res=3 pi=92 EU868
-    0x59974800u, // bc=44 res=3 pi=93 EU868
-    0x59978800u, // bc=44 res=3 pi=94 EU868
-    0x59982C00u, // bc=44 res=3 pi=96 IN865
-    0x59986C00u, // bc=44 res=3 pi=97 IN865
-    0x5998AC00u, // bc=44 res=3 pi=98 IN865
-    0x5998EC00u, // bc=44 res=3 pi=99 IN865
-    0x59992C00u, // bc=44 res=3 pi=100 IN865
-    0x59996C00u, // bc=44 res=3 pi=101 IN865
-    0x5999AC00u, // bc=44 res=3 pi=102 IN865
-    0x599A0800u, // bc=44 res=3 pi=104 EU868
-    0x599A4800u, // bc=44 res=3 pi=105 EU868
-    0x599A8800u, // bc=44 res=3 pi=106 EU868
-    0x599AC800u, // bc=44 res=3 pi=107 EU868
-    0x599B0800u, // bc=44 res=3 pi=108 EU868
-    0x599B4800u, // bc=44 res=3 pi=109 EU868
-    0x599B8800u, // bc=44 res=3 pi=110 EU868
-    0x599C2C00u, // bc=44 res=3 pi=112 IN865
-    0x599C6C00u, // bc=44 res=3 pi=113 IN865
-    0x599CAC00u, // bc=44 res=3 pi=114 IN865
-    0x599CEC00u, // bc=44 res=3 pi=115 IN865
-    0x599D2C00u, // bc=44 res=3 pi=116 IN865
-    0x599D6C00u, // bc=44 res=3 pi=117 IN865
-    0x599DAC00u, // bc=44 res=3 pi=118 IN865
-    0x59A00800u, // bc=44 res=3 pi=128 EU868
-    0x59A04800u, // bc=44 res=3 pi=129 EU868
-    0x59A08800u, // bc=44 res=3 pi=130 EU868
-    0x59A0C800u, // bc=44 res=3 pi=131 EU868
-    0x59A10800u, // bc=44 res=3 pi=132 EU868
-    0x59A14800u, // bc=44 res=3 pi=133 EU868
-    0x59A18800u, // bc=44 res=3 pi=134 EU868
-    0x59A20800u, // bc=44 res=3 pi=136 EU868
-    0x59A24800u, // bc=44 res=3 pi=137 EU868
-    0x59A28800u, // bc=44 res=3 pi=138 EU868
-    0x59A2C800u, // bc=44 res=3 pi=139 EU868
-    0x59A30800u, // bc=44 res=3 pi=140 EU868
-    0x59A34800u, // bc=44 res=3 pi=141 EU868
-    0x59A38800u, // bc=44 res=3 pi=142 EU868
     0x59A40800u, // bc=44 res=3 pi=144 EU868
+    0x59A44800u, // bc=44 res=3 pi=145 EU868
+    0x59A48800u, // bc=44 res=3 pi=146 EU868
     0x59A50800u, // bc=44 res=3 pi=148 EU868
     0x59A54800u, // bc=44 res=3 pi=149 EU868
     0x59A58800u, // bc=44 res=3 pi=150 EU868
     0x59A64800u, // bc=44 res=3 pi=153 EU868
+    0x59A6C800u, // bc=44 res=3 pi=155 EU868
+    0x59A70800u, // bc=44 res=3 pi=156 EU868
     0x59A74800u, // bc=44 res=3 pi=157 EU868
-    0x59A80800u, // bc=44 res=3 pi=160 EU868
-    0x59A84800u, // bc=44 res=3 pi=161 EU868
-    0x59A88800u, // bc=44 res=3 pi=162 EU868
-    0x59A8C800u, // bc=44 res=3 pi=163 EU868
-    0x59A90800u, // bc=44 res=3 pi=164 EU868
-    0x59A94800u, // bc=44 res=3 pi=165 EU868
-    0x59A98800u, // bc=44 res=3 pi=166 EU868
-    0x59AA0800u, // bc=44 res=3 pi=168 EU868
-    0x59AA4800u, // bc=44 res=3 pi=169 EU868
-    0x59AA8800u, // bc=44 res=3 pi=170 EU868
-    0x59AAC800u, // bc=44 res=3 pi=171 EU868
-    0x59AB0800u, // bc=44 res=3 pi=172 EU868
-    0x59AB4800u, // bc=44 res=3 pi=173 EU868
-    0x59AB8800u, // bc=44 res=3 pi=174 EU868
-    0x59AC0800u, // bc=44 res=3 pi=176 EU868
-    0x59AC4800u, // bc=44 res=3 pi=177 EU868
-    0x59AC8800u, // bc=44 res=3 pi=178 EU868
-    0x59ACC800u, // bc=44 res=3 pi=179 EU868
-    0x59AD0800u, // bc=44 res=3 pi=180 EU868
-    0x59AD4800u, // bc=44 res=3 pi=181 EU868
-    0x59AD8800u, // bc=44 res=3 pi=182 EU868
-    0x59B00800u, // bc=44 res=3 pi=192 EU868
-    0x59B04800u, // bc=44 res=3 pi=193 EU868
-    0x59B08800u, // bc=44 res=3 pi=194 EU868
-    0x59B0C800u, // bc=44 res=3 pi=195 EU868
-    0x59B10800u, // bc=44 res=3 pi=196 EU868
-    0x59B14800u, // bc=44 res=3 pi=197 EU868
-    0x59B18800u, // bc=44 res=3 pi=198 EU868
-    0x59B20800u, // bc=44 res=3 pi=200 EU868
-    0x59B24800u, // bc=44 res=3 pi=201 EU868
-    0x59B28800u, // bc=44 res=3 pi=202 EU868
-    0x59B2C800u, // bc=44 res=3 pi=203 EU868
-    0x59B30800u, // bc=44 res=3 pi=204 EU868
-    0x59B34800u, // bc=44 res=3 pi=205 EU868
-    0x59B38800u, // bc=44 res=3 pi=206 EU868
-    0x59B40800u, // bc=44 res=3 pi=208 EU868
-    0x59B44800u, // bc=44 res=3 pi=209 EU868
-    0x59B48800u, // bc=44 res=3 pi=210 EU868
-    0x59B4C800u, // bc=44 res=3 pi=211 EU868
-    0x59B50800u, // bc=44 res=3 pi=212 EU868
-    0x59B54800u, // bc=44 res=3 pi=213 EU868
-    0x59B58800u, // bc=44 res=3 pi=214 EU868
-    0x59B60800u, // bc=44 res=3 pi=216 EU868
-    0x59B64800u, // bc=44 res=3 pi=217 EU868
-    0x59B68800u, // bc=44 res=3 pi=218 EU868
-    0x59B6C800u, // bc=44 res=3 pi=219 EU868
-    0x59B70800u, // bc=44 res=3 pi=220 EU868
-    0x59B74800u, // bc=44 res=3 pi=221 EU868
-    0x59B78800u, // bc=44 res=3 pi=222 EU868
-    0x59B80800u, // bc=44 res=3 pi=224 EU868
-    0x59B84800u, // bc=44 res=3 pi=225 EU868
-    0x59B88800u, // bc=44 res=3 pi=226 EU868
-    0x59B8C800u, // bc=44 res=3 pi=227 EU868
-    0x59B90800u, // bc=44 res=3 pi=228 EU868
-    0x59B94800u, // bc=44 res=3 pi=229 EU868
-    0x59B98800u, // bc=44 res=3 pi=230 EU868
-    0x59BA0800u, // bc=44 res=3 pi=232 EU868
-    0x59BA4800u, // bc=44 res=3 pi=233 EU868
-    0x59BA8800u, // bc=44 res=3 pi=234 EU868
-    0x59BAC800u, // bc=44 res=3 pi=235 EU868
-    0x59BB0800u, // bc=44 res=3 pi=236 EU868
-    0x59BB4800u, // bc=44 res=3 pi=237 EU868
-    0x59BB8800u, // bc=44 res=3 pi=238 EU868
-    0x59BC0800u, // bc=44 res=3 pi=240 EU868
-    0x59BC4800u, // bc=44 res=3 pi=241 EU868
-    0x59BC8800u, // bc=44 res=3 pi=242 EU868
-    0x59BCC800u, // bc=44 res=3 pi=243 EU868
-    0x59BD0800u, // bc=44 res=3 pi=244 EU868
-    0x59BD4800u, // bc=44 res=3 pi=245 EU868
-    0x59BD8800u, // bc=44 res=3 pi=246 EU868
-    0x59C00800u, // bc=44 res=3 pi=256 EU868
-    0x59C04800u, // bc=44 res=3 pi=257 EU868
-    0x59C08800u, // bc=44 res=3 pi=258 EU868
-    0x59C0C800u, // bc=44 res=3 pi=259 EU868
-    0x59C10800u, // bc=44 res=3 pi=260 EU868
-    0x59C14800u, // bc=44 res=3 pi=261 EU868
-    0x59C18800u, // bc=44 res=3 pi=262 EU868
     0x59C20800u, // bc=44 res=3 pi=264 EU868
     0x59C24800u, // bc=44 res=3 pi=265 EU868
     0x59C28800u, // bc=44 res=3 pi=266 EU868
@@ -6685,41 +2470,6 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x59C30800u, // bc=44 res=3 pi=268 EU868
     0x59C34800u, // bc=44 res=3 pi=269 EU868
     0x59C38800u, // bc=44 res=3 pi=270 EU868
-    0x59C40800u, // bc=44 res=3 pi=272 EU868
-    0x59C44800u, // bc=44 res=3 pi=273 EU868
-    0x59C48800u, // bc=44 res=3 pi=274 EU868
-    0x59C4C800u, // bc=44 res=3 pi=275 EU868
-    0x59C50800u, // bc=44 res=3 pi=276 EU868
-    0x59C54800u, // bc=44 res=3 pi=277 EU868
-    0x59C58800u, // bc=44 res=3 pi=278 EU868
-    0x59C60800u, // bc=44 res=3 pi=280 EU868
-    0x59C64800u, // bc=44 res=3 pi=281 EU868
-    0x59C68800u, // bc=44 res=3 pi=282 EU868
-    0x59C6C800u, // bc=44 res=3 pi=283 EU868
-    0x59C70800u, // bc=44 res=3 pi=284 EU868
-    0x59C74800u, // bc=44 res=3 pi=285 EU868
-    0x59C78800u, // bc=44 res=3 pi=286 EU868
-    0x59C80800u, // bc=44 res=3 pi=288 EU868
-    0x59C84800u, // bc=44 res=3 pi=289 EU868
-    0x59C88800u, // bc=44 res=3 pi=290 EU868
-    0x59C8C800u, // bc=44 res=3 pi=291 EU868
-    0x59C90800u, // bc=44 res=3 pi=292 EU868
-    0x59C94800u, // bc=44 res=3 pi=293 EU868
-    0x59C98800u, // bc=44 res=3 pi=294 EU868
-    0x59CA0800u, // bc=44 res=3 pi=296 EU868
-    0x59CA4800u, // bc=44 res=3 pi=297 EU868
-    0x59CA8800u, // bc=44 res=3 pi=298 EU868
-    0x59CAC800u, // bc=44 res=3 pi=299 EU868
-    0x59CB0800u, // bc=44 res=3 pi=300 EU868
-    0x59CB4800u, // bc=44 res=3 pi=301 EU868
-    0x59CB8800u, // bc=44 res=3 pi=302 EU868
-    0x59CC0800u, // bc=44 res=3 pi=304 EU868
-    0x59CC4800u, // bc=44 res=3 pi=305 EU868
-    0x59CC8800u, // bc=44 res=3 pi=306 EU868
-    0x59CCC800u, // bc=44 res=3 pi=307 EU868
-    0x59CD0800u, // bc=44 res=3 pi=308 EU868
-    0x59CD4800u, // bc=44 res=3 pi=309 EU868
-    0x59CD8800u, // bc=44 res=3 pi=310 EU868
     0x59D02C00u, // bc=44 res=3 pi=320 IN865
     0x59D06C00u, // bc=44 res=3 pi=321 IN865
     0x59D0AC00u, // bc=44 res=3 pi=322 IN865
@@ -6727,54 +2477,12 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x59D10800u, // bc=44 res=3 pi=324 EU868
     0x59D16C00u, // bc=44 res=3 pi=325 IN865
     0x59D1AC00u, // bc=44 res=3 pi=326 IN865
-    0x59D22C00u, // bc=44 res=3 pi=328 IN865
-    0x59D26C00u, // bc=44 res=3 pi=329 IN865
-    0x59D2AC00u, // bc=44 res=3 pi=330 IN865
-    0x59D2EC00u, // bc=44 res=3 pi=331 IN865
-    0x59D32C00u, // bc=44 res=3 pi=332 IN865
-    0x59D36C00u, // bc=44 res=3 pi=333 IN865
-    0x59D3AC00u, // bc=44 res=3 pi=334 IN865
-    0x59D42C00u, // bc=44 res=3 pi=336 IN865
-    0x59D46C00u, // bc=44 res=3 pi=337 IN865
-    0x59D4AC00u, // bc=44 res=3 pi=338 IN865
-    0x59D4EC00u, // bc=44 res=3 pi=339 IN865
-    0x59D52C00u, // bc=44 res=3 pi=340 IN865
-    0x59D56C00u, // bc=44 res=3 pi=341 IN865
-    0x59D5AC00u, // bc=44 res=3 pi=342 IN865
-    0x59D62C00u, // bc=44 res=3 pi=344 IN865
-    0x59D66C00u, // bc=44 res=3 pi=345 IN865
-    0x59D6AC00u, // bc=44 res=3 pi=346 IN865
-    0x59D6EC00u, // bc=44 res=3 pi=347 IN865
-    0x59D72C00u, // bc=44 res=3 pi=348 IN865
-    0x59D76C00u, // bc=44 res=3 pi=349 IN865
-    0x59D7AC00u, // bc=44 res=3 pi=350 IN865
-    0x59D80800u, // bc=44 res=3 pi=352 EU868
-    0x59D84800u, // bc=44 res=3 pi=353 EU868
-    0x59D88800u, // bc=44 res=3 pi=354 EU868
-    0x59D8C800u, // bc=44 res=3 pi=355 EU868
-    0x59D90800u, // bc=44 res=3 pi=356 EU868
-    0x59D94800u, // bc=44 res=3 pi=357 EU868
-    0x59D98800u, // bc=44 res=3 pi=358 EU868
     0x59DA2C00u, // bc=44 res=3 pi=360 IN865
     0x59DA6C00u, // bc=44 res=3 pi=361 IN865
     0x59DAAC00u, // bc=44 res=3 pi=362 IN865
     0x59DAEC00u, // bc=44 res=3 pi=363 IN865
     0x59DB0800u, // bc=44 res=3 pi=364 EU868
     0x59DB8800u, // bc=44 res=3 pi=366 EU868
-    0x59DC0800u, // bc=44 res=3 pi=368 EU868
-    0x59DC4800u, // bc=44 res=3 pi=369 EU868
-    0x59DC8800u, // bc=44 res=3 pi=370 EU868
-    0x59DCC800u, // bc=44 res=3 pi=371 EU868
-    0x59DD0800u, // bc=44 res=3 pi=372 EU868
-    0x59DD4800u, // bc=44 res=3 pi=373 EU868
-    0x59DD8800u, // bc=44 res=3 pi=374 EU868
-    0x59E00800u, // bc=44 res=3 pi=384 EU868
-    0x59E04800u, // bc=44 res=3 pi=385 EU868
-    0x59E08800u, // bc=44 res=3 pi=386 EU868
-    0x59E0C800u, // bc=44 res=3 pi=387 EU868
-    0x59E10800u, // bc=44 res=3 pi=388 EU868
-    0x59E14800u, // bc=44 res=3 pi=389 EU868
-    0x59E18800u, // bc=44 res=3 pi=390 EU868
     0x59E22C00u, // bc=44 res=3 pi=392 IN865
     0x59E26C00u, // bc=44 res=3 pi=393 IN865
     0x59E28800u, // bc=44 res=3 pi=394 EU868
@@ -6782,27 +2490,6 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x59E32C00u, // bc=44 res=3 pi=396 IN865
     0x59E36C00u, // bc=44 res=3 pi=397 IN865
     0x59E38800u, // bc=44 res=3 pi=398 EU868
-    0x59E40800u, // bc=44 res=3 pi=400 EU868
-    0x59E44800u, // bc=44 res=3 pi=401 EU868
-    0x59E48800u, // bc=44 res=3 pi=402 EU868
-    0x59E4C800u, // bc=44 res=3 pi=403 EU868
-    0x59E50800u, // bc=44 res=3 pi=404 EU868
-    0x59E54800u, // bc=44 res=3 pi=405 EU868
-    0x59E58800u, // bc=44 res=3 pi=406 EU868
-    0x59E60800u, // bc=44 res=3 pi=408 EU868
-    0x59E64800u, // bc=44 res=3 pi=409 EU868
-    0x59E68800u, // bc=44 res=3 pi=410 EU868
-    0x59E6C800u, // bc=44 res=3 pi=411 EU868
-    0x59E70800u, // bc=44 res=3 pi=412 EU868
-    0x59E74800u, // bc=44 res=3 pi=413 EU868
-    0x59E78800u, // bc=44 res=3 pi=414 EU868
-    0x59E80800u, // bc=44 res=3 pi=416 EU868
-    0x59E84800u, // bc=44 res=3 pi=417 EU868
-    0x59E88800u, // bc=44 res=3 pi=418 EU868
-    0x59E8C800u, // bc=44 res=3 pi=419 EU868
-    0x59E90800u, // bc=44 res=3 pi=420 EU868
-    0x59E94800u, // bc=44 res=3 pi=421 EU868
-    0x59E98800u, // bc=44 res=3 pi=422 EU868
     0x59EA0800u, // bc=44 res=3 pi=424 EU868
     0x59EA4800u, // bc=44 res=3 pi=425 EU868
     0x59EAAC00u, // bc=44 res=3 pi=426 IN865
@@ -6810,45 +2497,48 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x59EB0800u, // bc=44 res=3 pi=428 EU868
     0x59EB4800u, // bc=44 res=3 pi=429 EU868
     0x59EB8800u, // bc=44 res=3 pi=430 EU868
-    0x59EC0800u, // bc=44 res=3 pi=432 EU868
-    0x59EC4800u, // bc=44 res=3 pi=433 EU868
-    0x59EC8800u, // bc=44 res=3 pi=434 EU868
-    0x59ECC800u, // bc=44 res=3 pi=435 EU868
-    0x59ED0800u, // bc=44 res=3 pi=436 EU868
-    0x59ED4800u, // bc=44 res=3 pi=437 EU868
-    0x59ED8800u, // bc=44 res=3 pi=438 EU868
-    0x5D088400u, // bc=46 res=2 pi=34 US915
-    0x5E810C00u, // bc=47 res=1 pi=4 AU915
-    0x5E815000u, // bc=47 res=1 pi=5 AS923-1
+    0x5BBA0400u, // bc=45 res=3 pi=232 US915
+    0x5BBA8400u, // bc=45 res=3 pi=234 US915
+    0x5DC40400u, // bc=46 res=3 pi=272 US915
+    0x5DC44400u, // bc=46 res=3 pi=273 US915
+    0x5DC48400u, // bc=46 res=3 pi=274 US915
+    0x5DC4C400u, // bc=46 res=3 pi=275 US915
+    0x5DC50400u, // bc=46 res=3 pi=276 US915
+    0x5DC58400u, // bc=46 res=3 pi=278 US915
+    0x5F038C00u, // bc=47 res=2 pi=14 AU915
+    0x5F080C00u, // bc=47 res=2 pi=32 AU915
+    0x5F088800u, // bc=47 res=2 pi=34 EU868
+    0x5F0A1000u, // bc=47 res=2 pi=40 AS923-1
+    0x5F0A5000u, // bc=47 res=2 pi=41 AS923-1
+    0x5F0B1000u, // bc=47 res=2 pi=44 AS923-1
+    0x5F0B5000u, // bc=47 res=2 pi=45 AS923-1
+    0x5F900800u, // bc=47 res=3 pi=64 EU868
+    0x5F908C00u, // bc=47 res=3 pi=66 AU915
     0x5F90C800u, // bc=47 res=3 pi=67 EU868
+    0x5F910C00u, // bc=47 res=3 pi=68 AU915
     0x5F918800u, // bc=47 res=3 pi=70 EU868
     0x5F928C00u, // bc=47 res=3 pi=74 AU915
+    0x5F92C800u, // bc=47 res=3 pi=75 EU868
     0x5F931000u, // bc=47 res=3 pi=76 AS923-1
+    0x5F935000u, // bc=47 res=3 pi=77 AS923-1
+    0x5F938C00u, // bc=47 res=3 pi=78 AU915
     0x5F970800u, // bc=47 res=3 pi=92 EU868
+    0x5F974800u, // bc=47 res=3 pi=93 EU868
+    0x5F988C00u, // bc=47 res=3 pi=98 AU915
     0x5F991000u, // bc=47 res=3 pi=100 AS923-1
     0x5F995000u, // bc=47 res=3 pi=101 AS923-1
-    0x5F9C4C00u, // bc=47 res=3 pi=113 AU915
-    0x5FC00C00u, // bc=47 res=3 pi=256 AU915
-    0x5FC04C00u, // bc=47 res=3 pi=257 AU915
-    0x5FC08C00u, // bc=47 res=3 pi=258 AU915
-    0x5FC0CC00u, // bc=47 res=3 pi=259 AU915
-    0x5FC10C00u, // bc=47 res=3 pi=260 AU915
-    0x5FC14C00u, // bc=47 res=3 pi=261 AU915
-    0x5FC18C00u, // bc=47 res=3 pi=262 AU915
+    0x5F998C00u, // bc=47 res=3 pi=102 AU915
     0x5FC20400u, // bc=47 res=3 pi=264 US915
     0x5FC24400u, // bc=47 res=3 pi=265 US915
+    0x5FC28C00u, // bc=47 res=3 pi=266 AU915
+    0x5FC2C400u, // bc=47 res=3 pi=267 US915
     0x5FC30C00u, // bc=47 res=3 pi=268 AU915
     0x5FC34400u, // bc=47 res=3 pi=269 US915
     0x5FC38C00u, // bc=47 res=3 pi=270 AU915
-    0x5FC40800u, // bc=47 res=3 pi=272 EU868
-    0x5FC44800u, // bc=47 res=3 pi=273 EU868
-    0x5FC48800u, // bc=47 res=3 pi=274 EU868
-    0x5FC4C800u, // bc=47 res=3 pi=275 EU868
-    0x5FC50800u, // bc=47 res=3 pi=276 EU868
-    0x5FC54800u, // bc=47 res=3 pi=277 EU868
-    0x5FC58800u, // bc=47 res=3 pi=278 EU868
+    0x5FC60C00u, // bc=47 res=3 pi=280 AU915
     0x5FC70C00u, // bc=47 res=3 pi=284 AU915
     0x5FC74C00u, // bc=47 res=3 pi=285 AU915
+    0x5FC78800u, // bc=47 res=3 pi=286 EU868
     0x5FC80C00u, // bc=47 res=3 pi=288 AU915
     0x5FC84C00u, // bc=47 res=3 pi=289 AU915
     0x5FC88C00u, // bc=47 res=3 pi=290 AU915
@@ -6870,43 +2560,19 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x5FCD0C00u, // bc=47 res=3 pi=308 AU915
     0x5FCD4C00u, // bc=47 res=3 pi=309 AU915
     0x5FCD8C00u, // bc=47 res=3 pi=310 AU915
-    0x5FD01000u, // bc=47 res=3 pi=320 AS923-1
-    0x5FD05000u, // bc=47 res=3 pi=321 AS923-1
-    0x5FD09000u, // bc=47 res=3 pi=322 AS923-1
-    0x5FD0D000u, // bc=47 res=3 pi=323 AS923-1
-    0x5FD11000u, // bc=47 res=3 pi=324 AS923-1
-    0x5FD15000u, // bc=47 res=3 pi=325 AS923-1
-    0x5FD19000u, // bc=47 res=3 pi=326 AS923-1
-    0x5FD21000u, // bc=47 res=3 pi=328 AS923-1
-    0x5FD25000u, // bc=47 res=3 pi=329 AS923-1
-    0x5FD29000u, // bc=47 res=3 pi=330 AS923-1
-    0x5FD2D000u, // bc=47 res=3 pi=331 AS923-1
-    0x5FD31000u, // bc=47 res=3 pi=332 AS923-1
-    0x5FD35000u, // bc=47 res=3 pi=333 AS923-1
-    0x5FD39000u, // bc=47 res=3 pi=334 AS923-1
     0x5FD40400u, // bc=47 res=3 pi=336 US915
     0x5FD45000u, // bc=47 res=3 pi=337 AS923-1
+    0x5FD4D000u, // bc=47 res=3 pi=339 AS923-1
     0x5FD50400u, // bc=47 res=3 pi=340 US915
     0x5FD54400u, // bc=47 res=3 pi=341 US915
+    0x5FD58400u, // bc=47 res=3 pi=342 US915
     0x5FD60C00u, // bc=47 res=3 pi=344 AU915
     0x5FD65000u, // bc=47 res=3 pi=345 AS923-1
+    0x5FD68C00u, // bc=47 res=3 pi=346 AU915
     0x5FD6CC00u, // bc=47 res=3 pi=347 AU915
     0x5FD71000u, // bc=47 res=3 pi=348 AS923-1
     0x5FD75000u, // bc=47 res=3 pi=349 AS923-1
-    0x5FD81000u, // bc=47 res=3 pi=352 AS923-1
-    0x5FD85000u, // bc=47 res=3 pi=353 AS923-1
-    0x5FD89000u, // bc=47 res=3 pi=354 AS923-1
-    0x5FD8D000u, // bc=47 res=3 pi=355 AS923-1
-    0x5FD91000u, // bc=47 res=3 pi=356 AS923-1
-    0x5FD95000u, // bc=47 res=3 pi=357 AS923-1
-    0x5FD99000u, // bc=47 res=3 pi=358 AS923-1
-    0x5FDA1000u, // bc=47 res=3 pi=360 AS923-1
-    0x5FDA5000u, // bc=47 res=3 pi=361 AS923-1
-    0x5FDA9000u, // bc=47 res=3 pi=362 AS923-1
-    0x5FDAD000u, // bc=47 res=3 pi=363 AS923-1
-    0x5FDB1000u, // bc=47 res=3 pi=364 AS923-1
-    0x5FDB5000u, // bc=47 res=3 pi=365 AS923-1
-    0x5FDB9000u, // bc=47 res=3 pi=366 AS923-1
+    0x5FD79000u, // bc=47 res=3 pi=350 AS923-1
     0x5FDC0400u, // bc=47 res=3 pi=368 US915
     0x5FDC4400u, // bc=47 res=3 pi=369 US915
     0x5FDC8400u, // bc=47 res=3 pi=370 US915
@@ -6914,149 +2580,133 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x5FDD0C00u, // bc=47 res=3 pi=372 AU915
     0x5FDD5000u, // bc=47 res=3 pi=373 AS923-1
     0x5FDD8400u, // bc=47 res=3 pi=374 US915
+    0x5FE94C00u, // bc=47 res=3 pi=421 AU915
     0x6080AC00u, // bc=48 res=1 pi=2 IN865
-    0x61006C00u, // bc=48 res=2 pi=1 IN865
     0x6100AC00u, // bc=48 res=2 pi=2 IN865
     0x6101AC00u, // bc=48 res=2 pi=6 IN865
     0x610C6C00u, // bc=48 res=2 pi=49 IN865
-    0x610CEC00u, // bc=48 res=2 pi=51 IN865
+    0x61806C00u, // bc=48 res=3 pi=1 IN865
     0x6180AC00u, // bc=48 res=3 pi=2 IN865
+    0x6180EC00u, // bc=48 res=3 pi=3 IN865
+    0x61812C00u, // bc=48 res=3 pi=4 IN865
     0x6181AC00u, // bc=48 res=3 pi=6 IN865
+    0x61822C00u, // bc=48 res=3 pi=8 IN865
+    0x6182AC00u, // bc=48 res=3 pi=10 IN865
+    0x6182EC00u, // bc=48 res=3 pi=11 IN865
+    0x61832C00u, // bc=48 res=3 pi=12 IN865
+    0x61836C00u, // bc=48 res=3 pi=13 IN865
+    0x6183AC00u, // bc=48 res=3 pi=14 IN865
+    0x6186AC00u, // bc=48 res=3 pi=26 IN865
+    0x61872C00u, // bc=48 res=3 pi=28 IN865
+    0x61876C00u, // bc=48 res=3 pi=29 IN865
     0x6187AC00u, // bc=48 res=3 pi=30 IN865
+    0x61882C00u, // bc=48 res=3 pi=32 IN865
     0x6188AC00u, // bc=48 res=3 pi=34 IN865
+    0x61892C00u, // bc=48 res=3 pi=36 IN865
     0x6189AC00u, // bc=48 res=3 pi=38 IN865
-    0x61A02C00u, // bc=48 res=3 pi=128 IN865
-    0x61A06C00u, // bc=48 res=3 pi=129 IN865
-    0x61A0AC00u, // bc=48 res=3 pi=130 IN865
-    0x61A0EC00u, // bc=48 res=3 pi=131 IN865
-    0x61A12C00u, // bc=48 res=3 pi=132 IN865
-    0x61A16C00u, // bc=48 res=3 pi=133 IN865
-    0x61A1AC00u, // bc=48 res=3 pi=134 IN865
-    0x61A22C00u, // bc=48 res=3 pi=136 IN865
-    0x61A2AC00u, // bc=48 res=3 pi=138 IN865
-    0x61A2EC00u, // bc=48 res=3 pi=139 IN865
-    0x61A32C00u, // bc=48 res=3 pi=140 IN865
-    0x61A36C00u, // bc=48 res=3 pi=141 IN865
-    0x61A3AC00u, // bc=48 res=3 pi=142 IN865
-    0x61A42C00u, // bc=48 res=3 pi=144 IN865
-    0x61A46C00u, // bc=48 res=3 pi=145 IN865
-    0x61A4AC00u, // bc=48 res=3 pi=146 IN865
-    0x61A4EC00u, // bc=48 res=3 pi=147 IN865
-    0x61A52C00u, // bc=48 res=3 pi=148 IN865
-    0x61A56C00u, // bc=48 res=3 pi=149 IN865
-    0x61A5AC00u, // bc=48 res=3 pi=150 IN865
-    0x61A62C00u, // bc=48 res=3 pi=152 IN865
-    0x61A66C00u, // bc=48 res=3 pi=153 IN865
-    0x61A6AC00u, // bc=48 res=3 pi=154 IN865
-    0x61A6EC00u, // bc=48 res=3 pi=155 IN865
-    0x61A72C00u, // bc=48 res=3 pi=156 IN865
-    0x61A76C00u, // bc=48 res=3 pi=157 IN865
-    0x61A7AC00u, // bc=48 res=3 pi=158 IN865
-    0x61A82C00u, // bc=48 res=3 pi=160 IN865
-    0x61A86C00u, // bc=48 res=3 pi=161 IN865
-    0x61A8AC00u, // bc=48 res=3 pi=162 IN865
-    0x61A8EC00u, // bc=48 res=3 pi=163 IN865
-    0x61A92C00u, // bc=48 res=3 pi=164 IN865
-    0x61A96C00u, // bc=48 res=3 pi=165 IN865
-    0x61A9AC00u, // bc=48 res=3 pi=166 IN865
-    0x61AA2C00u, // bc=48 res=3 pi=168 IN865
-    0x61AA6C00u, // bc=48 res=3 pi=169 IN865
-    0x61AAAC00u, // bc=48 res=3 pi=170 IN865
-    0x61AAEC00u, // bc=48 res=3 pi=171 IN865
-    0x61AB2C00u, // bc=48 res=3 pi=172 IN865
-    0x61AB6C00u, // bc=48 res=3 pi=173 IN865
-    0x61ABAC00u, // bc=48 res=3 pi=174 IN865
-    0x61AC2C00u, // bc=48 res=3 pi=176 IN865
-    0x61AC6C00u, // bc=48 res=3 pi=177 IN865
-    0x61ACAC00u, // bc=48 res=3 pi=178 IN865
-    0x61ACEC00u, // bc=48 res=3 pi=179 IN865
-    0x61AD2C00u, // bc=48 res=3 pi=180 IN865
-    0x61AD6C00u, // bc=48 res=3 pi=181 IN865
-    0x61ADAC00u, // bc=48 res=3 pi=182 IN865
+    0x618A2C00u, // bc=48 res=3 pi=40 IN865
+    0x618A6C00u, // bc=48 res=3 pi=41 IN865
+    0x618AAC00u, // bc=48 res=3 pi=42 IN865
+    0x618AEC00u, // bc=48 res=3 pi=43 IN865
+    0x61B92C00u, // bc=48 res=3 pi=228 IN865
+    0x61BCAC00u, // bc=48 res=3 pi=242 IN865
+    0x61BD2C00u, // bc=48 res=3 pi=244 IN865
     0x61BDAC00u, // bc=48 res=3 pi=246 IN865
+    0x61C01000u, // bc=48 res=3 pi=256 AS923-1
     0x61C09000u, // bc=48 res=3 pi=258 AS923-1
+    0x61C0D000u, // bc=48 res=3 pi=259 AS923-1
+    0x61C19000u, // bc=48 res=3 pi=262 AS923-1
+    0x61C41000u, // bc=48 res=3 pi=272 AS923-1
     0x61C45000u, // bc=48 res=3 pi=273 AS923-1
     0x61C4D000u, // bc=48 res=3 pi=275 AS923-1
     0x61C55000u, // bc=48 res=3 pi=277 AS923-1
+    0x61C61000u, // bc=48 res=3 pi=280 AS923-1
+    0x61C66C00u, // bc=48 res=3 pi=281 IN865
     0x61C6AC00u, // bc=48 res=3 pi=282 IN865
     0x61C6EC00u, // bc=48 res=3 pi=283 IN865
     0x61C71000u, // bc=48 res=3 pi=284 AS923-1
     0x61C79000u, // bc=48 res=3 pi=286 AS923-1
+    0x61E06C00u, // bc=48 res=3 pi=385 IN865
+    0x61E4EC00u, // bc=48 res=3 pi=403 IN865
+    0x61E62C00u, // bc=48 res=3 pi=408 IN865
+    0x61E66C00u, // bc=48 res=3 pi=409 IN865
+    0x61E6AC00u, // bc=48 res=3 pi=410 IN865
+    0x61E6EC00u, // bc=48 res=3 pi=411 IN865
+    0x61E76C00u, // bc=48 res=3 pi=413 IN865
+    0x61E7AC00u, // bc=48 res=3 pi=414 IN865
+    0x61EA2C00u, // bc=48 res=3 pi=424 IN865
     0x61EA6C00u, // bc=48 res=3 pi=425 IN865
     0x61EAEC00u, // bc=48 res=3 pi=427 IN865
     0x61EB5000u, // bc=48 res=3 pi=429 AS923-1
     0x63098800u, // bc=49 res=2 pi=38 EU868
     0x630C8800u, // bc=49 res=2 pi=50 EU868
+    0x63C50800u, // bc=49 res=3 pi=276 EU868
+    0x63C80800u, // bc=49 res=3 pi=288 EU868
+    0x63C88800u, // bc=49 res=3 pi=290 EU868
     0x63C90800u, // bc=49 res=3 pi=292 EU868
     0x63C98800u, // bc=49 res=3 pi=294 EU868
+    0x63E08800u, // bc=49 res=3 pi=386 EU868
+    0x63E18800u, // bc=49 res=3 pi=390 EU868
+    0x63EC0800u, // bc=49 res=3 pi=432 EU868
+    0x63EC4800u, // bc=49 res=3 pi=433 EU868
+    0x63EC8800u, // bc=49 res=3 pi=434 EU868
     0x63ECC800u, // bc=49 res=3 pi=435 EU868
-    0x64809000u, // bc=50 res=1 pi=2 AS923-1
-    0x64811400u, // bc=50 res=1 pi=4 AS923-1B
-    0x64819000u, // bc=50 res=1 pi=6 AS923-1
     0x65009000u, // bc=50 res=2 pi=2 AS923-1
     0x65019000u, // bc=50 res=2 pi=6 AS923-1
+    0x65041000u, // bc=50 res=2 pi=16 AS923-1
+    0x65045000u, // bc=50 res=2 pi=17 AS923-1
+    0x65049000u, // bc=50 res=2 pi=18 AS923-1
+    0x6504D000u, // bc=50 res=2 pi=19 AS923-1
+    0x65051000u, // bc=50 res=2 pi=20 AS923-1
+    0x65059000u, // bc=50 res=2 pi=22 AS923-1
+    0x65081400u, // bc=50 res=2 pi=32 AS923-1B
+    0x65095C00u, // bc=50 res=2 pi=37 AS923-2
     0x650A9C00u, // bc=50 res=2 pi=42 AS923-2
     0x650B9C00u, // bc=50 res=2 pi=46 AS923-2
+    0x650C1000u, // bc=50 res=2 pi=48 AS923-1
+    0x650C9000u, // bc=50 res=2 pi=50 AS923-1
+    0x650CD000u, // bc=50 res=2 pi=51 AS923-1
+    0x650D1C00u, // bc=50 res=2 pi=52 AS923-2
+    0x65811000u, // bc=50 res=3 pi=4 AS923-1
+    0x65819000u, // bc=50 res=3 pi=6 AS923-1
+    0x65822C00u, // bc=50 res=3 pi=8 IN865
+    0x6582AC00u, // bc=50 res=3 pi=10 IN865
     0x6582EC00u, // bc=50 res=3 pi=11 IN865
+    0x65832C00u, // bc=50 res=3 pi=12 IN865
     0x65836C00u, // bc=50 res=3 pi=13 IN865
+    0x65866C00u, // bc=50 res=3 pi=25 IN865
+    0x6586EC00u, // bc=50 res=3 pi=27 IN865
+    0x65889000u, // bc=50 res=3 pi=34 AS923-1
+    0x65895C00u, // bc=50 res=3 pi=37 AS923-2
+    0x65899000u, // bc=50 res=3 pi=38 AS923-1
+    0x658A2C00u, // bc=50 res=3 pi=40 IN865
+    0x658A6C00u, // bc=50 res=3 pi=41 IN865
+    0x658AAC00u, // bc=50 res=3 pi=42 IN865
     0x658AEC00u, // bc=50 res=3 pi=43 IN865
-    0x65A01000u, // bc=50 res=3 pi=128 AS923-1
-    0x65A05000u, // bc=50 res=3 pi=129 AS923-1
-    0x65A09000u, // bc=50 res=3 pi=130 AS923-1
-    0x65A0D000u, // bc=50 res=3 pi=131 AS923-1
-    0x65A11000u, // bc=50 res=3 pi=132 AS923-1
-    0x65A15000u, // bc=50 res=3 pi=133 AS923-1
-    0x65A19000u, // bc=50 res=3 pi=134 AS923-1
-    0x65A21000u, // bc=50 res=3 pi=136 AS923-1
-    0x65A29000u, // bc=50 res=3 pi=138 AS923-1
-    0x65A2D000u, // bc=50 res=3 pi=139 AS923-1
-    0x65A31000u, // bc=50 res=3 pi=140 AS923-1
-    0x65A35000u, // bc=50 res=3 pi=141 AS923-1
-    0x65A39000u, // bc=50 res=3 pi=142 AS923-1
-    0x65A41000u, // bc=50 res=3 pi=144 AS923-1
-    0x65A45000u, // bc=50 res=3 pi=145 AS923-1
-    0x65A49000u, // bc=50 res=3 pi=146 AS923-1
-    0x65A4D000u, // bc=50 res=3 pi=147 AS923-1
-    0x65A51000u, // bc=50 res=3 pi=148 AS923-1
-    0x65A55000u, // bc=50 res=3 pi=149 AS923-1
-    0x65A59000u, // bc=50 res=3 pi=150 AS923-1
-    0x65A61000u, // bc=50 res=3 pi=152 AS923-1
-    0x65A65000u, // bc=50 res=3 pi=153 AS923-1
-    0x65A69000u, // bc=50 res=3 pi=154 AS923-1
-    0x65A6D000u, // bc=50 res=3 pi=155 AS923-1
-    0x65A71000u, // bc=50 res=3 pi=156 AS923-1
-    0x65A75000u, // bc=50 res=3 pi=157 AS923-1
-    0x65A79000u, // bc=50 res=3 pi=158 AS923-1
-    0x65A81000u, // bc=50 res=3 pi=160 AS923-1
-    0x65A85000u, // bc=50 res=3 pi=161 AS923-1
-    0x65A89000u, // bc=50 res=3 pi=162 AS923-1
-    0x65A8D000u, // bc=50 res=3 pi=163 AS923-1
-    0x65A91000u, // bc=50 res=3 pi=164 AS923-1
-    0x65A95000u, // bc=50 res=3 pi=165 AS923-1
-    0x65A99000u, // bc=50 res=3 pi=166 AS923-1
+    0x658B1C00u, // bc=50 res=3 pi=44 AS923-2
+    0x658B6C00u, // bc=50 res=3 pi=45 IN865
+    0x65AA5000u, // bc=50 res=3 pi=169 AS923-1
+    0x65AA9000u, // bc=50 res=3 pi=170 AS923-1
     0x65AAD000u, // bc=50 res=3 pi=171 AS923-1
+    0x65AB1000u, // bc=50 res=3 pi=172 AS923-1
     0x65AB9000u, // bc=50 res=3 pi=174 AS923-1
-    0x65AC1000u, // bc=50 res=3 pi=176 AS923-1
-    0x65AC5000u, // bc=50 res=3 pi=177 AS923-1
-    0x65AC9000u, // bc=50 res=3 pi=178 AS923-1
-    0x65ACD000u, // bc=50 res=3 pi=179 AS923-1
-    0x65AD1000u, // bc=50 res=3 pi=180 AS923-1
-    0x65AD5000u, // bc=50 res=3 pi=181 AS923-1
-    0x65AD9000u, // bc=50 res=3 pi=182 AS923-1
+    0x65B59000u, // bc=50 res=3 pi=214 AS923-1
     0x65B92C00u, // bc=50 res=3 pi=228 IN865
     0x65B9AC00u, // bc=50 res=3 pi=230 IN865
+    0x65BC1000u, // bc=50 res=3 pi=240 AS923-1
+    0x65BC9000u, // bc=50 res=3 pi=242 AS923-1
+    0x65BD1000u, // bc=50 res=3 pi=244 AS923-1
+    0x65BD5000u, // bc=50 res=3 pi=245 AS923-1
     0x65BD9000u, // bc=50 res=3 pi=246 AS923-1
-    0x65C01400u, // bc=50 res=3 pi=256 AS923-1B
-    0x65C05400u, // bc=50 res=3 pi=257 AS923-1B
-    0x65C09400u, // bc=50 res=3 pi=258 AS923-1B
-    0x65C0D400u, // bc=50 res=3 pi=259 AS923-1B
-    0x65C11400u, // bc=50 res=3 pi=260 AS923-1B
-    0x65C15400u, // bc=50 res=3 pi=261 AS923-1B
-    0x65C19400u, // bc=50 res=3 pi=262 AS923-1B
     0x65C21C00u, // bc=50 res=3 pi=264 AS923-2
     0x65C25C00u, // bc=50 res=3 pi=265 AS923-2
+    0x65C29400u, // bc=50 res=3 pi=266 AS923-1B
+    0x65C2DC00u, // bc=50 res=3 pi=267 AS923-2
     0x65C31C00u, // bc=50 res=3 pi=268 AS923-2
     0x65C35C00u, // bc=50 res=3 pi=269 AS923-2
+    0x65C39400u, // bc=50 res=3 pi=270 AS923-1B
+    0x65C45400u, // bc=50 res=3 pi=273 AS923-1B
+    0x65C55400u, // bc=50 res=3 pi=277 AS923-1B
     0x65C61000u, // bc=50 res=3 pi=280 AS923-1
     0x65C65000u, // bc=50 res=3 pi=281 AS923-1
     0x65C69000u, // bc=50 res=3 pi=282 AS923-1
@@ -7071,45 +2721,22 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x65C91C00u, // bc=50 res=3 pi=292 AS923-2
     0x65C95C00u, // bc=50 res=3 pi=293 AS923-2
     0x65C99400u, // bc=50 res=3 pi=294 AS923-1B
-    0x65CA1C00u, // bc=50 res=3 pi=296 AS923-2
-    0x65CA5C00u, // bc=50 res=3 pi=297 AS923-2
-    0x65CA9C00u, // bc=50 res=3 pi=298 AS923-2
-    0x65CADC00u, // bc=50 res=3 pi=299 AS923-2
-    0x65CB1C00u, // bc=50 res=3 pi=300 AS923-2
-    0x65CB5C00u, // bc=50 res=3 pi=301 AS923-2
-    0x65CB9C00u, // bc=50 res=3 pi=302 AS923-2
+    0x65CC5400u, // bc=50 res=3 pi=305 AS923-1B
+    0x65CCD400u, // bc=50 res=3 pi=307 AS923-1B
     0x65CD1C00u, // bc=50 res=3 pi=308 AS923-2
-    0x65E01000u, // bc=50 res=3 pi=384 AS923-1
-    0x65E05000u, // bc=50 res=3 pi=385 AS923-1
-    0x65E09000u, // bc=50 res=3 pi=386 AS923-1
-    0x65E0D000u, // bc=50 res=3 pi=387 AS923-1
-    0x65E11000u, // bc=50 res=3 pi=388 AS923-1
-    0x65E15000u, // bc=50 res=3 pi=389 AS923-1
-    0x65E19000u, // bc=50 res=3 pi=390 AS923-1
+    0x65CD5400u, // bc=50 res=3 pi=309 AS923-1B
+    0x65CD9C00u, // bc=50 res=3 pi=310 AS923-2
+    0x65D19C00u, // bc=50 res=3 pi=326 AS923-2
+    0x65E21000u, // bc=50 res=3 pi=392 AS923-1
     0x65E25000u, // bc=50 res=3 pi=393 AS923-1
     0x65E29000u, // bc=50 res=3 pi=394 AS923-1
     0x65E2D000u, // bc=50 res=3 pi=395 AS923-1
+    0x65E31000u, // bc=50 res=3 pi=396 AS923-1
     0x65E39000u, // bc=50 res=3 pi=398 AS923-1
-    0x65E41000u, // bc=50 res=3 pi=400 AS923-1
-    0x65E45000u, // bc=50 res=3 pi=401 AS923-1
-    0x65E49000u, // bc=50 res=3 pi=402 AS923-1
-    0x65E4D000u, // bc=50 res=3 pi=403 AS923-1
-    0x65E51000u, // bc=50 res=3 pi=404 AS923-1
-    0x65E55000u, // bc=50 res=3 pi=405 AS923-1
-    0x65E59000u, // bc=50 res=3 pi=406 AS923-1
-    0x65E61000u, // bc=50 res=3 pi=408 AS923-1
-    0x65E65000u, // bc=50 res=3 pi=409 AS923-1
-    0x65E69000u, // bc=50 res=3 pi=410 AS923-1
-    0x65E6D000u, // bc=50 res=3 pi=411 AS923-1
-    0x65E71000u, // bc=50 res=3 pi=412 AS923-1
-    0x65E75000u, // bc=50 res=3 pi=413 AS923-1
-    0x65E79000u, // bc=50 res=3 pi=414 AS923-1
-    0x65E81C00u, // bc=50 res=3 pi=416 AS923-2
-    0x65E85C00u, // bc=50 res=3 pi=417 AS923-2
-    0x65E89C00u, // bc=50 res=3 pi=418 AS923-2
-    0x65E8DC00u, // bc=50 res=3 pi=419 AS923-2
-    0x65E99C00u, // bc=50 res=3 pi=422 AS923-2
+    0x65EA1000u, // bc=50 res=3 pi=424 AS923-1
     0x65EA9000u, // bc=50 res=3 pi=426 AS923-1
+    0x65EB1C00u, // bc=50 res=3 pi=428 AS923-2
+    0x65EB5000u, // bc=50 res=3 pi=429 AS923-1
     0x65EB9C00u, // bc=50 res=3 pi=430 AS923-2
     0x65EC1C00u, // bc=50 res=3 pi=432 AS923-2
     0x65EC5C00u, // bc=50 res=3 pi=433 AS923-2
@@ -7118,45 +2745,23 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x65ED1C00u, // bc=50 res=3 pi=436 AS923-2
     0x65ED5C00u, // bc=50 res=3 pi=437 AS923-2
     0x65ED9C00u, // bc=50 res=3 pi=438 AS923-2
-    0x66800C00u, // bc=51 res=1 pi=0 AU915
-    0x66804C00u, // bc=51 res=1 pi=1 AU915
     0x6680CC00u, // bc=51 res=1 pi=3 AU915
-    0x66815000u, // bc=51 res=1 pi=5 AS923-1
-    0x66818C00u, // bc=51 res=1 pi=6 AU915
+    0x67000C00u, // bc=51 res=2 pi=0 AU915
+    0x67004C00u, // bc=51 res=2 pi=1 AU915
+    0x67008C00u, // bc=51 res=2 pi=2 AU915
+    0x6700CC00u, // bc=51 res=2 pi=3 AU915
+    0x67010C00u, // bc=51 res=2 pi=4 AU915
+    0x67028C00u, // bc=51 res=2 pi=10 AU915
+    0x6702CC00u, // bc=51 res=2 pi=11 AU915
+    0x67031000u, // bc=51 res=2 pi=12 AS923-1
+    0x67035000u, // bc=51 res=2 pi=13 AS923-1
     0x67050C00u, // bc=51 res=2 pi=20 AU915
-    0x67059000u, // bc=51 res=2 pi=22 AS923-1
-    0x67800C00u, // bc=51 res=3 pi=0 AU915
-    0x67804C00u, // bc=51 res=3 pi=1 AU915
-    0x67808C00u, // bc=51 res=3 pi=2 AU915
-    0x6780CC00u, // bc=51 res=3 pi=3 AU915
-    0x67810C00u, // bc=51 res=3 pi=4 AU915
-    0x67814C00u, // bc=51 res=3 pi=5 AU915
-    0x67818C00u, // bc=51 res=3 pi=6 AU915
-    0x67820C00u, // bc=51 res=3 pi=8 AU915
-    0x67824C00u, // bc=51 res=3 pi=9 AU915
-    0x67828C00u, // bc=51 res=3 pi=10 AU915
-    0x6782CC00u, // bc=51 res=3 pi=11 AU915
-    0x67830C00u, // bc=51 res=3 pi=12 AU915
-    0x67834C00u, // bc=51 res=3 pi=13 AU915
-    0x67838C00u, // bc=51 res=3 pi=14 AU915
-    0x67840C00u, // bc=51 res=3 pi=16 AU915
-    0x67844C00u, // bc=51 res=3 pi=17 AU915
-    0x67848C00u, // bc=51 res=3 pi=18 AU915
-    0x6784CC00u, // bc=51 res=3 pi=19 AU915
-    0x67854C00u, // bc=51 res=3 pi=21 AU915
-    0x67858C00u, // bc=51 res=3 pi=22 AU915
-    0x67860C00u, // bc=51 res=3 pi=24 AU915
-    0x67864C00u, // bc=51 res=3 pi=25 AU915
-    0x67868C00u, // bc=51 res=3 pi=26 AU915
-    0x6786CC00u, // bc=51 res=3 pi=27 AU915
-    0x67870C00u, // bc=51 res=3 pi=28 AU915
-    0x67874C00u, // bc=51 res=3 pi=29 AU915
-    0x67878C00u, // bc=51 res=3 pi=30 AU915
-    0x67880C00u, // bc=51 res=3 pi=32 AU915
-    0x67884C00u, // bc=51 res=3 pi=33 AU915
-    0x67888C00u, // bc=51 res=3 pi=34 AU915
-    0x6788CC00u, // bc=51 res=3 pi=35 AU915
-    0x67894C00u, // bc=51 res=3 pi=37 AU915
+    0x670A1000u, // bc=51 res=2 pi=40 AS923-1
+    0x670A5000u, // bc=51 res=2 pi=41 AS923-1
+    0x670AD000u, // bc=51 res=2 pi=43 AS923-1
+    0x670B5000u, // bc=51 res=2 pi=45 AS923-1
+    0x670C8C00u, // bc=51 res=2 pi=50 AU915
+    0x670D8C00u, // bc=51 res=2 pi=54 AU915
     0x678A1000u, // bc=51 res=3 pi=40 AS923-1
     0x678A5000u, // bc=51 res=3 pi=41 AS923-1
     0x678A8C00u, // bc=51 res=3 pi=42 AU915
@@ -7165,6 +2770,7 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x678B5000u, // bc=51 res=3 pi=45 AS923-1
     0x678B9000u, // bc=51 res=3 pi=46 AS923-1
     0x678C4C00u, // bc=51 res=3 pi=49 AU915
+    0x678CCC00u, // bc=51 res=3 pi=51 AU915
     0x67900C00u, // bc=51 res=3 pi=64 AU915
     0x67904C00u, // bc=51 res=3 pi=65 AU915
     0x67908C00u, // bc=51 res=3 pi=66 AU915
@@ -7179,34 +2785,6 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x67931000u, // bc=51 res=3 pi=76 AS923-1
     0x67935000u, // bc=51 res=3 pi=77 AS923-1
     0x67938C00u, // bc=51 res=3 pi=78 AU915
-    0x67940C00u, // bc=51 res=3 pi=80 AU915
-    0x67944C00u, // bc=51 res=3 pi=81 AU915
-    0x67948C00u, // bc=51 res=3 pi=82 AU915
-    0x6794CC00u, // bc=51 res=3 pi=83 AU915
-    0x67950C00u, // bc=51 res=3 pi=84 AU915
-    0x67954C00u, // bc=51 res=3 pi=85 AU915
-    0x67958C00u, // bc=51 res=3 pi=86 AU915
-    0x67960C00u, // bc=51 res=3 pi=88 AU915
-    0x67964C00u, // bc=51 res=3 pi=89 AU915
-    0x67968C00u, // bc=51 res=3 pi=90 AU915
-    0x6796CC00u, // bc=51 res=3 pi=91 AU915
-    0x67970C00u, // bc=51 res=3 pi=92 AU915
-    0x67974C00u, // bc=51 res=3 pi=93 AU915
-    0x67978C00u, // bc=51 res=3 pi=94 AU915
-    0x67981000u, // bc=51 res=3 pi=96 AS923-1
-    0x67985000u, // bc=51 res=3 pi=97 AS923-1
-    0x67989000u, // bc=51 res=3 pi=98 AS923-1
-    0x6798D000u, // bc=51 res=3 pi=99 AS923-1
-    0x67991000u, // bc=51 res=3 pi=100 AS923-1
-    0x67995000u, // bc=51 res=3 pi=101 AS923-1
-    0x67999000u, // bc=51 res=3 pi=102 AS923-1
-    0x679A1000u, // bc=51 res=3 pi=104 AS923-1
-    0x679A5000u, // bc=51 res=3 pi=105 AS923-1
-    0x679A9000u, // bc=51 res=3 pi=106 AS923-1
-    0x679AD000u, // bc=51 res=3 pi=107 AS923-1
-    0x679B1000u, // bc=51 res=3 pi=108 AS923-1
-    0x679B5000u, // bc=51 res=3 pi=109 AS923-1
-    0x679B9000u, // bc=51 res=3 pi=110 AS923-1
     0x679C0C00u, // bc=51 res=3 pi=112 AU915
     0x679C4C00u, // bc=51 res=3 pi=113 AU915
     0x679C8C00u, // bc=51 res=3 pi=114 AU915
@@ -7215,67 +2793,32 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x679D5000u, // bc=51 res=3 pi=117 AS923-1
     0x679D9000u, // bc=51 res=3 pi=118 AS923-1
     0x67A10C00u, // bc=51 res=3 pi=132 AU915
-    0x67B00C00u, // bc=51 res=3 pi=192 AU915
-    0x67B04C00u, // bc=51 res=3 pi=193 AU915
-    0x67B08C00u, // bc=51 res=3 pi=194 AU915
-    0x67B0CC00u, // bc=51 res=3 pi=195 AU915
-    0x67B10C00u, // bc=51 res=3 pi=196 AU915
-    0x67B14C00u, // bc=51 res=3 pi=197 AU915
-    0x67B18C00u, // bc=51 res=3 pi=198 AU915
-    0x67B20C00u, // bc=51 res=3 pi=200 AU915
-    0x67B24C00u, // bc=51 res=3 pi=201 AU915
-    0x67B28C00u, // bc=51 res=3 pi=202 AU915
-    0x67B2CC00u, // bc=51 res=3 pi=203 AU915
-    0x67B30C00u, // bc=51 res=3 pi=204 AU915
-    0x67B34C00u, // bc=51 res=3 pi=205 AU915
-    0x67B38C00u, // bc=51 res=3 pi=206 AU915
-    0x67B40C00u, // bc=51 res=3 pi=208 AU915
-    0x67B44C00u, // bc=51 res=3 pi=209 AU915
-    0x67B48C00u, // bc=51 res=3 pi=210 AU915
-    0x67B4CC00u, // bc=51 res=3 pi=211 AU915
-    0x67B50C00u, // bc=51 res=3 pi=212 AU915
-    0x67B54C00u, // bc=51 res=3 pi=213 AU915
-    0x67B60C00u, // bc=51 res=3 pi=216 AU915
-    0x67B64C00u, // bc=51 res=3 pi=217 AU915
-    0x67B68C00u, // bc=51 res=3 pi=218 AU915
-    0x67B6CC00u, // bc=51 res=3 pi=219 AU915
-    0x67B70C00u, // bc=51 res=3 pi=220 AU915
-    0x67B74C00u, // bc=51 res=3 pi=221 AU915
-    0x67B78C00u, // bc=51 res=3 pi=222 AU915
-    0x67B80C00u, // bc=51 res=3 pi=224 AU915
-    0x67B84C00u, // bc=51 res=3 pi=225 AU915
-    0x67B88C00u, // bc=51 res=3 pi=226 AU915
-    0x67B8CC00u, // bc=51 res=3 pi=227 AU915
-    0x67B90C00u, // bc=51 res=3 pi=228 AU915
-    0x67B94C00u, // bc=51 res=3 pi=229 AU915
-    0x67B98C00u, // bc=51 res=3 pi=230 AU915
-    0x67BA0C00u, // bc=51 res=3 pi=232 AU915
-    0x67BA4C00u, // bc=51 res=3 pi=233 AU915
-    0x67BA8C00u, // bc=51 res=3 pi=234 AU915
-    0x67BACC00u, // bc=51 res=3 pi=235 AU915
-    0x67BB0C00u, // bc=51 res=3 pi=236 AU915
-    0x67BB4C00u, // bc=51 res=3 pi=237 AU915
-    0x67BB8C00u, // bc=51 res=3 pi=238 AU915
-    0x67BC0C00u, // bc=51 res=3 pi=240 AU915
-    0x67BC4C00u, // bc=51 res=3 pi=241 AU915
-    0x67BCCC00u, // bc=51 res=3 pi=243 AU915
-    0x67BD0C00u, // bc=51 res=3 pi=244 AU915
-    0x67BD4C00u, // bc=51 res=3 pi=245 AU915
+    0x67A14C00u, // bc=51 res=3 pi=133 AU915
+    0x67A28C00u, // bc=51 res=3 pi=138 AU915
+    0x67A38C00u, // bc=51 res=3 pi=142 AU915
+    0x67A74C00u, // bc=51 res=3 pi=157 AU915
+    0x67AA4C00u, // bc=51 res=3 pi=169 AU915
+    0x67AB0C00u, // bc=51 res=3 pi=172 AU915
+    0x67AB4C00u, // bc=51 res=3 pi=173 AU915
+    0x67AB8C00u, // bc=51 res=3 pi=174 AU915
+    0x67AC1000u, // bc=51 res=3 pi=176 AS923-1
+    0x67AC4C00u, // bc=51 res=3 pi=177 AU915
+    0x67AD1000u, // bc=51 res=3 pi=180 AS923-1
+    0x67AD4C00u, // bc=51 res=3 pi=181 AU915
+    0x67AD9000u, // bc=51 res=3 pi=182 AS923-1
+    0x67C24C00u, // bc=51 res=3 pi=265 AU915
+    0x67C2CC00u, // bc=51 res=3 pi=267 AU915
+    0x67C48C00u, // bc=51 res=3 pi=274 AU915
+    0x67C50C00u, // bc=51 res=3 pi=276 AU915
+    0x67C58C00u, // bc=51 res=3 pi=278 AU915
+    0x67C84C00u, // bc=51 res=3 pi=289 AU915
+    0x67C94C00u, // bc=51 res=3 pi=293 AU915
+    0x67CB0C00u, // bc=51 res=3 pi=300 AU915
+    0x67CC0C00u, // bc=51 res=3 pi=304 AU915
     0x67CC8C00u, // bc=51 res=3 pi=306 AU915
+    0x67CCCC00u, // bc=51 res=3 pi=307 AU915
     0x67CD4400u, // bc=51 res=3 pi=309 US915
-    0x67D01000u, // bc=51 res=3 pi=320 AS923-1
-    0x67D05000u, // bc=51 res=3 pi=321 AS923-1
-    0x67D09000u, // bc=51 res=3 pi=322 AS923-1
-    0x67D0D000u, // bc=51 res=3 pi=323 AS923-1
-    0x67D15000u, // bc=51 res=3 pi=325 AS923-1
-    0x67D19000u, // bc=51 res=3 pi=326 AS923-1
-    0x67D21000u, // bc=51 res=3 pi=328 AS923-1
-    0x67D25000u, // bc=51 res=3 pi=329 AS923-1
-    0x67D29000u, // bc=51 res=3 pi=330 AS923-1
-    0x67D2D000u, // bc=51 res=3 pi=331 AS923-1
-    0x67D31000u, // bc=51 res=3 pi=332 AS923-1
-    0x67D35000u, // bc=51 res=3 pi=333 AS923-1
-    0x67D39000u, // bc=51 res=3 pi=334 AS923-1
+    0x67CD8C00u, // bc=51 res=3 pi=310 AU915
     0x67D41000u, // bc=51 res=3 pi=336 AS923-1
     0x67D45000u, // bc=51 res=3 pi=337 AS923-1
     0x67D49000u, // bc=51 res=3 pi=338 AS923-1
@@ -7283,37 +2826,40 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x67D51000u, // bc=51 res=3 pi=340 AS923-1
     0x67D55000u, // bc=51 res=3 pi=341 AS923-1
     0x67D58C00u, // bc=51 res=3 pi=342 AU915
-    0x67D61000u, // bc=51 res=3 pi=344 AS923-1
-    0x67D65000u, // bc=51 res=3 pi=345 AS923-1
-    0x67D69000u, // bc=51 res=3 pi=346 AS923-1
-    0x67D6D000u, // bc=51 res=3 pi=347 AS923-1
-    0x67D71000u, // bc=51 res=3 pi=348 AS923-1
-    0x67D75000u, // bc=51 res=3 pi=349 AS923-1
-    0x67D79000u, // bc=51 res=3 pi=350 AS923-1
-    0x67DA1000u, // bc=51 res=3 pi=360 AS923-1
-    0x67DA5000u, // bc=51 res=3 pi=361 AS923-1
-    0x67DA9000u, // bc=51 res=3 pi=362 AS923-1
-    0x67DAD000u, // bc=51 res=3 pi=363 AS923-1
-    0x67DB5000u, // bc=51 res=3 pi=365 AS923-1
+    0x67D8D000u, // bc=51 res=3 pi=355 AS923-1
+    0x67DC5000u, // bc=51 res=3 pi=369 AS923-1
+    0x67DCD000u, // bc=51 res=3 pi=371 AS923-1
     0x67E00C00u, // bc=51 res=3 pi=384 AU915
+    0x67E04C00u, // bc=51 res=3 pi=385 AU915
+    0x67E08C00u, // bc=51 res=3 pi=386 AU915
     0x67E0CC00u, // bc=51 res=3 pi=387 AU915
     0x67E10C00u, // bc=51 res=3 pi=388 AU915
     0x67E14C00u, // bc=51 res=3 pi=389 AU915
-    0x67E40C00u, // bc=51 res=3 pi=400 AU915
-    0x67E48C00u, // bc=51 res=3 pi=402 AU915
-    0x67E4CC00u, // bc=51 res=3 pi=403 AU915
-    0x67E50C00u, // bc=51 res=3 pi=404 AU915
-    0x67E58C00u, // bc=51 res=3 pi=406 AU915
+    0x67E2CC00u, // bc=51 res=3 pi=395 AU915
     0x67E69000u, // bc=51 res=3 pi=410 AS923-1
-    0x67EC8C00u, // bc=51 res=3 pi=434 AU915
-    0x68802000u, // bc=52 res=1 pi=0 AS923-3
-    0x68806000u, // bc=52 res=1 pi=1 AS923-3
-    0x68809C00u, // bc=52 res=1 pi=2 AS923-2
+    0x67E6D000u, // bc=51 res=3 pi=411 AS923-1
+    0x67E70C00u, // bc=51 res=3 pi=412 AU915
+    0x67E78C00u, // bc=51 res=3 pi=414 AU915
+    0x67E80C00u, // bc=51 res=3 pi=416 AU915
+    0x67E84C00u, // bc=51 res=3 pi=417 AU915
+    0x67E8CC00u, // bc=51 res=3 pi=419 AU915
+    0x67E90C00u, // bc=51 res=3 pi=420 AU915
+    0x67E94C00u, // bc=51 res=3 pi=421 AU915
+    0x69006000u, // bc=52 res=2 pi=1 AS923-3
+    0x69016000u, // bc=52 res=2 pi=5 AS923-3
+    0x69022000u, // bc=52 res=2 pi=8 AS923-3
+    0x6902A000u, // bc=52 res=2 pi=10 AS923-3
+    0x69032000u, // bc=52 res=2 pi=12 AS923-3
+    0x6903A000u, // bc=52 res=2 pi=14 AS923-3
+    0x69041C00u, // bc=52 res=2 pi=16 AS923-2
+    0x69045C00u, // bc=52 res=2 pi=17 AS923-2
+    0x69049C00u, // bc=52 res=2 pi=18 AS923-2
+    0x6904DC00u, // bc=52 res=2 pi=19 AS923-2
+    0x69051400u, // bc=52 res=2 pi=20 AS923-1B
+    0x69055C00u, // bc=52 res=2 pi=21 AS923-2
     0x69065C00u, // bc=52 res=2 pi=25 AS923-2
     0x69069C00u, // bc=52 res=2 pi=26 AS923-2
     0x6906DC00u, // bc=52 res=2 pi=27 AS923-2
-    0x69097400u, // bc=52 res=2 pi=37 CN470
-    0x69099C00u, // bc=52 res=2 pi=38 AS923-2
     0x690A6000u, // bc=52 res=2 pi=41 AS923-3
     0x690AE000u, // bc=52 res=2 pi=43 AS923-3
     0x690B6000u, // bc=52 res=2 pi=45 AS923-3
@@ -7322,18 +2868,15 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x69806000u, // bc=52 res=3 pi=1 AS923-3
     0x69809400u, // bc=52 res=3 pi=2 AS923-1B
     0x6980D400u, // bc=52 res=3 pi=3 AS923-1B
+    0x69812000u, // bc=52 res=3 pi=4 AS923-3
     0x69816000u, // bc=52 res=3 pi=5 AS923-3
-    0x69822000u, // bc=52 res=3 pi=8 AS923-3
-    0x69826000u, // bc=52 res=3 pi=9 AS923-3
-    0x6982A000u, // bc=52 res=3 pi=10 AS923-3
-    0x6982E000u, // bc=52 res=3 pi=11 AS923-3
-    0x69832000u, // bc=52 res=3 pi=12 AS923-3
-    0x69836000u, // bc=52 res=3 pi=13 AS923-3
-    0x6983A000u, // bc=52 res=3 pi=14 AS923-3
+    0x69819400u, // bc=52 res=3 pi=6 AS923-1B
     0x69841400u, // bc=52 res=3 pi=16 AS923-1B
     0x69845400u, // bc=52 res=3 pi=17 AS923-1B
     0x69849400u, // bc=52 res=3 pi=18 AS923-1B
     0x6984D400u, // bc=52 res=3 pi=19 AS923-1B
+    0x69855400u, // bc=52 res=3 pi=21 AS923-1B
+    0x69859000u, // bc=52 res=3 pi=22 AS923-1
     0x69861400u, // bc=52 res=3 pi=24 AS923-1B
     0x69865400u, // bc=52 res=3 pi=25 AS923-1B
     0x69869C00u, // bc=52 res=3 pi=26 AS923-2
@@ -7341,89 +2884,24 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x69871400u, // bc=52 res=3 pi=28 AS923-1B
     0x69876000u, // bc=52 res=3 pi=29 AS923-3
     0x69879400u, // bc=52 res=3 pi=30 AS923-1B
-    0x698A2000u, // bc=52 res=3 pi=40 AS923-3
-    0x698A6000u, // bc=52 res=3 pi=41 AS923-3
-    0x698AA000u, // bc=52 res=3 pi=42 AS923-3
-    0x698AE000u, // bc=52 res=3 pi=43 AS923-3
-    0x698B6000u, // bc=52 res=3 pi=45 AS923-3
-    0x69902000u, // bc=52 res=3 pi=64 AS923-3
-    0x69906000u, // bc=52 res=3 pi=65 AS923-3
-    0x6990A000u, // bc=52 res=3 pi=66 AS923-3
-    0x6990E000u, // bc=52 res=3 pi=67 AS923-3
-    0x69912000u, // bc=52 res=3 pi=68 AS923-3
-    0x69916000u, // bc=52 res=3 pi=69 AS923-3
-    0x6991A000u, // bc=52 res=3 pi=70 AS923-3
+    0x69882000u, // bc=52 res=3 pi=32 AS923-3
+    0x6988B400u, // bc=52 res=3 pi=34 CN470
+    0x69892000u, // bc=52 res=3 pi=36 AS923-3
+    0x6989B400u, // bc=52 res=3 pi=38 CN470
+    0x698D9C00u, // bc=52 res=3 pi=54 AS923-2
+    0x6992A000u, // bc=52 res=3 pi=74 AS923-3
+    0x69932000u, // bc=52 res=3 pi=76 AS923-3
     0x6993A000u, // bc=52 res=3 pi=78 AS923-3
-    0x69942000u, // bc=52 res=3 pi=80 AS923-3
-    0x69946000u, // bc=52 res=3 pi=81 AS923-3
-    0x6994E000u, // bc=52 res=3 pi=83 AS923-3
-    0x69952000u, // bc=52 res=3 pi=84 AS923-3
-    0x69956000u, // bc=52 res=3 pi=85 AS923-3
-    0x6995A000u, // bc=52 res=3 pi=86 AS923-3
     0x69962000u, // bc=52 res=3 pi=88 AS923-3
+    0x69966000u, // bc=52 res=3 pi=89 AS923-3
     0x6996A000u, // bc=52 res=3 pi=90 AS923-3
     0x6996DC00u, // bc=52 res=3 pi=91 AS923-2
     0x69972000u, // bc=52 res=3 pi=92 AS923-3
     0x69976000u, // bc=52 res=3 pi=93 AS923-3
     0x6997A000u, // bc=52 res=3 pi=94 AS923-3
-    0x69982000u, // bc=52 res=3 pi=96 AS923-3
-    0x69986000u, // bc=52 res=3 pi=97 AS923-3
-    0x6998A000u, // bc=52 res=3 pi=98 AS923-3
-    0x6998E000u, // bc=52 res=3 pi=99 AS923-3
-    0x69992000u, // bc=52 res=3 pi=100 AS923-3
-    0x69996000u, // bc=52 res=3 pi=101 AS923-3
-    0x6999A000u, // bc=52 res=3 pi=102 AS923-3
     0x699AA000u, // bc=52 res=3 pi=106 AS923-3
+    0x699B2000u, // bc=52 res=3 pi=108 AS923-3
     0x699BA000u, // bc=52 res=3 pi=110 AS923-3
-    0x699C2000u, // bc=52 res=3 pi=112 AS923-3
-    0x699C6000u, // bc=52 res=3 pi=113 AS923-3
-    0x699CA000u, // bc=52 res=3 pi=114 AS923-3
-    0x699CE000u, // bc=52 res=3 pi=115 AS923-3
-    0x699D2000u, // bc=52 res=3 pi=116 AS923-3
-    0x699D6000u, // bc=52 res=3 pi=117 AS923-3
-    0x699DA000u, // bc=52 res=3 pi=118 AS923-3
-    0x69A01C00u, // bc=52 res=3 pi=128 AS923-2
-    0x69A05C00u, // bc=52 res=3 pi=129 AS923-2
-    0x69A09C00u, // bc=52 res=3 pi=130 AS923-2
-    0x69A0DC00u, // bc=52 res=3 pi=131 AS923-2
-    0x69A11C00u, // bc=52 res=3 pi=132 AS923-2
-    0x69A15C00u, // bc=52 res=3 pi=133 AS923-2
-    0x69A19C00u, // bc=52 res=3 pi=134 AS923-2
-    0x69A21C00u, // bc=52 res=3 pi=136 AS923-2
-    0x69A25C00u, // bc=52 res=3 pi=137 AS923-2
-    0x69A29C00u, // bc=52 res=3 pi=138 AS923-2
-    0x69A2DC00u, // bc=52 res=3 pi=139 AS923-2
-    0x69A31C00u, // bc=52 res=3 pi=140 AS923-2
-    0x69A35C00u, // bc=52 res=3 pi=141 AS923-2
-    0x69A39C00u, // bc=52 res=3 pi=142 AS923-2
-    0x69A41C00u, // bc=52 res=3 pi=144 AS923-2
-    0x69A45C00u, // bc=52 res=3 pi=145 AS923-2
-    0x69A49C00u, // bc=52 res=3 pi=146 AS923-2
-    0x69A4DC00u, // bc=52 res=3 pi=147 AS923-2
-    0x69A51C00u, // bc=52 res=3 pi=148 AS923-2
-    0x69A55C00u, // bc=52 res=3 pi=149 AS923-2
-    0x69A59C00u, // bc=52 res=3 pi=150 AS923-2
-    0x69A61C00u, // bc=52 res=3 pi=152 AS923-2
-    0x69A65C00u, // bc=52 res=3 pi=153 AS923-2
-    0x69A69C00u, // bc=52 res=3 pi=154 AS923-2
-    0x69A6DC00u, // bc=52 res=3 pi=155 AS923-2
-    0x69A71C00u, // bc=52 res=3 pi=156 AS923-2
-    0x69A75C00u, // bc=52 res=3 pi=157 AS923-2
-    0x69A79C00u, // bc=52 res=3 pi=158 AS923-2
-    0x69A81400u, // bc=52 res=3 pi=160 AS923-1B
-    0x69A85400u, // bc=52 res=3 pi=161 AS923-1B
-    0x69A89400u, // bc=52 res=3 pi=162 AS923-1B
-    0x69A8D400u, // bc=52 res=3 pi=163 AS923-1B
-    0x69A91400u, // bc=52 res=3 pi=164 AS923-1B
-    0x69A95400u, // bc=52 res=3 pi=165 AS923-1B
-    0x69A99400u, // bc=52 res=3 pi=166 AS923-1B
-    0x69AA1C00u, // bc=52 res=3 pi=168 AS923-2
-    0x69AA5C00u, // bc=52 res=3 pi=169 AS923-2
-    0x69AA9C00u, // bc=52 res=3 pi=170 AS923-2
-    0x69AADC00u, // bc=52 res=3 pi=171 AS923-2
-    0x69AB1C00u, // bc=52 res=3 pi=172 AS923-2
-    0x69AB5C00u, // bc=52 res=3 pi=173 AS923-2
-    0x69AB9C00u, // bc=52 res=3 pi=174 AS923-2
     0x69AC1C00u, // bc=52 res=3 pi=176 AS923-2
     0x69AC5C00u, // bc=52 res=3 pi=177 AS923-2
     0x69AC9C00u, // bc=52 res=3 pi=178 AS923-2
@@ -7431,93 +2909,91 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x69AD1400u, // bc=52 res=3 pi=180 AS923-1B
     0x69AD5400u, // bc=52 res=3 pi=181 AS923-1B
     0x69AD9C00u, // bc=52 res=3 pi=182 AS923-2
+    0x69B01C00u, // bc=52 res=3 pi=192 AS923-2
     0x69B09C00u, // bc=52 res=3 pi=194 AS923-2
     0x69B0DC00u, // bc=52 res=3 pi=195 AS923-2
+    0x69B19C00u, // bc=52 res=3 pi=198 AS923-2
+    0x69B82000u, // bc=52 res=3 pi=224 AS923-3
     0x69B92000u, // bc=52 res=3 pi=228 AS923-3
     0x69B96000u, // bc=52 res=3 pi=229 AS923-3
+    0x69B9A000u, // bc=52 res=3 pi=230 AS923-3
+    0x69BA5C00u, // bc=52 res=3 pi=233 AS923-2
+    0x69BADC00u, // bc=52 res=3 pi=235 AS923-2
+    0x69BB6000u, // bc=52 res=3 pi=237 AS923-3
+    0x69BC1C00u, // bc=52 res=3 pi=240 AS923-2
     0x69BC9C00u, // bc=52 res=3 pi=242 AS923-2
+    0x69BCDC00u, // bc=52 res=3 pi=243 AS923-2
     0x69BD1C00u, // bc=52 res=3 pi=244 AS923-2
     0x69BD9C00u, // bc=52 res=3 pi=246 AS923-2
+    0x69C51C00u, // bc=52 res=3 pi=276 AS923-2
     0x69C59C00u, // bc=52 res=3 pi=278 AS923-2
     0x69C66000u, // bc=52 res=3 pi=281 AS923-3
+    0x69C6B400u, // bc=52 res=3 pi=282 CN470
+    0x69C6D000u, // bc=52 res=3 pi=283 AS923-1
+    0x69C83400u, // bc=52 res=3 pi=288 CN470
     0x69C87400u, // bc=52 res=3 pi=289 CN470
+    0x69C8B400u, // bc=52 res=3 pi=290 CN470
+    0x69C8F400u, // bc=52 res=3 pi=291 CN470
+    0x69C97400u, // bc=52 res=3 pi=293 CN470
+    0x69CA3400u, // bc=52 res=3 pi=296 CN470
+    0x69CA7400u, // bc=52 res=3 pi=297 CN470
+    0x69CAB400u, // bc=52 res=3 pi=298 CN470
+    0x69CAF400u, // bc=52 res=3 pi=299 CN470
+    0x69CB3400u, // bc=52 res=3 pi=300 CN470
+    0x69CBB400u, // bc=52 res=3 pi=302 CN470
+    0x69CC1C00u, // bc=52 res=3 pi=304 AS923-2
+    0x69CC9C00u, // bc=52 res=3 pi=306 AS923-2
+    0x69CCDC00u, // bc=52 res=3 pi=307 AS923-2
+    0x69CD1C00u, // bc=52 res=3 pi=308 AS923-2
+    0x69CD5C00u, // bc=52 res=3 pi=309 AS923-2
+    0x69CD9C00u, // bc=52 res=3 pi=310 AS923-2
+    0x69D02000u, // bc=52 res=3 pi=320 AS923-3
     0x69D06000u, // bc=52 res=3 pi=321 AS923-3
+    0x69D0A000u, // bc=52 res=3 pi=322 AS923-3
     0x69D0E000u, // bc=52 res=3 pi=323 AS923-3
     0x69D16000u, // bc=52 res=3 pi=325 AS923-3
+    0x69D86000u, // bc=52 res=3 pi=353 AS923-3
+    0x69D8E000u, // bc=52 res=3 pi=355 AS923-3
+    0x69DC7400u, // bc=52 res=3 pi=369 CN470
+    0x69DCF400u, // bc=52 res=3 pi=371 CN470
+    0x69E2D400u, // bc=52 res=3 pi=395 AS923-1B
+    0x69E61400u, // bc=52 res=3 pi=408 AS923-1B
+    0x69E65400u, // bc=52 res=3 pi=409 AS923-1B
+    0x69E69400u, // bc=52 res=3 pi=410 AS923-1B
     0x69E6D400u, // bc=52 res=3 pi=411 AS923-1B
+    0x69E79C00u, // bc=52 res=3 pi=414 AS923-2
     0x69E91C00u, // bc=52 res=3 pi=420 AS923-2
     0x69E95C00u, // bc=52 res=3 pi=421 AS923-2
-    0x6A800800u, // bc=53 res=1 pi=0 EU868
-    0x6A804800u, // bc=53 res=1 pi=1 EU868
+    0x69E99C00u, // bc=52 res=3 pi=422 AS923-2
+    0x69EA5C00u, // bc=52 res=3 pi=425 AS923-2
+    0x69ECDC00u, // bc=52 res=3 pi=435 AS923-2
     0x6A808800u, // bc=53 res=1 pi=2 EU868
-    0x6A80C800u, // bc=53 res=1 pi=3 EU868
-    0x6A810800u, // bc=53 res=1 pi=4 EU868
     0x6A818800u, // bc=53 res=1 pi=6 EU868
-    0x6B800800u, // bc=53 res=3 pi=0 EU868
-    0x6B804800u, // bc=53 res=3 pi=1 EU868
-    0x6B808800u, // bc=53 res=3 pi=2 EU868
-    0x6B80C800u, // bc=53 res=3 pi=3 EU868
-    0x6B810800u, // bc=53 res=3 pi=4 EU868
-    0x6B814800u, // bc=53 res=3 pi=5 EU868
-    0x6B818800u, // bc=53 res=3 pi=6 EU868
-    0x6B820800u, // bc=53 res=3 pi=8 EU868
-    0x6B824800u, // bc=53 res=3 pi=9 EU868
-    0x6B828800u, // bc=53 res=3 pi=10 EU868
-    0x6B82C800u, // bc=53 res=3 pi=11 EU868
-    0x6B830800u, // bc=53 res=3 pi=12 EU868
-    0x6B834800u, // bc=53 res=3 pi=13 EU868
-    0x6B838800u, // bc=53 res=3 pi=14 EU868
-    0x6B840800u, // bc=53 res=3 pi=16 EU868
-    0x6B844800u, // bc=53 res=3 pi=17 EU868
-    0x6B848800u, // bc=53 res=3 pi=18 EU868
-    0x6B84C800u, // bc=53 res=3 pi=19 EU868
-    0x6B850800u, // bc=53 res=3 pi=20 EU868
-    0x6B854800u, // bc=53 res=3 pi=21 EU868
-    0x6B858800u, // bc=53 res=3 pi=22 EU868
-    0x6B860800u, // bc=53 res=3 pi=24 EU868
-    0x6B864800u, // bc=53 res=3 pi=25 EU868
-    0x6B868800u, // bc=53 res=3 pi=26 EU868
-    0x6B86C800u, // bc=53 res=3 pi=27 EU868
-    0x6B870800u, // bc=53 res=3 pi=28 EU868
-    0x6B874800u, // bc=53 res=3 pi=29 EU868
-    0x6B878800u, // bc=53 res=3 pi=30 EU868
+    0x6B000800u, // bc=53 res=2 pi=0 EU868
+    0x6B004800u, // bc=53 res=2 pi=1 EU868
+    0x6B008800u, // bc=53 res=2 pi=2 EU868
+    0x6B00C800u, // bc=53 res=2 pi=3 EU868
+    0x6B014800u, // bc=53 res=2 pi=5 EU868
+    0x6B018800u, // bc=53 res=2 pi=6 EU868
+    0x6B020800u, // bc=53 res=2 pi=8 EU868
+    0x6B024800u, // bc=53 res=2 pi=9 EU868
+    0x6B028800u, // bc=53 res=2 pi=10 EU868
+    0x6B030800u, // bc=53 res=2 pi=12 EU868
+    0x6B034800u, // bc=53 res=2 pi=13 EU868
+    0x6B038800u, // bc=53 res=2 pi=14 EU868
+    0x6B065000u, // bc=53 res=2 pi=25 AS923-1
+    0x6B068800u, // bc=53 res=2 pi=26 EU868
+    0x6B070800u, // bc=53 res=2 pi=28 EU868
+    0x6B075000u, // bc=53 res=2 pi=29 AS923-1
+    0x6B078800u, // bc=53 res=2 pi=30 EU868
+    0x6B088800u, // bc=53 res=2 pi=34 EU868
+    0x6B090800u, // bc=53 res=2 pi=36 EU868
+    0x6B098800u, // bc=53 res=2 pi=38 EU868
     0x6B880800u, // bc=53 res=3 pi=32 EU868
+    0x6B884800u, // bc=53 res=3 pi=33 EU868
     0x6B888800u, // bc=53 res=3 pi=34 EU868
     0x6B88C800u, // bc=53 res=3 pi=35 EU868
-    0x6B8A0800u, // bc=53 res=3 pi=40 EU868
-    0x6B8A4800u, // bc=53 res=3 pi=41 EU868
-    0x6B8A8800u, // bc=53 res=3 pi=42 EU868
-    0x6B8AC800u, // bc=53 res=3 pi=43 EU868
-    0x6B8B0800u, // bc=53 res=3 pi=44 EU868
-    0x6B8B8800u, // bc=53 res=3 pi=46 EU868
-    0x6B8C0800u, // bc=53 res=3 pi=48 EU868
-    0x6B8C4800u, // bc=53 res=3 pi=49 EU868
-    0x6B8C8800u, // bc=53 res=3 pi=50 EU868
-    0x6B8CC800u, // bc=53 res=3 pi=51 EU868
-    0x6B8D0800u, // bc=53 res=3 pi=52 EU868
-    0x6B8D4800u, // bc=53 res=3 pi=53 EU868
-    0x6B8D8800u, // bc=53 res=3 pi=54 EU868
-    0x6B900800u, // bc=53 res=3 pi=64 EU868
-    0x6B904800u, // bc=53 res=3 pi=65 EU868
-    0x6B908800u, // bc=53 res=3 pi=66 EU868
-    0x6B90C800u, // bc=53 res=3 pi=67 EU868
-    0x6B910800u, // bc=53 res=3 pi=68 EU868
-    0x6B914800u, // bc=53 res=3 pi=69 EU868
-    0x6B918800u, // bc=53 res=3 pi=70 EU868
-    0x6B920800u, // bc=53 res=3 pi=72 EU868
-    0x6B924800u, // bc=53 res=3 pi=73 EU868
-    0x6B928800u, // bc=53 res=3 pi=74 EU868
-    0x6B92C800u, // bc=53 res=3 pi=75 EU868
-    0x6B930800u, // bc=53 res=3 pi=76 EU868
-    0x6B934800u, // bc=53 res=3 pi=77 EU868
-    0x6B938800u, // bc=53 res=3 pi=78 EU868
-    0x6B940800u, // bc=53 res=3 pi=80 EU868
-    0x6B944800u, // bc=53 res=3 pi=81 EU868
-    0x6B948800u, // bc=53 res=3 pi=82 EU868
-    0x6B94C800u, // bc=53 res=3 pi=83 EU868
-    0x6B950800u, // bc=53 res=3 pi=84 EU868
-    0x6B954800u, // bc=53 res=3 pi=85 EU868
-    0x6B958800u, // bc=53 res=3 pi=86 EU868
+    0x6B898800u, // bc=53 res=3 pi=38 EU868
     0x6B960800u, // bc=53 res=3 pi=88 EU868
     0x6B964800u, // bc=53 res=3 pi=89 EU868
     0x6B969000u, // bc=53 res=3 pi=90 AS923-1
@@ -7525,75 +3001,6 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x6B970800u, // bc=53 res=3 pi=92 EU868
     0x6B974800u, // bc=53 res=3 pi=93 EU868
     0x6B978800u, // bc=53 res=3 pi=94 EU868
-    0x6B980800u, // bc=53 res=3 pi=96 EU868
-    0x6B984800u, // bc=53 res=3 pi=97 EU868
-    0x6B988800u, // bc=53 res=3 pi=98 EU868
-    0x6B98C800u, // bc=53 res=3 pi=99 EU868
-    0x6B990800u, // bc=53 res=3 pi=100 EU868
-    0x6B998800u, // bc=53 res=3 pi=102 EU868
-    0x6B9A0800u, // bc=53 res=3 pi=104 EU868
-    0x6B9A4800u, // bc=53 res=3 pi=105 EU868
-    0x6B9A8800u, // bc=53 res=3 pi=106 EU868
-    0x6B9AC800u, // bc=53 res=3 pi=107 EU868
-    0x6B9B0800u, // bc=53 res=3 pi=108 EU868
-    0x6B9B4800u, // bc=53 res=3 pi=109 EU868
-    0x6B9B8800u, // bc=53 res=3 pi=110 EU868
-    0x6B9C0800u, // bc=53 res=3 pi=112 EU868
-    0x6B9C4800u, // bc=53 res=3 pi=113 EU868
-    0x6B9C8800u, // bc=53 res=3 pi=114 EU868
-    0x6B9CC800u, // bc=53 res=3 pi=115 EU868
-    0x6B9D0800u, // bc=53 res=3 pi=116 EU868
-    0x6B9D4800u, // bc=53 res=3 pi=117 EU868
-    0x6B9D8800u, // bc=53 res=3 pi=118 EU868
-    0x6BA00800u, // bc=53 res=3 pi=128 EU868
-    0x6BA04800u, // bc=53 res=3 pi=129 EU868
-    0x6BA08800u, // bc=53 res=3 pi=130 EU868
-    0x6BA0C800u, // bc=53 res=3 pi=131 EU868
-    0x6BA10800u, // bc=53 res=3 pi=132 EU868
-    0x6BA14800u, // bc=53 res=3 pi=133 EU868
-    0x6BA18800u, // bc=53 res=3 pi=134 EU868
-    0x6BA20800u, // bc=53 res=3 pi=136 EU868
-    0x6BA24800u, // bc=53 res=3 pi=137 EU868
-    0x6BA28800u, // bc=53 res=3 pi=138 EU868
-    0x6BA2C800u, // bc=53 res=3 pi=139 EU868
-    0x6BA30800u, // bc=53 res=3 pi=140 EU868
-    0x6BA34800u, // bc=53 res=3 pi=141 EU868
-    0x6BA38800u, // bc=53 res=3 pi=142 EU868
-    0x6BA40800u, // bc=53 res=3 pi=144 EU868
-    0x6BA44800u, // bc=53 res=3 pi=145 EU868
-    0x6BA48800u, // bc=53 res=3 pi=146 EU868
-    0x6BA4C800u, // bc=53 res=3 pi=147 EU868
-    0x6BA50800u, // bc=53 res=3 pi=148 EU868
-    0x6BA54800u, // bc=53 res=3 pi=149 EU868
-    0x6BA58800u, // bc=53 res=3 pi=150 EU868
-    0x6BA60800u, // bc=53 res=3 pi=152 EU868
-    0x6BA64800u, // bc=53 res=3 pi=153 EU868
-    0x6BA68800u, // bc=53 res=3 pi=154 EU868
-    0x6BA6C800u, // bc=53 res=3 pi=155 EU868
-    0x6BA70800u, // bc=53 res=3 pi=156 EU868
-    0x6BA74800u, // bc=53 res=3 pi=157 EU868
-    0x6BA78800u, // bc=53 res=3 pi=158 EU868
-    0x6BA80800u, // bc=53 res=3 pi=160 EU868
-    0x6BA84800u, // bc=53 res=3 pi=161 EU868
-    0x6BA88800u, // bc=53 res=3 pi=162 EU868
-    0x6BA8C800u, // bc=53 res=3 pi=163 EU868
-    0x6BA90800u, // bc=53 res=3 pi=164 EU868
-    0x6BA94800u, // bc=53 res=3 pi=165 EU868
-    0x6BA98800u, // bc=53 res=3 pi=166 EU868
-    0x6BAA0800u, // bc=53 res=3 pi=168 EU868
-    0x6BAA4800u, // bc=53 res=3 pi=169 EU868
-    0x6BAA8800u, // bc=53 res=3 pi=170 EU868
-    0x6BAAC800u, // bc=53 res=3 pi=171 EU868
-    0x6BAB0800u, // bc=53 res=3 pi=172 EU868
-    0x6BAB4800u, // bc=53 res=3 pi=173 EU868
-    0x6BAB8800u, // bc=53 res=3 pi=174 EU868
-    0x6BAC0800u, // bc=53 res=3 pi=176 EU868
-    0x6BAC4800u, // bc=53 res=3 pi=177 EU868
-    0x6BAC8800u, // bc=53 res=3 pi=178 EU868
-    0x6BACC800u, // bc=53 res=3 pi=179 EU868
-    0x6BAD0800u, // bc=53 res=3 pi=180 EU868
-    0x6BAD4800u, // bc=53 res=3 pi=181 EU868
-    0x6BAD8800u, // bc=53 res=3 pi=182 EU868
     0x6BB00800u, // bc=53 res=3 pi=192 EU868
     0x6BB05000u, // bc=53 res=3 pi=193 AS923-1
     0x6BB08800u, // bc=53 res=3 pi=194 EU868
@@ -7601,20 +3008,6 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x6BB10800u, // bc=53 res=3 pi=196 EU868
     0x6BB14800u, // bc=53 res=3 pi=197 EU868
     0x6BB18800u, // bc=53 res=3 pi=198 EU868
-    0x6BB21000u, // bc=53 res=3 pi=200 AS923-1
-    0x6BB25000u, // bc=53 res=3 pi=201 AS923-1
-    0x6BB29000u, // bc=53 res=3 pi=202 AS923-1
-    0x6BB2D000u, // bc=53 res=3 pi=203 AS923-1
-    0x6BB31000u, // bc=53 res=3 pi=204 AS923-1
-    0x6BB35000u, // bc=53 res=3 pi=205 AS923-1
-    0x6BB39000u, // bc=53 res=3 pi=206 AS923-1
-    0x6BB40800u, // bc=53 res=3 pi=208 EU868
-    0x6BB44800u, // bc=53 res=3 pi=209 EU868
-    0x6BB48800u, // bc=53 res=3 pi=210 EU868
-    0x6BB4C800u, // bc=53 res=3 pi=211 EU868
-    0x6BB50800u, // bc=53 res=3 pi=212 EU868
-    0x6BB54800u, // bc=53 res=3 pi=213 EU868
-    0x6BB58800u, // bc=53 res=3 pi=214 EU868
     0x6BB60800u, // bc=53 res=3 pi=216 EU868
     0x6BB65000u, // bc=53 res=3 pi=217 AS923-1
     0x6BB68800u, // bc=53 res=3 pi=218 EU868
@@ -7622,171 +3015,89 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x6BB71000u, // bc=53 res=3 pi=220 AS923-1
     0x6BB75000u, // bc=53 res=3 pi=221 AS923-1
     0x6BB78800u, // bc=53 res=3 pi=222 EU868
-    0x6BB80800u, // bc=53 res=3 pi=224 EU868
-    0x6BB84800u, // bc=53 res=3 pi=225 EU868
-    0x6BB88800u, // bc=53 res=3 pi=226 EU868
-    0x6BB8C800u, // bc=53 res=3 pi=227 EU868
-    0x6BB90800u, // bc=53 res=3 pi=228 EU868
-    0x6BB94800u, // bc=53 res=3 pi=229 EU868
-    0x6BB98800u, // bc=53 res=3 pi=230 EU868
-    0x6BBA1000u, // bc=53 res=3 pi=232 AS923-1
-    0x6BBA5000u, // bc=53 res=3 pi=233 AS923-1
-    0x6BBA9000u, // bc=53 res=3 pi=234 AS923-1
-    0x6BBAD000u, // bc=53 res=3 pi=235 AS923-1
-    0x6BBB1000u, // bc=53 res=3 pi=236 AS923-1
-    0x6BBB5000u, // bc=53 res=3 pi=237 AS923-1
-    0x6BBB9000u, // bc=53 res=3 pi=238 AS923-1
-    0x6BBC0800u, // bc=53 res=3 pi=240 EU868
-    0x6BBC4800u, // bc=53 res=3 pi=241 EU868
-    0x6BBC8800u, // bc=53 res=3 pi=242 EU868
-    0x6BBCC800u, // bc=53 res=3 pi=243 EU868
-    0x6BBD0800u, // bc=53 res=3 pi=244 EU868
-    0x6BBD4800u, // bc=53 res=3 pi=245 EU868
-    0x6BBD8800u, // bc=53 res=3 pi=246 EU868
     0x6BC00800u, // bc=53 res=3 pi=256 EU868
     0x6BC08800u, // bc=53 res=3 pi=258 EU868
     0x6BC10800u, // bc=53 res=3 pi=260 EU868
+    0x6BC14800u, // bc=53 res=3 pi=261 EU868
     0x6BC18800u, // bc=53 res=3 pi=262 EU868
-    0x6BC40800u, // bc=53 res=3 pi=272 EU868
-    0x6BC44800u, // bc=53 res=3 pi=273 EU868
-    0x6BC48800u, // bc=53 res=3 pi=274 EU868
-    0x6BC4C800u, // bc=53 res=3 pi=275 EU868
-    0x6BC50800u, // bc=53 res=3 pi=276 EU868
-    0x6BC54800u, // bc=53 res=3 pi=277 EU868
-    0x6BC58800u, // bc=53 res=3 pi=278 EU868
+    0x6BC60800u, // bc=53 res=3 pi=280 EU868
     0x6BC68800u, // bc=53 res=3 pi=282 EU868
+    0x6BC6C800u, // bc=53 res=3 pi=283 EU868
     0x6BC70800u, // bc=53 res=3 pi=284 EU868
     0x6BC78800u, // bc=53 res=3 pi=286 EU868
-    0x6BC80800u, // bc=53 res=3 pi=288 EU868
-    0x6BC84800u, // bc=53 res=3 pi=289 EU868
-    0x6BC88800u, // bc=53 res=3 pi=290 EU868
-    0x6BC8C800u, // bc=53 res=3 pi=291 EU868
-    0x6BC90800u, // bc=53 res=3 pi=292 EU868
-    0x6BC94800u, // bc=53 res=3 pi=293 EU868
-    0x6BC98800u, // bc=53 res=3 pi=294 EU868
+    0x6BCB0800u, // bc=53 res=3 pi=300 EU868
     0x6BCB8800u, // bc=53 res=3 pi=302 EU868
-    0x6BCC0800u, // bc=53 res=3 pi=304 EU868
-    0x6BCC4800u, // bc=53 res=3 pi=305 EU868
-    0x6BCC8800u, // bc=53 res=3 pi=306 EU868
-    0x6BCCC800u, // bc=53 res=3 pi=307 EU868
-    0x6BCD0800u, // bc=53 res=3 pi=308 EU868
-    0x6BCD4800u, // bc=53 res=3 pi=309 EU868
-    0x6BCD8800u, // bc=53 res=3 pi=310 EU868
+    0x6BD20800u, // bc=53 res=3 pi=328 EU868
     0x6BD28800u, // bc=53 res=3 pi=330 EU868
+    0x6BD64800u, // bc=53 res=3 pi=345 EU868
     0x6BD68800u, // bc=53 res=3 pi=346 EU868
-    0x6BE00800u, // bc=53 res=3 pi=384 EU868
-    0x6BE04800u, // bc=53 res=3 pi=385 EU868
-    0x6BE08800u, // bc=53 res=3 pi=386 EU868
-    0x6BE0C800u, // bc=53 res=3 pi=387 EU868
-    0x6BE10800u, // bc=53 res=3 pi=388 EU868
-    0x6BE14800u, // bc=53 res=3 pi=389 EU868
-    0x6BE18800u, // bc=53 res=3 pi=390 EU868
-    0x6BE20800u, // bc=53 res=3 pi=392 EU868
-    0x6BE24800u, // bc=53 res=3 pi=393 EU868
-    0x6BE28800u, // bc=53 res=3 pi=394 EU868
-    0x6BE2C800u, // bc=53 res=3 pi=395 EU868
-    0x6BE30800u, // bc=53 res=3 pi=396 EU868
-    0x6BE34800u, // bc=53 res=3 pi=397 EU868
-    0x6BE38800u, // bc=53 res=3 pi=398 EU868
-    0x6BE40800u, // bc=53 res=3 pi=400 EU868
-    0x6BE44800u, // bc=53 res=3 pi=401 EU868
-    0x6BE48800u, // bc=53 res=3 pi=402 EU868
-    0x6BE4C800u, // bc=53 res=3 pi=403 EU868
-    0x6BE50800u, // bc=53 res=3 pi=404 EU868
-    0x6BE54800u, // bc=53 res=3 pi=405 EU868
-    0x6BE58800u, // bc=53 res=3 pi=406 EU868
-    0x6BE60800u, // bc=53 res=3 pi=408 EU868
-    0x6BE64800u, // bc=53 res=3 pi=409 EU868
-    0x6BE68800u, // bc=53 res=3 pi=410 EU868
-    0x6BE6C800u, // bc=53 res=3 pi=411 EU868
-    0x6BE70800u, // bc=53 res=3 pi=412 EU868
-    0x6BE74800u, // bc=53 res=3 pi=413 EU868
-    0x6BE78800u, // bc=53 res=3 pi=414 EU868
-    0x6BE80800u, // bc=53 res=3 pi=416 EU868
-    0x6BE84800u, // bc=53 res=3 pi=417 EU868
-    0x6BE88800u, // bc=53 res=3 pi=418 EU868
-    0x6BE8C800u, // bc=53 res=3 pi=419 EU868
-    0x6BE90800u, // bc=53 res=3 pi=420 EU868
-    0x6BE94800u, // bc=53 res=3 pi=421 EU868
-    0x6BE98800u, // bc=53 res=3 pi=422 EU868
-    0x6BEA0800u, // bc=53 res=3 pi=424 EU868
-    0x6BEA4800u, // bc=53 res=3 pi=425 EU868
-    0x6BEA8800u, // bc=53 res=3 pi=426 EU868
-    0x6BEAC800u, // bc=53 res=3 pi=427 EU868
-    0x6BEB0800u, // bc=53 res=3 pi=428 EU868
-    0x6BEB4800u, // bc=53 res=3 pi=429 EU868
-    0x6BEB8800u, // bc=53 res=3 pi=430 EU868
-    0x6BEC0800u, // bc=53 res=3 pi=432 EU868
-    0x6BEC4800u, // bc=53 res=3 pi=433 EU868
-    0x6BEC8800u, // bc=53 res=3 pi=434 EU868
-    0x6BECC800u, // bc=53 res=3 pi=435 EU868
-    0x6BED0800u, // bc=53 res=3 pi=436 EU868
-    0x6BED4800u, // bc=53 res=3 pi=437 EU868
-    0x6BED8800u, // bc=53 res=3 pi=438 EU868
+    0x6BD6C800u, // bc=53 res=3 pi=347 EU868
+    0x6BD74800u, // bc=53 res=3 pi=349 EU868
     0x6D02CC00u, // bc=54 res=2 pi=11 AU915
     0x6D090400u, // bc=54 res=2 pi=36 US915
-    0x6D094C00u, // bc=54 res=2 pi=37 AU915
     0x6D098400u, // bc=54 res=2 pi=38 US915
     0x6D0B0C00u, // bc=54 res=2 pi=44 AU915
-    0x6D0B5000u, // bc=54 res=2 pi=45 AS923-1
+    0x6D944C00u, // bc=54 res=3 pi=81 AU915
+    0x6D94CC00u, // bc=54 res=3 pi=83 AU915
+    0x6D985000u, // bc=54 res=3 pi=97 AS923-1
+    0x6D995000u, // bc=54 res=3 pi=101 AS923-1
     0x6DC10400u, // bc=54 res=3 pi=260 US915
     0x6DC14400u, // bc=54 res=3 pi=261 US915
+    0x6DC18400u, // bc=54 res=3 pi=262 US915
     0x6DC50400u, // bc=54 res=3 pi=276 US915
+    0x6DC54400u, // bc=54 res=3 pi=277 US915
+    0x6DC58400u, // bc=54 res=3 pi=278 US915
+    0x6DCA0C00u, // bc=54 res=3 pi=296 AU915
+    0x6DCA4C00u, // bc=54 res=3 pi=297 AU915
+    0x6DCA8400u, // bc=54 res=3 pi=298 US915
+    0x6DCACC00u, // bc=54 res=3 pi=299 AU915
+    0x6DCB0400u, // bc=54 res=3 pi=300 US915
+    0x6DCB4C00u, // bc=54 res=3 pi=301 AU915
+    0x6DCB8400u, // bc=54 res=3 pi=302 US915
+    0x6DDA1000u, // bc=54 res=3 pi=360 AS923-1
+    0x6DDA5000u, // bc=54 res=3 pi=361 AS923-1
+    0x6DDA9000u, // bc=54 res=3 pi=362 AS923-1
+    0x6DDAD000u, // bc=54 res=3 pi=363 AS923-1
+    0x6DDB0C00u, // bc=54 res=3 pi=364 AU915
+    0x6DDB4C00u, // bc=54 res=3 pi=365 AU915
+    0x6DDB8C00u, // bc=54 res=3 pi=366 AU915
+    0x6DDC0C00u, // bc=54 res=3 pi=368 AU915
     0x6DDD0C00u, // bc=54 res=3 pi=372 AU915
     0x6DDD4C00u, // bc=54 res=3 pi=373 AU915
-    0x72809C00u, // bc=57 res=1 pi=2 AS923-2
-    0x7280D000u, // bc=57 res=1 pi=3 AS923-1
+    0x6DDD8C00u, // bc=54 res=3 pi=374 AU915
+    0x6FA0C800u, // bc=55 res=3 pi=131 EU868
+    0x6FA74800u, // bc=55 res=3 pi=157 EU868
+    0x71924400u, // bc=56 res=3 pi=73 US915
+    0x7192C400u, // bc=56 res=3 pi=75 US915
+    0x71990400u, // bc=56 res=3 pi=100 US915
+    0x71994400u, // bc=56 res=3 pi=101 US915
+    0x71A18400u, // bc=56 res=3 pi=134 US915
+    0x71A54400u, // bc=56 res=3 pi=149 US915
+    0x71AC4400u, // bc=56 res=3 pi=177 US915
+    0x71ACC400u, // bc=56 res=3 pi=179 US915
+    0x73041C00u, // bc=57 res=2 pi=16 AS923-2
+    0x73045C00u, // bc=57 res=2 pi=17 AS923-2
+    0x73049C00u, // bc=57 res=2 pi=18 AS923-2
+    0x73051C00u, // bc=57 res=2 pi=20 AS923-2
+    0x73059C00u, // bc=57 res=2 pi=22 AS923-2
+    0x73065000u, // bc=57 res=2 pi=25 AS923-1
+    0x7306D000u, // bc=57 res=2 pi=27 AS923-1
     0x730C9C00u, // bc=57 res=2 pi=50 AS923-2
     0x730CDC00u, // bc=57 res=2 pi=51 AS923-2
     0x730D9C00u, // bc=57 res=2 pi=54 AS923-2
-    0x73A01C00u, // bc=57 res=3 pi=128 AS923-2
-    0x73A05C00u, // bc=57 res=3 pi=129 AS923-2
-    0x73A09C00u, // bc=57 res=3 pi=130 AS923-2
-    0x73A0DC00u, // bc=57 res=3 pi=131 AS923-2
-    0x73A11C00u, // bc=57 res=3 pi=132 AS923-2
-    0x73A15C00u, // bc=57 res=3 pi=133 AS923-2
-    0x73A19C00u, // bc=57 res=3 pi=134 AS923-2
-    0x73A21C00u, // bc=57 res=3 pi=136 AS923-2
-    0x73A25C00u, // bc=57 res=3 pi=137 AS923-2
-    0x73A29C00u, // bc=57 res=3 pi=138 AS923-2
-    0x73A2DC00u, // bc=57 res=3 pi=139 AS923-2
-    0x73A31C00u, // bc=57 res=3 pi=140 AS923-2
-    0x73A35C00u, // bc=57 res=3 pi=141 AS923-2
-    0x73A39C00u, // bc=57 res=3 pi=142 AS923-2
-    0x73A41C00u, // bc=57 res=3 pi=144 AS923-2
-    0x73A45C00u, // bc=57 res=3 pi=145 AS923-2
-    0x73A4DC00u, // bc=57 res=3 pi=147 AS923-2
-    0x73A51C00u, // bc=57 res=3 pi=148 AS923-2
-    0x73A55C00u, // bc=57 res=3 pi=149 AS923-2
-    0x73A59C00u, // bc=57 res=3 pi=150 AS923-2
+    0x73A65C00u, // bc=57 res=3 pi=153 AS923-2
+    0x73A71C00u, // bc=57 res=3 pi=156 AS923-2
     0x73A75C00u, // bc=57 res=3 pi=157 AS923-2
     0x73A79C00u, // bc=57 res=3 pi=158 AS923-2
-    0x73A81C00u, // bc=57 res=3 pi=160 AS923-2
-    0x73A85C00u, // bc=57 res=3 pi=161 AS923-2
-    0x73A89C00u, // bc=57 res=3 pi=162 AS923-2
-    0x73A8DC00u, // bc=57 res=3 pi=163 AS923-2
-    0x73A95C00u, // bc=57 res=3 pi=165 AS923-2
-    0x73A99C00u, // bc=57 res=3 pi=166 AS923-2
+    0x73AA1C00u, // bc=57 res=3 pi=168 AS923-2
     0x73AA9C00u, // bc=57 res=3 pi=170 AS923-2
     0x73AADC00u, // bc=57 res=3 pi=171 AS923-2
     0x73AB9C00u, // bc=57 res=3 pi=174 AS923-2
-    0x73AC1C00u, // bc=57 res=3 pi=176 AS923-2
-    0x73AC5C00u, // bc=57 res=3 pi=177 AS923-2
-    0x73AC9C00u, // bc=57 res=3 pi=178 AS923-2
-    0x73ACDC00u, // bc=57 res=3 pi=179 AS923-2
-    0x73AD1C00u, // bc=57 res=3 pi=180 AS923-2
-    0x73AD5C00u, // bc=57 res=3 pi=181 AS923-2
-    0x73AD9C00u, // bc=57 res=3 pi=182 AS923-2
     0x73B01000u, // bc=57 res=3 pi=192 AS923-1
     0x73B05000u, // bc=57 res=3 pi=193 AS923-1
     0x73B09000u, // bc=57 res=3 pi=194 AS923-1
     0x73B0D000u, // bc=57 res=3 pi=195 AS923-1
-    0x73B21000u, // bc=57 res=3 pi=200 AS923-1
-    0x73B25000u, // bc=57 res=3 pi=201 AS923-1
-    0x73B29000u, // bc=57 res=3 pi=202 AS923-1
-    0x73B2D000u, // bc=57 res=3 pi=203 AS923-1
-    0x73B31000u, // bc=57 res=3 pi=204 AS923-1
-    0x73B39000u, // bc=57 res=3 pi=206 AS923-1
+    0x73B15000u, // bc=57 res=3 pi=197 AS923-1
     0x73B41000u, // bc=57 res=3 pi=208 AS923-1
     0x73B45000u, // bc=57 res=3 pi=209 AS923-1
     0x73B49C00u, // bc=57 res=3 pi=210 AS923-2
@@ -7794,131 +3105,101 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x73B51C00u, // bc=57 res=3 pi=212 AS923-2
     0x73B55000u, // bc=57 res=3 pi=213 AS923-1
     0x73B59C00u, // bc=57 res=3 pi=214 AS923-2
-    0x73B61000u, // bc=57 res=3 pi=216 AS923-1
-    0x73B65000u, // bc=57 res=3 pi=217 AS923-1
-    0x73B69000u, // bc=57 res=3 pi=218 AS923-1
-    0x73B6D000u, // bc=57 res=3 pi=219 AS923-1
-    0x73B71000u, // bc=57 res=3 pi=220 AS923-1
-    0x73B75000u, // bc=57 res=3 pi=221 AS923-1
-    0x73B79000u, // bc=57 res=3 pi=222 AS923-1
+    0x73BA9000u, // bc=57 res=3 pi=234 AS923-1
+    0x73BAD000u, // bc=57 res=3 pi=235 AS923-1
     0x73BC9C00u, // bc=57 res=3 pi=242 AS923-2
+    0x73BCDC00u, // bc=57 res=3 pi=243 AS923-2
     0x73BD9C00u, // bc=57 res=3 pi=246 AS923-2
+    0x73D0FC00u, // bc=57 res=3 pi=323 CD900-1A
+    0x73D34400u, // bc=57 res=3 pi=333 US915
     0x73D3BC00u, // bc=57 res=3 pi=334 CD900-1A
+    0x73E09C00u, // bc=57 res=3 pi=386 AS923-2
+    0x73E19C00u, // bc=57 res=3 pi=390 AS923-2
     0x74810800u, // bc=58 res=1 pi=4 EU868
-    0x74818800u, // bc=58 res=1 pi=6 EU868
+    0x750C0800u, // bc=58 res=2 pi=48 EU868
+    0x750D0800u, // bc=58 res=2 pi=52 EU868
+    0x750D4800u, // bc=58 res=2 pi=53 EU868
+    0x750D8800u, // bc=58 res=2 pi=54 EU868
+    0x75890800u, // bc=58 res=3 pi=36 EU868
+    0x75898800u, // bc=58 res=3 pi=38 EU868
+    0x758C0800u, // bc=58 res=3 pi=48 EU868
+    0x758C8800u, // bc=58 res=3 pi=50 EU868
     0x758D0800u, // bc=58 res=3 pi=52 EU868
+    0x758D4800u, // bc=58 res=3 pi=53 EU868
     0x758D8800u, // bc=58 res=3 pi=54 EU868
-    0x75C00800u, // bc=58 res=3 pi=256 EU868
-    0x75C04800u, // bc=58 res=3 pi=257 EU868
-    0x75C08800u, // bc=58 res=3 pi=258 EU868
-    0x75C0C800u, // bc=58 res=3 pi=259 EU868
-    0x75C10800u, // bc=58 res=3 pi=260 EU868
-    0x75C14800u, // bc=58 res=3 pi=261 EU868
-    0x75C18800u, // bc=58 res=3 pi=262 EU868
-    0x75C20800u, // bc=58 res=3 pi=264 EU868
-    0x75C28800u, // bc=58 res=3 pi=266 EU868
-    0x75C30800u, // bc=58 res=3 pi=268 EU868
-    0x75C34800u, // bc=58 res=3 pi=269 EU868
-    0x75C38800u, // bc=58 res=3 pi=270 EU868
-    0x75C40800u, // bc=58 res=3 pi=272 EU868
-    0x75C44800u, // bc=58 res=3 pi=273 EU868
-    0x75C48800u, // bc=58 res=3 pi=274 EU868
-    0x75C4C800u, // bc=58 res=3 pi=275 EU868
-    0x75C50800u, // bc=58 res=3 pi=276 EU868
-    0x75C54800u, // bc=58 res=3 pi=277 EU868
-    0x75C58800u, // bc=58 res=3 pi=278 EU868
-    0x75C60800u, // bc=58 res=3 pi=280 EU868
-    0x75C64800u, // bc=58 res=3 pi=281 EU868
-    0x75C68800u, // bc=58 res=3 pi=282 EU868
-    0x75C6C800u, // bc=58 res=3 pi=283 EU868
-    0x75C70800u, // bc=58 res=3 pi=284 EU868
-    0x75C74800u, // bc=58 res=3 pi=285 EU868
-    0x75C78800u, // bc=58 res=3 pi=286 EU868
-    0x75C80800u, // bc=58 res=3 pi=288 EU868
-    0x75C84800u, // bc=58 res=3 pi=289 EU868
-    0x75C88800u, // bc=58 res=3 pi=290 EU868
-    0x75C8C800u, // bc=58 res=3 pi=291 EU868
-    0x75C90800u, // bc=58 res=3 pi=292 EU868
-    0x75C94800u, // bc=58 res=3 pi=293 EU868
-    0x75C98800u, // bc=58 res=3 pi=294 EU868
-    0x75CA0800u, // bc=58 res=3 pi=296 EU868
-    0x75CA4800u, // bc=58 res=3 pi=297 EU868
-    0x75CA8800u, // bc=58 res=3 pi=298 EU868
-    0x75CAC800u, // bc=58 res=3 pi=299 EU868
-    0x75CB0800u, // bc=58 res=3 pi=300 EU868
-    0x75CB4800u, // bc=58 res=3 pi=301 EU868
-    0x75CB8800u, // bc=58 res=3 pi=302 EU868
-    0x75CC0800u, // bc=58 res=3 pi=304 EU868
-    0x75CC4800u, // bc=58 res=3 pi=305 EU868
-    0x75CC8800u, // bc=58 res=3 pi=306 EU868
-    0x75CCC800u, // bc=58 res=3 pi=307 EU868
-    0x75CD0800u, // bc=58 res=3 pi=308 EU868
-    0x75CD4800u, // bc=58 res=3 pi=309 EU868
-    0x75CD8800u, // bc=58 res=3 pi=310 EU868
+    0x75DC8800u, // bc=58 res=3 pi=370 EU868
+    0x75DD0800u, // bc=58 res=3 pi=372 EU868
     0x75DD8800u, // bc=58 res=3 pi=374 EU868
-    0x75E00800u, // bc=58 res=3 pi=384 EU868
-    0x75E04800u, // bc=58 res=3 pi=385 EU868
-    0x75E10800u, // bc=58 res=3 pi=388 EU868
-    0x75E14800u, // bc=58 res=3 pi=389 EU868
-    0x75E18800u, // bc=58 res=3 pi=390 EU868
+    0x75E20800u, // bc=58 res=3 pi=392 EU868
     0x75E30800u, // bc=58 res=3 pi=396 EU868
     0x75E34800u, // bc=58 res=3 pi=397 EU868
-    0x75E80800u, // bc=58 res=3 pi=416 EU868
-    0x75E84800u, // bc=58 res=3 pi=417 EU868
-    0x75E88800u, // bc=58 res=3 pi=418 EU868
-    0x75E8C800u, // bc=58 res=3 pi=419 EU868
-    0x75E90800u, // bc=58 res=3 pi=420 EU868
-    0x75E94800u, // bc=58 res=3 pi=421 EU868
-    0x75E98800u, // bc=58 res=3 pi=422 EU868
-    0x75EA0800u, // bc=58 res=3 pi=424 EU868
-    0x75EA4800u, // bc=58 res=3 pi=425 EU868
-    0x75EA8800u, // bc=58 res=3 pi=426 EU868
-    0x75EAC800u, // bc=58 res=3 pi=427 EU868
-    0x75EB0800u, // bc=58 res=3 pi=428 EU868
-    0x75EB4800u, // bc=58 res=3 pi=429 EU868
-    0x75EB8800u, // bc=58 res=3 pi=430 EU868
-    0x75EC0800u, // bc=58 res=3 pi=432 EU868
-    0x75EC4800u, // bc=58 res=3 pi=433 EU868
-    0x75EC8800u, // bc=58 res=3 pi=434 EU868
-    0x75ECC800u, // bc=58 res=3 pi=435 EU868
-    0x75ED0800u, // bc=58 res=3 pi=436 EU868
-    0x75ED4800u, // bc=58 res=3 pi=437 EU868
-    0x75ED8800u, // bc=58 res=3 pi=438 EU868
-    0x76809000u, // bc=59 res=1 pi=2 AS923-1
+    0x75E38800u, // bc=58 res=3 pi=398 EU868
+    0x75E50800u, // bc=58 res=3 pi=404 EU868
+    0x75E54800u, // bc=58 res=3 pi=405 EU868
     0x770C9000u, // bc=59 res=2 pi=50 AS923-1
     0x770CD000u, // bc=59 res=2 pi=51 AS923-1
     0x77A01000u, // bc=59 res=3 pi=128 AS923-1
+    0x77A05000u, // bc=59 res=3 pi=129 AS923-1
     0x77A09000u, // bc=59 res=3 pi=130 AS923-1
     0x77A0D000u, // bc=59 res=3 pi=131 AS923-1
     0x77A11000u, // bc=59 res=3 pi=132 AS923-1
+    0x77A19000u, // bc=59 res=3 pi=134 AS923-1
+    0x77A21000u, // bc=59 res=3 pi=136 AS923-1
+    0x77A25000u, // bc=59 res=3 pi=137 AS923-1
     0x77A29000u, // bc=59 res=3 pi=138 AS923-1
     0x77A2D000u, // bc=59 res=3 pi=139 AS923-1
+    0x77A35000u, // bc=59 res=3 pi=141 AS923-1
     0x77A39000u, // bc=59 res=3 pi=142 AS923-1
+    0x77A41000u, // bc=59 res=3 pi=144 AS923-1
+    0x77A49000u, // bc=59 res=3 pi=146 AS923-1
     0x77A59000u, // bc=59 res=3 pi=150 AS923-1
+    0x77A61000u, // bc=59 res=3 pi=152 AS923-1
     0x77A65000u, // bc=59 res=3 pi=153 AS923-1
+    0x77A71000u, // bc=59 res=3 pi=156 AS923-1
     0x77A75000u, // bc=59 res=3 pi=157 AS923-1
     0x77A81000u, // bc=59 res=3 pi=160 AS923-1
     0x77A89000u, // bc=59 res=3 pi=162 AS923-1
     0x77A8D000u, // bc=59 res=3 pi=163 AS923-1
+    0x77A91000u, // bc=59 res=3 pi=164 AS923-1
     0x77A99000u, // bc=59 res=3 pi=166 AS923-1
+    0x77AA1000u, // bc=59 res=3 pi=168 AS923-1
+    0x77AA9000u, // bc=59 res=3 pi=170 AS923-1
+    0x77AB9000u, // bc=59 res=3 pi=174 AS923-1
+    0x77AC5000u, // bc=59 res=3 pi=177 AS923-1
     0x77AD1000u, // bc=59 res=3 pi=180 AS923-1
     0x77AD5000u, // bc=59 res=3 pi=181 AS923-1
+    0x77AD9000u, // bc=59 res=3 pi=182 AS923-1
     0x77B49000u, // bc=59 res=3 pi=210 AS923-1
+    0x77B59000u, // bc=59 res=3 pi=214 AS923-1
+    0x77B69000u, // bc=59 res=3 pi=218 AS923-1
+    0x77B79000u, // bc=59 res=3 pi=222 AS923-1
+    0x77BC1000u, // bc=59 res=3 pi=240 AS923-1
+    0x77BC9000u, // bc=59 res=3 pi=242 AS923-1
+    0x77BD1000u, // bc=59 res=3 pi=244 AS923-1
+    0x77BD9000u, // bc=59 res=3 pi=246 AS923-1
     0x77E09000u, // bc=59 res=3 pi=386 AS923-1
-    0x7A804800u, // bc=61 res=1 pi=1 EU868
-    0x7A808800u, // bc=61 res=1 pi=2 EU868
+    0x77E19000u, // bc=59 res=3 pi=390 AS923-1
+    0x77ECD000u, // bc=59 res=3 pi=435 AS923-1
+    0x79A60800u, // bc=60 res=3 pi=152 EU868
+    0x79A64800u, // bc=60 res=3 pi=153 EU868
+    0x79A6C800u, // bc=60 res=3 pi=155 EU868
     0x7A80C800u, // bc=61 res=1 pi=3 EU868
     0x7B004800u, // bc=61 res=2 pi=1 EU868
     0x7B00C800u, // bc=61 res=2 pi=3 EU868
-    0x7B0A5000u, // bc=61 res=2 pi=41 AS923-1
+    0x7B020800u, // bc=61 res=2 pi=8 EU868
+    0x7B028800u, // bc=61 res=2 pi=10 EU868
+    0x7B02C800u, // bc=61 res=2 pi=11 EU868
+    0x7B030800u, // bc=61 res=2 pi=12 EU868
+    0x7B038800u, // bc=61 res=2 pi=14 EU868
+    0x7B044800u, // bc=61 res=2 pi=17 EU868
+    0x7B04C800u, // bc=61 res=2 pi=19 EU868
+    0x7B054800u, // bc=61 res=2 pi=21 EU868
     0x7B0B5000u, // bc=61 res=2 pi=45 AS923-1
-    0x7B900800u, // bc=61 res=3 pi=64 EU868
-    0x7B904800u, // bc=61 res=3 pi=65 EU868
-    0x7B908800u, // bc=61 res=3 pi=66 EU868
-    0x7B90C800u, // bc=61 res=3 pi=67 EU868
-    0x7B910800u, // bc=61 res=3 pi=68 EU868
-    0x7B914800u, // bc=61 res=3 pi=69 EU868
-    0x7B918800u, // bc=61 res=3 pi=70 EU868
+    0x7B80C800u, // bc=61 res=3 pi=3 EU868
+    0x7B844800u, // bc=61 res=3 pi=17 EU868
+    0x7B84C800u, // bc=61 res=3 pi=19 EU868
+    0x7B8A4800u, // bc=61 res=3 pi=41 EU868
+    0x7B8AC800u, // bc=61 res=3 pi=43 EU868
     0x7B920800u, // bc=61 res=3 pi=72 EU868
     0x7B925000u, // bc=61 res=3 pi=73 AS923-1
     0x7B928800u, // bc=61 res=3 pi=74 EU868
@@ -7926,27 +3207,6 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x7B930800u, // bc=61 res=3 pi=76 EU868
     0x7B934800u, // bc=61 res=3 pi=77 EU868
     0x7B938800u, // bc=61 res=3 pi=78 EU868
-    0x7B940800u, // bc=61 res=3 pi=80 EU868
-    0x7B944800u, // bc=61 res=3 pi=81 EU868
-    0x7B948800u, // bc=61 res=3 pi=82 EU868
-    0x7B94C800u, // bc=61 res=3 pi=83 EU868
-    0x7B950800u, // bc=61 res=3 pi=84 EU868
-    0x7B954800u, // bc=61 res=3 pi=85 EU868
-    0x7B958800u, // bc=61 res=3 pi=86 EU868
-    0x7B960800u, // bc=61 res=3 pi=88 EU868
-    0x7B964800u, // bc=61 res=3 pi=89 EU868
-    0x7B968800u, // bc=61 res=3 pi=90 EU868
-    0x7B96C800u, // bc=61 res=3 pi=91 EU868
-    0x7B970800u, // bc=61 res=3 pi=92 EU868
-    0x7B974800u, // bc=61 res=3 pi=93 EU868
-    0x7B978800u, // bc=61 res=3 pi=94 EU868
-    0x7B980800u, // bc=61 res=3 pi=96 EU868
-    0x7B984800u, // bc=61 res=3 pi=97 EU868
-    0x7B988800u, // bc=61 res=3 pi=98 EU868
-    0x7B98C800u, // bc=61 res=3 pi=99 EU868
-    0x7B990800u, // bc=61 res=3 pi=100 EU868
-    0x7B994800u, // bc=61 res=3 pi=101 EU868
-    0x7B998800u, // bc=61 res=3 pi=102 EU868
     0x7B9A0800u, // bc=61 res=3 pi=104 EU868
     0x7B9A5000u, // bc=61 res=3 pi=105 AS923-1
     0x7B9A8800u, // bc=61 res=3 pi=106 EU868
@@ -7954,572 +3214,179 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x7B9B1000u, // bc=61 res=3 pi=108 AS923-1
     0x7B9B5000u, // bc=61 res=3 pi=109 AS923-1
     0x7B9B8800u, // bc=61 res=3 pi=110 EU868
-    0x7B9C0800u, // bc=61 res=3 pi=112 EU868
-    0x7B9C4800u, // bc=61 res=3 pi=113 EU868
-    0x7B9C8800u, // bc=61 res=3 pi=114 EU868
-    0x7B9CC800u, // bc=61 res=3 pi=115 EU868
-    0x7B9D0800u, // bc=61 res=3 pi=116 EU868
-    0x7B9D4800u, // bc=61 res=3 pi=117 EU868
-    0x7B9D8800u, // bc=61 res=3 pi=118 EU868
     0x7BA00800u, // bc=61 res=3 pi=128 EU868
     0x7BA04800u, // bc=61 res=3 pi=129 EU868
     0x7BA08800u, // bc=61 res=3 pi=130 EU868
     0x7BA0C800u, // bc=61 res=3 pi=131 EU868
     0x7BA14800u, // bc=61 res=3 pi=133 EU868
-    0x7BA20800u, // bc=61 res=3 pi=136 EU868
-    0x7BA24800u, // bc=61 res=3 pi=137 EU868
-    0x7BA28800u, // bc=61 res=3 pi=138 EU868
-    0x7BA2C800u, // bc=61 res=3 pi=139 EU868
-    0x7BA30800u, // bc=61 res=3 pi=140 EU868
-    0x7BA34800u, // bc=61 res=3 pi=141 EU868
-    0x7BA38800u, // bc=61 res=3 pi=142 EU868
     0x7BA44800u, // bc=61 res=3 pi=145 EU868
     0x7BA4C800u, // bc=61 res=3 pi=147 EU868
-    0x7BA60800u, // bc=61 res=3 pi=152 EU868
-    0x7BA64800u, // bc=61 res=3 pi=153 EU868
-    0x7BA68800u, // bc=61 res=3 pi=154 EU868
-    0x7BA6C800u, // bc=61 res=3 pi=155 EU868
-    0x7BA70800u, // bc=61 res=3 pi=156 EU868
-    0x7BA74800u, // bc=61 res=3 pi=157 EU868
-    0x7BA78800u, // bc=61 res=3 pi=158 EU868
-    0x7BAA0800u, // bc=61 res=3 pi=168 EU868
-    0x7BAA4800u, // bc=61 res=3 pi=169 EU868
-    0x7BAA8800u, // bc=61 res=3 pi=170 EU868
-    0x7BAAC800u, // bc=61 res=3 pi=171 EU868
-    0x7BAB4800u, // bc=61 res=3 pi=173 EU868
-    0x7BAB8800u, // bc=61 res=3 pi=174 EU868
-    0x7BB00800u, // bc=61 res=3 pi=192 EU868
-    0x7BB04800u, // bc=61 res=3 pi=193 EU868
-    0x7BB08800u, // bc=61 res=3 pi=194 EU868
-    0x7BB0C800u, // bc=61 res=3 pi=195 EU868
-    0x7BB10800u, // bc=61 res=3 pi=196 EU868
-    0x7BB14800u, // bc=61 res=3 pi=197 EU868
-    0x7BB18800u, // bc=61 res=3 pi=198 EU868
-    0x7BB20800u, // bc=61 res=3 pi=200 EU868
-    0x7BB24800u, // bc=61 res=3 pi=201 EU868
-    0x7BB28800u, // bc=61 res=3 pi=202 EU868
-    0x7BB2C800u, // bc=61 res=3 pi=203 EU868
-    0x7BB30800u, // bc=61 res=3 pi=204 EU868
-    0x7BB34800u, // bc=61 res=3 pi=205 EU868
-    0x7BB38800u, // bc=61 res=3 pi=206 EU868
-    0x7BB40800u, // bc=61 res=3 pi=208 EU868
-    0x7BB44800u, // bc=61 res=3 pi=209 EU868
-    0x7BB48800u, // bc=61 res=3 pi=210 EU868
-    0x7BB4C800u, // bc=61 res=3 pi=211 EU868
-    0x7BB50800u, // bc=61 res=3 pi=212 EU868
-    0x7BB54800u, // bc=61 res=3 pi=213 EU868
-    0x7BB58800u, // bc=61 res=3 pi=214 EU868
-    0x7BB60800u, // bc=61 res=3 pi=216 EU868
-    0x7BB64800u, // bc=61 res=3 pi=217 EU868
-    0x7BB68800u, // bc=61 res=3 pi=218 EU868
-    0x7BB6C800u, // bc=61 res=3 pi=219 EU868
-    0x7BB70800u, // bc=61 res=3 pi=220 EU868
-    0x7BB74800u, // bc=61 res=3 pi=221 EU868
-    0x7BB78800u, // bc=61 res=3 pi=222 EU868
-    0x7BB80800u, // bc=61 res=3 pi=224 EU868
-    0x7BB84800u, // bc=61 res=3 pi=225 EU868
-    0x7BB88800u, // bc=61 res=3 pi=226 EU868
-    0x7BB8C800u, // bc=61 res=3 pi=227 EU868
-    0x7BB90800u, // bc=61 res=3 pi=228 EU868
-    0x7BB94800u, // bc=61 res=3 pi=229 EU868
-    0x7BB98800u, // bc=61 res=3 pi=230 EU868
-    0x7BBA0800u, // bc=61 res=3 pi=232 EU868
-    0x7BBA4800u, // bc=61 res=3 pi=233 EU868
-    0x7BBA8800u, // bc=61 res=3 pi=234 EU868
-    0x7BBAC800u, // bc=61 res=3 pi=235 EU868
-    0x7BBB0800u, // bc=61 res=3 pi=236 EU868
-    0x7BBB4800u, // bc=61 res=3 pi=237 EU868
-    0x7BBB8800u, // bc=61 res=3 pi=238 EU868
-    0x7BBC0800u, // bc=61 res=3 pi=240 EU868
-    0x7BBC4800u, // bc=61 res=3 pi=241 EU868
-    0x7BBC8800u, // bc=61 res=3 pi=242 EU868
-    0x7BBCC800u, // bc=61 res=3 pi=243 EU868
-    0x7BBD0800u, // bc=61 res=3 pi=244 EU868
-    0x7BBD4800u, // bc=61 res=3 pi=245 EU868
-    0x7BBD8800u, // bc=61 res=3 pi=246 EU868
+    0x7BC88800u, // bc=61 res=3 pi=290 EU868
+    0x7BC90800u, // bc=61 res=3 pi=292 EU868
     0x7BC98800u, // bc=61 res=3 pi=294 EU868
+    0x7BCA4800u, // bc=61 res=3 pi=297 EU868
     0x7BCB0800u, // bc=61 res=3 pi=300 EU868
     0x7BCB4800u, // bc=61 res=3 pi=301 EU868
+    0x7BCC8800u, // bc=61 res=3 pi=306 EU868
+    0x7BCD4800u, // bc=61 res=3 pi=309 EU868
+    0x7BCD8800u, // bc=61 res=3 pi=310 EU868
+    0x7BD05000u, // bc=61 res=3 pi=321 AS923-1
+    0x7BD21000u, // bc=61 res=3 pi=328 AS923-1
+    0x7BD25000u, // bc=61 res=3 pi=329 AS923-1
+    0x7BD28800u, // bc=61 res=3 pi=330 EU868
+    0x7BD2D000u, // bc=61 res=3 pi=331 AS923-1
+    0x7BD31000u, // bc=61 res=3 pi=332 AS923-1
+    0x7BD35000u, // bc=61 res=3 pi=333 AS923-1
+    0x7BD39000u, // bc=61 res=3 pi=334 AS923-1
     0x7BD64800u, // bc=61 res=3 pi=345 EU868
+    0x7BD68800u, // bc=61 res=3 pi=346 EU868
     0x7BD6C800u, // bc=61 res=3 pi=347 EU868
-    0x80800C00u, // bc=64 res=1 pi=0 AU915
-    0x80804C00u, // bc=64 res=1 pi=1 AU915
+    0x7BD75000u, // bc=61 res=3 pi=349 AS923-1
+    0x7D980C00u, // bc=62 res=3 pi=96 AU915
+    0x7D984C00u, // bc=62 res=3 pi=97 AU915
+    0x7DED4800u, // bc=62 res=3 pi=437 EU868
     0x80810C00u, // bc=64 res=1 pi=4 AU915
     0x80814C00u, // bc=64 res=1 pi=5 AU915
-    0x80818C00u, // bc=64 res=1 pi=6 AU915
-    0x81800C00u, // bc=64 res=3 pi=0 AU915
-    0x81804C00u, // bc=64 res=3 pi=1 AU915
-    0x81808C00u, // bc=64 res=3 pi=2 AU915
-    0x8180CC00u, // bc=64 res=3 pi=3 AU915
-    0x81810C00u, // bc=64 res=3 pi=4 AU915
-    0x81814C00u, // bc=64 res=3 pi=5 AU915
-    0x81818C00u, // bc=64 res=3 pi=6 AU915
+    0x81000C00u, // bc=64 res=2 pi=0 AU915
+    0x81008C00u, // bc=64 res=2 pi=2 AU915
+    0x81010C00u, // bc=64 res=2 pi=4 AU915
+    0x81014C00u, // bc=64 res=2 pi=5 AU915
+    0x81018C00u, // bc=64 res=2 pi=6 AU915
+    0x81020C00u, // bc=64 res=2 pi=8 AU915
+    0x81024C00u, // bc=64 res=2 pi=9 AU915
+    0x81030C00u, // bc=64 res=2 pi=12 AU915
+    0x81034C00u, // bc=64 res=2 pi=13 AU915
+    0x81038C00u, // bc=64 res=2 pi=14 AU915
+    0x810C4C00u, // bc=64 res=2 pi=49 AU915
+    0x810D4C00u, // bc=64 res=2 pi=53 AU915
     0x81820C00u, // bc=64 res=3 pi=8 AU915
     0x81824C00u, // bc=64 res=3 pi=9 AU915
+    0x8182CC00u, // bc=64 res=3 pi=11 AU915
     0x81830C00u, // bc=64 res=3 pi=12 AU915
     0x81834C00u, // bc=64 res=3 pi=13 AU915
     0x81838C00u, // bc=64 res=3 pi=14 AU915
-    0x81840C00u, // bc=64 res=3 pi=16 AU915
-    0x81844C00u, // bc=64 res=3 pi=17 AU915
-    0x81850C00u, // bc=64 res=3 pi=20 AU915
-    0x81854C00u, // bc=64 res=3 pi=21 AU915
-    0x81858C00u, // bc=64 res=3 pi=22 AU915
     0x81870C00u, // bc=64 res=3 pi=28 AU915
-    0x81880C00u, // bc=64 res=3 pi=32 AU915
-    0x81884C00u, // bc=64 res=3 pi=33 AU915
-    0x81888C00u, // bc=64 res=3 pi=34 AU915
-    0x8188CC00u, // bc=64 res=3 pi=35 AU915
-    0x81890C00u, // bc=64 res=3 pi=36 AU915
-    0x81894C00u, // bc=64 res=3 pi=37 AU915
-    0x81898C00u, // bc=64 res=3 pi=38 AU915
-    0x818A0C00u, // bc=64 res=3 pi=40 AU915
-    0x818A4C00u, // bc=64 res=3 pi=41 AU915
-    0x818A8C00u, // bc=64 res=3 pi=42 AU915
-    0x818ACC00u, // bc=64 res=3 pi=43 AU915
-    0x818B0C00u, // bc=64 res=3 pi=44 AU915
-    0x818B4C00u, // bc=64 res=3 pi=45 AU915
-    0x818B8C00u, // bc=64 res=3 pi=46 AU915
-    0x818C0C00u, // bc=64 res=3 pi=48 AU915
-    0x818C4C00u, // bc=64 res=3 pi=49 AU915
-    0x818C8C00u, // bc=64 res=3 pi=50 AU915
-    0x818CCC00u, // bc=64 res=3 pi=51 AU915
-    0x818D0C00u, // bc=64 res=3 pi=52 AU915
-    0x818D4C00u, // bc=64 res=3 pi=53 AU915
-    0x818D8C00u, // bc=64 res=3 pi=54 AU915
-    0x81900C00u, // bc=64 res=3 pi=64 AU915
-    0x81904C00u, // bc=64 res=3 pi=65 AU915
-    0x8190CC00u, // bc=64 res=3 pi=67 AU915
-    0x81910C00u, // bc=64 res=3 pi=68 AU915
-    0x81914C00u, // bc=64 res=3 pi=69 AU915
-    0x81918C00u, // bc=64 res=3 pi=70 AU915
-    0x81920C00u, // bc=64 res=3 pi=72 AU915
-    0x81924C00u, // bc=64 res=3 pi=73 AU915
-    0x8192CC00u, // bc=64 res=3 pi=75 AU915
-    0x81930C00u, // bc=64 res=3 pi=76 AU915
-    0x81934C00u, // bc=64 res=3 pi=77 AU915
-    0x81938C00u, // bc=64 res=3 pi=78 AU915
+    0x81874C00u, // bc=64 res=3 pi=29 AU915
+    0x81878C00u, // bc=64 res=3 pi=30 AU915
     0x81950C00u, // bc=64 res=3 pi=84 AU915
-    0x81980C00u, // bc=64 res=3 pi=96 AU915
-    0x81984C00u, // bc=64 res=3 pi=97 AU915
-    0x81988C00u, // bc=64 res=3 pi=98 AU915
-    0x8198CC00u, // bc=64 res=3 pi=99 AU915
-    0x81990C00u, // bc=64 res=3 pi=100 AU915
-    0x81994C00u, // bc=64 res=3 pi=101 AU915
-    0x81998C00u, // bc=64 res=3 pi=102 AU915
-    0x819A0C00u, // bc=64 res=3 pi=104 AU915
-    0x819A4C00u, // bc=64 res=3 pi=105 AU915
-    0x819A8C00u, // bc=64 res=3 pi=106 AU915
-    0x819ACC00u, // bc=64 res=3 pi=107 AU915
-    0x819B0C00u, // bc=64 res=3 pi=108 AU915
-    0x819B4C00u, // bc=64 res=3 pi=109 AU915
-    0x819B8C00u, // bc=64 res=3 pi=110 AU915
-    0x819C0C00u, // bc=64 res=3 pi=112 AU915
-    0x819C4C00u, // bc=64 res=3 pi=113 AU915
-    0x819C8C00u, // bc=64 res=3 pi=114 AU915
-    0x819CCC00u, // bc=64 res=3 pi=115 AU915
-    0x819D0C00u, // bc=64 res=3 pi=116 AU915
-    0x819D4C00u, // bc=64 res=3 pi=117 AU915
-    0x819D8C00u, // bc=64 res=3 pi=118 AU915
-    0x81C00C00u, // bc=64 res=3 pi=256 AU915
-    0x81C04C00u, // bc=64 res=3 pi=257 AU915
-    0x81C08C00u, // bc=64 res=3 pi=258 AU915
-    0x81C0CC00u, // bc=64 res=3 pi=259 AU915
-    0x81C10C00u, // bc=64 res=3 pi=260 AU915
-    0x81C14C00u, // bc=64 res=3 pi=261 AU915
-    0x81C18C00u, // bc=64 res=3 pi=262 AU915
-    0x81C20C00u, // bc=64 res=3 pi=264 AU915
-    0x81C24C00u, // bc=64 res=3 pi=265 AU915
-    0x81C28C00u, // bc=64 res=3 pi=266 AU915
-    0x81C2CC00u, // bc=64 res=3 pi=267 AU915
-    0x81C30C00u, // bc=64 res=3 pi=268 AU915
-    0x81C34C00u, // bc=64 res=3 pi=269 AU915
-    0x81C38C00u, // bc=64 res=3 pi=270 AU915
-    0x81C40C00u, // bc=64 res=3 pi=272 AU915
-    0x81C44C00u, // bc=64 res=3 pi=273 AU915
-    0x81C48C00u, // bc=64 res=3 pi=274 AU915
-    0x81C4CC00u, // bc=64 res=3 pi=275 AU915
-    0x81C50C00u, // bc=64 res=3 pi=276 AU915
-    0x81C54C00u, // bc=64 res=3 pi=277 AU915
-    0x81C58C00u, // bc=64 res=3 pi=278 AU915
-    0x81C60C00u, // bc=64 res=3 pi=280 AU915
-    0x81C64C00u, // bc=64 res=3 pi=281 AU915
-    0x81C68C00u, // bc=64 res=3 pi=282 AU915
-    0x81C6CC00u, // bc=64 res=3 pi=283 AU915
-    0x81C70C00u, // bc=64 res=3 pi=284 AU915
-    0x81C74C00u, // bc=64 res=3 pi=285 AU915
-    0x81C78C00u, // bc=64 res=3 pi=286 AU915
-    0x81C80C00u, // bc=64 res=3 pi=288 AU915
-    0x81C84C00u, // bc=64 res=3 pi=289 AU915
-    0x81C88C00u, // bc=64 res=3 pi=290 AU915
-    0x81C8CC00u, // bc=64 res=3 pi=291 AU915
-    0x81C90C00u, // bc=64 res=3 pi=292 AU915
-    0x81C94C00u, // bc=64 res=3 pi=293 AU915
-    0x81C98C00u, // bc=64 res=3 pi=294 AU915
-    0x81CA0C00u, // bc=64 res=3 pi=296 AU915
-    0x81CA4C00u, // bc=64 res=3 pi=297 AU915
-    0x81CA8C00u, // bc=64 res=3 pi=298 AU915
-    0x81CACC00u, // bc=64 res=3 pi=299 AU915
-    0x81CB0C00u, // bc=64 res=3 pi=300 AU915
-    0x81CB4C00u, // bc=64 res=3 pi=301 AU915
-    0x81CB8C00u, // bc=64 res=3 pi=302 AU915
-    0x81CC0C00u, // bc=64 res=3 pi=304 AU915
-    0x81CC4C00u, // bc=64 res=3 pi=305 AU915
-    0x81CC8C00u, // bc=64 res=3 pi=306 AU915
-    0x81CCCC00u, // bc=64 res=3 pi=307 AU915
-    0x81CD0C00u, // bc=64 res=3 pi=308 AU915
-    0x81CD4C00u, // bc=64 res=3 pi=309 AU915
-    0x81CD8C00u, // bc=64 res=3 pi=310 AU915
-    0x81D00C00u, // bc=64 res=3 pi=320 AU915
-    0x81D04C00u, // bc=64 res=3 pi=321 AU915
-    0x81D08C00u, // bc=64 res=3 pi=322 AU915
-    0x81D0CC00u, // bc=64 res=3 pi=323 AU915
-    0x81D10C00u, // bc=64 res=3 pi=324 AU915
-    0x81D14C00u, // bc=64 res=3 pi=325 AU915
-    0x81D18C00u, // bc=64 res=3 pi=326 AU915
-    0x81D20C00u, // bc=64 res=3 pi=328 AU915
-    0x81D24C00u, // bc=64 res=3 pi=329 AU915
-    0x81D28C00u, // bc=64 res=3 pi=330 AU915
-    0x81D2CC00u, // bc=64 res=3 pi=331 AU915
-    0x81D30C00u, // bc=64 res=3 pi=332 AU915
-    0x81D34C00u, // bc=64 res=3 pi=333 AU915
-    0x81D38C00u, // bc=64 res=3 pi=334 AU915
-    0x81D40C00u, // bc=64 res=3 pi=336 AU915
-    0x81D44C00u, // bc=64 res=3 pi=337 AU915
-    0x81D48C00u, // bc=64 res=3 pi=338 AU915
-    0x81D4CC00u, // bc=64 res=3 pi=339 AU915
-    0x81D50C00u, // bc=64 res=3 pi=340 AU915
-    0x81D54C00u, // bc=64 res=3 pi=341 AU915
-    0x81D58C00u, // bc=64 res=3 pi=342 AU915
-    0x81D60C00u, // bc=64 res=3 pi=344 AU915
-    0x81D64C00u, // bc=64 res=3 pi=345 AU915
-    0x81D68C00u, // bc=64 res=3 pi=346 AU915
-    0x81D6CC00u, // bc=64 res=3 pi=347 AU915
-    0x81D70C00u, // bc=64 res=3 pi=348 AU915
-    0x81D74C00u, // bc=64 res=3 pi=349 AU915
-    0x81D78C00u, // bc=64 res=3 pi=350 AU915
-    0x81D80C00u, // bc=64 res=3 pi=352 AU915
-    0x81D84C00u, // bc=64 res=3 pi=353 AU915
-    0x81D88C00u, // bc=64 res=3 pi=354 AU915
-    0x81D8CC00u, // bc=64 res=3 pi=355 AU915
-    0x81D90C00u, // bc=64 res=3 pi=356 AU915
-    0x81D94C00u, // bc=64 res=3 pi=357 AU915
-    0x81D98C00u, // bc=64 res=3 pi=358 AU915
-    0x81DA0C00u, // bc=64 res=3 pi=360 AU915
-    0x81DA4C00u, // bc=64 res=3 pi=361 AU915
-    0x81DA8C00u, // bc=64 res=3 pi=362 AU915
-    0x81DACC00u, // bc=64 res=3 pi=363 AU915
-    0x81DB0C00u, // bc=64 res=3 pi=364 AU915
-    0x81DB4C00u, // bc=64 res=3 pi=365 AU915
-    0x81DB8C00u, // bc=64 res=3 pi=366 AU915
-    0x81DC0C00u, // bc=64 res=3 pi=368 AU915
-    0x81DC4C00u, // bc=64 res=3 pi=369 AU915
-    0x81DC8C00u, // bc=64 res=3 pi=370 AU915
-    0x81DCCC00u, // bc=64 res=3 pi=371 AU915
-    0x81DD0C00u, // bc=64 res=3 pi=372 AU915
-    0x81DD4C00u, // bc=64 res=3 pi=373 AU915
-    0x81DD8C00u, // bc=64 res=3 pi=374 AU915
+    0x81954C00u, // bc=64 res=3 pi=85 AU915
+    0x81A90C00u, // bc=64 res=3 pi=164 AU915
+    0x81A94C00u, // bc=64 res=3 pi=165 AU915
+    0x81AD0C00u, // bc=64 res=3 pi=180 AU915
+    0x81AD4C00u, // bc=64 res=3 pi=181 AU915
+    0x81AD8C00u, // bc=64 res=3 pi=182 AU915
     0x81E00C00u, // bc=64 res=3 pi=384 AU915
     0x81E04C00u, // bc=64 res=3 pi=385 AU915
     0x81E0CC00u, // bc=64 res=3 pi=387 AU915
+    0x81E10C00u, // bc=64 res=3 pi=388 AU915
     0x81E14C00u, // bc=64 res=3 pi=389 AU915
-    0x81E20C00u, // bc=64 res=3 pi=392 AU915
-    0x81E24C00u, // bc=64 res=3 pi=393 AU915
-    0x81E28C00u, // bc=64 res=3 pi=394 AU915
-    0x81E2CC00u, // bc=64 res=3 pi=395 AU915
-    0x81E30C00u, // bc=64 res=3 pi=396 AU915
-    0x81E34C00u, // bc=64 res=3 pi=397 AU915
-    0x81E38C00u, // bc=64 res=3 pi=398 AU915
+    0x81E64C00u, // bc=64 res=3 pi=409 AU915
+    0x81E6CC00u, // bc=64 res=3 pi=411 AU915
     0x81E74C00u, // bc=64 res=3 pi=413 AU915
     0x81E84C00u, // bc=64 res=3 pi=417 AU915
-    0x81EA0C00u, // bc=64 res=3 pi=424 AU915
-    0x81EA4C00u, // bc=64 res=3 pi=425 AU915
-    0x81EA8C00u, // bc=64 res=3 pi=426 AU915
-    0x81EACC00u, // bc=64 res=3 pi=427 AU915
-    0x81EB0C00u, // bc=64 res=3 pi=428 AU915
-    0x81EB4C00u, // bc=64 res=3 pi=429 AU915
-    0x81EB8C00u, // bc=64 res=3 pi=430 AU915
+    0x81E8CC00u, // bc=64 res=3 pi=419 AU915
+    0x81E94C00u, // bc=64 res=3 pi=421 AU915
     0x82808800u, // bc=65 res=1 pi=2 EU868
     0x82818800u, // bc=65 res=1 pi=6 EU868
     0x83008800u, // bc=65 res=2 pi=2 EU868
-    0x8300C800u, // bc=65 res=2 pi=3 EU868
-    0x83018800u, // bc=65 res=2 pi=6 EU868
+    0x83068800u, // bc=65 res=2 pi=26 EU868
     0x8306C800u, // bc=65 res=2 pi=27 EU868
-    0x83078800u, // bc=65 res=2 pi=30 EU868
     0x83088800u, // bc=65 res=2 pi=34 EU868
     0x83090800u, // bc=65 res=2 pi=36 EU868
     0x83098800u, // bc=65 res=2 pi=38 EU868
-    0x83A00800u, // bc=65 res=3 pi=128 EU868
-    0x83A04800u, // bc=65 res=3 pi=129 EU868
-    0x83A08800u, // bc=65 res=3 pi=130 EU868
-    0x83A0C800u, // bc=65 res=3 pi=131 EU868
-    0x83A10800u, // bc=65 res=3 pi=132 EU868
-    0x83A14800u, // bc=65 res=3 pi=133 EU868
-    0x83A18800u, // bc=65 res=3 pi=134 EU868
-    0x83A20800u, // bc=65 res=3 pi=136 EU868
-    0x83A24800u, // bc=65 res=3 pi=137 EU868
-    0x83A28800u, // bc=65 res=3 pi=138 EU868
-    0x83A2C800u, // bc=65 res=3 pi=139 EU868
-    0x83A30800u, // bc=65 res=3 pi=140 EU868
-    0x83A34800u, // bc=65 res=3 pi=141 EU868
-    0x83A38800u, // bc=65 res=3 pi=142 EU868
-    0x83A40800u, // bc=65 res=3 pi=144 EU868
-    0x83A44800u, // bc=65 res=3 pi=145 EU868
-    0x83A48800u, // bc=65 res=3 pi=146 EU868
-    0x83A4C800u, // bc=65 res=3 pi=147 EU868
-    0x83A50800u, // bc=65 res=3 pi=148 EU868
-    0x83A54800u, // bc=65 res=3 pi=149 EU868
-    0x83A58800u, // bc=65 res=3 pi=150 EU868
-    0x83A60800u, // bc=65 res=3 pi=152 EU868
-    0x83A64800u, // bc=65 res=3 pi=153 EU868
-    0x83A68800u, // bc=65 res=3 pi=154 EU868
-    0x83A6C800u, // bc=65 res=3 pi=155 EU868
-    0x83A70800u, // bc=65 res=3 pi=156 EU868
-    0x83A74800u, // bc=65 res=3 pi=157 EU868
-    0x83A78800u, // bc=65 res=3 pi=158 EU868
-    0x83A80800u, // bc=65 res=3 pi=160 EU868
-    0x83A84800u, // bc=65 res=3 pi=161 EU868
-    0x83A88800u, // bc=65 res=3 pi=162 EU868
-    0x83A8C800u, // bc=65 res=3 pi=163 EU868
-    0x83A90800u, // bc=65 res=3 pi=164 EU868
-    0x83A94800u, // bc=65 res=3 pi=165 EU868
-    0x83A98800u, // bc=65 res=3 pi=166 EU868
-    0x83AA0800u, // bc=65 res=3 pi=168 EU868
-    0x83AA4800u, // bc=65 res=3 pi=169 EU868
-    0x83AA8800u, // bc=65 res=3 pi=170 EU868
-    0x83AAC800u, // bc=65 res=3 pi=171 EU868
-    0x83AB0800u, // bc=65 res=3 pi=172 EU868
-    0x83AB4800u, // bc=65 res=3 pi=173 EU868
-    0x83AB8800u, // bc=65 res=3 pi=174 EU868
-    0x83AC0800u, // bc=65 res=3 pi=176 EU868
-    0x83AC4800u, // bc=65 res=3 pi=177 EU868
-    0x83AC8800u, // bc=65 res=3 pi=178 EU868
-    0x83ACC800u, // bc=65 res=3 pi=179 EU868
-    0x83AD0800u, // bc=65 res=3 pi=180 EU868
-    0x83AD4800u, // bc=65 res=3 pi=181 EU868
-    0x83AD8800u, // bc=65 res=3 pi=182 EU868
+    0x83808800u, // bc=65 res=3 pi=2 EU868
+    0x83860800u, // bc=65 res=3 pi=24 EU868
+    0x83864800u, // bc=65 res=3 pi=25 EU868
+    0x83868800u, // bc=65 res=3 pi=26 EU868
+    0x8386C800u, // bc=65 res=3 pi=27 EU868
+    0x83870800u, // bc=65 res=3 pi=28 EU868
+    0x83878800u, // bc=65 res=3 pi=30 EU868
+    0x838C0800u, // bc=65 res=3 pi=48 EU868
+    0x838C8800u, // bc=65 res=3 pi=50 EU868
+    0x838CC800u, // bc=65 res=3 pi=51 EU868
+    0x838D0800u, // bc=65 res=3 pi=52 EU868
+    0x838D8800u, // bc=65 res=3 pi=54 EU868
+    0x83948800u, // bc=65 res=3 pi=82 EU868
+    0x83B00800u, // bc=65 res=3 pi=192 EU868
     0x83B10800u, // bc=65 res=3 pi=196 EU868
-    0x83B48800u, // bc=65 res=3 pi=210 EU868
-    0x83B4C800u, // bc=65 res=3 pi=211 EU868
-    0x83B58800u, // bc=65 res=3 pi=214 EU868
+    0x83B14800u, // bc=65 res=3 pi=197 EU868
+    0x83B18800u, // bc=65 res=3 pi=198 EU868
+    0x83B84800u, // bc=65 res=3 pi=225 EU868
     0x83B8C800u, // bc=65 res=3 pi=227 EU868
+    0x83B98800u, // bc=65 res=3 pi=230 EU868
+    0x83BB8800u, // bc=65 res=3 pi=238 EU868
+    0x83BC0800u, // bc=65 res=3 pi=240 EU868
+    0x83BC8800u, // bc=65 res=3 pi=242 EU868
+    0x83BCC800u, // bc=65 res=3 pi=243 EU868
+    0x83BD0800u, // bc=65 res=3 pi=244 EU868
+    0x83BD4800u, // bc=65 res=3 pi=245 EU868
+    0x83BD8800u, // bc=65 res=3 pi=246 EU868
+    0x83C08800u, // bc=65 res=3 pi=258 EU868
     0x83C10800u, // bc=65 res=3 pi=260 EU868
     0x83C18800u, // bc=65 res=3 pi=262 EU868
+    0x83C60800u, // bc=65 res=3 pi=280 EU868
     0x83C68800u, // bc=65 res=3 pi=282 EU868
+    0x83C70800u, // bc=65 res=3 pi=284 EU868
     0x83C78800u, // bc=65 res=3 pi=286 EU868
-    0x83E00800u, // bc=65 res=3 pi=384 EU868
-    0x83E04800u, // bc=65 res=3 pi=385 EU868
-    0x83E08800u, // bc=65 res=3 pi=386 EU868
-    0x83E0C800u, // bc=65 res=3 pi=387 EU868
-    0x83E10800u, // bc=65 res=3 pi=388 EU868
-    0x83E14800u, // bc=65 res=3 pi=389 EU868
-    0x83E18800u, // bc=65 res=3 pi=390 EU868
-    0x83E20800u, // bc=65 res=3 pi=392 EU868
-    0x83E24800u, // bc=65 res=3 pi=393 EU868
-    0x83E28800u, // bc=65 res=3 pi=394 EU868
-    0x83E2C800u, // bc=65 res=3 pi=395 EU868
-    0x83E30800u, // bc=65 res=3 pi=396 EU868
-    0x83E34800u, // bc=65 res=3 pi=397 EU868
-    0x83E38800u, // bc=65 res=3 pi=398 EU868
-    0x83E40800u, // bc=65 res=3 pi=400 EU868
-    0x83E44800u, // bc=65 res=3 pi=401 EU868
-    0x83E48800u, // bc=65 res=3 pi=402 EU868
-    0x83E4C800u, // bc=65 res=3 pi=403 EU868
-    0x83E50800u, // bc=65 res=3 pi=404 EU868
-    0x83E54800u, // bc=65 res=3 pi=405 EU868
-    0x83E58800u, // bc=65 res=3 pi=406 EU868
-    0x83E60800u, // bc=65 res=3 pi=408 EU868
-    0x83E64800u, // bc=65 res=3 pi=409 EU868
-    0x83E68800u, // bc=65 res=3 pi=410 EU868
-    0x83E6C800u, // bc=65 res=3 pi=411 EU868
-    0x83E70800u, // bc=65 res=3 pi=412 EU868
-    0x83E74800u, // bc=65 res=3 pi=413 EU868
-    0x83E78800u, // bc=65 res=3 pi=414 EU868
-    0x83E80800u, // bc=65 res=3 pi=416 EU868
-    0x83E84800u, // bc=65 res=3 pi=417 EU868
-    0x83E88800u, // bc=65 res=3 pi=418 EU868
-    0x83E8C800u, // bc=65 res=3 pi=419 EU868
-    0x83E90800u, // bc=65 res=3 pi=420 EU868
-    0x83E94800u, // bc=65 res=3 pi=421 EU868
-    0x83E98800u, // bc=65 res=3 pi=422 EU868
-    0x83EA0800u, // bc=65 res=3 pi=424 EU868
-    0x83EA4800u, // bc=65 res=3 pi=425 EU868
-    0x83EA8800u, // bc=65 res=3 pi=426 EU868
-    0x83EAC800u, // bc=65 res=3 pi=427 EU868
-    0x83EB0800u, // bc=65 res=3 pi=428 EU868
-    0x83EB4800u, // bc=65 res=3 pi=429 EU868
-    0x83EB8800u, // bc=65 res=3 pi=430 EU868
-    0x83EC0800u, // bc=65 res=3 pi=432 EU868
-    0x83EC4800u, // bc=65 res=3 pi=433 EU868
-    0x83EC8800u, // bc=65 res=3 pi=434 EU868
-    0x83ECC800u, // bc=65 res=3 pi=435 EU868
-    0x83ED0800u, // bc=65 res=3 pi=436 EU868
-    0x83ED4800u, // bc=65 res=3 pi=437 EU868
-    0x83ED8800u, // bc=65 res=3 pi=438 EU868
-    0x850D0800u, // bc=66 res=2 pi=52 EU868
-    0x850D8800u, // bc=66 res=2 pi=54 EU868
+    0x85AD0800u, // bc=66 res=3 pi=180 EU868
+    0x85E08800u, // bc=66 res=3 pi=386 EU868
+    0x85E0C800u, // bc=66 res=3 pi=387 EU868
+    0x85E10800u, // bc=66 res=3 pi=388 EU868
+    0x85E18800u, // bc=66 res=3 pi=390 EU868
+    0x85E68800u, // bc=66 res=3 pi=410 EU868
+    0x85E80800u, // bc=66 res=3 pi=416 EU868
+    0x85E88800u, // bc=66 res=3 pi=418 EU868
+    0x85E8C800u, // bc=66 res=3 pi=419 EU868
+    0x85E90800u, // bc=66 res=3 pi=420 EU868
+    0x85E98800u, // bc=66 res=3 pi=422 EU868
+    0x85EC0800u, // bc=66 res=3 pi=432 EU868
+    0x85EC4800u, // bc=66 res=3 pi=433 EU868
+    0x85EC8800u, // bc=66 res=3 pi=434 EU868
+    0x85ED0800u, // bc=66 res=3 pi=436 EU868
+    0x85ED4800u, // bc=66 res=3 pi=437 EU868
+    0x85ED8800u, // bc=66 res=3 pi=438 EU868
+    0x898B5000u, // bc=68 res=3 pi=45 AS923-1
+    0x89C10800u, // bc=68 res=3 pi=260 EU868
+    0x89C50800u, // bc=68 res=3 pi=276 EU868
+    0x89C84800u, // bc=68 res=3 pi=289 EU868
     0x89C88800u, // bc=68 res=3 pi=290 EU868
+    0x89C8C800u, // bc=68 res=3 pi=291 EU868
+    0x89CA0800u, // bc=68 res=3 pi=296 EU868
+    0x89CA8800u, // bc=68 res=3 pi=298 EU868
+    0x89CB0800u, // bc=68 res=3 pi=300 EU868
+    0x89CB8800u, // bc=68 res=3 pi=302 EU868
+    0x89CC0800u, // bc=68 res=3 pi=304 EU868
+    0x89CC4800u, // bc=68 res=3 pi=305 EU868
+    0x89CC8800u, // bc=68 res=3 pi=306 EU868
     0x89CD0800u, // bc=68 res=3 pi=308 EU868
+    0x89CD4800u, // bc=68 res=3 pi=309 EU868
+    0x89D29000u, // bc=68 res=3 pi=330 AS923-1
+    0x89D39000u, // bc=68 res=3 pi=334 AS923-1
+    0x89D69000u, // bc=68 res=3 pi=346 AS923-1
+    0x89D75000u, // bc=68 res=3 pi=349 AS923-1
+    0x89DA1000u, // bc=68 res=3 pi=360 AS923-1
+    0x89DA5000u, // bc=68 res=3 pi=361 AS923-1
+    0x89E90800u, // bc=68 res=3 pi=420 EU868
     0x8A800C00u, // bc=69 res=1 pi=0 AU915
     0x8A804C00u, // bc=69 res=1 pi=1 AU915
     0x8A808C00u, // bc=69 res=1 pi=2 AU915
-    0x8A80CC00u, // bc=69 res=1 pi=3 AU915
-    0x8A811000u, // bc=69 res=1 pi=4 AS923-1
-    0x8A814C00u, // bc=69 res=1 pi=5 AU915
     0x8A818C00u, // bc=69 res=1 pi=6 AU915
-    0x8B800C00u, // bc=69 res=3 pi=0 AU915
-    0x8B804C00u, // bc=69 res=3 pi=1 AU915
-    0x8B808C00u, // bc=69 res=3 pi=2 AU915
-    0x8B80CC00u, // bc=69 res=3 pi=3 AU915
-    0x8B810C00u, // bc=69 res=3 pi=4 AU915
-    0x8B814C00u, // bc=69 res=3 pi=5 AU915
-    0x8B818C00u, // bc=69 res=3 pi=6 AU915
-    0x8B820C00u, // bc=69 res=3 pi=8 AU915
-    0x8B824C00u, // bc=69 res=3 pi=9 AU915
-    0x8B828C00u, // bc=69 res=3 pi=10 AU915
-    0x8B82CC00u, // bc=69 res=3 pi=11 AU915
-    0x8B830C00u, // bc=69 res=3 pi=12 AU915
-    0x8B834C00u, // bc=69 res=3 pi=13 AU915
-    0x8B838C00u, // bc=69 res=3 pi=14 AU915
-    0x8B840C00u, // bc=69 res=3 pi=16 AU915
-    0x8B844C00u, // bc=69 res=3 pi=17 AU915
-    0x8B848C00u, // bc=69 res=3 pi=18 AU915
-    0x8B84CC00u, // bc=69 res=3 pi=19 AU915
-    0x8B850C00u, // bc=69 res=3 pi=20 AU915
-    0x8B854C00u, // bc=69 res=3 pi=21 AU915
-    0x8B858C00u, // bc=69 res=3 pi=22 AU915
-    0x8B860C00u, // bc=69 res=3 pi=24 AU915
-    0x8B864C00u, // bc=69 res=3 pi=25 AU915
-    0x8B868C00u, // bc=69 res=3 pi=26 AU915
-    0x8B86CC00u, // bc=69 res=3 pi=27 AU915
-    0x8B870C00u, // bc=69 res=3 pi=28 AU915
-    0x8B874C00u, // bc=69 res=3 pi=29 AU915
-    0x8B878C00u, // bc=69 res=3 pi=30 AU915
-    0x8B880C00u, // bc=69 res=3 pi=32 AU915
-    0x8B884C00u, // bc=69 res=3 pi=33 AU915
-    0x8B888C00u, // bc=69 res=3 pi=34 AU915
-    0x8B88CC00u, // bc=69 res=3 pi=35 AU915
-    0x8B890C00u, // bc=69 res=3 pi=36 AU915
-    0x8B894C00u, // bc=69 res=3 pi=37 AU915
-    0x8B898C00u, // bc=69 res=3 pi=38 AU915
-    0x8B8A0C00u, // bc=69 res=3 pi=40 AU915
-    0x8B8A4C00u, // bc=69 res=3 pi=41 AU915
-    0x8B8A8C00u, // bc=69 res=3 pi=42 AU915
-    0x8B8ACC00u, // bc=69 res=3 pi=43 AU915
-    0x8B8B0C00u, // bc=69 res=3 pi=44 AU915
-    0x8B8B4C00u, // bc=69 res=3 pi=45 AU915
-    0x8B8B8C00u, // bc=69 res=3 pi=46 AU915
-    0x8B8C0C00u, // bc=69 res=3 pi=48 AU915
-    0x8B8C4C00u, // bc=69 res=3 pi=49 AU915
-    0x8B8C8C00u, // bc=69 res=3 pi=50 AU915
-    0x8B8CCC00u, // bc=69 res=3 pi=51 AU915
-    0x8B8D0C00u, // bc=69 res=3 pi=52 AU915
-    0x8B8D4C00u, // bc=69 res=3 pi=53 AU915
-    0x8B8D8C00u, // bc=69 res=3 pi=54 AU915
-    0x8B900C00u, // bc=69 res=3 pi=64 AU915
-    0x8B904C00u, // bc=69 res=3 pi=65 AU915
-    0x8B908C00u, // bc=69 res=3 pi=66 AU915
-    0x8B90CC00u, // bc=69 res=3 pi=67 AU915
-    0x8B910C00u, // bc=69 res=3 pi=68 AU915
-    0x8B914C00u, // bc=69 res=3 pi=69 AU915
-    0x8B918C00u, // bc=69 res=3 pi=70 AU915
-    0x8B920C00u, // bc=69 res=3 pi=72 AU915
-    0x8B924C00u, // bc=69 res=3 pi=73 AU915
-    0x8B928C00u, // bc=69 res=3 pi=74 AU915
-    0x8B92CC00u, // bc=69 res=3 pi=75 AU915
-    0x8B930C00u, // bc=69 res=3 pi=76 AU915
-    0x8B934C00u, // bc=69 res=3 pi=77 AU915
-    0x8B938C00u, // bc=69 res=3 pi=78 AU915
-    0x8B940C00u, // bc=69 res=3 pi=80 AU915
-    0x8B944C00u, // bc=69 res=3 pi=81 AU915
-    0x8B948C00u, // bc=69 res=3 pi=82 AU915
-    0x8B94CC00u, // bc=69 res=3 pi=83 AU915
-    0x8B950C00u, // bc=69 res=3 pi=84 AU915
-    0x8B954C00u, // bc=69 res=3 pi=85 AU915
-    0x8B958C00u, // bc=69 res=3 pi=86 AU915
-    0x8B960C00u, // bc=69 res=3 pi=88 AU915
-    0x8B964C00u, // bc=69 res=3 pi=89 AU915
-    0x8B968C00u, // bc=69 res=3 pi=90 AU915
-    0x8B96CC00u, // bc=69 res=3 pi=91 AU915
-    0x8B970C00u, // bc=69 res=3 pi=92 AU915
-    0x8B974C00u, // bc=69 res=3 pi=93 AU915
-    0x8B978C00u, // bc=69 res=3 pi=94 AU915
-    0x8B980C00u, // bc=69 res=3 pi=96 AU915
-    0x8B984C00u, // bc=69 res=3 pi=97 AU915
-    0x8B988C00u, // bc=69 res=3 pi=98 AU915
-    0x8B98CC00u, // bc=69 res=3 pi=99 AU915
-    0x8B990C00u, // bc=69 res=3 pi=100 AU915
-    0x8B994C00u, // bc=69 res=3 pi=101 AU915
-    0x8B998C00u, // bc=69 res=3 pi=102 AU915
-    0x8B9A0C00u, // bc=69 res=3 pi=104 AU915
-    0x8B9A4C00u, // bc=69 res=3 pi=105 AU915
-    0x8B9A8C00u, // bc=69 res=3 pi=106 AU915
-    0x8B9ACC00u, // bc=69 res=3 pi=107 AU915
-    0x8B9B0C00u, // bc=69 res=3 pi=108 AU915
-    0x8B9B4C00u, // bc=69 res=3 pi=109 AU915
-    0x8B9B8C00u, // bc=69 res=3 pi=110 AU915
-    0x8B9C0C00u, // bc=69 res=3 pi=112 AU915
-    0x8B9C4C00u, // bc=69 res=3 pi=113 AU915
-    0x8B9C8C00u, // bc=69 res=3 pi=114 AU915
-    0x8B9CCC00u, // bc=69 res=3 pi=115 AU915
-    0x8B9D0C00u, // bc=69 res=3 pi=116 AU915
-    0x8B9D4C00u, // bc=69 res=3 pi=117 AU915
-    0x8B9D8C00u, // bc=69 res=3 pi=118 AU915
-    0x8BA00C00u, // bc=69 res=3 pi=128 AU915
-    0x8BA04C00u, // bc=69 res=3 pi=129 AU915
-    0x8BA08C00u, // bc=69 res=3 pi=130 AU915
-    0x8BA0CC00u, // bc=69 res=3 pi=131 AU915
-    0x8BA10C00u, // bc=69 res=3 pi=132 AU915
-    0x8BA14C00u, // bc=69 res=3 pi=133 AU915
-    0x8BA18C00u, // bc=69 res=3 pi=134 AU915
-    0x8BA20C00u, // bc=69 res=3 pi=136 AU915
-    0x8BA24C00u, // bc=69 res=3 pi=137 AU915
-    0x8BA28C00u, // bc=69 res=3 pi=138 AU915
-    0x8BA2CC00u, // bc=69 res=3 pi=139 AU915
-    0x8BA30C00u, // bc=69 res=3 pi=140 AU915
-    0x8BA34C00u, // bc=69 res=3 pi=141 AU915
-    0x8BA38C00u, // bc=69 res=3 pi=142 AU915
-    0x8BA40C00u, // bc=69 res=3 pi=144 AU915
-    0x8BA44C00u, // bc=69 res=3 pi=145 AU915
-    0x8BA48C00u, // bc=69 res=3 pi=146 AU915
-    0x8BA4CC00u, // bc=69 res=3 pi=147 AU915
-    0x8BA50C00u, // bc=69 res=3 pi=148 AU915
-    0x8BA54C00u, // bc=69 res=3 pi=149 AU915
-    0x8BA58C00u, // bc=69 res=3 pi=150 AU915
-    0x8BA60C00u, // bc=69 res=3 pi=152 AU915
-    0x8BA64C00u, // bc=69 res=3 pi=153 AU915
-    0x8BA68C00u, // bc=69 res=3 pi=154 AU915
-    0x8BA6CC00u, // bc=69 res=3 pi=155 AU915
-    0x8BA70C00u, // bc=69 res=3 pi=156 AU915
-    0x8BA74C00u, // bc=69 res=3 pi=157 AU915
-    0x8BA78C00u, // bc=69 res=3 pi=158 AU915
-    0x8BA80C00u, // bc=69 res=3 pi=160 AU915
-    0x8BA84C00u, // bc=69 res=3 pi=161 AU915
-    0x8BA88C00u, // bc=69 res=3 pi=162 AU915
-    0x8BA8CC00u, // bc=69 res=3 pi=163 AU915
-    0x8BA90C00u, // bc=69 res=3 pi=164 AU915
-    0x8BA94C00u, // bc=69 res=3 pi=165 AU915
-    0x8BA98C00u, // bc=69 res=3 pi=166 AU915
-    0x8BAA0C00u, // bc=69 res=3 pi=168 AU915
-    0x8BAA4C00u, // bc=69 res=3 pi=169 AU915
-    0x8BAA8C00u, // bc=69 res=3 pi=170 AU915
-    0x8BAACC00u, // bc=69 res=3 pi=171 AU915
-    0x8BAB0C00u, // bc=69 res=3 pi=172 AU915
-    0x8BAB4C00u, // bc=69 res=3 pi=173 AU915
-    0x8BAB8C00u, // bc=69 res=3 pi=174 AU915
-    0x8BAC0C00u, // bc=69 res=3 pi=176 AU915
-    0x8BAC4C00u, // bc=69 res=3 pi=177 AU915
-    0x8BAC8C00u, // bc=69 res=3 pi=178 AU915
-    0x8BACCC00u, // bc=69 res=3 pi=179 AU915
-    0x8BAD0C00u, // bc=69 res=3 pi=180 AU915
-    0x8BAD4C00u, // bc=69 res=3 pi=181 AU915
-    0x8BAD8C00u, // bc=69 res=3 pi=182 AU915
-    0x8BB00C00u, // bc=69 res=3 pi=192 AU915
-    0x8BB04C00u, // bc=69 res=3 pi=193 AU915
-    0x8BB08C00u, // bc=69 res=3 pi=194 AU915
-    0x8BB0CC00u, // bc=69 res=3 pi=195 AU915
-    0x8BB10C00u, // bc=69 res=3 pi=196 AU915
-    0x8BB14C00u, // bc=69 res=3 pi=197 AU915
-    0x8BB18C00u, // bc=69 res=3 pi=198 AU915
+    0x8B060C00u, // bc=69 res=2 pi=24 AU915
+    0x8B068C00u, // bc=69 res=2 pi=26 AU915
+    0x8B06CC00u, // bc=69 res=2 pi=27 AU915
+    0x8B070C00u, // bc=69 res=2 pi=28 AU915
+    0x8B074C00u, // bc=69 res=2 pi=29 AU915
+    0x8B078C00u, // bc=69 res=2 pi=30 AU915
+    0x8B081000u, // bc=69 res=2 pi=32 AS923-1
+    0x8B085000u, // bc=69 res=2 pi=33 AS923-1
+    0x8B091000u, // bc=69 res=2 pi=36 AS923-1
+    0x8B095000u, // bc=69 res=2 pi=37 AS923-1
+    0x8B099000u, // bc=69 res=2 pi=38 AS923-1
+    0x8B0A4C00u, // bc=69 res=2 pi=41 AU915
+    0x8B0ACC00u, // bc=69 res=2 pi=43 AU915
+    0x8B0B0C00u, // bc=69 res=2 pi=44 AU915
+    0x8B0B4C00u, // bc=69 res=2 pi=45 AU915
+    0x8B0B9000u, // bc=69 res=2 pi=46 AS923-1
     0x8BB21000u, // bc=69 res=3 pi=200 AS923-1
     0x8BB25000u, // bc=69 res=3 pi=201 AS923-1
     0x8BB28C00u, // bc=69 res=3 pi=202 AU915
@@ -8527,55 +3394,6 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x8BB30C00u, // bc=69 res=3 pi=204 AU915
     0x8BB35000u, // bc=69 res=3 pi=205 AS923-1
     0x8BB38C00u, // bc=69 res=3 pi=206 AU915
-    0x8BB40C00u, // bc=69 res=3 pi=208 AU915
-    0x8BB44C00u, // bc=69 res=3 pi=209 AU915
-    0x8BB48C00u, // bc=69 res=3 pi=210 AU915
-    0x8BB4CC00u, // bc=69 res=3 pi=211 AU915
-    0x8BB50C00u, // bc=69 res=3 pi=212 AU915
-    0x8BB54C00u, // bc=69 res=3 pi=213 AU915
-    0x8BB58C00u, // bc=69 res=3 pi=214 AU915
-    0x8BB60C00u, // bc=69 res=3 pi=216 AU915
-    0x8BB64C00u, // bc=69 res=3 pi=217 AU915
-    0x8BB68C00u, // bc=69 res=3 pi=218 AU915
-    0x8BB6CC00u, // bc=69 res=3 pi=219 AU915
-    0x8BB70C00u, // bc=69 res=3 pi=220 AU915
-    0x8BB74C00u, // bc=69 res=3 pi=221 AU915
-    0x8BB78C00u, // bc=69 res=3 pi=222 AU915
-    0x8BB80C00u, // bc=69 res=3 pi=224 AU915
-    0x8BB84C00u, // bc=69 res=3 pi=225 AU915
-    0x8BB88C00u, // bc=69 res=3 pi=226 AU915
-    0x8BB8CC00u, // bc=69 res=3 pi=227 AU915
-    0x8BB90C00u, // bc=69 res=3 pi=228 AU915
-    0x8BB94C00u, // bc=69 res=3 pi=229 AU915
-    0x8BB98C00u, // bc=69 res=3 pi=230 AU915
-    0x8BBA0C00u, // bc=69 res=3 pi=232 AU915
-    0x8BBA4C00u, // bc=69 res=3 pi=233 AU915
-    0x8BBA8C00u, // bc=69 res=3 pi=234 AU915
-    0x8BBACC00u, // bc=69 res=3 pi=235 AU915
-    0x8BBB0C00u, // bc=69 res=3 pi=236 AU915
-    0x8BBB4C00u, // bc=69 res=3 pi=237 AU915
-    0x8BBB8C00u, // bc=69 res=3 pi=238 AU915
-    0x8BBC0C00u, // bc=69 res=3 pi=240 AU915
-    0x8BBC4C00u, // bc=69 res=3 pi=241 AU915
-    0x8BBC8C00u, // bc=69 res=3 pi=242 AU915
-    0x8BBCCC00u, // bc=69 res=3 pi=243 AU915
-    0x8BBD0C00u, // bc=69 res=3 pi=244 AU915
-    0x8BBD4C00u, // bc=69 res=3 pi=245 AU915
-    0x8BBD8C00u, // bc=69 res=3 pi=246 AU915
-    0x8BC01000u, // bc=69 res=3 pi=256 AS923-1
-    0x8BC05000u, // bc=69 res=3 pi=257 AS923-1
-    0x8BC09000u, // bc=69 res=3 pi=258 AS923-1
-    0x8BC0D000u, // bc=69 res=3 pi=259 AS923-1
-    0x8BC11000u, // bc=69 res=3 pi=260 AS923-1
-    0x8BC15000u, // bc=69 res=3 pi=261 AS923-1
-    0x8BC19000u, // bc=69 res=3 pi=262 AS923-1
-    0x8BC21000u, // bc=69 res=3 pi=264 AS923-1
-    0x8BC25000u, // bc=69 res=3 pi=265 AS923-1
-    0x8BC29000u, // bc=69 res=3 pi=266 AS923-1
-    0x8BC2D000u, // bc=69 res=3 pi=267 AS923-1
-    0x8BC31000u, // bc=69 res=3 pi=268 AS923-1
-    0x8BC35000u, // bc=69 res=3 pi=269 AS923-1
-    0x8BC39000u, // bc=69 res=3 pi=270 AS923-1
     0x8BC41000u, // bc=69 res=3 pi=272 AS923-1
     0x8BC45000u, // bc=69 res=3 pi=273 AS923-1
     0x8BC48C00u, // bc=69 res=3 pi=274 AU915
@@ -8590,27 +3408,6 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x8BC71000u, // bc=69 res=3 pi=284 AS923-1
     0x8BC75000u, // bc=69 res=3 pi=285 AS923-1
     0x8BC78C00u, // bc=69 res=3 pi=286 AU915
-    0x8BC81000u, // bc=69 res=3 pi=288 AS923-1
-    0x8BC85000u, // bc=69 res=3 pi=289 AS923-1
-    0x8BC89000u, // bc=69 res=3 pi=290 AS923-1
-    0x8BC8D000u, // bc=69 res=3 pi=291 AS923-1
-    0x8BC91000u, // bc=69 res=3 pi=292 AS923-1
-    0x8BC95000u, // bc=69 res=3 pi=293 AS923-1
-    0x8BC99000u, // bc=69 res=3 pi=294 AS923-1
-    0x8BCA1000u, // bc=69 res=3 pi=296 AS923-1
-    0x8BCA5000u, // bc=69 res=3 pi=297 AS923-1
-    0x8BCA9000u, // bc=69 res=3 pi=298 AS923-1
-    0x8BCAD000u, // bc=69 res=3 pi=299 AS923-1
-    0x8BCB1000u, // bc=69 res=3 pi=300 AS923-1
-    0x8BCB5000u, // bc=69 res=3 pi=301 AS923-1
-    0x8BCB9000u, // bc=69 res=3 pi=302 AS923-1
-    0x8BCC1000u, // bc=69 res=3 pi=304 AS923-1
-    0x8BCC5000u, // bc=69 res=3 pi=305 AS923-1
-    0x8BCC9000u, // bc=69 res=3 pi=306 AS923-1
-    0x8BCCD000u, // bc=69 res=3 pi=307 AS923-1
-    0x8BCD1000u, // bc=69 res=3 pi=308 AS923-1
-    0x8BCD5000u, // bc=69 res=3 pi=309 AS923-1
-    0x8BCD9000u, // bc=69 res=3 pi=310 AS923-1
     0x8BD00C00u, // bc=69 res=3 pi=320 AU915
     0x8BD04C00u, // bc=69 res=3 pi=321 AU915
     0x8BD08C00u, // bc=69 res=3 pi=322 AU915
@@ -8618,13 +3415,6 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x8BD10C00u, // bc=69 res=3 pi=324 AU915
     0x8BD14C00u, // bc=69 res=3 pi=325 AU915
     0x8BD19000u, // bc=69 res=3 pi=326 AS923-1
-    0x8BD20C00u, // bc=69 res=3 pi=328 AU915
-    0x8BD24C00u, // bc=69 res=3 pi=329 AU915
-    0x8BD28C00u, // bc=69 res=3 pi=330 AU915
-    0x8BD2CC00u, // bc=69 res=3 pi=331 AU915
-    0x8BD30C00u, // bc=69 res=3 pi=332 AU915
-    0x8BD34C00u, // bc=69 res=3 pi=333 AU915
-    0x8BD38C00u, // bc=69 res=3 pi=334 AU915
     0x8BD41000u, // bc=69 res=3 pi=336 AS923-1
     0x8BD44C00u, // bc=69 res=3 pi=337 AU915
     0x8BD49000u, // bc=69 res=3 pi=338 AS923-1
@@ -8632,106 +3422,33 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x8BD51000u, // bc=69 res=3 pi=340 AS923-1
     0x8BD55000u, // bc=69 res=3 pi=341 AS923-1
     0x8BD59000u, // bc=69 res=3 pi=342 AS923-1
-    0x8BD60C00u, // bc=69 res=3 pi=344 AU915
-    0x8BD64C00u, // bc=69 res=3 pi=345 AU915
-    0x8BD68C00u, // bc=69 res=3 pi=346 AU915
-    0x8BD6CC00u, // bc=69 res=3 pi=347 AU915
-    0x8BD70C00u, // bc=69 res=3 pi=348 AU915
-    0x8BD74C00u, // bc=69 res=3 pi=349 AU915
-    0x8BD78C00u, // bc=69 res=3 pi=350 AU915
-    0x8BD80C00u, // bc=69 res=3 pi=352 AU915
-    0x8BD84C00u, // bc=69 res=3 pi=353 AU915
-    0x8BD88C00u, // bc=69 res=3 pi=354 AU915
-    0x8BD8CC00u, // bc=69 res=3 pi=355 AU915
-    0x8BD90C00u, // bc=69 res=3 pi=356 AU915
-    0x8BD94C00u, // bc=69 res=3 pi=357 AU915
-    0x8BD98C00u, // bc=69 res=3 pi=358 AU915
-    0x8BDA0C00u, // bc=69 res=3 pi=360 AU915
-    0x8BDA4C00u, // bc=69 res=3 pi=361 AU915
-    0x8BDA8C00u, // bc=69 res=3 pi=362 AU915
-    0x8BDACC00u, // bc=69 res=3 pi=363 AU915
-    0x8BDB0C00u, // bc=69 res=3 pi=364 AU915
-    0x8BDB4C00u, // bc=69 res=3 pi=365 AU915
-    0x8BDB8C00u, // bc=69 res=3 pi=366 AU915
-    0x8BDC1000u, // bc=69 res=3 pi=368 AS923-1
-    0x8BDC5000u, // bc=69 res=3 pi=369 AS923-1
-    0x8BDC9000u, // bc=69 res=3 pi=370 AS923-1
-    0x8BDCD000u, // bc=69 res=3 pi=371 AS923-1
-    0x8BDD1000u, // bc=69 res=3 pi=372 AS923-1
-    0x8BDD5000u, // bc=69 res=3 pi=373 AS923-1
-    0x8BDD9000u, // bc=69 res=3 pi=374 AS923-1
-    0x8BE00C00u, // bc=69 res=3 pi=384 AU915
-    0x8BE04C00u, // bc=69 res=3 pi=385 AU915
-    0x8BE08C00u, // bc=69 res=3 pi=386 AU915
-    0x8BE0CC00u, // bc=69 res=3 pi=387 AU915
-    0x8BE10C00u, // bc=69 res=3 pi=388 AU915
-    0x8BE14C00u, // bc=69 res=3 pi=389 AU915
-    0x8BE18C00u, // bc=69 res=3 pi=390 AU915
-    0x8BE20C00u, // bc=69 res=3 pi=392 AU915
-    0x8BE24C00u, // bc=69 res=3 pi=393 AU915
-    0x8BE28C00u, // bc=69 res=3 pi=394 AU915
-    0x8BE2CC00u, // bc=69 res=3 pi=395 AU915
-    0x8BE30C00u, // bc=69 res=3 pi=396 AU915
-    0x8BE34C00u, // bc=69 res=3 pi=397 AU915
-    0x8BE38C00u, // bc=69 res=3 pi=398 AU915
-    0x8BE40C00u, // bc=69 res=3 pi=400 AU915
-    0x8BE44C00u, // bc=69 res=3 pi=401 AU915
-    0x8BE48C00u, // bc=69 res=3 pi=402 AU915
-    0x8BE4CC00u, // bc=69 res=3 pi=403 AU915
-    0x8BE50C00u, // bc=69 res=3 pi=404 AU915
-    0x8BE54C00u, // bc=69 res=3 pi=405 AU915
-    0x8BE58C00u, // bc=69 res=3 pi=406 AU915
-    0x8BE60C00u, // bc=69 res=3 pi=408 AU915
-    0x8BE64C00u, // bc=69 res=3 pi=409 AU915
-    0x8BE68C00u, // bc=69 res=3 pi=410 AU915
-    0x8BE6CC00u, // bc=69 res=3 pi=411 AU915
-    0x8BE70C00u, // bc=69 res=3 pi=412 AU915
-    0x8BE74C00u, // bc=69 res=3 pi=413 AU915
-    0x8BE78C00u, // bc=69 res=3 pi=414 AU915
-    0x8BE80C00u, // bc=69 res=3 pi=416 AU915
-    0x8BE84C00u, // bc=69 res=3 pi=417 AU915
-    0x8BE88C00u, // bc=69 res=3 pi=418 AU915
-    0x8BE8CC00u, // bc=69 res=3 pi=419 AU915
-    0x8BE90C00u, // bc=69 res=3 pi=420 AU915
-    0x8BE94C00u, // bc=69 res=3 pi=421 AU915
-    0x8BE98C00u, // bc=69 res=3 pi=422 AU915
-    0x8BEA0C00u, // bc=69 res=3 pi=424 AU915
-    0x8BEA4C00u, // bc=69 res=3 pi=425 AU915
-    0x8BEA8C00u, // bc=69 res=3 pi=426 AU915
-    0x8BEACC00u, // bc=69 res=3 pi=427 AU915
-    0x8BEB0C00u, // bc=69 res=3 pi=428 AU915
-    0x8BEB4C00u, // bc=69 res=3 pi=429 AU915
-    0x8BEB8C00u, // bc=69 res=3 pi=430 AU915
-    0x8BEC0C00u, // bc=69 res=3 pi=432 AU915
-    0x8BEC4C00u, // bc=69 res=3 pi=433 AU915
-    0x8BEC8C00u, // bc=69 res=3 pi=434 AU915
-    0x8BECCC00u, // bc=69 res=3 pi=435 AU915
-    0x8BED0C00u, // bc=69 res=3 pi=436 AU915
-    0x8BED4C00u, // bc=69 res=3 pi=437 AU915
-    0x8BED8C00u, // bc=69 res=3 pi=438 AU915
-    0x8C809C00u, // bc=70 res=1 pi=2 AS923-2
-    0x8C819C00u, // bc=70 res=1 pi=6 AS923-2
     0x8D009C00u, // bc=70 res=2 pi=2 AS923-2
+    0x8D041C00u, // bc=70 res=2 pi=16 AS923-2
+    0x8D045C00u, // bc=70 res=2 pi=17 AS923-2
+    0x8D04DC00u, // bc=70 res=2 pi=19 AS923-2
+    0x8D051C00u, // bc=70 res=2 pi=20 AS923-2
+    0x8D055C00u, // bc=70 res=2 pi=21 AS923-2
+    0x8D059C00u, // bc=70 res=2 pi=22 AS923-2
     0x8D069C00u, // bc=70 res=2 pi=26 AS923-2
-    0x8D06DC00u, // bc=70 res=2 pi=27 AS923-2
     0x8D079C00u, // bc=70 res=2 pi=30 AS923-2
+    0x8D0C1C00u, // bc=70 res=2 pi=48 AS923-2
+    0x8D0C5C00u, // bc=70 res=2 pi=49 AS923-2
+    0x8D0C9C00u, // bc=70 res=2 pi=50 AS923-2
+    0x8D0CDC00u, // bc=70 res=2 pi=51 AS923-2
+    0x8D0D9C00u, // bc=70 res=2 pi=54 AS923-2
+    0x8D810C00u, // bc=70 res=3 pi=4 AU915
+    0x8D861C00u, // bc=70 res=3 pi=24 AS923-2
     0x8D869C00u, // bc=70 res=3 pi=26 AS923-2
+    0x8D86DC00u, // bc=70 res=3 pi=27 AS923-2
+    0x8D871C00u, // bc=70 res=3 pi=28 AS923-2
     0x8D879C00u, // bc=70 res=3 pi=30 AS923-2
     0x8D88CC00u, // bc=70 res=3 pi=35 AU915
-    0x8DA01C00u, // bc=70 res=3 pi=128 AS923-2
-    0x8DA05C00u, // bc=70 res=3 pi=129 AS923-2
-    0x8DA09C00u, // bc=70 res=3 pi=130 AS923-2
-    0x8DA0DC00u, // bc=70 res=3 pi=131 AS923-2
-    0x8DA11C00u, // bc=70 res=3 pi=132 AS923-2
-    0x8DA15C00u, // bc=70 res=3 pi=133 AS923-2
-    0x8DA19C00u, // bc=70 res=3 pi=134 AS923-2
-    0x8DA21C00u, // bc=70 res=3 pi=136 AS923-2
-    0x8DA25C00u, // bc=70 res=3 pi=137 AS923-2
-    0x8DA29C00u, // bc=70 res=3 pi=138 AS923-2
-    0x8DA2DC00u, // bc=70 res=3 pi=139 AS923-2
-    0x8DA31C00u, // bc=70 res=3 pi=140 AS923-2
-    0x8DA35C00u, // bc=70 res=3 pi=141 AS923-2
-    0x8DA39C00u, // bc=70 res=3 pi=142 AS923-2
+    0x8D8C9C00u, // bc=70 res=3 pi=50 AS923-2
+    0x8D8CDC00u, // bc=70 res=3 pi=51 AS923-2
+    0x8D904C00u, // bc=70 res=3 pi=65 AU915
+    0x8D914C00u, // bc=70 res=3 pi=69 AU915
+    0x8D9A8C00u, // bc=70 res=3 pi=106 AU915
+    0x8D9B8C00u, // bc=70 res=3 pi=110 AU915
     0x8DA41C00u, // bc=70 res=3 pi=144 AS923-2
     0x8DA45C00u, // bc=70 res=3 pi=145 AS923-2
     0x8DA49C00u, // bc=70 res=3 pi=146 AS923-2
@@ -8739,482 +3456,159 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x8DA51C00u, // bc=70 res=3 pi=148 AS923-2
     0x8DA55C00u, // bc=70 res=3 pi=149 AS923-2
     0x8DA59400u, // bc=70 res=3 pi=150 AS923-1B
-    0x8DA61C00u, // bc=70 res=3 pi=152 AS923-2
-    0x8DA65C00u, // bc=70 res=3 pi=153 AS923-2
-    0x8DA69C00u, // bc=70 res=3 pi=154 AS923-2
-    0x8DA6DC00u, // bc=70 res=3 pi=155 AS923-2
-    0x8DA71C00u, // bc=70 res=3 pi=156 AS923-2
-    0x8DA75C00u, // bc=70 res=3 pi=157 AS923-2
-    0x8DA79C00u, // bc=70 res=3 pi=158 AS923-2
-    0x8DA81C00u, // bc=70 res=3 pi=160 AS923-2
-    0x8DA85C00u, // bc=70 res=3 pi=161 AS923-2
-    0x8DA89C00u, // bc=70 res=3 pi=162 AS923-2
-    0x8DA8DC00u, // bc=70 res=3 pi=163 AS923-2
-    0x8DA91C00u, // bc=70 res=3 pi=164 AS923-2
-    0x8DA95C00u, // bc=70 res=3 pi=165 AS923-2
-    0x8DA99C00u, // bc=70 res=3 pi=166 AS923-2
-    0x8DAA1C00u, // bc=70 res=3 pi=168 AS923-2
-    0x8DAA5C00u, // bc=70 res=3 pi=169 AS923-2
-    0x8DAA9C00u, // bc=70 res=3 pi=170 AS923-2
-    0x8DAADC00u, // bc=70 res=3 pi=171 AS923-2
-    0x8DAB1C00u, // bc=70 res=3 pi=172 AS923-2
-    0x8DAB5C00u, // bc=70 res=3 pi=173 AS923-2
-    0x8DAB9C00u, // bc=70 res=3 pi=174 AS923-2
-    0x8DAC1C00u, // bc=70 res=3 pi=176 AS923-2
-    0x8DAC5C00u, // bc=70 res=3 pi=177 AS923-2
-    0x8DAC9C00u, // bc=70 res=3 pi=178 AS923-2
-    0x8DACDC00u, // bc=70 res=3 pi=179 AS923-2
-    0x8DAD1C00u, // bc=70 res=3 pi=180 AS923-2
-    0x8DAD5C00u, // bc=70 res=3 pi=181 AS923-2
-    0x8DAD9C00u, // bc=70 res=3 pi=182 AS923-2
+    0x8DB01C00u, // bc=70 res=3 pi=192 AS923-2
     0x8DB09C00u, // bc=70 res=3 pi=194 AS923-2
+    0x8DB11C00u, // bc=70 res=3 pi=196 AS923-2
     0x8DB19C00u, // bc=70 res=3 pi=198 AS923-2
-    0x8DE01C00u, // bc=70 res=3 pi=384 AS923-2
-    0x8DE05C00u, // bc=70 res=3 pi=385 AS923-2
-    0x8DE09C00u, // bc=70 res=3 pi=386 AS923-2
-    0x8DE0DC00u, // bc=70 res=3 pi=387 AS923-2
-    0x8DE11C00u, // bc=70 res=3 pi=388 AS923-2
-    0x8DE15C00u, // bc=70 res=3 pi=389 AS923-2
-    0x8DE19C00u, // bc=70 res=3 pi=390 AS923-2
-    0x8DE21C00u, // bc=70 res=3 pi=392 AS923-2
-    0x8DE25C00u, // bc=70 res=3 pi=393 AS923-2
-    0x8DE29C00u, // bc=70 res=3 pi=394 AS923-2
-    0x8DE2DC00u, // bc=70 res=3 pi=395 AS923-2
-    0x8DE31C00u, // bc=70 res=3 pi=396 AS923-2
-    0x8DE35C00u, // bc=70 res=3 pi=397 AS923-2
-    0x8DE39C00u, // bc=70 res=3 pi=398 AS923-2
-    0x8DE41C00u, // bc=70 res=3 pi=400 AS923-2
-    0x8DE45C00u, // bc=70 res=3 pi=401 AS923-2
-    0x8DE49C00u, // bc=70 res=3 pi=402 AS923-2
-    0x8DE4DC00u, // bc=70 res=3 pi=403 AS923-2
-    0x8DE51C00u, // bc=70 res=3 pi=404 AS923-2
-    0x8DE55C00u, // bc=70 res=3 pi=405 AS923-2
-    0x8DE59C00u, // bc=70 res=3 pi=406 AS923-2
-    0x8DE61C00u, // bc=70 res=3 pi=408 AS923-2
-    0x8DE65C00u, // bc=70 res=3 pi=409 AS923-2
-    0x8DE69C00u, // bc=70 res=3 pi=410 AS923-2
-    0x8DE6DC00u, // bc=70 res=3 pi=411 AS923-2
-    0x8DE71C00u, // bc=70 res=3 pi=412 AS923-2
-    0x8DE75C00u, // bc=70 res=3 pi=413 AS923-2
-    0x8DE79C00u, // bc=70 res=3 pi=414 AS923-2
+    0x8DB61C00u, // bc=70 res=3 pi=216 AS923-2
+    0x8DB69C00u, // bc=70 res=3 pi=218 AS923-2
+    0x8DB6DC00u, // bc=70 res=3 pi=219 AS923-2
+    0x8DB71C00u, // bc=70 res=3 pi=220 AS923-2
+    0x8DB79C00u, // bc=70 res=3 pi=222 AS923-2
+    0x8DB89C00u, // bc=70 res=3 pi=226 AS923-2
+    0x8DB99C00u, // bc=70 res=3 pi=230 AS923-2
+    0x8DE81C00u, // bc=70 res=3 pi=416 AS923-2
     0x8DE89C00u, // bc=70 res=3 pi=418 AS923-2
     0x8DE8DC00u, // bc=70 res=3 pi=419 AS923-2
     0x8DE99C00u, // bc=70 res=3 pi=422 AS923-2
     0x8DEA9C00u, // bc=70 res=3 pi=426 AS923-2
-    0x8DEC1C00u, // bc=70 res=3 pi=432 AS923-2
-    0x8DEC5C00u, // bc=70 res=3 pi=433 AS923-2
-    0x8DEC9C00u, // bc=70 res=3 pi=434 AS923-2
-    0x8DECDC00u, // bc=70 res=3 pi=435 AS923-2
-    0x8DED1C00u, // bc=70 res=3 pi=436 AS923-2
-    0x8DED5C00u, // bc=70 res=3 pi=437 AS923-2
-    0x8DED9C00u, // bc=70 res=3 pi=438 AS923-2
-    0x8E804C00u, // bc=71 res=1 pi=1 AU915
+    0x8DEADC00u, // bc=70 res=3 pi=427 AS923-2
+    0x8DEB9C00u, // bc=70 res=3 pi=430 AS923-2
     0x8E814C00u, // bc=71 res=1 pi=5 AU915
     0x8F010C00u, // bc=71 res=2 pi=4 AU915
     0x8F014C00u, // bc=71 res=2 pi=5 AU915
+    0x8F020C00u, // bc=71 res=2 pi=8 AU915
+    0x8F024C00u, // bc=71 res=2 pi=9 AU915
+    0x8F030C00u, // bc=71 res=2 pi=12 AU915
+    0x8F034C00u, // bc=71 res=2 pi=13 AU915
+    0x8F038C00u, // bc=71 res=2 pi=14 AU915
     0x8F084C00u, // bc=71 res=2 pi=33 AU915
-    0x8F08CC00u, // bc=71 res=2 pi=35 AU915
     0x8F094C00u, // bc=71 res=2 pi=37 AU915
+    0x8F810C00u, // bc=71 res=3 pi=4 AU915
     0x8F814C00u, // bc=71 res=3 pi=5 AU915
+    0x8F824C00u, // bc=71 res=3 pi=9 AU915
+    0x8F830C00u, // bc=71 res=3 pi=12 AU915
     0x8F834C00u, // bc=71 res=3 pi=13 AU915
-    0x8F900C00u, // bc=71 res=3 pi=64 AU915
-    0x8F904C00u, // bc=71 res=3 pi=65 AU915
-    0x8F908C00u, // bc=71 res=3 pi=66 AU915
-    0x8F90CC00u, // bc=71 res=3 pi=67 AU915
-    0x8F910C00u, // bc=71 res=3 pi=68 AU915
-    0x8F914C00u, // bc=71 res=3 pi=69 AU915
-    0x8F918C00u, // bc=71 res=3 pi=70 AU915
-    0x8F920C00u, // bc=71 res=3 pi=72 AU915
-    0x8F924C00u, // bc=71 res=3 pi=73 AU915
-    0x8F928C00u, // bc=71 res=3 pi=74 AU915
-    0x8F92CC00u, // bc=71 res=3 pi=75 AU915
-    0x8F930C00u, // bc=71 res=3 pi=76 AU915
-    0x8F934C00u, // bc=71 res=3 pi=77 AU915
-    0x8F938C00u, // bc=71 res=3 pi=78 AU915
+    0x8F8D4C00u, // bc=71 res=3 pi=53 AU915
+    0x8F940C00u, // bc=71 res=3 pi=80 AU915
     0x8F944C00u, // bc=71 res=3 pi=81 AU915
     0x8F950C00u, // bc=71 res=3 pi=84 AU915
     0x8F954C00u, // bc=71 res=3 pi=85 AU915
+    0x8F960C00u, // bc=71 res=3 pi=88 AU915
+    0x8F964C00u, // bc=71 res=3 pi=89 AU915
     0x8F970C00u, // bc=71 res=3 pi=92 AU915
     0x8F974C00u, // bc=71 res=3 pi=93 AU915
-    0x8F980C00u, // bc=71 res=3 pi=96 AU915
-    0x8F984C00u, // bc=71 res=3 pi=97 AU915
-    0x8F988C00u, // bc=71 res=3 pi=98 AU915
-    0x8F98CC00u, // bc=71 res=3 pi=99 AU915
-    0x8F990C00u, // bc=71 res=3 pi=100 AU915
-    0x8F994C00u, // bc=71 res=3 pi=101 AU915
-    0x8F998C00u, // bc=71 res=3 pi=102 AU915
-    0x8F9A0C00u, // bc=71 res=3 pi=104 AU915
-    0x8F9A4C00u, // bc=71 res=3 pi=105 AU915
-    0x8F9A8C00u, // bc=71 res=3 pi=106 AU915
-    0x8F9ACC00u, // bc=71 res=3 pi=107 AU915
-    0x8F9B0C00u, // bc=71 res=3 pi=108 AU915
-    0x8F9B4C00u, // bc=71 res=3 pi=109 AU915
-    0x8F9B8C00u, // bc=71 res=3 pi=110 AU915
-    0x8F9C0C00u, // bc=71 res=3 pi=112 AU915
-    0x8F9C4C00u, // bc=71 res=3 pi=113 AU915
-    0x8F9C8C00u, // bc=71 res=3 pi=114 AU915
-    0x8F9CCC00u, // bc=71 res=3 pi=115 AU915
-    0x8F9D0C00u, // bc=71 res=3 pi=116 AU915
-    0x8F9D4C00u, // bc=71 res=3 pi=117 AU915
-    0x8F9D8C00u, // bc=71 res=3 pi=118 AU915
-    0x8FD00C00u, // bc=71 res=3 pi=320 AU915
-    0x8FD04C00u, // bc=71 res=3 pi=321 AU915
-    0x8FD08C00u, // bc=71 res=3 pi=322 AU915
-    0x8FD0CC00u, // bc=71 res=3 pi=323 AU915
-    0x8FD10C00u, // bc=71 res=3 pi=324 AU915
-    0x8FD14C00u, // bc=71 res=3 pi=325 AU915
-    0x8FD18C00u, // bc=71 res=3 pi=326 AU915
-    0x8FD20C00u, // bc=71 res=3 pi=328 AU915
-    0x8FD24C00u, // bc=71 res=3 pi=329 AU915
-    0x8FD28C00u, // bc=71 res=3 pi=330 AU915
-    0x8FD2CC00u, // bc=71 res=3 pi=331 AU915
-    0x8FD30C00u, // bc=71 res=3 pi=332 AU915
-    0x8FD34C00u, // bc=71 res=3 pi=333 AU915
-    0x8FD38C00u, // bc=71 res=3 pi=334 AU915
-    0x8FD40C00u, // bc=71 res=3 pi=336 AU915
-    0x8FD44C00u, // bc=71 res=3 pi=337 AU915
-    0x8FD48C00u, // bc=71 res=3 pi=338 AU915
-    0x8FD4CC00u, // bc=71 res=3 pi=339 AU915
-    0x8FD50C00u, // bc=71 res=3 pi=340 AU915
-    0x8FD54C00u, // bc=71 res=3 pi=341 AU915
-    0x8FD58C00u, // bc=71 res=3 pi=342 AU915
-    0x8FD60C00u, // bc=71 res=3 pi=344 AU915
-    0x8FD64C00u, // bc=71 res=3 pi=345 AU915
-    0x8FD68C00u, // bc=71 res=3 pi=346 AU915
-    0x8FD6CC00u, // bc=71 res=3 pi=347 AU915
-    0x8FD70C00u, // bc=71 res=3 pi=348 AU915
-    0x8FD74C00u, // bc=71 res=3 pi=349 AU915
-    0x8FD78C00u, // bc=71 res=3 pi=350 AU915
-    0x8FD80C00u, // bc=71 res=3 pi=352 AU915
-    0x8FD84C00u, // bc=71 res=3 pi=353 AU915
-    0x8FD88C00u, // bc=71 res=3 pi=354 AU915
-    0x8FD8CC00u, // bc=71 res=3 pi=355 AU915
-    0x8FD90C00u, // bc=71 res=3 pi=356 AU915
-    0x8FD94C00u, // bc=71 res=3 pi=357 AU915
-    0x8FD98C00u, // bc=71 res=3 pi=358 AU915
-    0x8FDA0C00u, // bc=71 res=3 pi=360 AU915
-    0x8FDA4C00u, // bc=71 res=3 pi=361 AU915
-    0x8FDA8C00u, // bc=71 res=3 pi=362 AU915
-    0x8FDACC00u, // bc=71 res=3 pi=363 AU915
-    0x8FDB0C00u, // bc=71 res=3 pi=364 AU915
-    0x8FDB4C00u, // bc=71 res=3 pi=365 AU915
-    0x8FDB8C00u, // bc=71 res=3 pi=366 AU915
-    0x8FDC0C00u, // bc=71 res=3 pi=368 AU915
-    0x8FDC4C00u, // bc=71 res=3 pi=369 AU915
-    0x8FDC8C00u, // bc=71 res=3 pi=370 AU915
-    0x8FDCCC00u, // bc=71 res=3 pi=371 AU915
-    0x8FDD0C00u, // bc=71 res=3 pi=372 AU915
-    0x8FDD4C00u, // bc=71 res=3 pi=373 AU915
-    0x8FDD8C00u, // bc=71 res=3 pi=374 AU915
+    0x8FC0CC00u, // bc=71 res=3 pi=259 AU915
+    0x8FC14C00u, // bc=71 res=3 pi=261 AU915
+    0x8FC60C00u, // bc=71 res=3 pi=280 AU915
+    0x8FC64C00u, // bc=71 res=3 pi=281 AU915
+    0x8FC6CC00u, // bc=71 res=3 pi=283 AU915
+    0x8FC70C00u, // bc=71 res=3 pi=284 AU915
+    0x8FC74C00u, // bc=71 res=3 pi=285 AU915
+    0x8FC84C00u, // bc=71 res=3 pi=289 AU915
+    0x8FC94C00u, // bc=71 res=3 pi=293 AU915
+    0x8FE90C00u, // bc=71 res=3 pi=420 AU915
     0x8FE98C00u, // bc=71 res=3 pi=422 AU915
-    0x94808C00u, // bc=74 res=1 pi=2 AU915
+    0x8FED0C00u, // bc=71 res=3 pi=436 AU915
+    0x8FED4C00u, // bc=71 res=3 pi=437 AU915
     0x9480CC00u, // bc=74 res=1 pi=3 AU915
     0x94811C00u, // bc=74 res=1 pi=4 AS923-2
     0x94815C00u, // bc=74 res=1 pi=5 AS923-2
-    0x9500CC00u, // bc=74 res=2 pi=3 AU915
     0x95011C00u, // bc=74 res=2 pi=4 AS923-2
-    0x95019C00u, // bc=74 res=2 pi=6 AS923-2
-    0x95028C00u, // bc=74 res=2 pi=10 AU915
     0x9502CC00u, // bc=74 res=2 pi=11 AU915
-    0x95031C00u, // bc=74 res=2 pi=12 AS923-2
+    0x95044C00u, // bc=74 res=2 pi=17 AU915
+    0x95048C00u, // bc=74 res=2 pi=18 AU915
+    0x9504CC00u, // bc=74 res=2 pi=19 AU915
+    0x95054C00u, // bc=74 res=2 pi=21 AU915
+    0x95808C00u, // bc=74 res=3 pi=2 AU915
     0x95811C00u, // bc=74 res=3 pi=4 AS923-2
+    0x95815C00u, // bc=74 res=3 pi=5 AS923-2
+    0x95818C00u, // bc=74 res=3 pi=6 AU915
+    0x95828C00u, // bc=74 res=3 pi=10 AU915
+    0x95840C00u, // bc=74 res=3 pi=16 AU915
+    0x95844C00u, // bc=74 res=3 pi=17 AU915
+    0x95848C00u, // bc=74 res=3 pi=18 AU915
+    0x9584CC00u, // bc=74 res=3 pi=19 AU915
+    0x95854C00u, // bc=74 res=3 pi=21 AU915
+    0x95858C00u, // bc=74 res=3 pi=22 AU915
+    0x95860C00u, // bc=74 res=3 pi=24 AU915
+    0x95864C00u, // bc=74 res=3 pi=25 AU915
+    0x95868C00u, // bc=74 res=3 pi=26 AU915
+    0x9586CC00u, // bc=74 res=3 pi=27 AU915
+    0x95874C00u, // bc=74 res=3 pi=29 AU915
+    0x95878C00u, // bc=74 res=3 pi=30 AU915
+    0x958B1C00u, // bc=74 res=3 pi=44 AS923-2
+    0x958B5C00u, // bc=74 res=3 pi=45 AS923-2
+    0x958B9C00u, // bc=74 res=3 pi=46 AS923-2
+    0x958C1C00u, // bc=74 res=3 pi=48 AS923-2
+    0x958C5C00u, // bc=74 res=3 pi=49 AS923-2
+    0x958CCC00u, // bc=74 res=3 pi=51 AU915
+    0x958D1C00u, // bc=74 res=3 pi=52 AS923-2
+    0x958D5C00u, // bc=74 res=3 pi=53 AS923-2
+    0x958D9C00u, // bc=74 res=3 pi=54 AS923-2
+    0x95900C00u, // bc=74 res=3 pi=64 AU915
+    0x95904C00u, // bc=74 res=3 pi=65 AU915
     0x95908C00u, // bc=74 res=3 pi=66 AU915
     0x9590CC00u, // bc=74 res=3 pi=67 AU915
+    0x95918C00u, // bc=74 res=3 pi=70 AU915
+    0x95920C00u, // bc=74 res=3 pi=72 AU915
+    0x95924C00u, // bc=74 res=3 pi=73 AU915
     0x95928C00u, // bc=74 res=3 pi=74 AU915
     0x9592CC00u, // bc=74 res=3 pi=75 AU915
+    0x95938C00u, // bc=74 res=3 pi=78 AU915
+    0x95940C00u, // bc=74 res=3 pi=80 AU915
+    0x95944C00u, // bc=74 res=3 pi=81 AU915
+    0x95948C00u, // bc=74 res=3 pi=82 AU915
+    0x9594CC00u, // bc=74 res=3 pi=83 AU915
+    0x95950C00u, // bc=74 res=3 pi=84 AU915
+    0x95954C00u, // bc=74 res=3 pi=85 AU915
+    0x95981C00u, // bc=74 res=3 pi=96 AS923-2
+    0x95985C00u, // bc=74 res=3 pi=97 AS923-2
+    0x95989C00u, // bc=74 res=3 pi=98 AS923-2
+    0x95991C00u, // bc=74 res=3 pi=100 AS923-2
+    0x95995C00u, // bc=74 res=3 pi=101 AS923-2
+    0x95999C00u, // bc=74 res=3 pi=102 AS923-2
     0x959B5C00u, // bc=74 res=3 pi=109 AS923-2
+    0x959CCC00u, // bc=74 res=3 pi=115 AU915
+    0x959D1C00u, // bc=74 res=3 pi=116 AS923-2
+    0x959D5C00u, // bc=74 res=3 pi=117 AS923-2
     0x95A00C00u, // bc=74 res=3 pi=128 AU915
     0x95A04C00u, // bc=74 res=3 pi=129 AU915
     0x95A08C00u, // bc=74 res=3 pi=130 AU915
     0x95A0CC00u, // bc=74 res=3 pi=131 AU915
     0x95A14C00u, // bc=74 res=3 pi=133 AU915
-    0x95A20C00u, // bc=74 res=3 pi=136 AU915
-    0x95A24C00u, // bc=74 res=3 pi=137 AU915
-    0x95A28C00u, // bc=74 res=3 pi=138 AU915
-    0x95A2CC00u, // bc=74 res=3 pi=139 AU915
-    0x95A30C00u, // bc=74 res=3 pi=140 AU915
-    0x95A34C00u, // bc=74 res=3 pi=141 AU915
-    0x95A38C00u, // bc=74 res=3 pi=142 AU915
-    0x95A40C00u, // bc=74 res=3 pi=144 AU915
-    0x95A44C00u, // bc=74 res=3 pi=145 AU915
-    0x95A48C00u, // bc=74 res=3 pi=146 AU915
-    0x95A4CC00u, // bc=74 res=3 pi=147 AU915
-    0x95A58C00u, // bc=74 res=3 pi=150 AU915
-    0x95A60C00u, // bc=74 res=3 pi=152 AU915
-    0x95A64C00u, // bc=74 res=3 pi=153 AU915
-    0x95A68C00u, // bc=74 res=3 pi=154 AU915
-    0x95A6CC00u, // bc=74 res=3 pi=155 AU915
-    0x95A70C00u, // bc=74 res=3 pi=156 AU915
-    0x95A74C00u, // bc=74 res=3 pi=157 AU915
-    0x95A78C00u, // bc=74 res=3 pi=158 AU915
-    0x95AA0C00u, // bc=74 res=3 pi=168 AU915
-    0x95AA4C00u, // bc=74 res=3 pi=169 AU915
-    0x95AA8C00u, // bc=74 res=3 pi=170 AU915
-    0x95AACC00u, // bc=74 res=3 pi=171 AU915
-    0x95AB0C00u, // bc=74 res=3 pi=172 AU915
-    0x95AB4C00u, // bc=74 res=3 pi=173 AU915
+    0x95A8CC00u, // bc=74 res=3 pi=163 AU915
+    0x95A94C00u, // bc=74 res=3 pi=165 AU915
     0x95AC0C00u, // bc=74 res=3 pi=176 AU915
-    0x95B00C00u, // bc=74 res=3 pi=192 AU915
-    0x95B04C00u, // bc=74 res=3 pi=193 AU915
-    0x95B08C00u, // bc=74 res=3 pi=194 AU915
-    0x95B0CC00u, // bc=74 res=3 pi=195 AU915
-    0x95B10C00u, // bc=74 res=3 pi=196 AU915
-    0x95B14C00u, // bc=74 res=3 pi=197 AU915
-    0x95B18C00u, // bc=74 res=3 pi=198 AU915
-    0x95B20C00u, // bc=74 res=3 pi=200 AU915
-    0x95B24C00u, // bc=74 res=3 pi=201 AU915
-    0x95B28C00u, // bc=74 res=3 pi=202 AU915
-    0x95B2CC00u, // bc=74 res=3 pi=203 AU915
-    0x95B30C00u, // bc=74 res=3 pi=204 AU915
-    0x95B34C00u, // bc=74 res=3 pi=205 AU915
-    0x95B38C00u, // bc=74 res=3 pi=206 AU915
-    0x95B40C00u, // bc=74 res=3 pi=208 AU915
-    0x95B44C00u, // bc=74 res=3 pi=209 AU915
-    0x95B48C00u, // bc=74 res=3 pi=210 AU915
-    0x95B4CC00u, // bc=74 res=3 pi=211 AU915
-    0x95B50C00u, // bc=74 res=3 pi=212 AU915
-    0x95B54C00u, // bc=74 res=3 pi=213 AU915
-    0x95B58C00u, // bc=74 res=3 pi=214 AU915
-    0x95B60C00u, // bc=74 res=3 pi=216 AU915
-    0x95B64C00u, // bc=74 res=3 pi=217 AU915
-    0x95B68C00u, // bc=74 res=3 pi=218 AU915
-    0x95B6CC00u, // bc=74 res=3 pi=219 AU915
-    0x95B70C00u, // bc=74 res=3 pi=220 AU915
-    0x95B74C00u, // bc=74 res=3 pi=221 AU915
-    0x95B78C00u, // bc=74 res=3 pi=222 AU915
-    0x95B80C00u, // bc=74 res=3 pi=224 AU915
-    0x95B84C00u, // bc=74 res=3 pi=225 AU915
-    0x95B88C00u, // bc=74 res=3 pi=226 AU915
-    0x95B8CC00u, // bc=74 res=3 pi=227 AU915
-    0x95B98C00u, // bc=74 res=3 pi=230 AU915
-    0x95BA0C00u, // bc=74 res=3 pi=232 AU915
-    0x95BA4C00u, // bc=74 res=3 pi=233 AU915
-    0x95BA8C00u, // bc=74 res=3 pi=234 AU915
-    0x95BACC00u, // bc=74 res=3 pi=235 AU915
-    0x95BB0C00u, // bc=74 res=3 pi=236 AU915
-    0x95BB4C00u, // bc=74 res=3 pi=237 AU915
-    0x95BB8C00u, // bc=74 res=3 pi=238 AU915
-    0x95BC0C00u, // bc=74 res=3 pi=240 AU915
-    0x95BC4C00u, // bc=74 res=3 pi=241 AU915
-    0x95BC8C00u, // bc=74 res=3 pi=242 AU915
-    0x95BCCC00u, // bc=74 res=3 pi=243 AU915
-    0x95BD0C00u, // bc=74 res=3 pi=244 AU915
-    0x95BD4C00u, // bc=74 res=3 pi=245 AU915
-    0x95BD8C00u, // bc=74 res=3 pi=246 AU915
-    0x95C01C00u, // bc=74 res=3 pi=256 AS923-2
-    0x95C05C00u, // bc=74 res=3 pi=257 AS923-2
-    0x95C09C00u, // bc=74 res=3 pi=258 AS923-2
-    0x95C0DC00u, // bc=74 res=3 pi=259 AS923-2
-    0x95C11C00u, // bc=74 res=3 pi=260 AS923-2
-    0x95C15C00u, // bc=74 res=3 pi=261 AS923-2
-    0x95C19C00u, // bc=74 res=3 pi=262 AS923-2
-    0x95C21C00u, // bc=74 res=3 pi=264 AS923-2
-    0x95C25C00u, // bc=74 res=3 pi=265 AS923-2
-    0x95C29C00u, // bc=74 res=3 pi=266 AS923-2
-    0x95C2DC00u, // bc=74 res=3 pi=267 AS923-2
-    0x95C31C00u, // bc=74 res=3 pi=268 AS923-2
-    0x95C35C00u, // bc=74 res=3 pi=269 AS923-2
-    0x95C39C00u, // bc=74 res=3 pi=270 AS923-2
-    0x95C41C00u, // bc=74 res=3 pi=272 AS923-2
-    0x95C45C00u, // bc=74 res=3 pi=273 AS923-2
-    0x95C49C00u, // bc=74 res=3 pi=274 AS923-2
-    0x95C4DC00u, // bc=74 res=3 pi=275 AS923-2
-    0x95C51C00u, // bc=74 res=3 pi=276 AS923-2
-    0x95C55C00u, // bc=74 res=3 pi=277 AS923-2
-    0x95C59C00u, // bc=74 res=3 pi=278 AS923-2
-    0x95C61C00u, // bc=74 res=3 pi=280 AS923-2
-    0x95C65C00u, // bc=74 res=3 pi=281 AS923-2
-    0x95C69C00u, // bc=74 res=3 pi=282 AS923-2
-    0x95C6DC00u, // bc=74 res=3 pi=283 AS923-2
-    0x95C71C00u, // bc=74 res=3 pi=284 AS923-2
-    0x95C75C00u, // bc=74 res=3 pi=285 AS923-2
-    0x95C79C00u, // bc=74 res=3 pi=286 AS923-2
-    0x95C81C00u, // bc=74 res=3 pi=288 AS923-2
-    0x95C85C00u, // bc=74 res=3 pi=289 AS923-2
-    0x95C89C00u, // bc=74 res=3 pi=290 AS923-2
-    0x95C8DC00u, // bc=74 res=3 pi=291 AS923-2
-    0x95C91C00u, // bc=74 res=3 pi=292 AS923-2
-    0x95C95C00u, // bc=74 res=3 pi=293 AS923-2
-    0x95C99C00u, // bc=74 res=3 pi=294 AS923-2
-    0x95CA1C00u, // bc=74 res=3 pi=296 AS923-2
-    0x95CA5C00u, // bc=74 res=3 pi=297 AS923-2
-    0x95CA9C00u, // bc=74 res=3 pi=298 AS923-2
-    0x95CADC00u, // bc=74 res=3 pi=299 AS923-2
-    0x95CB1C00u, // bc=74 res=3 pi=300 AS923-2
-    0x95CB5C00u, // bc=74 res=3 pi=301 AS923-2
-    0x95CB9C00u, // bc=74 res=3 pi=302 AS923-2
-    0x95CC1C00u, // bc=74 res=3 pi=304 AS923-2
-    0x95CC5C00u, // bc=74 res=3 pi=305 AS923-2
-    0x95CC9C00u, // bc=74 res=3 pi=306 AS923-2
-    0x95CCDC00u, // bc=74 res=3 pi=307 AS923-2
-    0x95CD1C00u, // bc=74 res=3 pi=308 AS923-2
-    0x95CD5C00u, // bc=74 res=3 pi=309 AS923-2
-    0x95CD9C00u, // bc=74 res=3 pi=310 AS923-2
-    0x95D01C00u, // bc=74 res=3 pi=320 AS923-2
-    0x95D05C00u, // bc=74 res=3 pi=321 AS923-2
-    0x95D09C00u, // bc=74 res=3 pi=322 AS923-2
-    0x95D0DC00u, // bc=74 res=3 pi=323 AS923-2
-    0x95D11C00u, // bc=74 res=3 pi=324 AS923-2
-    0x95D15C00u, // bc=74 res=3 pi=325 AS923-2
-    0x95D19C00u, // bc=74 res=3 pi=326 AS923-2
-    0x95D21C00u, // bc=74 res=3 pi=328 AS923-2
-    0x95D25C00u, // bc=74 res=3 pi=329 AS923-2
-    0x95D29C00u, // bc=74 res=3 pi=330 AS923-2
-    0x95D2DC00u, // bc=74 res=3 pi=331 AS923-2
-    0x95D31C00u, // bc=74 res=3 pi=332 AS923-2
-    0x95D35C00u, // bc=74 res=3 pi=333 AS923-2
-    0x95D39C00u, // bc=74 res=3 pi=334 AS923-2
-    0x95D41C00u, // bc=74 res=3 pi=336 AS923-2
-    0x95D45C00u, // bc=74 res=3 pi=337 AS923-2
-    0x95D49C00u, // bc=74 res=3 pi=338 AS923-2
-    0x95D4DC00u, // bc=74 res=3 pi=339 AS923-2
-    0x95D51C00u, // bc=74 res=3 pi=340 AS923-2
-    0x95D55C00u, // bc=74 res=3 pi=341 AS923-2
-    0x95D59C00u, // bc=74 res=3 pi=342 AS923-2
-    0x95D61C00u, // bc=74 res=3 pi=344 AS923-2
-    0x95D65C00u, // bc=74 res=3 pi=345 AS923-2
-    0x95D69C00u, // bc=74 res=3 pi=346 AS923-2
-    0x95D6DC00u, // bc=74 res=3 pi=347 AS923-2
-    0x95D71C00u, // bc=74 res=3 pi=348 AS923-2
-    0x95D75C00u, // bc=74 res=3 pi=349 AS923-2
-    0x95D79C00u, // bc=74 res=3 pi=350 AS923-2
-    0x95D81C00u, // bc=74 res=3 pi=352 AS923-2
-    0x95D85C00u, // bc=74 res=3 pi=353 AS923-2
-    0x95D89C00u, // bc=74 res=3 pi=354 AS923-2
-    0x95D8DC00u, // bc=74 res=3 pi=355 AS923-2
-    0x95D91C00u, // bc=74 res=3 pi=356 AS923-2
-    0x95D95C00u, // bc=74 res=3 pi=357 AS923-2
-    0x95D99C00u, // bc=74 res=3 pi=358 AS923-2
-    0x95DA1C00u, // bc=74 res=3 pi=360 AS923-2
-    0x95DA5C00u, // bc=74 res=3 pi=361 AS923-2
-    0x95DA9C00u, // bc=74 res=3 pi=362 AS923-2
-    0x95DADC00u, // bc=74 res=3 pi=363 AS923-2
-    0x95DB1C00u, // bc=74 res=3 pi=364 AS923-2
-    0x95DB5C00u, // bc=74 res=3 pi=365 AS923-2
-    0x95DB9C00u, // bc=74 res=3 pi=366 AS923-2
-    0x95DC1C00u, // bc=74 res=3 pi=368 AS923-2
-    0x95DC5C00u, // bc=74 res=3 pi=369 AS923-2
-    0x95DC9C00u, // bc=74 res=3 pi=370 AS923-2
-    0x95DCDC00u, // bc=74 res=3 pi=371 AS923-2
-    0x95DD1C00u, // bc=74 res=3 pi=372 AS923-2
-    0x95DD5C00u, // bc=74 res=3 pi=373 AS923-2
-    0x95DD9C00u, // bc=74 res=3 pi=374 AS923-2
+    0x95AC8C00u, // bc=74 res=3 pi=178 AU915
+    0x95AD8C00u, // bc=74 res=3 pi=182 AU915
+    0x95E81C00u, // bc=74 res=3 pi=416 AS923-2
+    0x95E85C00u, // bc=74 res=3 pi=417 AS923-2
     0x95E91C00u, // bc=74 res=3 pi=420 AS923-2
     0x95E95C00u, // bc=74 res=3 pi=421 AS923-2
+    0x95EA1C00u, // bc=74 res=3 pi=424 AS923-2
     0x95EA5C00u, // bc=74 res=3 pi=425 AS923-2
+    0x95EB1C00u, // bc=74 res=3 pi=428 AS923-2
     0x95EB5C00u, // bc=74 res=3 pi=429 AS923-2
     0x96800800u, // bc=75 res=1 pi=0 EU868
     0x96804800u, // bc=75 res=1 pi=1 EU868
-    0x96809000u, // bc=75 res=1 pi=2 AS923-1
     0x9680C800u, // bc=75 res=1 pi=3 EU868
-    0x96810800u, // bc=75 res=1 pi=4 EU868
     0x96814800u, // bc=75 res=1 pi=5 EU868
-    0x96818800u, // bc=75 res=1 pi=6 EU868
-    0x97800800u, // bc=75 res=3 pi=0 EU868
-    0x97804800u, // bc=75 res=3 pi=1 EU868
-    0x97808800u, // bc=75 res=3 pi=2 EU868
-    0x9780C800u, // bc=75 res=3 pi=3 EU868
-    0x97810800u, // bc=75 res=3 pi=4 EU868
-    0x97814800u, // bc=75 res=3 pi=5 EU868
-    0x97818800u, // bc=75 res=3 pi=6 EU868
-    0x97820800u, // bc=75 res=3 pi=8 EU868
-    0x97824800u, // bc=75 res=3 pi=9 EU868
-    0x97828800u, // bc=75 res=3 pi=10 EU868
-    0x9782C800u, // bc=75 res=3 pi=11 EU868
-    0x97830800u, // bc=75 res=3 pi=12 EU868
-    0x97834800u, // bc=75 res=3 pi=13 EU868
-    0x97838800u, // bc=75 res=3 pi=14 EU868
-    0x97840800u, // bc=75 res=3 pi=16 EU868
-    0x97844800u, // bc=75 res=3 pi=17 EU868
-    0x97848800u, // bc=75 res=3 pi=18 EU868
-    0x9784C800u, // bc=75 res=3 pi=19 EU868
-    0x97850800u, // bc=75 res=3 pi=20 EU868
-    0x97854800u, // bc=75 res=3 pi=21 EU868
-    0x97858800u, // bc=75 res=3 pi=22 EU868
-    0x97860800u, // bc=75 res=3 pi=24 EU868
-    0x97864800u, // bc=75 res=3 pi=25 EU868
-    0x97868800u, // bc=75 res=3 pi=26 EU868
-    0x9786C800u, // bc=75 res=3 pi=27 EU868
-    0x97870800u, // bc=75 res=3 pi=28 EU868
-    0x97874800u, // bc=75 res=3 pi=29 EU868
-    0x97878800u, // bc=75 res=3 pi=30 EU868
-    0x97880800u, // bc=75 res=3 pi=32 EU868
-    0x97884800u, // bc=75 res=3 pi=33 EU868
-    0x97888800u, // bc=75 res=3 pi=34 EU868
-    0x9788C800u, // bc=75 res=3 pi=35 EU868
-    0x97890800u, // bc=75 res=3 pi=36 EU868
-    0x97894800u, // bc=75 res=3 pi=37 EU868
-    0x97898800u, // bc=75 res=3 pi=38 EU868
-    0x978A0800u, // bc=75 res=3 pi=40 EU868
-    0x978A4800u, // bc=75 res=3 pi=41 EU868
-    0x978A8800u, // bc=75 res=3 pi=42 EU868
-    0x978AC800u, // bc=75 res=3 pi=43 EU868
-    0x978B0800u, // bc=75 res=3 pi=44 EU868
-    0x978B4800u, // bc=75 res=3 pi=45 EU868
-    0x978B8800u, // bc=75 res=3 pi=46 EU868
-    0x978C0800u, // bc=75 res=3 pi=48 EU868
-    0x978C4800u, // bc=75 res=3 pi=49 EU868
-    0x978C8800u, // bc=75 res=3 pi=50 EU868
-    0x978CC800u, // bc=75 res=3 pi=51 EU868
-    0x978D0800u, // bc=75 res=3 pi=52 EU868
-    0x978D4800u, // bc=75 res=3 pi=53 EU868
-    0x978D8800u, // bc=75 res=3 pi=54 EU868
-    0x97900800u, // bc=75 res=3 pi=64 EU868
-    0x97904800u, // bc=75 res=3 pi=65 EU868
-    0x97908800u, // bc=75 res=3 pi=66 EU868
-    0x9790C800u, // bc=75 res=3 pi=67 EU868
-    0x97910800u, // bc=75 res=3 pi=68 EU868
-    0x97914800u, // bc=75 res=3 pi=69 EU868
-    0x97918800u, // bc=75 res=3 pi=70 EU868
-    0x97920800u, // bc=75 res=3 pi=72 EU868
-    0x97924800u, // bc=75 res=3 pi=73 EU868
-    0x97928800u, // bc=75 res=3 pi=74 EU868
-    0x9792C800u, // bc=75 res=3 pi=75 EU868
-    0x97930800u, // bc=75 res=3 pi=76 EU868
-    0x97934800u, // bc=75 res=3 pi=77 EU868
-    0x97938800u, // bc=75 res=3 pi=78 EU868
-    0x97940800u, // bc=75 res=3 pi=80 EU868
-    0x97944800u, // bc=75 res=3 pi=81 EU868
-    0x97948800u, // bc=75 res=3 pi=82 EU868
-    0x9794C800u, // bc=75 res=3 pi=83 EU868
-    0x97950800u, // bc=75 res=3 pi=84 EU868
-    0x97954800u, // bc=75 res=3 pi=85 EU868
-    0x97958800u, // bc=75 res=3 pi=86 EU868
-    0x97960800u, // bc=75 res=3 pi=88 EU868
-    0x97964800u, // bc=75 res=3 pi=89 EU868
-    0x97968800u, // bc=75 res=3 pi=90 EU868
-    0x9796C800u, // bc=75 res=3 pi=91 EU868
-    0x97970800u, // bc=75 res=3 pi=92 EU868
-    0x97974800u, // bc=75 res=3 pi=93 EU868
-    0x97978800u, // bc=75 res=3 pi=94 EU868
-    0x97980800u, // bc=75 res=3 pi=96 EU868
-    0x97984800u, // bc=75 res=3 pi=97 EU868
-    0x97988800u, // bc=75 res=3 pi=98 EU868
-    0x9798C800u, // bc=75 res=3 pi=99 EU868
-    0x97990800u, // bc=75 res=3 pi=100 EU868
-    0x97994800u, // bc=75 res=3 pi=101 EU868
-    0x97998800u, // bc=75 res=3 pi=102 EU868
-    0x979A0800u, // bc=75 res=3 pi=104 EU868
-    0x979A4800u, // bc=75 res=3 pi=105 EU868
-    0x979A8800u, // bc=75 res=3 pi=106 EU868
-    0x979AC800u, // bc=75 res=3 pi=107 EU868
-    0x979B0800u, // bc=75 res=3 pi=108 EU868
-    0x979B4800u, // bc=75 res=3 pi=109 EU868
-    0x979B8800u, // bc=75 res=3 pi=110 EU868
-    0x979C0800u, // bc=75 res=3 pi=112 EU868
-    0x979C4800u, // bc=75 res=3 pi=113 EU868
-    0x979C8800u, // bc=75 res=3 pi=114 EU868
-    0x979CC800u, // bc=75 res=3 pi=115 EU868
-    0x979D0800u, // bc=75 res=3 pi=116 EU868
-    0x979D4800u, // bc=75 res=3 pi=117 EU868
-    0x979D8800u, // bc=75 res=3 pi=118 EU868
-    0x97A01000u, // bc=75 res=3 pi=128 AS923-1
-    0x97A05000u, // bc=75 res=3 pi=129 AS923-1
-    0x97A09000u, // bc=75 res=3 pi=130 AS923-1
-    0x97A0D000u, // bc=75 res=3 pi=131 AS923-1
-    0x97A11000u, // bc=75 res=3 pi=132 AS923-1
-    0x97A15000u, // bc=75 res=3 pi=133 AS923-1
-    0x97A19000u, // bc=75 res=3 pi=134 AS923-1
+    0x97041000u, // bc=75 res=2 pi=16 AS923-1
+    0x97049000u, // bc=75 res=2 pi=18 AS923-1
+    0x9704D000u, // bc=75 res=2 pi=19 AS923-1
+    0x97059000u, // bc=75 res=2 pi=22 AS923-1
+    0x97080800u, // bc=75 res=2 pi=32 EU868
+    0x97084800u, // bc=75 res=2 pi=33 EU868
+    0x97088800u, // bc=75 res=2 pi=34 EU868
+    0x9708C800u, // bc=75 res=2 pi=35 EU868
+    0x97090800u, // bc=75 res=2 pi=36 EU868
+    0x97094800u, // bc=75 res=2 pi=37 EU868
+    0x970C0800u, // bc=75 res=2 pi=48 EU868
+    0x970CD000u, // bc=75 res=2 pi=51 AS923-1
+    0x970D0800u, // bc=75 res=2 pi=52 EU868
+    0x970D4800u, // bc=75 res=2 pi=53 EU868
+    0x970D8800u, // bc=75 res=2 pi=54 EU868
     0x97A21000u, // bc=75 res=3 pi=136 AS923-1
     0x97A25000u, // bc=75 res=3 pi=137 AS923-1
     0x97A29000u, // bc=75 res=3 pi=138 AS923-1
@@ -9222,20 +3616,6 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x97A31000u, // bc=75 res=3 pi=140 AS923-1
     0x97A35000u, // bc=75 res=3 pi=141 AS923-1
     0x97A39000u, // bc=75 res=3 pi=142 AS923-1
-    0x97A41000u, // bc=75 res=3 pi=144 AS923-1
-    0x97A45000u, // bc=75 res=3 pi=145 AS923-1
-    0x97A49000u, // bc=75 res=3 pi=146 AS923-1
-    0x97A4D000u, // bc=75 res=3 pi=147 AS923-1
-    0x97A51000u, // bc=75 res=3 pi=148 AS923-1
-    0x97A55000u, // bc=75 res=3 pi=149 AS923-1
-    0x97A59000u, // bc=75 res=3 pi=150 AS923-1
-    0x97A61000u, // bc=75 res=3 pi=152 AS923-1
-    0x97A65000u, // bc=75 res=3 pi=153 AS923-1
-    0x97A69000u, // bc=75 res=3 pi=154 AS923-1
-    0x97A6D000u, // bc=75 res=3 pi=155 AS923-1
-    0x97A71000u, // bc=75 res=3 pi=156 AS923-1
-    0x97A75000u, // bc=75 res=3 pi=157 AS923-1
-    0x97A79000u, // bc=75 res=3 pi=158 AS923-1
     0x97A81000u, // bc=75 res=3 pi=160 AS923-1
     0x97A85000u, // bc=75 res=3 pi=161 AS923-1
     0x97A89000u, // bc=75 res=3 pi=162 AS923-1
@@ -9250,161 +3630,10 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x97AB0800u, // bc=75 res=3 pi=172 EU868
     0x97AB4800u, // bc=75 res=3 pi=173 EU868
     0x97AB9000u, // bc=75 res=3 pi=174 AS923-1
-    0x97AC1000u, // bc=75 res=3 pi=176 AS923-1
-    0x97AC5000u, // bc=75 res=3 pi=177 AS923-1
-    0x97AC9000u, // bc=75 res=3 pi=178 AS923-1
-    0x97ACD000u, // bc=75 res=3 pi=179 AS923-1
-    0x97AD1000u, // bc=75 res=3 pi=180 AS923-1
-    0x97AD5000u, // bc=75 res=3 pi=181 AS923-1
-    0x97AD9000u, // bc=75 res=3 pi=182 AS923-1
-    0x97B00800u, // bc=75 res=3 pi=192 EU868
-    0x97B04800u, // bc=75 res=3 pi=193 EU868
-    0x97B08800u, // bc=75 res=3 pi=194 EU868
-    0x97B0C800u, // bc=75 res=3 pi=195 EU868
-    0x97B10800u, // bc=75 res=3 pi=196 EU868
-    0x97B14800u, // bc=75 res=3 pi=197 EU868
-    0x97B18800u, // bc=75 res=3 pi=198 EU868
-    0x97B20800u, // bc=75 res=3 pi=200 EU868
-    0x97B24800u, // bc=75 res=3 pi=201 EU868
-    0x97B28800u, // bc=75 res=3 pi=202 EU868
-    0x97B2C800u, // bc=75 res=3 pi=203 EU868
-    0x97B30800u, // bc=75 res=3 pi=204 EU868
-    0x97B34800u, // bc=75 res=3 pi=205 EU868
-    0x97B38800u, // bc=75 res=3 pi=206 EU868
-    0x97B40800u, // bc=75 res=3 pi=208 EU868
-    0x97B44800u, // bc=75 res=3 pi=209 EU868
-    0x97B48800u, // bc=75 res=3 pi=210 EU868
-    0x97B4C800u, // bc=75 res=3 pi=211 EU868
-    0x97B50800u, // bc=75 res=3 pi=212 EU868
-    0x97B54800u, // bc=75 res=3 pi=213 EU868
-    0x97B58800u, // bc=75 res=3 pi=214 EU868
-    0x97B60800u, // bc=75 res=3 pi=216 EU868
-    0x97B64800u, // bc=75 res=3 pi=217 EU868
-    0x97B68800u, // bc=75 res=3 pi=218 EU868
-    0x97B6C800u, // bc=75 res=3 pi=219 EU868
-    0x97B70800u, // bc=75 res=3 pi=220 EU868
-    0x97B74800u, // bc=75 res=3 pi=221 EU868
-    0x97B78800u, // bc=75 res=3 pi=222 EU868
-    0x97B80800u, // bc=75 res=3 pi=224 EU868
-    0x97B84800u, // bc=75 res=3 pi=225 EU868
-    0x97B88800u, // bc=75 res=3 pi=226 EU868
-    0x97B8C800u, // bc=75 res=3 pi=227 EU868
-    0x97B90800u, // bc=75 res=3 pi=228 EU868
-    0x97B94800u, // bc=75 res=3 pi=229 EU868
-    0x97B98800u, // bc=75 res=3 pi=230 EU868
-    0x97BA0800u, // bc=75 res=3 pi=232 EU868
-    0x97BA4800u, // bc=75 res=3 pi=233 EU868
-    0x97BA8800u, // bc=75 res=3 pi=234 EU868
-    0x97BAC800u, // bc=75 res=3 pi=235 EU868
-    0x97BB0800u, // bc=75 res=3 pi=236 EU868
-    0x97BB4800u, // bc=75 res=3 pi=237 EU868
-    0x97BB8800u, // bc=75 res=3 pi=238 EU868
-    0x97BC0800u, // bc=75 res=3 pi=240 EU868
-    0x97BC4800u, // bc=75 res=3 pi=241 EU868
-    0x97BC8800u, // bc=75 res=3 pi=242 EU868
-    0x97BCC800u, // bc=75 res=3 pi=243 EU868
-    0x97BD0800u, // bc=75 res=3 pi=244 EU868
-    0x97BD4800u, // bc=75 res=3 pi=245 EU868
-    0x97BD8800u, // bc=75 res=3 pi=246 EU868
-    0x97C00800u, // bc=75 res=3 pi=256 EU868
-    0x97C04800u, // bc=75 res=3 pi=257 EU868
-    0x97C08800u, // bc=75 res=3 pi=258 EU868
-    0x97C0C800u, // bc=75 res=3 pi=259 EU868
-    0x97C10800u, // bc=75 res=3 pi=260 EU868
-    0x97C14800u, // bc=75 res=3 pi=261 EU868
-    0x97C18800u, // bc=75 res=3 pi=262 EU868
-    0x97C20800u, // bc=75 res=3 pi=264 EU868
-    0x97C24800u, // bc=75 res=3 pi=265 EU868
-    0x97C28800u, // bc=75 res=3 pi=266 EU868
-    0x97C2C800u, // bc=75 res=3 pi=267 EU868
-    0x97C30800u, // bc=75 res=3 pi=268 EU868
-    0x97C34800u, // bc=75 res=3 pi=269 EU868
-    0x97C38800u, // bc=75 res=3 pi=270 EU868
-    0x97C40800u, // bc=75 res=3 pi=272 EU868
-    0x97C44800u, // bc=75 res=3 pi=273 EU868
-    0x97C48800u, // bc=75 res=3 pi=274 EU868
-    0x97C4C800u, // bc=75 res=3 pi=275 EU868
-    0x97C54800u, // bc=75 res=3 pi=277 EU868
-    0x97C58800u, // bc=75 res=3 pi=278 EU868
-    0x97C60800u, // bc=75 res=3 pi=280 EU868
-    0x97C64800u, // bc=75 res=3 pi=281 EU868
-    0x97C68800u, // bc=75 res=3 pi=282 EU868
-    0x97C6C800u, // bc=75 res=3 pi=283 EU868
-    0x97C70800u, // bc=75 res=3 pi=284 EU868
-    0x97C74800u, // bc=75 res=3 pi=285 EU868
-    0x97C78800u, // bc=75 res=3 pi=286 EU868
-    0x97C80800u, // bc=75 res=3 pi=288 EU868
-    0x97C84800u, // bc=75 res=3 pi=289 EU868
-    0x97C88800u, // bc=75 res=3 pi=290 EU868
-    0x97C8C800u, // bc=75 res=3 pi=291 EU868
-    0x97C90800u, // bc=75 res=3 pi=292 EU868
-    0x97C94800u, // bc=75 res=3 pi=293 EU868
-    0x97C98800u, // bc=75 res=3 pi=294 EU868
-    0x97CA0800u, // bc=75 res=3 pi=296 EU868
-    0x97CA4800u, // bc=75 res=3 pi=297 EU868
-    0x97CA8800u, // bc=75 res=3 pi=298 EU868
-    0x97CAC800u, // bc=75 res=3 pi=299 EU868
-    0x97CB0800u, // bc=75 res=3 pi=300 EU868
-    0x97CB4800u, // bc=75 res=3 pi=301 EU868
-    0x97CB8800u, // bc=75 res=3 pi=302 EU868
+    0x97CC0800u, // bc=75 res=3 pi=304 EU868
     0x97CC4800u, // bc=75 res=3 pi=305 EU868
+    0x97CCC800u, // bc=75 res=3 pi=307 EU868
     0x97CD4800u, // bc=75 res=3 pi=309 EU868
-    0x97D00800u, // bc=75 res=3 pi=320 EU868
-    0x97D04800u, // bc=75 res=3 pi=321 EU868
-    0x97D08800u, // bc=75 res=3 pi=322 EU868
-    0x97D0C800u, // bc=75 res=3 pi=323 EU868
-    0x97D10800u, // bc=75 res=3 pi=324 EU868
-    0x97D14800u, // bc=75 res=3 pi=325 EU868
-    0x97D18800u, // bc=75 res=3 pi=326 EU868
-    0x97D20800u, // bc=75 res=3 pi=328 EU868
-    0x97D24800u, // bc=75 res=3 pi=329 EU868
-    0x97D28800u, // bc=75 res=3 pi=330 EU868
-    0x97D2C800u, // bc=75 res=3 pi=331 EU868
-    0x97D30800u, // bc=75 res=3 pi=332 EU868
-    0x97D34800u, // bc=75 res=3 pi=333 EU868
-    0x97D38800u, // bc=75 res=3 pi=334 EU868
-    0x97D40800u, // bc=75 res=3 pi=336 EU868
-    0x97D44800u, // bc=75 res=3 pi=337 EU868
-    0x97D48800u, // bc=75 res=3 pi=338 EU868
-    0x97D4C800u, // bc=75 res=3 pi=339 EU868
-    0x97D50800u, // bc=75 res=3 pi=340 EU868
-    0x97D54800u, // bc=75 res=3 pi=341 EU868
-    0x97D58800u, // bc=75 res=3 pi=342 EU868
-    0x97D60800u, // bc=75 res=3 pi=344 EU868
-    0x97D64800u, // bc=75 res=3 pi=345 EU868
-    0x97D68800u, // bc=75 res=3 pi=346 EU868
-    0x97D6C800u, // bc=75 res=3 pi=347 EU868
-    0x97D70800u, // bc=75 res=3 pi=348 EU868
-    0x97D74800u, // bc=75 res=3 pi=349 EU868
-    0x97D78800u, // bc=75 res=3 pi=350 EU868
-    0x97D80800u, // bc=75 res=3 pi=352 EU868
-    0x97D84800u, // bc=75 res=3 pi=353 EU868
-    0x97D88800u, // bc=75 res=3 pi=354 EU868
-    0x97D8C800u, // bc=75 res=3 pi=355 EU868
-    0x97D90800u, // bc=75 res=3 pi=356 EU868
-    0x97D94800u, // bc=75 res=3 pi=357 EU868
-    0x97D98800u, // bc=75 res=3 pi=358 EU868
-    0x97DA0800u, // bc=75 res=3 pi=360 EU868
-    0x97DA4800u, // bc=75 res=3 pi=361 EU868
-    0x97DA8800u, // bc=75 res=3 pi=362 EU868
-    0x97DAC800u, // bc=75 res=3 pi=363 EU868
-    0x97DB0800u, // bc=75 res=3 pi=364 EU868
-    0x97DB4800u, // bc=75 res=3 pi=365 EU868
-    0x97DB8800u, // bc=75 res=3 pi=366 EU868
-    0x97DC0800u, // bc=75 res=3 pi=368 EU868
-    0x97DC4800u, // bc=75 res=3 pi=369 EU868
-    0x97DC8800u, // bc=75 res=3 pi=370 EU868
-    0x97DCC800u, // bc=75 res=3 pi=371 EU868
-    0x97DD0800u, // bc=75 res=3 pi=372 EU868
-    0x97DD4800u, // bc=75 res=3 pi=373 EU868
-    0x97DD8800u, // bc=75 res=3 pi=374 EU868
-    0x97E00800u, // bc=75 res=3 pi=384 EU868
-    0x97E04800u, // bc=75 res=3 pi=385 EU868
-    0x97E08800u, // bc=75 res=3 pi=386 EU868
-    0x97E0C800u, // bc=75 res=3 pi=387 EU868
-    0x97E10800u, // bc=75 res=3 pi=388 EU868
-    0x97E14800u, // bc=75 res=3 pi=389 EU868
-    0x97E18800u, // bc=75 res=3 pi=390 EU868
     0x97E20800u, // bc=75 res=3 pi=392 EU868
     0x97E24800u, // bc=75 res=3 pi=393 EU868
     0x97E29000u, // bc=75 res=3 pi=394 AS923-1
@@ -9418,250 +3647,300 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x97E4D000u, // bc=75 res=3 pi=403 AS923-1
     0x97E50800u, // bc=75 res=3 pi=404 EU868
     0x97E54800u, // bc=75 res=3 pi=405 EU868
-    0x97E61000u, // bc=75 res=3 pi=408 AS923-1
-    0x97E65000u, // bc=75 res=3 pi=409 AS923-1
-    0x97E69000u, // bc=75 res=3 pi=410 AS923-1
-    0x97E6D000u, // bc=75 res=3 pi=411 AS923-1
-    0x97E71000u, // bc=75 res=3 pi=412 AS923-1
-    0x97E75000u, // bc=75 res=3 pi=413 AS923-1
-    0x97E79000u, // bc=75 res=3 pi=414 AS923-1
-    0x97E80800u, // bc=75 res=3 pi=416 EU868
-    0x97E84800u, // bc=75 res=3 pi=417 EU868
-    0x97E88800u, // bc=75 res=3 pi=418 EU868
-    0x97E8C800u, // bc=75 res=3 pi=419 EU868
-    0x97E94800u, // bc=75 res=3 pi=421 EU868
-    0x97E98800u, // bc=75 res=3 pi=422 EU868
-    0x97EA0800u, // bc=75 res=3 pi=424 EU868
-    0x97EA4800u, // bc=75 res=3 pi=425 EU868
-    0x97EA8800u, // bc=75 res=3 pi=426 EU868
-    0x97EAC800u, // bc=75 res=3 pi=427 EU868
-    0x97EB0800u, // bc=75 res=3 pi=428 EU868
-    0x97EB4800u, // bc=75 res=3 pi=429 EU868
-    0x97EB8800u, // bc=75 res=3 pi=430 EU868
-    0x97EC0800u, // bc=75 res=3 pi=432 EU868
-    0x97EC4800u, // bc=75 res=3 pi=433 EU868
-    0x97ECC800u, // bc=75 res=3 pi=435 EU868
-    0x97ED4800u, // bc=75 res=3 pi=437 EU868
+    0x97E58800u, // bc=75 res=3 pi=406 EU868
+    0x99820800u, // bc=76 res=3 pi=8 EU868
+    0x99828800u, // bc=76 res=3 pi=10 EU868
+    0x99838800u, // bc=76 res=3 pi=14 EU868
     0x99E90800u, // bc=76 res=3 pi=420 EU868
     0x9B808800u, // bc=77 res=3 pi=2 EU868
+    0x9B810C00u, // bc=77 res=3 pi=4 AU915
+    0x9B818800u, // bc=77 res=3 pi=6 EU868
+    0x9B830800u, // bc=77 res=3 pi=12 EU868
+    0x9B834800u, // bc=77 res=3 pi=13 EU868
+    0x9B844800u, // bc=77 res=3 pi=17 EU868
     0x9B850400u, // bc=77 res=3 pi=20 US915
     0x9B854800u, // bc=77 res=3 pi=21 EU868
+    0x9B858400u, // bc=77 res=3 pi=22 US915
+    0x9B888C00u, // bc=77 res=3 pi=34 AU915
+    0x9B88CC00u, // bc=77 res=3 pi=35 AU915
     0x9B890C00u, // bc=77 res=3 pi=36 AU915
+    0x9B8A4800u, // bc=77 res=3 pi=41 EU868
+    0x9B8AC800u, // bc=77 res=3 pi=43 EU868
+    0x9B8B8C00u, // bc=77 res=3 pi=46 AU915
+    0x9B9D0800u, // bc=77 res=3 pi=116 EU868
+    0x9BAA5000u, // bc=77 res=3 pi=169 AS923-1
     0x9BAB4400u, // bc=77 res=3 pi=173 US915
+    0x9BAC1000u, // bc=77 res=3 pi=176 AS923-1
+    0x9BAC5000u, // bc=77 res=3 pi=177 AS923-1
+    0x9BACD000u, // bc=77 res=3 pi=179 AS923-1
+    0x9BAD5000u, // bc=77 res=3 pi=181 AS923-1
+    0x9BBC1000u, // bc=77 res=3 pi=240 AS923-1
+    0x9BBC5000u, // bc=77 res=3 pi=241 AS923-1
+    0x9BBD1000u, // bc=77 res=3 pi=244 AS923-1
+    0x9BBD9000u, // bc=77 res=3 pi=246 AS923-1
+    0x9BC04C00u, // bc=77 res=3 pi=257 AU915
+    0x9BC20C00u, // bc=77 res=3 pi=264 AU915
+    0x9BC28C00u, // bc=77 res=3 pi=266 AU915
+    0x9BC2CC00u, // bc=77 res=3 pi=267 AU915
+    0x9BC30C00u, // bc=77 res=3 pi=268 AU915
     0x9BC38C00u, // bc=77 res=3 pi=270 AU915
-    0x9C800C00u, // bc=78 res=1 pi=0 AU915
-    0x9C804C00u, // bc=78 res=1 pi=1 AU915
-    0x9C809000u, // bc=78 res=1 pi=2 AS923-1
+    0x9BC64C00u, // bc=77 res=3 pi=281 AU915
+    0x9BCA0C00u, // bc=77 res=3 pi=296 AU915
+    0x9BCA8C00u, // bc=77 res=3 pi=298 AU915
+    0x9BD68800u, // bc=77 res=3 pi=346 EU868
+    0x9BE24400u, // bc=77 res=3 pi=393 US915
+    0x9BE28400u, // bc=77 res=3 pi=394 US915
+    0x9BE2C400u, // bc=77 res=3 pi=395 US915
+    0x9BE51000u, // bc=77 res=3 pi=404 AS923-1
+    0x9BEB1000u, // bc=77 res=3 pi=428 AS923-1
+    0x9BEB5000u, // bc=77 res=3 pi=429 AS923-1
+    0x9BEC9000u, // bc=77 res=3 pi=434 AS923-1
     0x9C814C00u, // bc=78 res=1 pi=5 AU915
+    0x9D000C00u, // bc=78 res=2 pi=0 AU915
+    0x9D004C00u, // bc=78 res=2 pi=1 AU915
+    0x9D010C00u, // bc=78 res=2 pi=4 AU915
+    0x9D014C00u, // bc=78 res=2 pi=5 AU915
+    0x9D020C00u, // bc=78 res=2 pi=8 AU915
+    0x9D024C00u, // bc=78 res=2 pi=9 AU915
+    0x9D02CC00u, // bc=78 res=2 pi=11 AU915
+    0x9D030C00u, // bc=78 res=2 pi=12 AU915
+    0x9D034C00u, // bc=78 res=2 pi=13 AU915
+    0x9D038C00u, // bc=78 res=2 pi=14 AU915
+    0x9D045000u, // bc=78 res=2 pi=17 AS923-1
+    0x9D049000u, // bc=78 res=2 pi=18 AS923-1
+    0x9D04D000u, // bc=78 res=2 pi=19 AS923-1
     0x9D069000u, // bc=78 res=2 pi=26 AS923-1
     0x9D06DC00u, // bc=78 res=2 pi=27 AS923-2
-    0x9D078C00u, // bc=78 res=2 pi=30 AU915
     0x9D084C00u, // bc=78 res=2 pi=33 AU915
-    0x9D090C00u, // bc=78 res=2 pi=36 AU915
     0x9D094C00u, // bc=78 res=2 pi=37 AU915
-    0x9D0CD000u, // bc=78 res=2 pi=51 AS923-1
-    0x9D800C00u, // bc=78 res=3 pi=0 AU915
-    0x9D804C00u, // bc=78 res=3 pi=1 AU915
-    0x9D80CC00u, // bc=78 res=3 pi=3 AU915
-    0x9D814C00u, // bc=78 res=3 pi=5 AU915
-    0x9D820C00u, // bc=78 res=3 pi=8 AU915
-    0x9D828C00u, // bc=78 res=3 pi=10 AU915
-    0x9D82CC00u, // bc=78 res=3 pi=11 AU915
-    0x9D830C00u, // bc=78 res=3 pi=12 AU915
-    0x9D834C00u, // bc=78 res=3 pi=13 AU915
-    0x9D838C00u, // bc=78 res=3 pi=14 AU915
+    0x9D860C00u, // bc=78 res=3 pi=24 AU915
     0x9D864C00u, // bc=78 res=3 pi=25 AU915
+    0x9D868C00u, // bc=78 res=3 pi=26 AU915
     0x9D86CC00u, // bc=78 res=3 pi=27 AU915
+    0x9D870C00u, // bc=78 res=3 pi=28 AU915
     0x9D874C00u, // bc=78 res=3 pi=29 AU915
-    0x9D880C00u, // bc=78 res=3 pi=32 AU915
-    0x9D884C00u, // bc=78 res=3 pi=33 AU915
-    0x9D88CC00u, // bc=78 res=3 pi=35 AU915
-    0x9D890C00u, // bc=78 res=3 pi=36 AU915
-    0x9D894C00u, // bc=78 res=3 pi=37 AU915
-    0x9D8A0C00u, // bc=78 res=3 pi=40 AU915
-    0x9D8A4C00u, // bc=78 res=3 pi=41 AU915
-    0x9D8A8C00u, // bc=78 res=3 pi=42 AU915
-    0x9D8ACC00u, // bc=78 res=3 pi=43 AU915
-    0x9D8B0C00u, // bc=78 res=3 pi=44 AU915
-    0x9D8B4C00u, // bc=78 res=3 pi=45 AU915
-    0x9D8B8C00u, // bc=78 res=3 pi=46 AU915
+    0x9D8D0C00u, // bc=78 res=3 pi=52 AU915
     0x9D8D4C00u, // bc=78 res=3 pi=53 AU915
-    0x9D900C00u, // bc=78 res=3 pi=64 AU915
-    0x9D904C00u, // bc=78 res=3 pi=65 AU915
-    0x9D90CC00u, // bc=78 res=3 pi=67 AU915
-    0x9D910C00u, // bc=78 res=3 pi=68 AU915
-    0x9D914C00u, // bc=78 res=3 pi=69 AU915
-    0x9D920C00u, // bc=78 res=3 pi=72 AU915
-    0x9D924C00u, // bc=78 res=3 pi=73 AU915
-    0x9D928C00u, // bc=78 res=3 pi=74 AU915
-    0x9D92CC00u, // bc=78 res=3 pi=75 AU915
-    0x9D930C00u, // bc=78 res=3 pi=76 AU915
-    0x9D934C00u, // bc=78 res=3 pi=77 AU915
-    0x9D938C00u, // bc=78 res=3 pi=78 AU915
-    0x9D960C00u, // bc=78 res=3 pi=88 AU915
-    0x9D964C00u, // bc=78 res=3 pi=89 AU915
-    0x9D968C00u, // bc=78 res=3 pi=90 AU915
-    0x9D96CC00u, // bc=78 res=3 pi=91 AU915
-    0x9D974C00u, // bc=78 res=3 pi=93 AU915
-    0x9D980C00u, // bc=78 res=3 pi=96 AU915
-    0x9D984C00u, // bc=78 res=3 pi=97 AU915
-    0x9D988C00u, // bc=78 res=3 pi=98 AU915
-    0x9D98CC00u, // bc=78 res=3 pi=99 AU915
-    0x9D990C00u, // bc=78 res=3 pi=100 AU915
-    0x9D994C00u, // bc=78 res=3 pi=101 AU915
-    0x9D998C00u, // bc=78 res=3 pi=102 AU915
-    0x9D9A0C00u, // bc=78 res=3 pi=104 AU915
-    0x9D9A4C00u, // bc=78 res=3 pi=105 AU915
-    0x9D9A8C00u, // bc=78 res=3 pi=106 AU915
-    0x9D9ACC00u, // bc=78 res=3 pi=107 AU915
-    0x9D9B0C00u, // bc=78 res=3 pi=108 AU915
-    0x9D9B4C00u, // bc=78 res=3 pi=109 AU915
-    0x9D9B8C00u, // bc=78 res=3 pi=110 AU915
-    0x9D9C4C00u, // bc=78 res=3 pi=113 AU915
-    0x9D9D0C00u, // bc=78 res=3 pi=116 AU915
-    0x9D9D4C00u, // bc=78 res=3 pi=117 AU915
-    0x9D9D8C00u, // bc=78 res=3 pi=118 AU915
+    0x9D8D8C00u, // bc=78 res=3 pi=54 AU915
     0x9DA01000u, // bc=78 res=3 pi=128 AS923-1
     0x9DA05000u, // bc=78 res=3 pi=129 AS923-1
+    0x9DA09000u, // bc=78 res=3 pi=130 AS923-1
     0x9DA0D000u, // bc=78 res=3 pi=131 AS923-1
     0x9DA11000u, // bc=78 res=3 pi=132 AS923-1
     0x9DA15000u, // bc=78 res=3 pi=133 AS923-1
-    0x9DA21000u, // bc=78 res=3 pi=136 AS923-1
-    0x9DA25000u, // bc=78 res=3 pi=137 AS923-1
-    0x9DA29000u, // bc=78 res=3 pi=138 AS923-1
-    0x9DA2D000u, // bc=78 res=3 pi=139 AS923-1
-    0x9DA39000u, // bc=78 res=3 pi=142 AS923-1
-    0x9DA41000u, // bc=78 res=3 pi=144 AS923-1
-    0x9DA45000u, // bc=78 res=3 pi=145 AS923-1
-    0x9DA49000u, // bc=78 res=3 pi=146 AS923-1
-    0x9DA4D000u, // bc=78 res=3 pi=147 AS923-1
-    0x9DA59000u, // bc=78 res=3 pi=150 AS923-1
-    0x9DA61000u, // bc=78 res=3 pi=152 AS923-1
-    0x9DA65000u, // bc=78 res=3 pi=153 AS923-1
-    0x9DA69000u, // bc=78 res=3 pi=154 AS923-1
-    0x9DA6D000u, // bc=78 res=3 pi=155 AS923-1
-    0x9DA71000u, // bc=78 res=3 pi=156 AS923-1
-    0x9DA75000u, // bc=78 res=3 pi=157 AS923-1
-    0x9DA79000u, // bc=78 res=3 pi=158 AS923-1
+    0x9DA81000u, // bc=78 res=3 pi=160 AS923-1
+    0x9DA85000u, // bc=78 res=3 pi=161 AS923-1
     0x9DA89000u, // bc=78 res=3 pi=162 AS923-1
     0x9DA8D000u, // bc=78 res=3 pi=163 AS923-1
+    0x9DA91000u, // bc=78 res=3 pi=164 AS923-1
     0x9DA99000u, // bc=78 res=3 pi=166 AS923-1
     0x9DAA9000u, // bc=78 res=3 pi=170 AS923-1
+    0x9DAB9000u, // bc=78 res=3 pi=174 AS923-1
     0x9DAC1000u, // bc=78 res=3 pi=176 AS923-1
     0x9DAC5000u, // bc=78 res=3 pi=177 AS923-1
     0x9DAD1000u, // bc=78 res=3 pi=180 AS923-1
     0x9DAD5000u, // bc=78 res=3 pi=181 AS923-1
+    0x9DAD9000u, // bc=78 res=3 pi=182 AS923-1
+    0x9DB01C00u, // bc=78 res=3 pi=192 AS923-2
     0x9DB09C00u, // bc=78 res=3 pi=194 AS923-2
     0x9DB0DC00u, // bc=78 res=3 pi=195 AS923-2
+    0x9DB10C00u, // bc=78 res=3 pi=196 AU915
     0x9DB19000u, // bc=78 res=3 pi=198 AS923-1
+    0x9DB21C00u, // bc=78 res=3 pi=200 AS923-2
+    0x9DB29C00u, // bc=78 res=3 pi=202 AS923-2
+    0x9DB39C00u, // bc=78 res=3 pi=206 AS923-2
+    0x9DB80C00u, // bc=78 res=3 pi=224 AU915
+    0x9DB88C00u, // bc=78 res=3 pi=226 AU915
     0x9DB90C00u, // bc=78 res=3 pi=228 AU915
+    0x9DB94C00u, // bc=78 res=3 pi=229 AU915
     0x9DB98C00u, // bc=78 res=3 pi=230 AU915
+    0x9DBA4C00u, // bc=78 res=3 pi=233 AU915
+    0x9DBC0C00u, // bc=78 res=3 pi=240 AU915
+    0x9DBC4C00u, // bc=78 res=3 pi=241 AU915
+    0x9DBC9000u, // bc=78 res=3 pi=242 AS923-1
+    0x9DBCD000u, // bc=78 res=3 pi=243 AS923-1
+    0x9DBD0C00u, // bc=78 res=3 pi=244 AU915
+    0x9DBD4C00u, // bc=78 res=3 pi=245 AU915
+    0x9DBD8C00u, // bc=78 res=3 pi=246 AU915
+    0x9DC00C00u, // bc=78 res=3 pi=256 AU915
     0x9DC04C00u, // bc=78 res=3 pi=257 AU915
     0x9DC0CC00u, // bc=78 res=3 pi=259 AU915
+    0x9DC10C00u, // bc=78 res=3 pi=260 AU915
     0x9DC14C00u, // bc=78 res=3 pi=261 AU915
+    0x9DC18C00u, // bc=78 res=3 pi=262 AU915
+    0x9DC40C00u, // bc=78 res=3 pi=272 AU915
+    0x9DC48C00u, // bc=78 res=3 pi=274 AU915
     0x9DC4CC00u, // bc=78 res=3 pi=275 AU915
     0x9DC54C00u, // bc=78 res=3 pi=277 AU915
+    0x9DC64C00u, // bc=78 res=3 pi=281 AU915
     0x9DC68C00u, // bc=78 res=3 pi=282 AU915
+    0x9DC6CC00u, // bc=78 res=3 pi=283 AU915
+    0x9DC74C00u, // bc=78 res=3 pi=285 AU915
+    0x9DC78C00u, // bc=78 res=3 pi=286 AU915
+    0x9DC80C00u, // bc=78 res=3 pi=288 AU915
+    0x9DC84C00u, // bc=78 res=3 pi=289 AU915
+    0x9DC88C00u, // bc=78 res=3 pi=290 AU915
+    0x9DC8CC00u, // bc=78 res=3 pi=291 AU915
+    0x9DC90C00u, // bc=78 res=3 pi=292 AU915
+    0x9DC94C00u, // bc=78 res=3 pi=293 AU915
+    0x9DCC0C00u, // bc=78 res=3 pi=304 AU915
     0x9DCC4C00u, // bc=78 res=3 pi=305 AU915
+    0x9DCD0C00u, // bc=78 res=3 pi=308 AU915
     0x9DCD4C00u, // bc=78 res=3 pi=309 AU915
-    0x9DD00C00u, // bc=78 res=3 pi=320 AU915
-    0x9DD04C00u, // bc=78 res=3 pi=321 AU915
-    0x9DD08C00u, // bc=78 res=3 pi=322 AU915
-    0x9DD0CC00u, // bc=78 res=3 pi=323 AU915
-    0x9DD10C00u, // bc=78 res=3 pi=324 AU915
-    0x9DD14C00u, // bc=78 res=3 pi=325 AU915
-    0x9DD18C00u, // bc=78 res=3 pi=326 AU915
-    0x9DD20C00u, // bc=78 res=3 pi=328 AU915
-    0x9DD24C00u, // bc=78 res=3 pi=329 AU915
-    0x9DD28C00u, // bc=78 res=3 pi=330 AU915
-    0x9DD2CC00u, // bc=78 res=3 pi=331 AU915
-    0x9DD30C00u, // bc=78 res=3 pi=332 AU915
-    0x9DD34C00u, // bc=78 res=3 pi=333 AU915
-    0x9DD38C00u, // bc=78 res=3 pi=334 AU915
-    0x9DD40C00u, // bc=78 res=3 pi=336 AU915
-    0x9DD44C00u, // bc=78 res=3 pi=337 AU915
-    0x9DD48C00u, // bc=78 res=3 pi=338 AU915
-    0x9DD4CC00u, // bc=78 res=3 pi=339 AU915
-    0x9DD50C00u, // bc=78 res=3 pi=340 AU915
-    0x9DD54C00u, // bc=78 res=3 pi=341 AU915
-    0x9DD58C00u, // bc=78 res=3 pi=342 AU915
-    0x9DD60C00u, // bc=78 res=3 pi=344 AU915
-    0x9DD64C00u, // bc=78 res=3 pi=345 AU915
-    0x9DD68C00u, // bc=78 res=3 pi=346 AU915
-    0x9DD6CC00u, // bc=78 res=3 pi=347 AU915
-    0x9DD70C00u, // bc=78 res=3 pi=348 AU915
-    0x9DD74C00u, // bc=78 res=3 pi=349 AU915
-    0x9DD78C00u, // bc=78 res=3 pi=350 AU915
-    0x9DD80C00u, // bc=78 res=3 pi=352 AU915
-    0x9DD84C00u, // bc=78 res=3 pi=353 AU915
-    0x9DD88C00u, // bc=78 res=3 pi=354 AU915
-    0x9DD8CC00u, // bc=78 res=3 pi=355 AU915
-    0x9DD90C00u, // bc=78 res=3 pi=356 AU915
-    0x9DD94C00u, // bc=78 res=3 pi=357 AU915
-    0x9DD98C00u, // bc=78 res=3 pi=358 AU915
-    0x9DDA0C00u, // bc=78 res=3 pi=360 AU915
-    0x9DDA4C00u, // bc=78 res=3 pi=361 AU915
-    0x9DDA8C00u, // bc=78 res=3 pi=362 AU915
-    0x9DDACC00u, // bc=78 res=3 pi=363 AU915
-    0x9DDB0C00u, // bc=78 res=3 pi=364 AU915
-    0x9DDB4C00u, // bc=78 res=3 pi=365 AU915
-    0x9DDB8C00u, // bc=78 res=3 pi=366 AU915
-    0x9DDC0C00u, // bc=78 res=3 pi=368 AU915
-    0x9DDC4C00u, // bc=78 res=3 pi=369 AU915
-    0x9DDC8C00u, // bc=78 res=3 pi=370 AU915
-    0x9DDCCC00u, // bc=78 res=3 pi=371 AU915
-    0x9DDD0C00u, // bc=78 res=3 pi=372 AU915
-    0x9DDD4C00u, // bc=78 res=3 pi=373 AU915
-    0x9DDD8C00u, // bc=78 res=3 pi=374 AU915
+    0x9DCD8C00u, // bc=78 res=3 pi=310 AU915
+    0x9DE41000u, // bc=78 res=3 pi=400 AS923-1
     0x9DE45000u, // bc=78 res=3 pi=401 AS923-1
-    0x9E804800u, // bc=79 res=1 pi=1 EU868
-    0x9E80D000u, // bc=79 res=1 pi=3 AS923-1
-    0x9F00A000u, // bc=79 res=2 pi=2 AS923-3
+    0x9DE4D000u, // bc=78 res=3 pi=403 AS923-1
+    0x9DE61000u, // bc=78 res=3 pi=408 AS923-1
+    0x9DE65000u, // bc=78 res=3 pi=409 AS923-1
+    0x9DE69000u, // bc=78 res=3 pi=410 AS923-1
+    0x9DE6D000u, // bc=78 res=3 pi=411 AS923-1
+    0x9DE71000u, // bc=78 res=3 pi=412 AS923-1
+    0x9DE79000u, // bc=78 res=3 pi=414 AS923-1
+    0x9DEA4C00u, // bc=78 res=3 pi=425 AU915
+    0x9DEB0C00u, // bc=78 res=3 pi=428 AU915
+    0x9DEB4C00u, // bc=78 res=3 pi=429 AU915
+    0x9F0A8800u, // bc=79 res=2 pi=42 EU868
+    0x9F802000u, // bc=79 res=3 pi=0 AS923-3
     0x9F80A000u, // bc=79 res=3 pi=2 AS923-3
+    0x9F812000u, // bc=79 res=3 pi=4 AS923-3
     0x9F81A000u, // bc=79 res=3 pi=6 AS923-3
+    0x9F834800u, // bc=79 res=3 pi=13 EU868
+    0x9F842000u, // bc=79 res=3 pi=16 AS923-3
+    0x9F846000u, // bc=79 res=3 pi=17 AS923-3
+    0x9F84A000u, // bc=79 res=3 pi=18 AS923-3
+    0x9F84E000u, // bc=79 res=3 pi=19 AS923-3
+    0x9F852000u, // bc=79 res=3 pi=20 AS923-3
+    0x9F856000u, // bc=79 res=3 pi=21 AS923-3
+    0x9F872000u, // bc=79 res=3 pi=28 AS923-3
+    0x9F87A000u, // bc=79 res=3 pi=30 AS923-3
+    0x9F882000u, // bc=79 res=3 pi=32 AS923-3
     0x9F88A000u, // bc=79 res=3 pi=34 AS923-3
+    0x9F892000u, // bc=79 res=3 pi=36 AS923-3
     0x9F89A000u, // bc=79 res=3 pi=38 AS923-3
+    0x9F8A0800u, // bc=79 res=3 pi=40 EU868
     0x9F8A4800u, // bc=79 res=3 pi=41 EU868
     0x9F8AC800u, // bc=79 res=3 pi=43 EU868
+    0x9F8B0800u, // bc=79 res=3 pi=44 EU868
+    0x9F8B4800u, // bc=79 res=3 pi=45 EU868
     0x9F8C6000u, // bc=79 res=3 pi=49 AS923-3
+    0x9F8CE000u, // bc=79 res=3 pi=51 AS923-3
+    0x9F8D6000u, // bc=79 res=3 pi=53 AS923-3
     0x9F900800u, // bc=79 res=3 pi=64 EU868
+    0x9F904800u, // bc=79 res=3 pi=65 EU868
     0x9F914800u, // bc=79 res=3 pi=69 EU868
+    0x9F928C00u, // bc=79 res=3 pi=74 AU915
+    0x9F984800u, // bc=79 res=3 pi=97 EU868
+    0x9F9A4C00u, // bc=79 res=3 pi=105 AU915
+    0x9F9B8800u, // bc=79 res=3 pi=110 EU868
+    0x9F9C8800u, // bc=79 res=3 pi=114 EU868
+    0x9F9D0800u, // bc=79 res=3 pi=116 EU868
     0x9F9D8800u, // bc=79 res=3 pi=118 EU868
+    0x9FA01000u, // bc=79 res=3 pi=128 AS923-1
+    0x9FA05000u, // bc=79 res=3 pi=129 AS923-1
+    0x9FA0D000u, // bc=79 res=3 pi=131 AS923-1
+    0x9FA21000u, // bc=79 res=3 pi=136 AS923-1
     0x9FA31000u, // bc=79 res=3 pi=140 AS923-1
+    0x9FA39000u, // bc=79 res=3 pi=142 AS923-1
+    0x9FA81000u, // bc=79 res=3 pi=160 AS923-1
+    0x9FA85000u, // bc=79 res=3 pi=161 AS923-1
+    0x9FA89000u, // bc=79 res=3 pi=162 AS923-1
     0x9FA99000u, // bc=79 res=3 pi=166 AS923-1
+    0x9FAA1000u, // bc=79 res=3 pi=168 AS923-1
     0x9FAA9000u, // bc=79 res=3 pi=170 AS923-1
+    0x9FAAD000u, // bc=79 res=3 pi=171 AS923-1
+    0x9FAB2000u, // bc=79 res=3 pi=172 AS923-3
+    0x9FAB6000u, // bc=79 res=3 pi=173 AS923-3
+    0x9FAB9000u, // bc=79 res=3 pi=174 AS923-1
     0x9FB01000u, // bc=79 res=3 pi=192 AS923-1
+    0x9FB05000u, // bc=79 res=3 pi=193 AS923-1
+    0x9FB09000u, // bc=79 res=3 pi=194 AS923-1
+    0x9FB0D000u, // bc=79 res=3 pi=195 AS923-1
     0x9FB15000u, // bc=79 res=3 pi=197 AS923-1
+    0x9FB19000u, // bc=79 res=3 pi=198 AS923-1
+    0x9FB41000u, // bc=79 res=3 pi=208 AS923-1
     0x9FB45000u, // bc=79 res=3 pi=209 AS923-1
+    0x9FB49000u, // bc=79 res=3 pi=210 AS923-1
     0x9FB4D000u, // bc=79 res=3 pi=211 AS923-1
+    0x9FB51000u, // bc=79 res=3 pi=212 AS923-1
     0x9FB55000u, // bc=79 res=3 pi=213 AS923-1
     0x9FB61000u, // bc=79 res=3 pi=216 AS923-1
+    0x9FB65000u, // bc=79 res=3 pi=217 AS923-1
     0x9FB69000u, // bc=79 res=3 pi=218 AS923-1
     0x9FB6D000u, // bc=79 res=3 pi=219 AS923-1
     0x9FB71000u, // bc=79 res=3 pi=220 AS923-1
     0x9FB79000u, // bc=79 res=3 pi=222 AS923-1
+    0x9FB8D000u, // bc=79 res=3 pi=227 AS923-1
+    0x9FBB9000u, // bc=79 res=3 pi=238 AS923-1
+    0x9FBCD000u, // bc=79 res=3 pi=243 AS923-1
+    0x9FC04800u, // bc=79 res=3 pi=257 EU868
+    0x9FC24800u, // bc=79 res=3 pi=265 EU868
+    0x9FC2A000u, // bc=79 res=3 pi=266 AS923-3
+    0x9FC30800u, // bc=79 res=3 pi=268 EU868
     0x9FC66000u, // bc=79 res=3 pi=281 AS923-3
-    0x9FD44800u, // bc=79 res=3 pi=337 EU868
-    0x9FD48800u, // bc=79 res=3 pi=338 EU868
-    0x9FD54800u, // bc=79 res=3 pi=341 EU868
-    0x9FD58800u, // bc=79 res=3 pi=342 EU868
+    0x9FCA8800u, // bc=79 res=3 pi=298 EU868
     0x9FD68800u, // bc=79 res=3 pi=346 EU868
     0x9FD78800u, // bc=79 res=3 pi=350 EU868
-    0xA0804800u, // bc=80 res=1 pi=1 EU868
+    0x9FDC8800u, // bc=79 res=3 pi=370 EU868
+    0x9FDCC800u, // bc=79 res=3 pi=371 EU868
     0xA1010800u, // bc=80 res=2 pi=4 EU868
-    0xA1070800u, // bc=80 res=2 pi=28 EU868
-    0xA18AC800u, // bc=80 res=3 pi=43 EU868
+    0xA1014800u, // bc=80 res=2 pi=5 EU868
+    0xA1024800u, // bc=80 res=2 pi=9 EU868
+    0xA1800800u, // bc=80 res=3 pi=0 EU868
+    0xA1804800u, // bc=80 res=3 pi=1 EU868
+    0xA1808800u, // bc=80 res=3 pi=2 EU868
+    0xA180C800u, // bc=80 res=3 pi=3 EU868
+    0xA1820800u, // bc=80 res=3 pi=8 EU868
+    0xA1824800u, // bc=80 res=3 pi=9 EU868
+    0xA1828800u, // bc=80 res=3 pi=10 EU868
+    0xA1830800u, // bc=80 res=3 pi=12 EU868
+    0xA1834800u, // bc=80 res=3 pi=13 EU868
+    0xA1838800u, // bc=80 res=3 pi=14 EU868
     0xA1900800u, // bc=80 res=3 pi=64 EU868
     0xA1904800u, // bc=80 res=3 pi=65 EU868
     0xA1908800u, // bc=80 res=3 pi=66 EU868
-    0xA1920800u, // bc=80 res=3 pi=72 EU868
-    0xA1924800u, // bc=80 res=3 pi=73 EU868
-    0xA1938800u, // bc=80 res=3 pi=78 EU868
+    0xA190C800u, // bc=80 res=3 pi=67 EU868
+    0xA1914800u, // bc=80 res=3 pi=69 EU868
+    0xA1918800u, // bc=80 res=3 pi=70 EU868
+    0xA1940800u, // bc=80 res=3 pi=80 EU868
+    0xA1944800u, // bc=80 res=3 pi=81 EU868
+    0xA1948800u, // bc=80 res=3 pi=82 EU868
+    0xA1950800u, // bc=80 res=3 pi=84 EU868
+    0xA1954800u, // bc=80 res=3 pi=85 EU868
+    0xA1958800u, // bc=80 res=3 pi=86 EU868
+    0xA1964800u, // bc=80 res=3 pi=89 EU868
+    0xA1974800u, // bc=80 res=3 pi=93 EU868
+    0xA1980800u, // bc=80 res=3 pi=96 EU868
+    0xA1984800u, // bc=80 res=3 pi=97 EU868
+    0xA1998800u, // bc=80 res=3 pi=102 EU868
+    0xA19A4800u, // bc=80 res=3 pi=105 EU868
+    0xA19A8800u, // bc=80 res=3 pi=106 EU868
     0xA19C0800u, // bc=80 res=3 pi=112 EU868
+    0xA19C4800u, // bc=80 res=3 pi=113 EU868
     0xA19C8800u, // bc=80 res=3 pi=114 EU868
+    0xA19CC800u, // bc=80 res=3 pi=115 EU868
+    0xA19D0800u, // bc=80 res=3 pi=116 EU868
+    0xA19D8800u, // bc=80 res=3 pi=118 EU868
+    0xA1B08800u, // bc=80 res=3 pi=194 EU868
+    0xA1B0C800u, // bc=80 res=3 pi=195 EU868
+    0xA1B28800u, // bc=80 res=3 pi=202 EU868
+    0xA1B60800u, // bc=80 res=3 pi=216 EU868
     0xA1B64800u, // bc=80 res=3 pi=217 EU868
+    0xA1B6C800u, // bc=80 res=3 pi=219 EU868
+    0xA1B70800u, // bc=80 res=3 pi=220 EU868
+    0xA1B74800u, // bc=80 res=3 pi=221 EU868
+    0xA1B80800u, // bc=80 res=3 pi=224 EU868
+    0xA1B94800u, // bc=80 res=3 pi=229 EU868
     0xA1BB0800u, // bc=80 res=3 pi=236 EU868
+    0xA1BB4800u, // bc=80 res=3 pi=237 EU868
     0xA1C64800u, // bc=80 res=3 pi=281 EU868
+    0xA1D48800u, // bc=80 res=3 pi=338 EU868
+    0xA1D4C800u, // bc=80 res=3 pi=339 EU868
+    0xA1D58800u, // bc=80 res=3 pi=342 EU868
+    0xA1D68800u, // bc=80 res=3 pi=346 EU868
+    0xA1D78800u, // bc=80 res=3 pi=350 EU868
+    0xA1D84800u, // bc=80 res=3 pi=353 EU868
+    0xA1DB0800u, // bc=80 res=3 pi=364 EU868
     0xA3008800u, // bc=81 res=2 pi=2 EU868
     0xA3010800u, // bc=81 res=2 pi=4 EU868
     0xA3018800u, // bc=81 res=2 pi=6 EU868
@@ -9669,22 +3948,70 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0xA3084800u, // bc=81 res=2 pi=33 EU868
     0xA308C800u, // bc=81 res=2 pi=35 EU868
     0xA30C4800u, // bc=81 res=2 pi=49 EU868
-    0xA30D4800u, // bc=81 res=2 pi=53 EU868
+    0xA3808800u, // bc=81 res=3 pi=2 EU868
     0xA3810800u, // bc=81 res=3 pi=4 EU868
     0xA3818800u, // bc=81 res=3 pi=6 EU868
+    0xA3900800u, // bc=81 res=3 pi=64 EU868
     0xA3908800u, // bc=81 res=3 pi=66 EU868
+    0xA390C800u, // bc=81 res=3 pi=67 EU868
+    0xA3940800u, // bc=81 res=3 pi=80 EU868
+    0xA3950800u, // bc=81 res=3 pi=84 EU868
+    0xA3954800u, // bc=81 res=3 pi=85 EU868
+    0xA39A0800u, // bc=81 res=3 pi=104 EU868
+    0xA39B0800u, // bc=81 res=3 pi=108 EU868
+    0xA39B4800u, // bc=81 res=3 pi=109 EU868
+    0xA3A10800u, // bc=81 res=3 pi=132 EU868
+    0xA3A14800u, // bc=81 res=3 pi=133 EU868
     0xA3AB0800u, // bc=81 res=3 pi=172 EU868
     0xA3AB8800u, // bc=81 res=3 pi=174 EU868
+    0xA3AD4800u, // bc=81 res=3 pi=181 EU868
+    0xA3C00800u, // bc=81 res=3 pi=256 EU868
     0xA3C10800u, // bc=81 res=3 pi=260 EU868
+    0xA3C18800u, // bc=81 res=3 pi=262 EU868
+    0xA3C44800u, // bc=81 res=3 pi=273 EU868
+    0xA3C48800u, // bc=81 res=3 pi=274 EU868
     0xA3C4C800u, // bc=81 res=3 pi=275 EU868
+    0xA3C88800u, // bc=81 res=3 pi=290 EU868
+    0xA3C94800u, // bc=81 res=3 pi=293 EU868
+    0xA3CA0800u, // bc=81 res=3 pi=296 EU868
+    0xA3CA4800u, // bc=81 res=3 pi=297 EU868
+    0xA3CAC800u, // bc=81 res=3 pi=299 EU868
+    0xA3CB0800u, // bc=81 res=3 pi=300 EU868
+    0xA3CB4800u, // bc=81 res=3 pi=301 EU868
+    0xA3CB8800u, // bc=81 res=3 pi=302 EU868
     0xA3CC4800u, // bc=81 res=3 pi=305 EU868
     0xA3CD4800u, // bc=81 res=3 pi=309 EU868
+    0xA3D40800u, // bc=81 res=3 pi=336 EU868
+    0xA3D48800u, // bc=81 res=3 pi=338 EU868
+    0xA3D50800u, // bc=81 res=3 pi=340 EU868
     0xA3D58800u, // bc=81 res=3 pi=342 EU868
+    0xA3D60800u, // bc=81 res=3 pi=344 EU868
+    0xA3D64800u, // bc=81 res=3 pi=345 EU868
+    0xA3D90800u, // bc=81 res=3 pi=356 EU868
+    0xA3D98800u, // bc=81 res=3 pi=358 EU868
+    0xA3DA4800u, // bc=81 res=3 pi=361 EU868
+    0xA3DC0800u, // bc=81 res=3 pi=368 EU868
     0xA3DC8800u, // bc=81 res=3 pi=370 EU868
+    0xA3DD0800u, // bc=81 res=3 pi=372 EU868
     0xA3DD8800u, // bc=81 res=3 pi=374 EU868
     0xA3E44800u, // bc=81 res=3 pi=401 EU868
     0xA3E54800u, // bc=81 res=3 pi=405 EU868
+    0xA3E64800u, // bc=81 res=3 pi=409 EU868
+    0xA3E74800u, // bc=81 res=3 pi=413 EU868
+    0xA3E84800u, // bc=81 res=3 pi=417 EU868
+    0xA3E90800u, // bc=81 res=3 pi=420 EU868
+    0xA3E98800u, // bc=81 res=3 pi=422 EU868
+    0xA3EA0800u, // bc=81 res=3 pi=424 EU868
+    0xA3EA4800u, // bc=81 res=3 pi=425 EU868
+    0xA3EAC800u, // bc=81 res=3 pi=427 EU868
+    0xA3EB0800u, // bc=81 res=3 pi=428 EU868
+    0xA3EB4800u, // bc=81 res=3 pi=429 EU868
+    0xA5808C00u, // bc=82 res=3 pi=2 AU915
+    0xA5818C00u, // bc=82 res=3 pi=6 AU915
+    0xA5854C00u, // bc=82 res=3 pi=21 AU915
+    0xA5E40C00u, // bc=82 res=3 pi=400 AU915
     0xA5E48C00u, // bc=82 res=3 pi=402 AU915
+    0xA5E4CC00u, // bc=82 res=3 pi=403 AU915
     0xA5E58C00u, // bc=82 res=3 pi=406 AU915
     0xA6818C00u, // bc=83 res=1 pi=6 AU915
     0xA7008C00u, // bc=83 res=2 pi=2 AU915
@@ -9693,123 +4020,51 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0xA7088C00u, // bc=83 res=2 pi=34 AU915
     0xA708CC00u, // bc=83 res=2 pi=35 AU915
     0xA7098C00u, // bc=83 res=2 pi=38 AU915
+    0xA7800C00u, // bc=83 res=3 pi=0 AU915
+    0xA7808C00u, // bc=83 res=3 pi=2 AU915
+    0xA7810C00u, // bc=83 res=3 pi=4 AU915
     0xA7818C00u, // bc=83 res=3 pi=6 AU915
+    0xA7880C00u, // bc=83 res=3 pi=32 AU915
     0xA7888C00u, // bc=83 res=3 pi=34 AU915
+    0xA788CC00u, // bc=83 res=3 pi=35 AU915
+    0xA7890C00u, // bc=83 res=3 pi=36 AU915
     0xA7898C00u, // bc=83 res=3 pi=38 AU915
+    0xA7AD0C00u, // bc=83 res=3 pi=180 AU915
+    0xA7AD4C00u, // bc=83 res=3 pi=181 AU915
+    0xA7AD8C00u, // bc=83 res=3 pi=182 AU915
+    0xA7C00C00u, // bc=83 res=3 pi=256 AU915
+    0xA7C04C00u, // bc=83 res=3 pi=257 AU915
     0xA7C08C00u, // bc=83 res=3 pi=258 AU915
     0xA7C0CC00u, // bc=83 res=3 pi=259 AU915
     0xA7C10C00u, // bc=83 res=3 pi=260 AU915
     0xA7C18C00u, // bc=83 res=3 pi=262 AU915
+    0xA7C38C00u, // bc=83 res=3 pi=270 AU915
     0xA7C88C00u, // bc=83 res=3 pi=290 AU915
     0xA7C98C00u, // bc=83 res=3 pi=294 AU915
-    0xA7E00C00u, // bc=83 res=3 pi=384 AU915
-    0xA7E04C00u, // bc=83 res=3 pi=385 AU915
-    0xA7E08C00u, // bc=83 res=3 pi=386 AU915
-    0xA7E0CC00u, // bc=83 res=3 pi=387 AU915
-    0xA7E10C00u, // bc=83 res=3 pi=388 AU915
-    0xA7E14C00u, // bc=83 res=3 pi=389 AU915
-    0xA7E18C00u, // bc=83 res=3 pi=390 AU915
-    0xA7E20C00u, // bc=83 res=3 pi=392 AU915
-    0xA7E24C00u, // bc=83 res=3 pi=393 AU915
-    0xA7E28C00u, // bc=83 res=3 pi=394 AU915
-    0xA7E2CC00u, // bc=83 res=3 pi=395 AU915
-    0xA7E30C00u, // bc=83 res=3 pi=396 AU915
-    0xA7E34C00u, // bc=83 res=3 pi=397 AU915
-    0xA7E38C00u, // bc=83 res=3 pi=398 AU915
-    0xA7E40C00u, // bc=83 res=3 pi=400 AU915
-    0xA7E44C00u, // bc=83 res=3 pi=401 AU915
-    0xA7E48C00u, // bc=83 res=3 pi=402 AU915
-    0xA7E4CC00u, // bc=83 res=3 pi=403 AU915
-    0xA7E50C00u, // bc=83 res=3 pi=404 AU915
-    0xA7E54C00u, // bc=83 res=3 pi=405 AU915
-    0xA7E58C00u, // bc=83 res=3 pi=406 AU915
-    0xA7E60C00u, // bc=83 res=3 pi=408 AU915
-    0xA7E64C00u, // bc=83 res=3 pi=409 AU915
-    0xA7E68C00u, // bc=83 res=3 pi=410 AU915
-    0xA7E6CC00u, // bc=83 res=3 pi=411 AU915
-    0xA7E70C00u, // bc=83 res=3 pi=412 AU915
-    0xA7E74C00u, // bc=83 res=3 pi=413 AU915
-    0xA7E78C00u, // bc=83 res=3 pi=414 AU915
-    0xA7E80C00u, // bc=83 res=3 pi=416 AU915
-    0xA7E84C00u, // bc=83 res=3 pi=417 AU915
-    0xA7E88C00u, // bc=83 res=3 pi=418 AU915
-    0xA7E8CC00u, // bc=83 res=3 pi=419 AU915
-    0xA7E90C00u, // bc=83 res=3 pi=420 AU915
-    0xA7E94C00u, // bc=83 res=3 pi=421 AU915
-    0xA7E98C00u, // bc=83 res=3 pi=422 AU915
-    0xA7EA0C00u, // bc=83 res=3 pi=424 AU915
-    0xA7EA4C00u, // bc=83 res=3 pi=425 AU915
-    0xA7EA8C00u, // bc=83 res=3 pi=426 AU915
-    0xA7EACC00u, // bc=83 res=3 pi=427 AU915
-    0xA7EB0C00u, // bc=83 res=3 pi=428 AU915
-    0xA7EB4C00u, // bc=83 res=3 pi=429 AU915
-    0xA7EB8C00u, // bc=83 res=3 pi=430 AU915
-    0xA7EC0C00u, // bc=83 res=3 pi=432 AU915
-    0xA7EC4C00u, // bc=83 res=3 pi=433 AU915
-    0xA7EC8C00u, // bc=83 res=3 pi=434 AU915
-    0xA7ECCC00u, // bc=83 res=3 pi=435 AU915
-    0xA7ED0C00u, // bc=83 res=3 pi=436 AU915
-    0xA7ED4C00u, // bc=83 res=3 pi=437 AU915
-    0xA7ED8C00u, // bc=83 res=3 pi=438 AU915
-    0xA8800C00u, // bc=84 res=1 pi=0 AU915
-    0xA8804C00u, // bc=84 res=1 pi=1 AU915
-    0xA8808C00u, // bc=84 res=1 pi=2 AU915
     0xA880CC00u, // bc=84 res=1 pi=3 AU915
     0xA8814C00u, // bc=84 res=1 pi=5 AU915
+    0xA9000C00u, // bc=84 res=2 pi=0 AU915
+    0xA9004C00u, // bc=84 res=2 pi=1 AU915
+    0xA9008C00u, // bc=84 res=2 pi=2 AU915
+    0xA900CC00u, // bc=84 res=2 pi=3 AU915
+    0xA9010C00u, // bc=84 res=2 pi=4 AU915
+    0xA9014C00u, // bc=84 res=2 pi=5 AU915
+    0xA9020C00u, // bc=84 res=2 pi=8 AU915
+    0xA9028C00u, // bc=84 res=2 pi=10 AU915
+    0xA902CC00u, // bc=84 res=2 pi=11 AU915
+    0xA9030C00u, // bc=84 res=2 pi=12 AU915
+    0xA9038C00u, // bc=84 res=2 pi=14 AU915
+    0xA9040C00u, // bc=84 res=2 pi=16 AU915
+    0xA9044C00u, // bc=84 res=2 pi=17 AU915
+    0xA904CC00u, // bc=84 res=2 pi=19 AU915
+    0xA9054C00u, // bc=84 res=2 pi=21 AU915
     0xA9084C00u, // bc=84 res=2 pi=33 AU915
-    0xA908CC00u, // bc=84 res=2 pi=35 AU915
     0xA9094C00u, // bc=84 res=2 pi=37 AU915
-    0xA9800C00u, // bc=84 res=3 pi=0 AU915
-    0xA9804C00u, // bc=84 res=3 pi=1 AU915
-    0xA9808C00u, // bc=84 res=3 pi=2 AU915
-    0xA980CC00u, // bc=84 res=3 pi=3 AU915
-    0xA9810C00u, // bc=84 res=3 pi=4 AU915
-    0xA9814C00u, // bc=84 res=3 pi=5 AU915
-    0xA9818C00u, // bc=84 res=3 pi=6 AU915
-    0xA9820C00u, // bc=84 res=3 pi=8 AU915
-    0xA9824C00u, // bc=84 res=3 pi=9 AU915
-    0xA9828C00u, // bc=84 res=3 pi=10 AU915
-    0xA982CC00u, // bc=84 res=3 pi=11 AU915
-    0xA9830C00u, // bc=84 res=3 pi=12 AU915
-    0xA9834C00u, // bc=84 res=3 pi=13 AU915
-    0xA9838C00u, // bc=84 res=3 pi=14 AU915
-    0xA9840C00u, // bc=84 res=3 pi=16 AU915
-    0xA9844C00u, // bc=84 res=3 pi=17 AU915
-    0xA9848C00u, // bc=84 res=3 pi=18 AU915
-    0xA984CC00u, // bc=84 res=3 pi=19 AU915
-    0xA9854C00u, // bc=84 res=3 pi=21 AU915
-    0xA9858C00u, // bc=84 res=3 pi=22 AU915
-    0xA9860C00u, // bc=84 res=3 pi=24 AU915
-    0xA9864C00u, // bc=84 res=3 pi=25 AU915
-    0xA9868C00u, // bc=84 res=3 pi=26 AU915
-    0xA986CC00u, // bc=84 res=3 pi=27 AU915
-    0xA9870C00u, // bc=84 res=3 pi=28 AU915
-    0xA9874C00u, // bc=84 res=3 pi=29 AU915
-    0xA9878C00u, // bc=84 res=3 pi=30 AU915
-    0xA9880C00u, // bc=84 res=3 pi=32 AU915
-    0xA9884C00u, // bc=84 res=3 pi=33 AU915
-    0xA9888C00u, // bc=84 res=3 pi=34 AU915
-    0xA988CC00u, // bc=84 res=3 pi=35 AU915
-    0xA9890C00u, // bc=84 res=3 pi=36 AU915
-    0xA9894C00u, // bc=84 res=3 pi=37 AU915
-    0xA9898C00u, // bc=84 res=3 pi=38 AU915
-    0xA98A0C00u, // bc=84 res=3 pi=40 AU915
-    0xA98A4C00u, // bc=84 res=3 pi=41 AU915
-    0xA98A8C00u, // bc=84 res=3 pi=42 AU915
-    0xA98ACC00u, // bc=84 res=3 pi=43 AU915
-    0xA98B0C00u, // bc=84 res=3 pi=44 AU915
-    0xA98B4C00u, // bc=84 res=3 pi=45 AU915
-    0xA98B8C00u, // bc=84 res=3 pi=46 AU915
+    0xA98C0C00u, // bc=84 res=3 pi=48 AU915
     0xA98C4C00u, // bc=84 res=3 pi=49 AU915
     0xA98CCC00u, // bc=84 res=3 pi=51 AU915
+    0xA98D0C00u, // bc=84 res=3 pi=52 AU915
     0xA98D4C00u, // bc=84 res=3 pi=53 AU915
-    0xA9900C00u, // bc=84 res=3 pi=64 AU915
-    0xA9904C00u, // bc=84 res=3 pi=65 AU915
-    0xA9908C00u, // bc=84 res=3 pi=66 AU915
-    0xA990CC00u, // bc=84 res=3 pi=67 AU915
-    0xA9910C00u, // bc=84 res=3 pi=68 AU915
-    0xA9914C00u, // bc=84 res=3 pi=69 AU915
-    0xA9918C00u, // bc=84 res=3 pi=70 AU915
     0xA9921000u, // bc=84 res=3 pi=72 AS923-1
     0xA9925000u, // bc=84 res=3 pi=73 AS923-1
     0xA9928C00u, // bc=84 res=3 pi=74 AU915
@@ -9817,27 +4072,6 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0xA9931000u, // bc=84 res=3 pi=76 AS923-1
     0xA9935000u, // bc=84 res=3 pi=77 AS923-1
     0xA9939000u, // bc=84 res=3 pi=78 AS923-1
-    0xA9940C00u, // bc=84 res=3 pi=80 AU915
-    0xA9944C00u, // bc=84 res=3 pi=81 AU915
-    0xA9948C00u, // bc=84 res=3 pi=82 AU915
-    0xA994CC00u, // bc=84 res=3 pi=83 AU915
-    0xA9950C00u, // bc=84 res=3 pi=84 AU915
-    0xA9954C00u, // bc=84 res=3 pi=85 AU915
-    0xA9958C00u, // bc=84 res=3 pi=86 AU915
-    0xA9960C00u, // bc=84 res=3 pi=88 AU915
-    0xA9964C00u, // bc=84 res=3 pi=89 AU915
-    0xA9968C00u, // bc=84 res=3 pi=90 AU915
-    0xA996CC00u, // bc=84 res=3 pi=91 AU915
-    0xA9970C00u, // bc=84 res=3 pi=92 AU915
-    0xA9974C00u, // bc=84 res=3 pi=93 AU915
-    0xA9978C00u, // bc=84 res=3 pi=94 AU915
-    0xA9980C00u, // bc=84 res=3 pi=96 AU915
-    0xA9984C00u, // bc=84 res=3 pi=97 AU915
-    0xA9988C00u, // bc=84 res=3 pi=98 AU915
-    0xA998CC00u, // bc=84 res=3 pi=99 AU915
-    0xA9990C00u, // bc=84 res=3 pi=100 AU915
-    0xA9994C00u, // bc=84 res=3 pi=101 AU915
-    0xA9998C00u, // bc=84 res=3 pi=102 AU915
     0xA99A0C00u, // bc=84 res=3 pi=104 AU915
     0xA99A5000u, // bc=84 res=3 pi=105 AS923-1
     0xA99A8C00u, // bc=84 res=3 pi=106 AU915
@@ -9845,370 +4079,103 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0xA99B0C00u, // bc=84 res=3 pi=108 AU915
     0xA99B4C00u, // bc=84 res=3 pi=109 AU915
     0xA99B8C00u, // bc=84 res=3 pi=110 AU915
-    0xA99C0C00u, // bc=84 res=3 pi=112 AU915
-    0xA99C4C00u, // bc=84 res=3 pi=113 AU915
-    0xA99C8C00u, // bc=84 res=3 pi=114 AU915
-    0xA99CCC00u, // bc=84 res=3 pi=115 AU915
-    0xA99D0C00u, // bc=84 res=3 pi=116 AU915
-    0xA99D4C00u, // bc=84 res=3 pi=117 AU915
-    0xA99D8C00u, // bc=84 res=3 pi=118 AU915
-    0xA9A00C00u, // bc=84 res=3 pi=128 AU915
-    0xA9A04C00u, // bc=84 res=3 pi=129 AU915
-    0xA9A08C00u, // bc=84 res=3 pi=130 AU915
-    0xA9A0CC00u, // bc=84 res=3 pi=131 AU915
-    0xA9A10C00u, // bc=84 res=3 pi=132 AU915
-    0xA9A14C00u, // bc=84 res=3 pi=133 AU915
-    0xA9A18C00u, // bc=84 res=3 pi=134 AU915
-    0xA9A20C00u, // bc=84 res=3 pi=136 AU915
-    0xA9A24C00u, // bc=84 res=3 pi=137 AU915
-    0xA9A28C00u, // bc=84 res=3 pi=138 AU915
-    0xA9A2CC00u, // bc=84 res=3 pi=139 AU915
-    0xA9A30C00u, // bc=84 res=3 pi=140 AU915
-    0xA9A34C00u, // bc=84 res=3 pi=141 AU915
-    0xA9A38C00u, // bc=84 res=3 pi=142 AU915
+    0xA9A40C00u, // bc=84 res=3 pi=144 AU915
     0xA9A44C00u, // bc=84 res=3 pi=145 AU915
+    0xA9A4CC00u, // bc=84 res=3 pi=147 AU915
     0xA9A54C00u, // bc=84 res=3 pi=149 AU915
-    0xA9A60C00u, // bc=84 res=3 pi=152 AU915
-    0xA9A64C00u, // bc=84 res=3 pi=153 AU915
-    0xA9A68C00u, // bc=84 res=3 pi=154 AU915
-    0xA9A6CC00u, // bc=84 res=3 pi=155 AU915
-    0xA9A70C00u, // bc=84 res=3 pi=156 AU915
-    0xA9A74C00u, // bc=84 res=3 pi=157 AU915
-    0xA9A78C00u, // bc=84 res=3 pi=158 AU915
     0xA9A80C00u, // bc=84 res=3 pi=160 AU915
     0xA9A84C00u, // bc=84 res=3 pi=161 AU915
     0xA9A88C00u, // bc=84 res=3 pi=162 AU915
     0xA9A8CC00u, // bc=84 res=3 pi=163 AU915
-    0xA9AA0C00u, // bc=84 res=3 pi=168 AU915
-    0xA9AA4C00u, // bc=84 res=3 pi=169 AU915
-    0xA9AA8C00u, // bc=84 res=3 pi=170 AU915
-    0xA9AACC00u, // bc=84 res=3 pi=171 AU915
-    0xA9AB0C00u, // bc=84 res=3 pi=172 AU915
-    0xA9AB4C00u, // bc=84 res=3 pi=173 AU915
-    0xA9AB8C00u, // bc=84 res=3 pi=174 AU915
+    0xA9A94C00u, // bc=84 res=3 pi=165 AU915
     0xA9AC4C00u, // bc=84 res=3 pi=177 AU915
-    0xA9B00C00u, // bc=84 res=3 pi=192 AU915
-    0xA9B04C00u, // bc=84 res=3 pi=193 AU915
-    0xA9B08C00u, // bc=84 res=3 pi=194 AU915
-    0xA9B0CC00u, // bc=84 res=3 pi=195 AU915
-    0xA9B10C00u, // bc=84 res=3 pi=196 AU915
-    0xA9B14C00u, // bc=84 res=3 pi=197 AU915
-    0xA9B18C00u, // bc=84 res=3 pi=198 AU915
-    0xA9B20C00u, // bc=84 res=3 pi=200 AU915
-    0xA9B24C00u, // bc=84 res=3 pi=201 AU915
-    0xA9B28C00u, // bc=84 res=3 pi=202 AU915
-    0xA9B2CC00u, // bc=84 res=3 pi=203 AU915
-    0xA9B30C00u, // bc=84 res=3 pi=204 AU915
-    0xA9B34C00u, // bc=84 res=3 pi=205 AU915
-    0xA9B38C00u, // bc=84 res=3 pi=206 AU915
-    0xA9B40C00u, // bc=84 res=3 pi=208 AU915
-    0xA9B44C00u, // bc=84 res=3 pi=209 AU915
-    0xA9B48C00u, // bc=84 res=3 pi=210 AU915
-    0xA9B4CC00u, // bc=84 res=3 pi=211 AU915
-    0xA9B50C00u, // bc=84 res=3 pi=212 AU915
-    0xA9B54C00u, // bc=84 res=3 pi=213 AU915
-    0xA9B58C00u, // bc=84 res=3 pi=214 AU915
-    0xA9B60C00u, // bc=84 res=3 pi=216 AU915
-    0xA9B64C00u, // bc=84 res=3 pi=217 AU915
-    0xA9B68C00u, // bc=84 res=3 pi=218 AU915
-    0xA9B6CC00u, // bc=84 res=3 pi=219 AU915
-    0xA9B70C00u, // bc=84 res=3 pi=220 AU915
-    0xA9B74C00u, // bc=84 res=3 pi=221 AU915
-    0xA9B78C00u, // bc=84 res=3 pi=222 AU915
-    0xA9B80C00u, // bc=84 res=3 pi=224 AU915
-    0xA9B84C00u, // bc=84 res=3 pi=225 AU915
-    0xA9B88C00u, // bc=84 res=3 pi=226 AU915
-    0xA9B8CC00u, // bc=84 res=3 pi=227 AU915
-    0xA9B90C00u, // bc=84 res=3 pi=228 AU915
-    0xA9B94C00u, // bc=84 res=3 pi=229 AU915
-    0xA9B98C00u, // bc=84 res=3 pi=230 AU915
-    0xA9BA0C00u, // bc=84 res=3 pi=232 AU915
-    0xA9BA4C00u, // bc=84 res=3 pi=233 AU915
-    0xA9BA8C00u, // bc=84 res=3 pi=234 AU915
-    0xA9BACC00u, // bc=84 res=3 pi=235 AU915
-    0xA9BB0C00u, // bc=84 res=3 pi=236 AU915
-    0xA9BB4C00u, // bc=84 res=3 pi=237 AU915
-    0xA9BB8C00u, // bc=84 res=3 pi=238 AU915
-    0xA9BC0C00u, // bc=84 res=3 pi=240 AU915
-    0xA9BC4C00u, // bc=84 res=3 pi=241 AU915
-    0xA9BC8C00u, // bc=84 res=3 pi=242 AU915
-    0xA9BCCC00u, // bc=84 res=3 pi=243 AU915
-    0xA9BD0C00u, // bc=84 res=3 pi=244 AU915
-    0xA9BD4C00u, // bc=84 res=3 pi=245 AU915
-    0xA9BD8C00u, // bc=84 res=3 pi=246 AU915
+    0xA9ACCC00u, // bc=84 res=3 pi=179 AU915
+    0xA9AD4C00u, // bc=84 res=3 pi=181 AU915
+    0xA9C00C00u, // bc=84 res=3 pi=256 AU915
     0xA9C04C00u, // bc=84 res=3 pi=257 AU915
     0xA9C0CC00u, // bc=84 res=3 pi=259 AU915
     0xA9C14C00u, // bc=84 res=3 pi=261 AU915
+    0xA9C60C00u, // bc=84 res=3 pi=280 AU915
+    0xA9C64C00u, // bc=84 res=3 pi=281 AU915
+    0xA9C68C00u, // bc=84 res=3 pi=282 AU915
+    0xA9C6CC00u, // bc=84 res=3 pi=283 AU915
+    0xA9C70C00u, // bc=84 res=3 pi=284 AU915
+    0xA9C74C00u, // bc=84 res=3 pi=285 AU915
     0xA9C84C00u, // bc=84 res=3 pi=289 AU915
-    0xA9D00C00u, // bc=84 res=3 pi=320 AU915
-    0xA9D04C00u, // bc=84 res=3 pi=321 AU915
-    0xA9D08C00u, // bc=84 res=3 pi=322 AU915
-    0xA9D0CC00u, // bc=84 res=3 pi=323 AU915
-    0xA9D10C00u, // bc=84 res=3 pi=324 AU915
-    0xA9D14C00u, // bc=84 res=3 pi=325 AU915
-    0xA9D18C00u, // bc=84 res=3 pi=326 AU915
-    0xA9D20C00u, // bc=84 res=3 pi=328 AU915
-    0xA9D24C00u, // bc=84 res=3 pi=329 AU915
-    0xA9D28C00u, // bc=84 res=3 pi=330 AU915
-    0xA9D2CC00u, // bc=84 res=3 pi=331 AU915
-    0xA9D30C00u, // bc=84 res=3 pi=332 AU915
-    0xA9D34C00u, // bc=84 res=3 pi=333 AU915
-    0xA9D38C00u, // bc=84 res=3 pi=334 AU915
-    0xA9D40C00u, // bc=84 res=3 pi=336 AU915
-    0xA9D44C00u, // bc=84 res=3 pi=337 AU915
-    0xA9D48C00u, // bc=84 res=3 pi=338 AU915
-    0xA9D4CC00u, // bc=84 res=3 pi=339 AU915
-    0xA9D50C00u, // bc=84 res=3 pi=340 AU915
-    0xA9D54C00u, // bc=84 res=3 pi=341 AU915
-    0xA9D58C00u, // bc=84 res=3 pi=342 AU915
-    0xA9D60C00u, // bc=84 res=3 pi=344 AU915
-    0xA9D64C00u, // bc=84 res=3 pi=345 AU915
-    0xA9D68C00u, // bc=84 res=3 pi=346 AU915
-    0xA9D6CC00u, // bc=84 res=3 pi=347 AU915
-    0xA9D70C00u, // bc=84 res=3 pi=348 AU915
-    0xA9D74C00u, // bc=84 res=3 pi=349 AU915
-    0xA9D78C00u, // bc=84 res=3 pi=350 AU915
-    0xA9D80C00u, // bc=84 res=3 pi=352 AU915
-    0xA9D84C00u, // bc=84 res=3 pi=353 AU915
-    0xA9D88C00u, // bc=84 res=3 pi=354 AU915
-    0xA9D8CC00u, // bc=84 res=3 pi=355 AU915
-    0xA9D90C00u, // bc=84 res=3 pi=356 AU915
-    0xA9D94C00u, // bc=84 res=3 pi=357 AU915
-    0xA9D98C00u, // bc=84 res=3 pi=358 AU915
-    0xA9DA0C00u, // bc=84 res=3 pi=360 AU915
-    0xA9DA4C00u, // bc=84 res=3 pi=361 AU915
-    0xA9DA8C00u, // bc=84 res=3 pi=362 AU915
-    0xA9DACC00u, // bc=84 res=3 pi=363 AU915
-    0xA9DB0C00u, // bc=84 res=3 pi=364 AU915
-    0xA9DB4C00u, // bc=84 res=3 pi=365 AU915
-    0xA9DB8C00u, // bc=84 res=3 pi=366 AU915
-    0xA9DC0C00u, // bc=84 res=3 pi=368 AU915
-    0xA9DC4C00u, // bc=84 res=3 pi=369 AU915
-    0xA9DC8C00u, // bc=84 res=3 pi=370 AU915
-    0xA9DCCC00u, // bc=84 res=3 pi=371 AU915
-    0xA9DD0C00u, // bc=84 res=3 pi=372 AU915
-    0xA9DD4C00u, // bc=84 res=3 pi=373 AU915
-    0xA9DD8C00u, // bc=84 res=3 pi=374 AU915
+    0xA9C8CC00u, // bc=84 res=3 pi=291 AU915
+    0xA9C94C00u, // bc=84 res=3 pi=293 AU915
     0xABC50800u, // bc=85 res=3 pi=276 EU868
-    0xAC808800u, // bc=86 res=1 pi=2 EU868
     0xAC818800u, // bc=86 res=1 pi=6 EU868
+    0xAD040800u, // bc=86 res=2 pi=16 EU868
+    0xAD044800u, // bc=86 res=2 pi=17 EU868
+    0xAD048800u, // bc=86 res=2 pi=18 EU868
+    0xAD04C800u, // bc=86 res=2 pi=19 EU868
+    0xAD050800u, // bc=86 res=2 pi=20 EU868
+    0xAD058800u, // bc=86 res=2 pi=22 EU868
+    0xAD848800u, // bc=86 res=3 pi=18 EU868
+    0xAD850800u, // bc=86 res=3 pi=20 EU868
     0xAD858800u, // bc=86 res=3 pi=22 EU868
-    0xADA00800u, // bc=86 res=3 pi=128 EU868
-    0xADA04800u, // bc=86 res=3 pi=129 EU868
-    0xADA08800u, // bc=86 res=3 pi=130 EU868
-    0xADA0C800u, // bc=86 res=3 pi=131 EU868
-    0xADA10800u, // bc=86 res=3 pi=132 EU868
-    0xADA14800u, // bc=86 res=3 pi=133 EU868
-    0xADA18800u, // bc=86 res=3 pi=134 EU868
-    0xADA20800u, // bc=86 res=3 pi=136 EU868
-    0xADA24800u, // bc=86 res=3 pi=137 EU868
-    0xADA28800u, // bc=86 res=3 pi=138 EU868
-    0xADA2C800u, // bc=86 res=3 pi=139 EU868
-    0xADA30800u, // bc=86 res=3 pi=140 EU868
-    0xADA34800u, // bc=86 res=3 pi=141 EU868
-    0xADA38800u, // bc=86 res=3 pi=142 EU868
-    0xADA40800u, // bc=86 res=3 pi=144 EU868
-    0xADA44800u, // bc=86 res=3 pi=145 EU868
-    0xADA48800u, // bc=86 res=3 pi=146 EU868
-    0xADA4C800u, // bc=86 res=3 pi=147 EU868
-    0xADA50800u, // bc=86 res=3 pi=148 EU868
-    0xADA54800u, // bc=86 res=3 pi=149 EU868
-    0xADA58800u, // bc=86 res=3 pi=150 EU868
-    0xADA60800u, // bc=86 res=3 pi=152 EU868
-    0xADA64800u, // bc=86 res=3 pi=153 EU868
-    0xADA68800u, // bc=86 res=3 pi=154 EU868
-    0xADA6C800u, // bc=86 res=3 pi=155 EU868
-    0xADA70800u, // bc=86 res=3 pi=156 EU868
-    0xADA74800u, // bc=86 res=3 pi=157 EU868
-    0xADA78800u, // bc=86 res=3 pi=158 EU868
-    0xADA80800u, // bc=86 res=3 pi=160 EU868
-    0xADA84800u, // bc=86 res=3 pi=161 EU868
-    0xADA88800u, // bc=86 res=3 pi=162 EU868
-    0xADA8C800u, // bc=86 res=3 pi=163 EU868
-    0xADA90800u, // bc=86 res=3 pi=164 EU868
-    0xADA94800u, // bc=86 res=3 pi=165 EU868
-    0xADA98800u, // bc=86 res=3 pi=166 EU868
+    0xAD8C8800u, // bc=86 res=3 pi=50 EU868
+    0xAD8D8800u, // bc=86 res=3 pi=54 EU868
     0xADAA0800u, // bc=86 res=3 pi=168 EU868
     0xADAA8800u, // bc=86 res=3 pi=170 EU868
     0xADAAC800u, // bc=86 res=3 pi=171 EU868
+    0xADAB0800u, // bc=86 res=3 pi=172 EU868
     0xADAB8800u, // bc=86 res=3 pi=174 EU868
-    0xADAC0800u, // bc=86 res=3 pi=176 EU868
-    0xADAC4800u, // bc=86 res=3 pi=177 EU868
-    0xADAC8800u, // bc=86 res=3 pi=178 EU868
-    0xADACC800u, // bc=86 res=3 pi=179 EU868
-    0xADAD0800u, // bc=86 res=3 pi=180 EU868
-    0xADAD4800u, // bc=86 res=3 pi=181 EU868
-    0xADAD8800u, // bc=86 res=3 pi=182 EU868
+    0xADB48800u, // bc=86 res=3 pi=210 EU868
+    0xADB58800u, // bc=86 res=3 pi=214 EU868
+    0xADC40800u, // bc=86 res=3 pi=272 EU868
     0xADC48800u, // bc=86 res=3 pi=274 EU868
+    0xADC4C800u, // bc=86 res=3 pi=275 EU868
+    0xADC50800u, // bc=86 res=3 pi=276 EU868
     0xADC58800u, // bc=86 res=3 pi=278 EU868
     0xADCC8800u, // bc=86 res=3 pi=306 EU868
+    0xADCD0800u, // bc=86 res=3 pi=308 EU868
     0xADCD8800u, // bc=86 res=3 pi=310 EU868
-    0xADE00800u, // bc=86 res=3 pi=384 EU868
-    0xADE04800u, // bc=86 res=3 pi=385 EU868
-    0xADE08800u, // bc=86 res=3 pi=386 EU868
-    0xADE0C800u, // bc=86 res=3 pi=387 EU868
-    0xADE10800u, // bc=86 res=3 pi=388 EU868
-    0xADE14800u, // bc=86 res=3 pi=389 EU868
-    0xADE18800u, // bc=86 res=3 pi=390 EU868
-    0xADE20800u, // bc=86 res=3 pi=392 EU868
-    0xADE24800u, // bc=86 res=3 pi=393 EU868
-    0xADE28800u, // bc=86 res=3 pi=394 EU868
-    0xADE2C800u, // bc=86 res=3 pi=395 EU868
-    0xADE30800u, // bc=86 res=3 pi=396 EU868
-    0xADE34800u, // bc=86 res=3 pi=397 EU868
-    0xADE38800u, // bc=86 res=3 pi=398 EU868
-    0xADE40800u, // bc=86 res=3 pi=400 EU868
-    0xADE44800u, // bc=86 res=3 pi=401 EU868
-    0xADE48800u, // bc=86 res=3 pi=402 EU868
-    0xADE4C800u, // bc=86 res=3 pi=403 EU868
-    0xADE50800u, // bc=86 res=3 pi=404 EU868
-    0xADE54800u, // bc=86 res=3 pi=405 EU868
-    0xADE58800u, // bc=86 res=3 pi=406 EU868
-    0xADE60800u, // bc=86 res=3 pi=408 EU868
-    0xADE64800u, // bc=86 res=3 pi=409 EU868
-    0xADE68800u, // bc=86 res=3 pi=410 EU868
-    0xADE6C800u, // bc=86 res=3 pi=411 EU868
-    0xADE70800u, // bc=86 res=3 pi=412 EU868
-    0xADE74800u, // bc=86 res=3 pi=413 EU868
-    0xADE78800u, // bc=86 res=3 pi=414 EU868
-    0xADE80800u, // bc=86 res=3 pi=416 EU868
-    0xADE84800u, // bc=86 res=3 pi=417 EU868
-    0xADE88800u, // bc=86 res=3 pi=418 EU868
-    0xADE8C800u, // bc=86 res=3 pi=419 EU868
-    0xADE90800u, // bc=86 res=3 pi=420 EU868
-    0xADE94800u, // bc=86 res=3 pi=421 EU868
-    0xADE98800u, // bc=86 res=3 pi=422 EU868
-    0xADEA0800u, // bc=86 res=3 pi=424 EU868
-    0xADEA8800u, // bc=86 res=3 pi=426 EU868
-    0xADEAC800u, // bc=86 res=3 pi=427 EU868
-    0xADEB0800u, // bc=86 res=3 pi=428 EU868
-    0xADEB8800u, // bc=86 res=3 pi=430 EU868
-    0xADEC0800u, // bc=86 res=3 pi=432 EU868
-    0xADEC4800u, // bc=86 res=3 pi=433 EU868
-    0xADEC8800u, // bc=86 res=3 pi=434 EU868
-    0xADECC800u, // bc=86 res=3 pi=435 EU868
-    0xADED0800u, // bc=86 res=3 pi=436 EU868
-    0xADED4800u, // bc=86 res=3 pi=437 EU868
-    0xADED8800u, // bc=86 res=3 pi=438 EU868
+    0xB1A50C00u, // bc=88 res=3 pi=148 AU915
     0xB1A88C00u, // bc=88 res=3 pi=162 AU915
-    0xB2800C00u, // bc=89 res=1 pi=0 AU915
     0xB2804C00u, // bc=89 res=1 pi=1 AU915
-    0xB280CC00u, // bc=89 res=1 pi=3 AU915
-    0xB2810C00u, // bc=89 res=1 pi=4 AU915
-    0xB2814C00u, // bc=89 res=1 pi=5 AU915
+    0xB3004C00u, // bc=89 res=2 pi=1 AU915
+    0xB3010C00u, // bc=89 res=2 pi=4 AU915
+    0xB3014C00u, // bc=89 res=2 pi=5 AU915
+    0xB3060C00u, // bc=89 res=2 pi=24 AU915
+    0xB3064C00u, // bc=89 res=2 pi=25 AU915
+    0xB3070C00u, // bc=89 res=2 pi=28 AU915
+    0xB3074C00u, // bc=89 res=2 pi=29 AU915
+    0xB3095000u, // bc=89 res=2 pi=37 AS923-1
+    0xB3098C00u, // bc=89 res=2 pi=38 AU915
+    0xB30A4C00u, // bc=89 res=2 pi=41 AU915
+    0xB30A8C00u, // bc=89 res=2 pi=42 AU915
+    0xB30ACC00u, // bc=89 res=2 pi=43 AU915
+    0xB30B4C00u, // bc=89 res=2 pi=45 AU915
+    0xB30B9000u, // bc=89 res=2 pi=46 AS923-1
     0xB3800C00u, // bc=89 res=3 pi=0 AU915
     0xB3804C00u, // bc=89 res=3 pi=1 AU915
     0xB380CC00u, // bc=89 res=3 pi=3 AU915
     0xB3810C00u, // bc=89 res=3 pi=4 AU915
     0xB3814C00u, // bc=89 res=3 pi=5 AU915
-    0xB3820C00u, // bc=89 res=3 pi=8 AU915
-    0xB3824C00u, // bc=89 res=3 pi=9 AU915
-    0xB3828C00u, // bc=89 res=3 pi=10 AU915
-    0xB382CC00u, // bc=89 res=3 pi=11 AU915
-    0xB3830C00u, // bc=89 res=3 pi=12 AU915
-    0xB3834C00u, // bc=89 res=3 pi=13 AU915
-    0xB3838C00u, // bc=89 res=3 pi=14 AU915
+    0xB3860C00u, // bc=89 res=3 pi=24 AU915
     0xB3864C00u, // bc=89 res=3 pi=25 AU915
+    0xB386CC00u, // bc=89 res=3 pi=27 AU915
+    0xB3870C00u, // bc=89 res=3 pi=28 AU915
     0xB3874C00u, // bc=89 res=3 pi=29 AU915
-    0xB3880C00u, // bc=89 res=3 pi=32 AU915
-    0xB3884C00u, // bc=89 res=3 pi=33 AU915
-    0xB3888C00u, // bc=89 res=3 pi=34 AU915
-    0xB388CC00u, // bc=89 res=3 pi=35 AU915
-    0xB3890C00u, // bc=89 res=3 pi=36 AU915
-    0xB3894C00u, // bc=89 res=3 pi=37 AU915
-    0xB3898C00u, // bc=89 res=3 pi=38 AU915
-    0xB38A0C00u, // bc=89 res=3 pi=40 AU915
-    0xB38A4C00u, // bc=89 res=3 pi=41 AU915
-    0xB38A8C00u, // bc=89 res=3 pi=42 AU915
-    0xB38ACC00u, // bc=89 res=3 pi=43 AU915
-    0xB38B0C00u, // bc=89 res=3 pi=44 AU915
-    0xB38B4C00u, // bc=89 res=3 pi=45 AU915
-    0xB38B8C00u, // bc=89 res=3 pi=46 AU915
-    0xB3900C00u, // bc=89 res=3 pi=64 AU915
-    0xB3904C00u, // bc=89 res=3 pi=65 AU915
-    0xB3908C00u, // bc=89 res=3 pi=66 AU915
-    0xB390CC00u, // bc=89 res=3 pi=67 AU915
-    0xB3910C00u, // bc=89 res=3 pi=68 AU915
-    0xB3914C00u, // bc=89 res=3 pi=69 AU915
-    0xB3918C00u, // bc=89 res=3 pi=70 AU915
-    0xB3920C00u, // bc=89 res=3 pi=72 AU915
-    0xB3924C00u, // bc=89 res=3 pi=73 AU915
-    0xB3928C00u, // bc=89 res=3 pi=74 AU915
-    0xB392CC00u, // bc=89 res=3 pi=75 AU915
-    0xB3930C00u, // bc=89 res=3 pi=76 AU915
-    0xB3934C00u, // bc=89 res=3 pi=77 AU915
-    0xB3938C00u, // bc=89 res=3 pi=78 AU915
-    0xB3940C00u, // bc=89 res=3 pi=80 AU915
-    0xB3944C00u, // bc=89 res=3 pi=81 AU915
-    0xB3948C00u, // bc=89 res=3 pi=82 AU915
-    0xB394CC00u, // bc=89 res=3 pi=83 AU915
-    0xB3950C00u, // bc=89 res=3 pi=84 AU915
-    0xB3954C00u, // bc=89 res=3 pi=85 AU915
-    0xB3958C00u, // bc=89 res=3 pi=86 AU915
-    0xB3960C00u, // bc=89 res=3 pi=88 AU915
-    0xB3964C00u, // bc=89 res=3 pi=89 AU915
-    0xB3968C00u, // bc=89 res=3 pi=90 AU915
-    0xB396CC00u, // bc=89 res=3 pi=91 AU915
-    0xB3970C00u, // bc=89 res=3 pi=92 AU915
-    0xB3974C00u, // bc=89 res=3 pi=93 AU915
-    0xB3978C00u, // bc=89 res=3 pi=94 AU915
-    0xB3980C00u, // bc=89 res=3 pi=96 AU915
-    0xB3984C00u, // bc=89 res=3 pi=97 AU915
-    0xB3988C00u, // bc=89 res=3 pi=98 AU915
-    0xB398CC00u, // bc=89 res=3 pi=99 AU915
-    0xB3990C00u, // bc=89 res=3 pi=100 AU915
-    0xB3994C00u, // bc=89 res=3 pi=101 AU915
-    0xB3998C00u, // bc=89 res=3 pi=102 AU915
-    0xB39A0C00u, // bc=89 res=3 pi=104 AU915
-    0xB39A4C00u, // bc=89 res=3 pi=105 AU915
-    0xB39A8C00u, // bc=89 res=3 pi=106 AU915
-    0xB39ACC00u, // bc=89 res=3 pi=107 AU915
-    0xB39B0C00u, // bc=89 res=3 pi=108 AU915
-    0xB39B4C00u, // bc=89 res=3 pi=109 AU915
-    0xB39B8C00u, // bc=89 res=3 pi=110 AU915
-    0xB39C0C00u, // bc=89 res=3 pi=112 AU915
-    0xB39C4C00u, // bc=89 res=3 pi=113 AU915
-    0xB39C8C00u, // bc=89 res=3 pi=114 AU915
-    0xB39CCC00u, // bc=89 res=3 pi=115 AU915
-    0xB39D0C00u, // bc=89 res=3 pi=116 AU915
-    0xB39D4C00u, // bc=89 res=3 pi=117 AU915
-    0xB39D8C00u, // bc=89 res=3 pi=118 AU915
-    0xB3B00C00u, // bc=89 res=3 pi=192 AU915
-    0xB3B04C00u, // bc=89 res=3 pi=193 AU915
-    0xB3B0CC00u, // bc=89 res=3 pi=195 AU915
-    0xB3B10C00u, // bc=89 res=3 pi=196 AU915
-    0xB3B14C00u, // bc=89 res=3 pi=197 AU915
-    0xB3B20C00u, // bc=89 res=3 pi=200 AU915
-    0xB3B24C00u, // bc=89 res=3 pi=201 AU915
-    0xB3B28C00u, // bc=89 res=3 pi=202 AU915
-    0xB3B2CC00u, // bc=89 res=3 pi=203 AU915
-    0xB3B30C00u, // bc=89 res=3 pi=204 AU915
-    0xB3B34C00u, // bc=89 res=3 pi=205 AU915
-    0xB3B38C00u, // bc=89 res=3 pi=206 AU915
+    0xB3A64C00u, // bc=89 res=3 pi=153 AU915
+    0xB3A68C00u, // bc=89 res=3 pi=154 AU915
+    0xB3A6CC00u, // bc=89 res=3 pi=155 AU915
+    0xB3AD0C00u, // bc=89 res=3 pi=180 AU915
     0xB3B60C00u, // bc=89 res=3 pi=216 AU915
     0xB3B64C00u, // bc=89 res=3 pi=217 AU915
+    0xB3B68C00u, // bc=89 res=3 pi=218 AU915
     0xB3B6CC00u, // bc=89 res=3 pi=219 AU915
     0xB3B70C00u, // bc=89 res=3 pi=220 AU915
     0xB3B74C00u, // bc=89 res=3 pi=221 AU915
-    0xB3B80C00u, // bc=89 res=3 pi=224 AU915
-    0xB3B84C00u, // bc=89 res=3 pi=225 AU915
-    0xB3B88C00u, // bc=89 res=3 pi=226 AU915
-    0xB3B8CC00u, // bc=89 res=3 pi=227 AU915
-    0xB3B90C00u, // bc=89 res=3 pi=228 AU915
-    0xB3B94C00u, // bc=89 res=3 pi=229 AU915
-    0xB3B98C00u, // bc=89 res=3 pi=230 AU915
-    0xB3BA0C00u, // bc=89 res=3 pi=232 AU915
-    0xB3BA4C00u, // bc=89 res=3 pi=233 AU915
-    0xB3BA8C00u, // bc=89 res=3 pi=234 AU915
-    0xB3BACC00u, // bc=89 res=3 pi=235 AU915
-    0xB3BB0C00u, // bc=89 res=3 pi=236 AU915
-    0xB3BB4C00u, // bc=89 res=3 pi=237 AU915
-    0xB3BB8C00u, // bc=89 res=3 pi=238 AU915
+    0xB3BD4C00u, // bc=89 res=3 pi=245 AU915
     0xB3C00C00u, // bc=89 res=3 pi=256 AU915
     0xB3C04C00u, // bc=89 res=3 pi=257 AU915
     0xB3C0CC00u, // bc=89 res=3 pi=259 AU915
     0xB3C10C00u, // bc=89 res=3 pi=260 AU915
     0xB3C14C00u, // bc=89 res=3 pi=261 AU915
+    0xB3C18C00u, // bc=89 res=3 pi=262 AU915
     0xB3C20C00u, // bc=89 res=3 pi=264 AU915
     0xB3C25000u, // bc=89 res=3 pi=265 AS923-1
     0xB3C28C00u, // bc=89 res=3 pi=266 AU915
@@ -10217,9 +4184,13 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0xB3C35000u, // bc=89 res=3 pi=269 AS923-1
     0xB3C38C00u, // bc=89 res=3 pi=270 AU915
     0xB3C40C00u, // bc=89 res=3 pi=272 AU915
+    0xB3C48C00u, // bc=89 res=3 pi=274 AU915
+    0xB3C4CC00u, // bc=89 res=3 pi=275 AU915
     0xB3C50C00u, // bc=89 res=3 pi=276 AU915
+    0xB3C54C00u, // bc=89 res=3 pi=277 AU915
     0xB3C58C00u, // bc=89 res=3 pi=278 AU915
     0xB3C64C00u, // bc=89 res=3 pi=281 AU915
+    0xB3C74C00u, // bc=89 res=3 pi=285 AU915
     0xB3C80C00u, // bc=89 res=3 pi=288 AU915
     0xB3C85000u, // bc=89 res=3 pi=289 AS923-1
     0xB3C88C00u, // bc=89 res=3 pi=290 AU915
@@ -10227,20 +4198,6 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0xB3C91000u, // bc=89 res=3 pi=292 AS923-1
     0xB3C95000u, // bc=89 res=3 pi=293 AS923-1
     0xB3C98C00u, // bc=89 res=3 pi=294 AU915
-    0xB3CA1000u, // bc=89 res=3 pi=296 AS923-1
-    0xB3CA5000u, // bc=89 res=3 pi=297 AS923-1
-    0xB3CA9000u, // bc=89 res=3 pi=298 AS923-1
-    0xB3CAD000u, // bc=89 res=3 pi=299 AS923-1
-    0xB3CB1000u, // bc=89 res=3 pi=300 AS923-1
-    0xB3CB5000u, // bc=89 res=3 pi=301 AS923-1
-    0xB3CB9000u, // bc=89 res=3 pi=302 AS923-1
-    0xB3CC0C00u, // bc=89 res=3 pi=304 AU915
-    0xB3CC4C00u, // bc=89 res=3 pi=305 AU915
-    0xB3CC8C00u, // bc=89 res=3 pi=306 AU915
-    0xB3CCCC00u, // bc=89 res=3 pi=307 AU915
-    0xB3CD0C00u, // bc=89 res=3 pi=308 AU915
-    0xB3CD4C00u, // bc=89 res=3 pi=309 AU915
-    0xB3CD8C00u, // bc=89 res=3 pi=310 AU915
     0xB3D00C00u, // bc=89 res=3 pi=320 AU915
     0xB3D04C00u, // bc=89 res=3 pi=321 AU915
     0xB3D08C00u, // bc=89 res=3 pi=322 AU915
@@ -10248,27 +4205,6 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0xB3D11000u, // bc=89 res=3 pi=324 AS923-1
     0xB3D14C00u, // bc=89 res=3 pi=325 AU915
     0xB3D18C00u, // bc=89 res=3 pi=326 AU915
-    0xB3D20C00u, // bc=89 res=3 pi=328 AU915
-    0xB3D24C00u, // bc=89 res=3 pi=329 AU915
-    0xB3D28C00u, // bc=89 res=3 pi=330 AU915
-    0xB3D2CC00u, // bc=89 res=3 pi=331 AU915
-    0xB3D30C00u, // bc=89 res=3 pi=332 AU915
-    0xB3D34C00u, // bc=89 res=3 pi=333 AU915
-    0xB3D38C00u, // bc=89 res=3 pi=334 AU915
-    0xB3D40C00u, // bc=89 res=3 pi=336 AU915
-    0xB3D44C00u, // bc=89 res=3 pi=337 AU915
-    0xB3D48C00u, // bc=89 res=3 pi=338 AU915
-    0xB3D4CC00u, // bc=89 res=3 pi=339 AU915
-    0xB3D50C00u, // bc=89 res=3 pi=340 AU915
-    0xB3D54C00u, // bc=89 res=3 pi=341 AU915
-    0xB3D58C00u, // bc=89 res=3 pi=342 AU915
-    0xB3D60C00u, // bc=89 res=3 pi=344 AU915
-    0xB3D64C00u, // bc=89 res=3 pi=345 AU915
-    0xB3D68C00u, // bc=89 res=3 pi=346 AU915
-    0xB3D6CC00u, // bc=89 res=3 pi=347 AU915
-    0xB3D70C00u, // bc=89 res=3 pi=348 AU915
-    0xB3D74C00u, // bc=89 res=3 pi=349 AU915
-    0xB3D78C00u, // bc=89 res=3 pi=350 AU915
     0xB3D81000u, // bc=89 res=3 pi=352 AS923-1
     0xB3D84C00u, // bc=89 res=3 pi=353 AU915
     0xB3D89000u, // bc=89 res=3 pi=354 AS923-1
@@ -10276,711 +4212,378 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0xB3D91000u, // bc=89 res=3 pi=356 AS923-1
     0xB3D94C00u, // bc=89 res=3 pi=357 AU915
     0xB3D99000u, // bc=89 res=3 pi=358 AS923-1
-    0xB3DA0C00u, // bc=89 res=3 pi=360 AU915
-    0xB3DA4C00u, // bc=89 res=3 pi=361 AU915
-    0xB3DA8C00u, // bc=89 res=3 pi=362 AU915
-    0xB3DACC00u, // bc=89 res=3 pi=363 AU915
-    0xB3DB0C00u, // bc=89 res=3 pi=364 AU915
-    0xB3DB4C00u, // bc=89 res=3 pi=365 AU915
-    0xB3DB8C00u, // bc=89 res=3 pi=366 AU915
-    0xB3DC1000u, // bc=89 res=3 pi=368 AS923-1
-    0xB3DC5000u, // bc=89 res=3 pi=369 AS923-1
-    0xB3DC9000u, // bc=89 res=3 pi=370 AS923-1
-    0xB3DCD000u, // bc=89 res=3 pi=371 AS923-1
-    0xB3DD1000u, // bc=89 res=3 pi=372 AS923-1
-    0xB3DD5000u, // bc=89 res=3 pi=373 AS923-1
-    0xB3DD9000u, // bc=89 res=3 pi=374 AS923-1
+    0xB3E68C00u, // bc=89 res=3 pi=410 AU915
+    0xB3E6CC00u, // bc=89 res=3 pi=411 AU915
+    0xB3E90C00u, // bc=89 res=3 pi=420 AU915
+    0xB3E94C00u, // bc=89 res=3 pi=421 AU915
+    0xB5061000u, // bc=90 res=2 pi=24 AS923-1
     0xB5A04800u, // bc=90 res=3 pi=129 EU868
-    0xB8800C00u, // bc=92 res=1 pi=0 AU915
+    0xB5A10800u, // bc=90 res=3 pi=132 EU868
+    0xB5A18800u, // bc=90 res=3 pi=134 EU868
+    0xB5A30800u, // bc=90 res=3 pi=140 EU868
+    0xB5AA8800u, // bc=90 res=3 pi=170 EU868
+    0xB5AAC800u, // bc=90 res=3 pi=171 EU868
+    0xB5AC0800u, // bc=90 res=3 pi=176 EU868
+    0xB5ACC800u, // bc=90 res=3 pi=179 EU868
+    0xB5B39000u, // bc=90 res=3 pi=206 AS923-1
+    0xB5B89000u, // bc=90 res=3 pi=226 AS923-1
+    0xB5BB9000u, // bc=90 res=3 pi=238 AS923-1
+    0xB5BC5000u, // bc=90 res=3 pi=241 AS923-1
+    0xB5BC8800u, // bc=90 res=3 pi=242 EU868
+    0xB5BD8800u, // bc=90 res=3 pi=246 EU868
+    0xB5E48800u, // bc=90 res=3 pi=402 EU868
     0xB8804C00u, // bc=92 res=1 pi=1 AU915
     0xB8808C00u, // bc=92 res=1 pi=2 AU915
     0xB880CC00u, // bc=92 res=1 pi=3 AU915
     0xB8818C00u, // bc=92 res=1 pi=6 AU915
+    0xB9000C00u, // bc=92 res=2 pi=0 AU915
+    0xB9004C00u, // bc=92 res=2 pi=1 AU915
+    0xB9008C00u, // bc=92 res=2 pi=2 AU915
+    0xB900CC00u, // bc=92 res=2 pi=3 AU915
+    0xB9018C00u, // bc=92 res=2 pi=6 AU915
     0xB9088C00u, // bc=92 res=2 pi=34 AU915
-    0xB9800C00u, // bc=92 res=3 pi=0 AU915
-    0xB9804C00u, // bc=92 res=3 pi=1 AU915
-    0xB9808C00u, // bc=92 res=3 pi=2 AU915
-    0xB980CC00u, // bc=92 res=3 pi=3 AU915
-    0xB9810C00u, // bc=92 res=3 pi=4 AU915
-    0xB9814C00u, // bc=92 res=3 pi=5 AU915
-    0xB9818C00u, // bc=92 res=3 pi=6 AU915
-    0xB9820C00u, // bc=92 res=3 pi=8 AU915
-    0xB9824C00u, // bc=92 res=3 pi=9 AU915
-    0xB9828C00u, // bc=92 res=3 pi=10 AU915
-    0xB982CC00u, // bc=92 res=3 pi=11 AU915
-    0xB9830C00u, // bc=92 res=3 pi=12 AU915
-    0xB9834C00u, // bc=92 res=3 pi=13 AU915
-    0xB9838C00u, // bc=92 res=3 pi=14 AU915
-    0xB9840C00u, // bc=92 res=3 pi=16 AU915
-    0xB9844C00u, // bc=92 res=3 pi=17 AU915
-    0xB9848C00u, // bc=92 res=3 pi=18 AU915
-    0xB984CC00u, // bc=92 res=3 pi=19 AU915
-    0xB9850C00u, // bc=92 res=3 pi=20 AU915
-    0xB9854C00u, // bc=92 res=3 pi=21 AU915
-    0xB9858C00u, // bc=92 res=3 pi=22 AU915
-    0xB9860C00u, // bc=92 res=3 pi=24 AU915
-    0xB9864C00u, // bc=92 res=3 pi=25 AU915
-    0xB9868C00u, // bc=92 res=3 pi=26 AU915
-    0xB986CC00u, // bc=92 res=3 pi=27 AU915
-    0xB9870C00u, // bc=92 res=3 pi=28 AU915
-    0xB9874C00u, // bc=92 res=3 pi=29 AU915
-    0xB9878C00u, // bc=92 res=3 pi=30 AU915
+    0xB9888C00u, // bc=92 res=3 pi=34 AU915
+    0xB988CC00u, // bc=92 res=3 pi=35 AU915
+    0xB9898C00u, // bc=92 res=3 pi=38 AU915
     0xB98A0C00u, // bc=92 res=3 pi=40 AU915
     0xB98A4C00u, // bc=92 res=3 pi=41 AU915
     0xB98A8C00u, // bc=92 res=3 pi=42 AU915
     0xB98ACC00u, // bc=92 res=3 pi=43 AU915
+    0xB98B4C00u, // bc=92 res=3 pi=45 AU915
     0xB98B8C00u, // bc=92 res=3 pi=46 AU915
-    0xB98C0C00u, // bc=92 res=3 pi=48 AU915
-    0xB98C4C00u, // bc=92 res=3 pi=49 AU915
-    0xB98C8C00u, // bc=92 res=3 pi=50 AU915
-    0xB98CCC00u, // bc=92 res=3 pi=51 AU915
-    0xB98D0C00u, // bc=92 res=3 pi=52 AU915
-    0xB98D4C00u, // bc=92 res=3 pi=53 AU915
-    0xB98D8C00u, // bc=92 res=3 pi=54 AU915
-    0xB9900C00u, // bc=92 res=3 pi=64 AU915
-    0xB9904C00u, // bc=92 res=3 pi=65 AU915
-    0xB9908C00u, // bc=92 res=3 pi=66 AU915
-    0xB990CC00u, // bc=92 res=3 pi=67 AU915
-    0xB9910C00u, // bc=92 res=3 pi=68 AU915
-    0xB9914C00u, // bc=92 res=3 pi=69 AU915
-    0xB9918C00u, // bc=92 res=3 pi=70 AU915
-    0xB9920C00u, // bc=92 res=3 pi=72 AU915
-    0xB9924C00u, // bc=92 res=3 pi=73 AU915
-    0xB9928C00u, // bc=92 res=3 pi=74 AU915
-    0xB992CC00u, // bc=92 res=3 pi=75 AU915
-    0xB9930C00u, // bc=92 res=3 pi=76 AU915
-    0xB9934C00u, // bc=92 res=3 pi=77 AU915
-    0xB9938C00u, // bc=92 res=3 pi=78 AU915
-    0xB9940C00u, // bc=92 res=3 pi=80 AU915
-    0xB9944C00u, // bc=92 res=3 pi=81 AU915
-    0xB9948C00u, // bc=92 res=3 pi=82 AU915
-    0xB994CC00u, // bc=92 res=3 pi=83 AU915
-    0xB9950C00u, // bc=92 res=3 pi=84 AU915
-    0xB9954C00u, // bc=92 res=3 pi=85 AU915
-    0xB9958C00u, // bc=92 res=3 pi=86 AU915
-    0xB9960C00u, // bc=92 res=3 pi=88 AU915
-    0xB9964C00u, // bc=92 res=3 pi=89 AU915
-    0xB9968C00u, // bc=92 res=3 pi=90 AU915
-    0xB996CC00u, // bc=92 res=3 pi=91 AU915
-    0xB9970C00u, // bc=92 res=3 pi=92 AU915
-    0xB9974C00u, // bc=92 res=3 pi=93 AU915
-    0xB9978C00u, // bc=92 res=3 pi=94 AU915
-    0xB9980C00u, // bc=92 res=3 pi=96 AU915
-    0xB9984C00u, // bc=92 res=3 pi=97 AU915
-    0xB9988C00u, // bc=92 res=3 pi=98 AU915
-    0xB998CC00u, // bc=92 res=3 pi=99 AU915
-    0xB9990C00u, // bc=92 res=3 pi=100 AU915
-    0xB9994C00u, // bc=92 res=3 pi=101 AU915
-    0xB9998C00u, // bc=92 res=3 pi=102 AU915
-    0xB99A0C00u, // bc=92 res=3 pi=104 AU915
-    0xB99A4C00u, // bc=92 res=3 pi=105 AU915
-    0xB99A8C00u, // bc=92 res=3 pi=106 AU915
-    0xB99ACC00u, // bc=92 res=3 pi=107 AU915
-    0xB99B0C00u, // bc=92 res=3 pi=108 AU915
-    0xB99B4C00u, // bc=92 res=3 pi=109 AU915
-    0xB99B8C00u, // bc=92 res=3 pi=110 AU915
-    0xB99C0C00u, // bc=92 res=3 pi=112 AU915
-    0xB99C4C00u, // bc=92 res=3 pi=113 AU915
-    0xB99C8C00u, // bc=92 res=3 pi=114 AU915
-    0xB99CCC00u, // bc=92 res=3 pi=115 AU915
-    0xB99D0C00u, // bc=92 res=3 pi=116 AU915
-    0xB99D4C00u, // bc=92 res=3 pi=117 AU915
-    0xB99D8C00u, // bc=92 res=3 pi=118 AU915
-    0xB9A00C00u, // bc=92 res=3 pi=128 AU915
-    0xB9A04C00u, // bc=92 res=3 pi=129 AU915
-    0xB9A08C00u, // bc=92 res=3 pi=130 AU915
-    0xB9A0CC00u, // bc=92 res=3 pi=131 AU915
-    0xB9A10C00u, // bc=92 res=3 pi=132 AU915
-    0xB9A14C00u, // bc=92 res=3 pi=133 AU915
-    0xB9A18C00u, // bc=92 res=3 pi=134 AU915
-    0xB9A20C00u, // bc=92 res=3 pi=136 AU915
-    0xB9A24C00u, // bc=92 res=3 pi=137 AU915
-    0xB9A28C00u, // bc=92 res=3 pi=138 AU915
-    0xB9A2CC00u, // bc=92 res=3 pi=139 AU915
-    0xB9A30C00u, // bc=92 res=3 pi=140 AU915
-    0xB9A34C00u, // bc=92 res=3 pi=141 AU915
-    0xB9A38C00u, // bc=92 res=3 pi=142 AU915
-    0xB9A40C00u, // bc=92 res=3 pi=144 AU915
-    0xB9A44C00u, // bc=92 res=3 pi=145 AU915
-    0xB9A48C00u, // bc=92 res=3 pi=146 AU915
-    0xB9A4CC00u, // bc=92 res=3 pi=147 AU915
-    0xB9A50C00u, // bc=92 res=3 pi=148 AU915
-    0xB9A54C00u, // bc=92 res=3 pi=149 AU915
-    0xB9A58C00u, // bc=92 res=3 pi=150 AU915
-    0xB9A60C00u, // bc=92 res=3 pi=152 AU915
-    0xB9A64C00u, // bc=92 res=3 pi=153 AU915
-    0xB9A68C00u, // bc=92 res=3 pi=154 AU915
-    0xB9A6CC00u, // bc=92 res=3 pi=155 AU915
-    0xB9A70C00u, // bc=92 res=3 pi=156 AU915
-    0xB9A74C00u, // bc=92 res=3 pi=157 AU915
-    0xB9A78C00u, // bc=92 res=3 pi=158 AU915
-    0xB9A80C00u, // bc=92 res=3 pi=160 AU915
-    0xB9A84C00u, // bc=92 res=3 pi=161 AU915
-    0xB9A88C00u, // bc=92 res=3 pi=162 AU915
-    0xB9A8CC00u, // bc=92 res=3 pi=163 AU915
-    0xB9A90C00u, // bc=92 res=3 pi=164 AU915
-    0xB9A94C00u, // bc=92 res=3 pi=165 AU915
-    0xB9A98C00u, // bc=92 res=3 pi=166 AU915
-    0xB9AA0C00u, // bc=92 res=3 pi=168 AU915
-    0xB9AA4C00u, // bc=92 res=3 pi=169 AU915
-    0xB9AA8C00u, // bc=92 res=3 pi=170 AU915
-    0xB9AACC00u, // bc=92 res=3 pi=171 AU915
-    0xB9AB0C00u, // bc=92 res=3 pi=172 AU915
-    0xB9AB4C00u, // bc=92 res=3 pi=173 AU915
-    0xB9AB8C00u, // bc=92 res=3 pi=174 AU915
-    0xB9AC0C00u, // bc=92 res=3 pi=176 AU915
-    0xB9AC4C00u, // bc=92 res=3 pi=177 AU915
-    0xB9AC8C00u, // bc=92 res=3 pi=178 AU915
-    0xB9ACCC00u, // bc=92 res=3 pi=179 AU915
-    0xB9AD0C00u, // bc=92 res=3 pi=180 AU915
-    0xB9AD4C00u, // bc=92 res=3 pi=181 AU915
-    0xB9AD8C00u, // bc=92 res=3 pi=182 AU915
-    0xB9B00C00u, // bc=92 res=3 pi=192 AU915
-    0xB9B04C00u, // bc=92 res=3 pi=193 AU915
-    0xB9B08C00u, // bc=92 res=3 pi=194 AU915
-    0xB9B0CC00u, // bc=92 res=3 pi=195 AU915
-    0xB9B10C00u, // bc=92 res=3 pi=196 AU915
-    0xB9B14C00u, // bc=92 res=3 pi=197 AU915
-    0xB9B18C00u, // bc=92 res=3 pi=198 AU915
-    0xB9B20C00u, // bc=92 res=3 pi=200 AU915
-    0xB9B24C00u, // bc=92 res=3 pi=201 AU915
-    0xB9B28C00u, // bc=92 res=3 pi=202 AU915
-    0xB9B2CC00u, // bc=92 res=3 pi=203 AU915
-    0xB9B30C00u, // bc=92 res=3 pi=204 AU915
-    0xB9B34C00u, // bc=92 res=3 pi=205 AU915
-    0xB9B38C00u, // bc=92 res=3 pi=206 AU915
-    0xB9B40C00u, // bc=92 res=3 pi=208 AU915
-    0xB9B44C00u, // bc=92 res=3 pi=209 AU915
-    0xB9B48C00u, // bc=92 res=3 pi=210 AU915
-    0xB9B4CC00u, // bc=92 res=3 pi=211 AU915
-    0xB9B50C00u, // bc=92 res=3 pi=212 AU915
-    0xB9B54C00u, // bc=92 res=3 pi=213 AU915
-    0xB9B58C00u, // bc=92 res=3 pi=214 AU915
-    0xB9B60C00u, // bc=92 res=3 pi=216 AU915
-    0xB9B64C00u, // bc=92 res=3 pi=217 AU915
-    0xB9B68C00u, // bc=92 res=3 pi=218 AU915
-    0xB9B6CC00u, // bc=92 res=3 pi=219 AU915
-    0xB9B70C00u, // bc=92 res=3 pi=220 AU915
-    0xB9B74C00u, // bc=92 res=3 pi=221 AU915
-    0xB9B78C00u, // bc=92 res=3 pi=222 AU915
-    0xB9B80C00u, // bc=92 res=3 pi=224 AU915
-    0xB9B84C00u, // bc=92 res=3 pi=225 AU915
-    0xB9B88C00u, // bc=92 res=3 pi=226 AU915
-    0xB9B8CC00u, // bc=92 res=3 pi=227 AU915
-    0xB9B90C00u, // bc=92 res=3 pi=228 AU915
-    0xB9B94C00u, // bc=92 res=3 pi=229 AU915
-    0xB9B98C00u, // bc=92 res=3 pi=230 AU915
-    0xB9BA0C00u, // bc=92 res=3 pi=232 AU915
-    0xB9BA4C00u, // bc=92 res=3 pi=233 AU915
-    0xB9BA8C00u, // bc=92 res=3 pi=234 AU915
-    0xB9BACC00u, // bc=92 res=3 pi=235 AU915
-    0xB9BB0C00u, // bc=92 res=3 pi=236 AU915
-    0xB9BB4C00u, // bc=92 res=3 pi=237 AU915
-    0xB9BB8C00u, // bc=92 res=3 pi=238 AU915
-    0xB9BC0C00u, // bc=92 res=3 pi=240 AU915
-    0xB9BC4C00u, // bc=92 res=3 pi=241 AU915
-    0xB9BC8C00u, // bc=92 res=3 pi=242 AU915
-    0xB9BCCC00u, // bc=92 res=3 pi=243 AU915
-    0xB9BD0C00u, // bc=92 res=3 pi=244 AU915
-    0xB9BD4C00u, // bc=92 res=3 pi=245 AU915
-    0xB9BD8C00u, // bc=92 res=3 pi=246 AU915
+    0xB9C08C00u, // bc=92 res=3 pi=258 AU915
+    0xB9C60C00u, // bc=92 res=3 pi=280 AU915
     0xB9C68C00u, // bc=92 res=3 pi=282 AU915
     0xB9C6CC00u, // bc=92 res=3 pi=283 AU915
+    0xB9C70C00u, // bc=92 res=3 pi=284 AU915
     0xB9C78C00u, // bc=92 res=3 pi=286 AU915
+    0xB9CC8C00u, // bc=92 res=3 pi=306 AU915
     0xB9CCCC00u, // bc=92 res=3 pi=307 AU915
+    0xB9CD8C00u, // bc=92 res=3 pi=310 AU915
+    0xB9D28C00u, // bc=92 res=3 pi=330 AU915
     0xB9D2CC00u, // bc=92 res=3 pi=331 AU915
     0xB9D64C00u, // bc=92 res=3 pi=345 AU915
+    0xB9D68C00u, // bc=92 res=3 pi=346 AU915
     0xB9D6CC00u, // bc=92 res=3 pi=347 AU915
-    0xB9E00C00u, // bc=92 res=3 pi=384 AU915
-    0xB9E04C00u, // bc=92 res=3 pi=385 AU915
-    0xB9E08C00u, // bc=92 res=3 pi=386 AU915
-    0xB9E0CC00u, // bc=92 res=3 pi=387 AU915
-    0xB9E10C00u, // bc=92 res=3 pi=388 AU915
-    0xB9E14C00u, // bc=92 res=3 pi=389 AU915
-    0xB9E18C00u, // bc=92 res=3 pi=390 AU915
-    0xB9E20C00u, // bc=92 res=3 pi=392 AU915
-    0xB9E24C00u, // bc=92 res=3 pi=393 AU915
-    0xB9E28C00u, // bc=92 res=3 pi=394 AU915
-    0xB9E2CC00u, // bc=92 res=3 pi=395 AU915
-    0xB9E30C00u, // bc=92 res=3 pi=396 AU915
-    0xB9E34C00u, // bc=92 res=3 pi=397 AU915
-    0xB9E38C00u, // bc=92 res=3 pi=398 AU915
-    0xB9E40C00u, // bc=92 res=3 pi=400 AU915
-    0xB9E44C00u, // bc=92 res=3 pi=401 AU915
-    0xB9E48C00u, // bc=92 res=3 pi=402 AU915
-    0xB9E4CC00u, // bc=92 res=3 pi=403 AU915
-    0xB9E50C00u, // bc=92 res=3 pi=404 AU915
-    0xB9E54C00u, // bc=92 res=3 pi=405 AU915
-    0xB9E58C00u, // bc=92 res=3 pi=406 AU915
-    0xB9E60C00u, // bc=92 res=3 pi=408 AU915
-    0xB9E64C00u, // bc=92 res=3 pi=409 AU915
-    0xB9E68C00u, // bc=92 res=3 pi=410 AU915
-    0xB9E6CC00u, // bc=92 res=3 pi=411 AU915
-    0xB9E70C00u, // bc=92 res=3 pi=412 AU915
-    0xB9E74C00u, // bc=92 res=3 pi=413 AU915
-    0xB9E78C00u, // bc=92 res=3 pi=414 AU915
-    0xB9E80C00u, // bc=92 res=3 pi=416 AU915
-    0xB9E84C00u, // bc=92 res=3 pi=417 AU915
-    0xB9E88C00u, // bc=92 res=3 pi=418 AU915
-    0xB9E8CC00u, // bc=92 res=3 pi=419 AU915
-    0xB9E90C00u, // bc=92 res=3 pi=420 AU915
-    0xB9E94C00u, // bc=92 res=3 pi=421 AU915
-    0xB9E98C00u, // bc=92 res=3 pi=422 AU915
-    0xB9EA0C00u, // bc=92 res=3 pi=424 AU915
-    0xB9EA4C00u, // bc=92 res=3 pi=425 AU915
-    0xB9EA8C00u, // bc=92 res=3 pi=426 AU915
-    0xB9EACC00u, // bc=92 res=3 pi=427 AU915
-    0xB9EB0C00u, // bc=92 res=3 pi=428 AU915
-    0xB9EB4C00u, // bc=92 res=3 pi=429 AU915
-    0xB9EB8C00u, // bc=92 res=3 pi=430 AU915
-    0xB9EC0C00u, // bc=92 res=3 pi=432 AU915
-    0xB9EC4C00u, // bc=92 res=3 pi=433 AU915
-    0xB9EC8C00u, // bc=92 res=3 pi=434 AU915
-    0xB9ECCC00u, // bc=92 res=3 pi=435 AU915
-    0xB9ED0C00u, // bc=92 res=3 pi=436 AU915
-    0xB9ED4C00u, // bc=92 res=3 pi=437 AU915
-    0xB9ED8C00u, // bc=92 res=3 pi=438 AU915
+    0xB9D74C00u, // bc=92 res=3 pi=349 AU915
     0xBB085800u, // bc=93 res=2 pi=33 AS923-1C
-    0xBB0A9800u, // bc=93 res=2 pi=42 AS923-1C
-    0xBB0AD800u, // bc=93 res=2 pi=43 AS923-1C
+    0xBB861800u, // bc=93 res=3 pi=24 AS923-1C
     0xBB869800u, // bc=93 res=3 pi=26 AS923-1C
+    0xBB879800u, // bc=93 res=3 pi=30 AS923-1C
     0xBB891800u, // bc=93 res=3 pi=36 AS923-1C
+    0xBB895800u, // bc=93 res=3 pi=37 AS923-1C
+    0xBB9A4C00u, // bc=93 res=3 pi=105 AU915
+    0xBB9B4C00u, // bc=93 res=3 pi=109 AU915
+    0xBBB60C00u, // bc=93 res=3 pi=216 AU915
+    0xBBB70C00u, // bc=93 res=3 pi=220 AU915
+    0xBBB78C00u, // bc=93 res=3 pi=222 AU915
+    0xBBBD1800u, // bc=93 res=3 pi=244 AS923-1C
+    0xBBBD9800u, // bc=93 res=3 pi=246 AS923-1C
+    0xBBCA1800u, // bc=93 res=3 pi=296 AS923-1C
     0xBBCA5800u, // bc=93 res=3 pi=297 AS923-1C
+    0xBBCA9800u, // bc=93 res=3 pi=298 AS923-1C
     0xBBCAD800u, // bc=93 res=3 pi=299 AS923-1C
+    0xBBCB5800u, // bc=93 res=3 pi=301 AS923-1C
+    0xBBCC9800u, // bc=93 res=3 pi=306 AS923-1C
+    0xBBCD9800u, // bc=93 res=3 pi=310 AS923-1C
+    0xBBD41800u, // bc=93 res=3 pi=336 AS923-1C
+    0xBBD45800u, // bc=93 res=3 pi=337 AS923-1C
+    0xBBD49800u, // bc=93 res=3 pi=338 AS923-1C
+    0xBBD4D800u, // bc=93 res=3 pi=339 AS923-1C
+    0xBBD51800u, // bc=93 res=3 pi=340 AS923-1C
+    0xBBD59800u, // bc=93 res=3 pi=342 AS923-1C
+    0xBBD61800u, // bc=93 res=3 pi=344 AS923-1C
+    0xBBD65800u, // bc=93 res=3 pi=345 AS923-1C
+    0xBBD71800u, // bc=93 res=3 pi=348 AS923-1C
+    0xBBD79800u, // bc=93 res=3 pi=350 AS923-1C
+    0xBBDC1800u, // bc=93 res=3 pi=368 AS923-1C
     0xBBDC9800u, // bc=93 res=3 pi=370 AS923-1C
+    0xBBDCD800u, // bc=93 res=3 pi=371 AS923-1C
     0xBBDD1800u, // bc=93 res=3 pi=372 AS923-1C
-    0xBC804800u, // bc=94 res=1 pi=1 EU868
-    0xBC80C800u, // bc=94 res=1 pi=3 EU868
+    0xBBDD5800u, // bc=93 res=3 pi=373 AS923-1C
+    0xBBDD9800u, // bc=93 res=3 pi=374 AS923-1C
+    0xBD020800u, // bc=94 res=2 pi=8 EU868
+    0xBD024800u, // bc=94 res=2 pi=9 EU868
+    0xBD028800u, // bc=94 res=2 pi=10 EU868
+    0xBD02C800u, // bc=94 res=2 pi=11 EU868
+    0xBD060800u, // bc=94 res=2 pi=24 EU868
+    0xBD064800u, // bc=94 res=2 pi=25 EU868
+    0xBD068800u, // bc=94 res=2 pi=26 EU868
+    0xBD06C800u, // bc=94 res=2 pi=27 EU868
+    0xBD074800u, // bc=94 res=2 pi=29 EU868
+    0xBD078800u, // bc=94 res=2 pi=30 EU868
+    0xBD820800u, // bc=94 res=3 pi=8 EU868
     0xBD824800u, // bc=94 res=3 pi=9 EU868
+    0xBD828800u, // bc=94 res=3 pi=10 EU868
     0xBD82C800u, // bc=94 res=3 pi=11 EU868
-    0xBD900800u, // bc=94 res=3 pi=64 EU868
-    0xBD904800u, // bc=94 res=3 pi=65 EU868
-    0xBD908800u, // bc=94 res=3 pi=66 EU868
-    0xBD90C800u, // bc=94 res=3 pi=67 EU868
-    0xBD914800u, // bc=94 res=3 pi=69 EU868
-    0xBD918800u, // bc=94 res=3 pi=70 EU868
-    0xBD920800u, // bc=94 res=3 pi=72 EU868
-    0xBD924800u, // bc=94 res=3 pi=73 EU868
-    0xBD928800u, // bc=94 res=3 pi=74 EU868
-    0xBD92C800u, // bc=94 res=3 pi=75 EU868
-    0xBD930800u, // bc=94 res=3 pi=76 EU868
-    0xBD934800u, // bc=94 res=3 pi=77 EU868
-    0xBD938800u, // bc=94 res=3 pi=78 EU868
-    0xBD940800u, // bc=94 res=3 pi=80 EU868
-    0xBD944800u, // bc=94 res=3 pi=81 EU868
-    0xBD948800u, // bc=94 res=3 pi=82 EU868
-    0xBD94C800u, // bc=94 res=3 pi=83 EU868
-    0xBD950800u, // bc=94 res=3 pi=84 EU868
-    0xBD954800u, // bc=94 res=3 pi=85 EU868
-    0xBD958800u, // bc=94 res=3 pi=86 EU868
-    0xBD960800u, // bc=94 res=3 pi=88 EU868
-    0xBD964800u, // bc=94 res=3 pi=89 EU868
-    0xBD968800u, // bc=94 res=3 pi=90 EU868
-    0xBD96C800u, // bc=94 res=3 pi=91 EU868
-    0xBD970800u, // bc=94 res=3 pi=92 EU868
-    0xBD974800u, // bc=94 res=3 pi=93 EU868
-    0xBD978800u, // bc=94 res=3 pi=94 EU868
+    0xBD864800u, // bc=94 res=3 pi=25 EU868
+    0xBD86C800u, // bc=94 res=3 pi=27 EU868
+    0xBD9A0800u, // bc=94 res=3 pi=104 EU868
+    0xBD9A4800u, // bc=94 res=3 pi=105 EU868
     0xBD9A8800u, // bc=94 res=3 pi=106 EU868
     0xBD9AC800u, // bc=94 res=3 pi=107 EU868
+    0xBD9B8800u, // bc=94 res=3 pi=110 EU868
+    0xBD9C0800u, // bc=94 res=3 pi=112 EU868
+    0xBD9C4800u, // bc=94 res=3 pi=113 EU868
     0xBD9C8800u, // bc=94 res=3 pi=114 EU868
     0xBD9CC800u, // bc=94 res=3 pi=115 EU868
     0xBDA24800u, // bc=94 res=3 pi=137 EU868
+    0xBDA28800u, // bc=94 res=3 pi=138 EU868
     0xBDA2C800u, // bc=94 res=3 pi=139 EU868
+    0xBDA34800u, // bc=94 res=3 pi=141 EU868
     0xBDA64800u, // bc=94 res=3 pi=153 EU868
-    0xBDB00800u, // bc=94 res=3 pi=192 EU868
-    0xBDB04800u, // bc=94 res=3 pi=193 EU868
-    0xBDB08800u, // bc=94 res=3 pi=194 EU868
-    0xBDB0C800u, // bc=94 res=3 pi=195 EU868
-    0xBDB10800u, // bc=94 res=3 pi=196 EU868
-    0xBDB14800u, // bc=94 res=3 pi=197 EU868
-    0xBDB18800u, // bc=94 res=3 pi=198 EU868
-    0xBDB20800u, // bc=94 res=3 pi=200 EU868
-    0xBDB24800u, // bc=94 res=3 pi=201 EU868
-    0xBDB28800u, // bc=94 res=3 pi=202 EU868
-    0xBDB2C800u, // bc=94 res=3 pi=203 EU868
-    0xBDB30800u, // bc=94 res=3 pi=204 EU868
-    0xBDB34800u, // bc=94 res=3 pi=205 EU868
-    0xBDB38800u, // bc=94 res=3 pi=206 EU868
-    0xBDB40800u, // bc=94 res=3 pi=208 EU868
-    0xBDB44800u, // bc=94 res=3 pi=209 EU868
-    0xBDB48800u, // bc=94 res=3 pi=210 EU868
-    0xBDB4C800u, // bc=94 res=3 pi=211 EU868
-    0xBDB50800u, // bc=94 res=3 pi=212 EU868
-    0xBDB54800u, // bc=94 res=3 pi=213 EU868
-    0xBDB58800u, // bc=94 res=3 pi=214 EU868
-    0xBDB60800u, // bc=94 res=3 pi=216 EU868
-    0xBDB64800u, // bc=94 res=3 pi=217 EU868
-    0xBDB68800u, // bc=94 res=3 pi=218 EU868
-    0xBDB6C800u, // bc=94 res=3 pi=219 EU868
-    0xBDB70800u, // bc=94 res=3 pi=220 EU868
-    0xBDB74800u, // bc=94 res=3 pi=221 EU868
-    0xBDB78800u, // bc=94 res=3 pi=222 EU868
-    0xBDB83800u, // bc=94 res=3 pi=224 EU433
+    0xBDA6C800u, // bc=94 res=3 pi=155 EU868
+    0xBDB80800u, // bc=94 res=3 pi=224 EU868
     0xBDB87800u, // bc=94 res=3 pi=225 EU433
-    0xBDB8B800u, // bc=94 res=3 pi=226 EU433
+    0xBDB88800u, // bc=94 res=3 pi=226 EU868
     0xBDB8F800u, // bc=94 res=3 pi=227 EU433
     0xBDB90800u, // bc=94 res=3 pi=228 EU868
     0xBDB94800u, // bc=94 res=3 pi=229 EU868
     0xBDB98800u, // bc=94 res=3 pi=230 EU868
-    0xBDBA0800u, // bc=94 res=3 pi=232 EU868
-    0xBDBA4800u, // bc=94 res=3 pi=233 EU868
-    0xBDBA8800u, // bc=94 res=3 pi=234 EU868
-    0xBDBAC800u, // bc=94 res=3 pi=235 EU868
-    0xBDBB0800u, // bc=94 res=3 pi=236 EU868
-    0xBDBB4800u, // bc=94 res=3 pi=237 EU868
-    0xBDBB8800u, // bc=94 res=3 pi=238 EU868
-    0xBDBC0800u, // bc=94 res=3 pi=240 EU868
-    0xBDBC4800u, // bc=94 res=3 pi=241 EU868
-    0xBDBC8800u, // bc=94 res=3 pi=242 EU868
-    0xBDBCC800u, // bc=94 res=3 pi=243 EU868
-    0xBDBD4800u, // bc=94 res=3 pi=245 EU868
-    0xBDBD8800u, // bc=94 res=3 pi=246 EU868
-    0xBE804C00u, // bc=95 res=1 pi=1 AU915
     0xBE80CC00u, // bc=95 res=1 pi=3 AU915
     0xBF004C00u, // bc=95 res=2 pi=1 AU915
-    0xBF00CC00u, // bc=95 res=2 pi=3 AU915
-    0xBF044C00u, // bc=95 res=2 pi=17 AU915
+    0xBF020C00u, // bc=95 res=2 pi=8 AU915
+    0xBF024C00u, // bc=95 res=2 pi=9 AU915
+    0xBF028C00u, // bc=95 res=2 pi=10 AU915
+    0xBF02CC00u, // bc=95 res=2 pi=11 AU915
+    0xBF030C00u, // bc=95 res=2 pi=12 AU915
+    0xBF038C00u, // bc=95 res=2 pi=14 AU915
     0xBF0A4C00u, // bc=95 res=2 pi=41 AU915
-    0xBF900C00u, // bc=95 res=3 pi=64 AU915
-    0xBF904C00u, // bc=95 res=3 pi=65 AU915
-    0xBF908C00u, // bc=95 res=3 pi=66 AU915
-    0xBF90CC00u, // bc=95 res=3 pi=67 AU915
-    0xBF910C00u, // bc=95 res=3 pi=68 AU915
-    0xBF914C00u, // bc=95 res=3 pi=69 AU915
-    0xBF918C00u, // bc=95 res=3 pi=70 AU915
-    0xBF920C00u, // bc=95 res=3 pi=72 AU915
-    0xBF924C00u, // bc=95 res=3 pi=73 AU915
-    0xBF928C00u, // bc=95 res=3 pi=74 AU915
-    0xBF92CC00u, // bc=95 res=3 pi=75 AU915
-    0xBF930C00u, // bc=95 res=3 pi=76 AU915
-    0xBF934C00u, // bc=95 res=3 pi=77 AU915
-    0xBF938C00u, // bc=95 res=3 pi=78 AU915
-    0xBF940C00u, // bc=95 res=3 pi=80 AU915
-    0xBF944C00u, // bc=95 res=3 pi=81 AU915
-    0xBF948C00u, // bc=95 res=3 pi=82 AU915
-    0xBF94CC00u, // bc=95 res=3 pi=83 AU915
-    0xBF950C00u, // bc=95 res=3 pi=84 AU915
-    0xBF954C00u, // bc=95 res=3 pi=85 AU915
-    0xBF958C00u, // bc=95 res=3 pi=86 AU915
-    0xBF960C00u, // bc=95 res=3 pi=88 AU915
-    0xBF964C00u, // bc=95 res=3 pi=89 AU915
-    0xBF968C00u, // bc=95 res=3 pi=90 AU915
-    0xBF96CC00u, // bc=95 res=3 pi=91 AU915
-    0xBF970C00u, // bc=95 res=3 pi=92 AU915
-    0xBF974C00u, // bc=95 res=3 pi=93 AU915
-    0xBF978C00u, // bc=95 res=3 pi=94 AU915
-    0xBF980C00u, // bc=95 res=3 pi=96 AU915
-    0xBF988C00u, // bc=95 res=3 pi=98 AU915
-    0xBF98CC00u, // bc=95 res=3 pi=99 AU915
-    0xBF998C00u, // bc=95 res=3 pi=102 AU915
+    0xBF860C00u, // bc=95 res=3 pi=24 AU915
+    0xBF864C00u, // bc=95 res=3 pi=25 AU915
+    0xBF868C00u, // bc=95 res=3 pi=26 AU915
+    0xBF86CC00u, // bc=95 res=3 pi=27 AU915
+    0xBF874C00u, // bc=95 res=3 pi=29 AU915
+    0xBF8A4C00u, // bc=95 res=3 pi=41 AU915
+    0xBF8ACC00u, // bc=95 res=3 pi=43 AU915
     0xBF9A0C00u, // bc=95 res=3 pi=104 AU915
+    0xBF9A4C00u, // bc=95 res=3 pi=105 AU915
     0xBF9A8C00u, // bc=95 res=3 pi=106 AU915
     0xBF9ACC00u, // bc=95 res=3 pi=107 AU915
+    0xBF9B0C00u, // bc=95 res=3 pi=108 AU915
     0xBF9B8C00u, // bc=95 res=3 pi=110 AU915
-    0xBF9C0C00u, // bc=95 res=3 pi=112 AU915
-    0xBF9C4C00u, // bc=95 res=3 pi=113 AU915
-    0xBF9C8C00u, // bc=95 res=3 pi=114 AU915
-    0xBF9CCC00u, // bc=95 res=3 pi=115 AU915
-    0xBF9D0C00u, // bc=95 res=3 pi=116 AU915
-    0xBF9D4C00u, // bc=95 res=3 pi=117 AU915
-    0xBF9D8C00u, // bc=95 res=3 pi=118 AU915
+    0xBFA20C00u, // bc=95 res=3 pi=136 AU915
+    0xBFA24C00u, // bc=95 res=3 pi=137 AU915
+    0xBFA28C00u, // bc=95 res=3 pi=138 AU915
+    0xBFA2CC00u, // bc=95 res=3 pi=139 AU915
+    0xBFA30C00u, // bc=95 res=3 pi=140 AU915
+    0xBFA34C00u, // bc=95 res=3 pi=141 AU915
+    0xBFA60C00u, // bc=95 res=3 pi=152 AU915
+    0xBFA68C00u, // bc=95 res=3 pi=154 AU915
+    0xBFA80C00u, // bc=95 res=3 pi=160 AU915
     0xBFA90C00u, // bc=95 res=3 pi=164 AU915
+    0xBFA98C00u, // bc=95 res=3 pi=166 AU915
     0xBFAA4C00u, // bc=95 res=3 pi=169 AU915
-    0xBFB00C00u, // bc=95 res=3 pi=192 AU915
-    0xBFB04C00u, // bc=95 res=3 pi=193 AU915
-    0xBFB08C00u, // bc=95 res=3 pi=194 AU915
-    0xBFB0CC00u, // bc=95 res=3 pi=195 AU915
-    0xBFB10C00u, // bc=95 res=3 pi=196 AU915
-    0xBFB14C00u, // bc=95 res=3 pi=197 AU915
-    0xBFB18C00u, // bc=95 res=3 pi=198 AU915
-    0xBFB20C00u, // bc=95 res=3 pi=200 AU915
-    0xBFB24C00u, // bc=95 res=3 pi=201 AU915
-    0xBFB28C00u, // bc=95 res=3 pi=202 AU915
-    0xBFB2CC00u, // bc=95 res=3 pi=203 AU915
-    0xBFB30C00u, // bc=95 res=3 pi=204 AU915
-    0xBFB34C00u, // bc=95 res=3 pi=205 AU915
-    0xBFB38C00u, // bc=95 res=3 pi=206 AU915
-    0xBFB40C00u, // bc=95 res=3 pi=208 AU915
-    0xBFB44C00u, // bc=95 res=3 pi=209 AU915
-    0xBFB48C00u, // bc=95 res=3 pi=210 AU915
-    0xBFB4CC00u, // bc=95 res=3 pi=211 AU915
-    0xBFB50C00u, // bc=95 res=3 pi=212 AU915
-    0xBFB54C00u, // bc=95 res=3 pi=213 AU915
-    0xBFB58C00u, // bc=95 res=3 pi=214 AU915
-    0xBFB60C00u, // bc=95 res=3 pi=216 AU915
-    0xBFB64C00u, // bc=95 res=3 pi=217 AU915
-    0xBFB68C00u, // bc=95 res=3 pi=218 AU915
-    0xBFB6CC00u, // bc=95 res=3 pi=219 AU915
-    0xBFB70C00u, // bc=95 res=3 pi=220 AU915
-    0xBFB74C00u, // bc=95 res=3 pi=221 AU915
-    0xBFB78C00u, // bc=95 res=3 pi=222 AU915
-    0xBFB80C00u, // bc=95 res=3 pi=224 AU915
-    0xBFB84C00u, // bc=95 res=3 pi=225 AU915
-    0xBFB88C00u, // bc=95 res=3 pi=226 AU915
-    0xBFB8CC00u, // bc=95 res=3 pi=227 AU915
-    0xBFB90C00u, // bc=95 res=3 pi=228 AU915
-    0xBFB94C00u, // bc=95 res=3 pi=229 AU915
-    0xBFB98C00u, // bc=95 res=3 pi=230 AU915
-    0xBFBA0C00u, // bc=95 res=3 pi=232 AU915
-    0xBFBA4C00u, // bc=95 res=3 pi=233 AU915
-    0xBFBA8C00u, // bc=95 res=3 pi=234 AU915
-    0xBFBACC00u, // bc=95 res=3 pi=235 AU915
-    0xBFBB0C00u, // bc=95 res=3 pi=236 AU915
-    0xBFBB4C00u, // bc=95 res=3 pi=237 AU915
-    0xBFBB8C00u, // bc=95 res=3 pi=238 AU915
-    0xBFBC0C00u, // bc=95 res=3 pi=240 AU915
-    0xBFBC4C00u, // bc=95 res=3 pi=241 AU915
-    0xBFBC8C00u, // bc=95 res=3 pi=242 AU915
-    0xBFBCCC00u, // bc=95 res=3 pi=243 AU915
-    0xBFBD0C00u, // bc=95 res=3 pi=244 AU915
-    0xBFBD4C00u, // bc=95 res=3 pi=245 AU915
-    0xBFBD8C00u, // bc=95 res=3 pi=246 AU915
+    0xBFAACC00u, // bc=95 res=3 pi=171 AU915
     0xBFD64C00u, // bc=95 res=3 pi=345 AU915
+    0xBFD68C00u, // bc=95 res=3 pi=346 AU915
+    0xBFD6CC00u, // bc=95 res=3 pi=347 AU915
+    0xBFD74C00u, // bc=95 res=3 pi=349 AU915
+    0xBFDACC00u, // bc=95 res=3 pi=363 AU915
+    0xBFE20C00u, // bc=95 res=3 pi=392 AU915
+    0xBFE2CC00u, // bc=95 res=3 pi=395 AU915
+    0xC1870800u, // bc=96 res=3 pi=28 EU868
     0xC1878800u, // bc=96 res=3 pi=30 EU868
-    0xC280CC00u, // bc=97 res=1 pi=3 AU915
+    0xC1B88800u, // bc=96 res=3 pi=226 EU868
     0xC2814C00u, // bc=97 res=1 pi=5 AU915
     0xC3014C00u, // bc=97 res=2 pi=5 AU915
-    0xC3084C00u, // bc=97 res=2 pi=33 AU915
-    0xC3090C00u, // bc=97 res=2 pi=36 AU915
+    0xC3060C00u, // bc=97 res=2 pi=24 AU915
+    0xC3064C00u, // bc=97 res=2 pi=25 AU915
+    0xC3068C00u, // bc=97 res=2 pi=26 AU915
+    0xC306CC00u, // bc=97 res=2 pi=27 AU915
+    0xC3070C00u, // bc=97 res=2 pi=28 AU915
+    0xC3074C00u, // bc=97 res=2 pi=29 AU915
     0xC3094C00u, // bc=97 res=2 pi=37 AU915
+    0xC3800C00u, // bc=97 res=3 pi=0 AU915
     0xC380CC00u, // bc=97 res=3 pi=3 AU915
+    0xC3814C00u, // bc=97 res=3 pi=5 AU915
+    0xC3860C00u, // bc=97 res=3 pi=24 AU915
     0xC3864C00u, // bc=97 res=3 pi=25 AU915
     0xC386CC00u, // bc=97 res=3 pi=27 AU915
+    0xC3870C00u, // bc=97 res=3 pi=28 AU915
     0xC3874C00u, // bc=97 res=3 pi=29 AU915
     0xC3884C00u, // bc=97 res=3 pi=33 AU915
-    0xC3B00C00u, // bc=97 res=3 pi=192 AU915
-    0xC3B04C00u, // bc=97 res=3 pi=193 AU915
-    0xC3B08C00u, // bc=97 res=3 pi=194 AU915
-    0xC3B0CC00u, // bc=97 res=3 pi=195 AU915
-    0xC3B10C00u, // bc=97 res=3 pi=196 AU915
-    0xC3B14C00u, // bc=97 res=3 pi=197 AU915
-    0xC3B18C00u, // bc=97 res=3 pi=198 AU915
-    0xC3B20C00u, // bc=97 res=3 pi=200 AU915
-    0xC3B24C00u, // bc=97 res=3 pi=201 AU915
-    0xC3B28C00u, // bc=97 res=3 pi=202 AU915
-    0xC3B2CC00u, // bc=97 res=3 pi=203 AU915
-    0xC3B30C00u, // bc=97 res=3 pi=204 AU915
-    0xC3B34C00u, // bc=97 res=3 pi=205 AU915
-    0xC3B38C00u, // bc=97 res=3 pi=206 AU915
-    0xC3B40C00u, // bc=97 res=3 pi=208 AU915
-    0xC3B44C00u, // bc=97 res=3 pi=209 AU915
-    0xC3B48C00u, // bc=97 res=3 pi=210 AU915
-    0xC3B4CC00u, // bc=97 res=3 pi=211 AU915
-    0xC3B50C00u, // bc=97 res=3 pi=212 AU915
-    0xC3B54C00u, // bc=97 res=3 pi=213 AU915
-    0xC3B58C00u, // bc=97 res=3 pi=214 AU915
-    0xC3B60C00u, // bc=97 res=3 pi=216 AU915
-    0xC3B64C00u, // bc=97 res=3 pi=217 AU915
-    0xC3B68C00u, // bc=97 res=3 pi=218 AU915
-    0xC3B6CC00u, // bc=97 res=3 pi=219 AU915
-    0xC3B70C00u, // bc=97 res=3 pi=220 AU915
-    0xC3B74C00u, // bc=97 res=3 pi=221 AU915
-    0xC3B78C00u, // bc=97 res=3 pi=222 AU915
-    0xC3B80C00u, // bc=97 res=3 pi=224 AU915
-    0xC3B84C00u, // bc=97 res=3 pi=225 AU915
-    0xC3B88C00u, // bc=97 res=3 pi=226 AU915
-    0xC3B8CC00u, // bc=97 res=3 pi=227 AU915
-    0xC3B90C00u, // bc=97 res=3 pi=228 AU915
-    0xC3B94C00u, // bc=97 res=3 pi=229 AU915
-    0xC3B98C00u, // bc=97 res=3 pi=230 AU915
-    0xC3BA0C00u, // bc=97 res=3 pi=232 AU915
-    0xC3BA4C00u, // bc=97 res=3 pi=233 AU915
-    0xC3BA8C00u, // bc=97 res=3 pi=234 AU915
-    0xC3BACC00u, // bc=97 res=3 pi=235 AU915
-    0xC3BB0C00u, // bc=97 res=3 pi=236 AU915
-    0xC3BB4C00u, // bc=97 res=3 pi=237 AU915
-    0xC3BB8C00u, // bc=97 res=3 pi=238 AU915
+    0xC388CC00u, // bc=97 res=3 pi=35 AU915
+    0xC3894C00u, // bc=97 res=3 pi=37 AU915
+    0xC3A24C00u, // bc=97 res=3 pi=137 AU915
     0xC3BC0C00u, // bc=97 res=3 pi=240 AU915
     0xC3BC4C00u, // bc=97 res=3 pi=241 AU915
+    0xC3BC8C00u, // bc=97 res=3 pi=242 AU915
     0xC3BCCC00u, // bc=97 res=3 pi=243 AU915
+    0xC3BD0C00u, // bc=97 res=3 pi=244 AU915
     0xC3BD4C00u, // bc=97 res=3 pi=245 AU915
-    0xC3D00C00u, // bc=97 res=3 pi=320 AU915
-    0xC3D04C00u, // bc=97 res=3 pi=321 AU915
-    0xC3D08C00u, // bc=97 res=3 pi=322 AU915
-    0xC3D0CC00u, // bc=97 res=3 pi=323 AU915
-    0xC3D10C00u, // bc=97 res=3 pi=324 AU915
-    0xC3D14C00u, // bc=97 res=3 pi=325 AU915
-    0xC3D18C00u, // bc=97 res=3 pi=326 AU915
-    0xC3D20C00u, // bc=97 res=3 pi=328 AU915
-    0xC3D24C00u, // bc=97 res=3 pi=329 AU915
-    0xC3D28C00u, // bc=97 res=3 pi=330 AU915
-    0xC3D2CC00u, // bc=97 res=3 pi=331 AU915
-    0xC3D30C00u, // bc=97 res=3 pi=332 AU915
-    0xC3D34C00u, // bc=97 res=3 pi=333 AU915
-    0xC3D38C00u, // bc=97 res=3 pi=334 AU915
-    0xC3D40C00u, // bc=97 res=3 pi=336 AU915
-    0xC3D44C00u, // bc=97 res=3 pi=337 AU915
-    0xC3D48C00u, // bc=97 res=3 pi=338 AU915
-    0xC3D4CC00u, // bc=97 res=3 pi=339 AU915
-    0xC3D50C00u, // bc=97 res=3 pi=340 AU915
-    0xC3D54C00u, // bc=97 res=3 pi=341 AU915
-    0xC3D58C00u, // bc=97 res=3 pi=342 AU915
-    0xC3D60C00u, // bc=97 res=3 pi=344 AU915
-    0xC3D64C00u, // bc=97 res=3 pi=345 AU915
-    0xC3D68C00u, // bc=97 res=3 pi=346 AU915
-    0xC3D6CC00u, // bc=97 res=3 pi=347 AU915
-    0xC3D70C00u, // bc=97 res=3 pi=348 AU915
-    0xC3D74C00u, // bc=97 res=3 pi=349 AU915
-    0xC3D78C00u, // bc=97 res=3 pi=350 AU915
-    0xC3D80C00u, // bc=97 res=3 pi=352 AU915
-    0xC3D84C00u, // bc=97 res=3 pi=353 AU915
-    0xC3D88C00u, // bc=97 res=3 pi=354 AU915
-    0xC3D8CC00u, // bc=97 res=3 pi=355 AU915
-    0xC3D90C00u, // bc=97 res=3 pi=356 AU915
-    0xC3D94C00u, // bc=97 res=3 pi=357 AU915
-    0xC3D98C00u, // bc=97 res=3 pi=358 AU915
-    0xC3DA0C00u, // bc=97 res=3 pi=360 AU915
-    0xC3DA4C00u, // bc=97 res=3 pi=361 AU915
-    0xC3DA8C00u, // bc=97 res=3 pi=362 AU915
-    0xC3DACC00u, // bc=97 res=3 pi=363 AU915
-    0xC3DB0C00u, // bc=97 res=3 pi=364 AU915
-    0xC3DB4C00u, // bc=97 res=3 pi=365 AU915
-    0xC3DB8C00u, // bc=97 res=3 pi=366 AU915
-    0xC3DC0C00u, // bc=97 res=3 pi=368 AU915
-    0xC3DC4C00u, // bc=97 res=3 pi=369 AU915
-    0xC3DC8C00u, // bc=97 res=3 pi=370 AU915
-    0xC3DCCC00u, // bc=97 res=3 pi=371 AU915
-    0xC3DD0C00u, // bc=97 res=3 pi=372 AU915
-    0xC3DD4C00u, // bc=97 res=3 pi=373 AU915
-    0xC3DD8C00u, // bc=97 res=3 pi=374 AU915
+    0xC3C04C00u, // bc=97 res=3 pi=257 AU915
+    0xC3C14C00u, // bc=97 res=3 pi=261 AU915
+    0xC3C20C00u, // bc=97 res=3 pi=264 AU915
+    0xC3C24C00u, // bc=97 res=3 pi=265 AU915
+    0xC3C2CC00u, // bc=97 res=3 pi=267 AU915
+    0xC3C30C00u, // bc=97 res=3 pi=268 AU915
+    0xC3C34C00u, // bc=97 res=3 pi=269 AU915
+    0xC3C80C00u, // bc=97 res=3 pi=288 AU915
+    0xC3C84C00u, // bc=97 res=3 pi=289 AU915
+    0xC3C8CC00u, // bc=97 res=3 pi=291 AU915
+    0xC3C90C00u, // bc=97 res=3 pi=292 AU915
+    0xC3C94C00u, // bc=97 res=3 pi=293 AU915
+    0xC3C98C00u, // bc=97 res=3 pi=294 AU915
     0xC90C8C00u, // bc=100 res=2 pi=50 AU915
-    0xC90D8C00u, // bc=100 res=2 pi=54 AU915
+    0xC9E00C00u, // bc=100 res=3 pi=384 AU915
     0xC9E08C00u, // bc=100 res=3 pi=386 AU915
+    0xC9E0CC00u, // bc=100 res=3 pi=387 AU915
+    0xC9E10C00u, // bc=100 res=3 pi=388 AU915
     0xC9E18C00u, // bc=100 res=3 pi=390 AU915
     0xC9E70C00u, // bc=100 res=3 pi=412 AU915
+    0xC9E78C00u, // bc=100 res=3 pi=414 AU915
+    0xC9EC0C00u, // bc=100 res=3 pi=432 AU915
+    0xC9EC4C00u, // bc=100 res=3 pi=433 AU915
+    0xC9EC8C00u, // bc=100 res=3 pi=434 AU915
+    0xC9ECCC00u, // bc=100 res=3 pi=435 AU915
+    0xC9ED0C00u, // bc=100 res=3 pi=436 AU915
+    0xC9ED8C00u, // bc=100 res=3 pi=438 AU915
+    0xCBA00800u, // bc=101 res=3 pi=128 EU868
     0xCBA04800u, // bc=101 res=3 pi=129 EU868
+    0xCBA08800u, // bc=101 res=3 pi=130 EU868
+    0xCBA0C800u, // bc=101 res=3 pi=131 EU868
+    0xCBA10800u, // bc=101 res=3 pi=132 EU868
+    0xCBA18800u, // bc=101 res=3 pi=134 EU868
+    0xCD9B0800u, // bc=102 res=3 pi=108 EU868
     0xCD9B4800u, // bc=102 res=3 pi=109 EU868
+    0xCDB18800u, // bc=102 res=3 pi=198 EU868
     0xCDBC4800u, // bc=102 res=3 pi=241 EU868
-    0xCE808C00u, // bc=103 res=1 pi=2 AU915
-    0xCE818C00u, // bc=103 res=1 pi=6 AU915
-    0xCF008C00u, // bc=103 res=2 pi=2 AU915
-    0xCF018C00u, // bc=103 res=2 pi=6 AU915
+    0xCDBCC800u, // bc=102 res=3 pi=243 EU868
+    0xCF040C00u, // bc=103 res=2 pi=16 AU915
+    0xCF048C00u, // bc=103 res=2 pi=18 AU915
+    0xCF04CC00u, // bc=103 res=2 pi=19 AU915
+    0xCF050C00u, // bc=103 res=2 pi=20 AU915
+    0xCF058C00u, // bc=103 res=2 pi=22 AU915
     0xCF088C00u, // bc=103 res=2 pi=34 AU915
-    0xCFA00C00u, // bc=103 res=3 pi=128 AU915
-    0xCFA04C00u, // bc=103 res=3 pi=129 AU915
-    0xCFA08C00u, // bc=103 res=3 pi=130 AU915
-    0xCFA0CC00u, // bc=103 res=3 pi=131 AU915
-    0xCFA10C00u, // bc=103 res=3 pi=132 AU915
-    0xCFA14C00u, // bc=103 res=3 pi=133 AU915
-    0xCFA18C00u, // bc=103 res=3 pi=134 AU915
+    0xCF0C0C00u, // bc=103 res=2 pi=48 AU915
+    0xCF0C4C00u, // bc=103 res=2 pi=49 AU915
+    0xCF0CCC00u, // bc=103 res=2 pi=51 AU915
+    0xCF0D0C00u, // bc=103 res=2 pi=52 AU915
+    0xCF0D4C00u, // bc=103 res=2 pi=53 AU915
+    0xCF840C00u, // bc=103 res=3 pi=16 AU915
+    0xCF848C00u, // bc=103 res=3 pi=18 AU915
+    0xCF84CC00u, // bc=103 res=3 pi=19 AU915
+    0xCF850C00u, // bc=103 res=3 pi=20 AU915
+    0xCF854C00u, // bc=103 res=3 pi=21 AU915
+    0xCF858C00u, // bc=103 res=3 pi=22 AU915
+    0xCF8C0C00u, // bc=103 res=3 pi=48 AU915
+    0xCF8C8C00u, // bc=103 res=3 pi=50 AU915
+    0xCF8CCC00u, // bc=103 res=3 pi=51 AU915
+    0xCF8D0C00u, // bc=103 res=3 pi=52 AU915
+    0xCF8D8C00u, // bc=103 res=3 pi=54 AU915
     0xCFA20C00u, // bc=103 res=3 pi=136 AU915
+    0xCFA24C00u, // bc=103 res=3 pi=137 AU915
     0xCFA28C00u, // bc=103 res=3 pi=138 AU915
     0xCFA2CC00u, // bc=103 res=3 pi=139 AU915
     0xCFA30C00u, // bc=103 res=3 pi=140 AU915
     0xCFA38C00u, // bc=103 res=3 pi=142 AU915
-    0xCFA40C00u, // bc=103 res=3 pi=144 AU915
-    0xCFA44C00u, // bc=103 res=3 pi=145 AU915
-    0xCFA48C00u, // bc=103 res=3 pi=146 AU915
-    0xCFA4CC00u, // bc=103 res=3 pi=147 AU915
-    0xCFA50C00u, // bc=103 res=3 pi=148 AU915
-    0xCFA54C00u, // bc=103 res=3 pi=149 AU915
-    0xCFA58C00u, // bc=103 res=3 pi=150 AU915
-    0xCFA60C00u, // bc=103 res=3 pi=152 AU915
-    0xCFA64C00u, // bc=103 res=3 pi=153 AU915
-    0xCFA68C00u, // bc=103 res=3 pi=154 AU915
-    0xCFA6CC00u, // bc=103 res=3 pi=155 AU915
-    0xCFA70C00u, // bc=103 res=3 pi=156 AU915
-    0xCFA74C00u, // bc=103 res=3 pi=157 AU915
-    0xCFA78C00u, // bc=103 res=3 pi=158 AU915
-    0xCFA80C00u, // bc=103 res=3 pi=160 AU915
-    0xCFA84C00u, // bc=103 res=3 pi=161 AU915
-    0xCFA88C00u, // bc=103 res=3 pi=162 AU915
-    0xCFA8CC00u, // bc=103 res=3 pi=163 AU915
-    0xCFA90C00u, // bc=103 res=3 pi=164 AU915
-    0xCFA94C00u, // bc=103 res=3 pi=165 AU915
-    0xCFA98C00u, // bc=103 res=3 pi=166 AU915
     0xCFAA0C00u, // bc=103 res=3 pi=168 AU915
     0xCFAA8C00u, // bc=103 res=3 pi=170 AU915
+    0xCFAACC00u, // bc=103 res=3 pi=171 AU915
     0xCFAB0C00u, // bc=103 res=3 pi=172 AU915
     0xCFAB8C00u, // bc=103 res=3 pi=174 AU915
-    0xCFAC0C00u, // bc=103 res=3 pi=176 AU915
-    0xCFAC4C00u, // bc=103 res=3 pi=177 AU915
-    0xCFAC8C00u, // bc=103 res=3 pi=178 AU915
-    0xCFACCC00u, // bc=103 res=3 pi=179 AU915
-    0xCFAD0C00u, // bc=103 res=3 pi=180 AU915
-    0xCFAD4C00u, // bc=103 res=3 pi=181 AU915
-    0xCFAD8C00u, // bc=103 res=3 pi=182 AU915
+    0xCFB2CC00u, // bc=103 res=3 pi=203 AU915
+    0xCFB64C00u, // bc=103 res=3 pi=217 AU915
+    0xCFB6CC00u, // bc=103 res=3 pi=219 AU915
     0xCFC68C00u, // bc=103 res=3 pi=282 AU915
     0xCFC78C00u, // bc=103 res=3 pi=286 AU915
     0xCFCC8C00u, // bc=103 res=3 pi=306 AU915
-    0xCFE00C00u, // bc=103 res=3 pi=384 AU915
-    0xCFE04C00u, // bc=103 res=3 pi=385 AU915
-    0xCFE08C00u, // bc=103 res=3 pi=386 AU915
-    0xCFE0CC00u, // bc=103 res=3 pi=387 AU915
-    0xCFE10C00u, // bc=103 res=3 pi=388 AU915
-    0xCFE14C00u, // bc=103 res=3 pi=389 AU915
-    0xCFE18C00u, // bc=103 res=3 pi=390 AU915
-    0xCFE20C00u, // bc=103 res=3 pi=392 AU915
-    0xCFE24C00u, // bc=103 res=3 pi=393 AU915
-    0xCFE28C00u, // bc=103 res=3 pi=394 AU915
-    0xCFE2CC00u, // bc=103 res=3 pi=395 AU915
-    0xCFE30C00u, // bc=103 res=3 pi=396 AU915
-    0xCFE34C00u, // bc=103 res=3 pi=397 AU915
-    0xCFE38C00u, // bc=103 res=3 pi=398 AU915
+    0xCFCCCC00u, // bc=103 res=3 pi=307 AU915
+    0xCFCD8C00u, // bc=103 res=3 pi=310 AU915
     0xCFE40C00u, // bc=103 res=3 pi=400 AU915
     0xCFE44C00u, // bc=103 res=3 pi=401 AU915
+    0xCFE48C00u, // bc=103 res=3 pi=402 AU915
     0xCFE4CC00u, // bc=103 res=3 pi=403 AU915
+    0xCFE50C00u, // bc=103 res=3 pi=404 AU915
     0xCFE54C00u, // bc=103 res=3 pi=405 AU915
-    0xCFE60C00u, // bc=103 res=3 pi=408 AU915
-    0xCFE64C00u, // bc=103 res=3 pi=409 AU915
-    0xCFE68C00u, // bc=103 res=3 pi=410 AU915
-    0xCFE6CC00u, // bc=103 res=3 pi=411 AU915
-    0xCFE70C00u, // bc=103 res=3 pi=412 AU915
-    0xCFE74C00u, // bc=103 res=3 pi=413 AU915
-    0xCFE78C00u, // bc=103 res=3 pi=414 AU915
-    0xCFE80C00u, // bc=103 res=3 pi=416 AU915
-    0xCFE84C00u, // bc=103 res=3 pi=417 AU915
-    0xCFE88C00u, // bc=103 res=3 pi=418 AU915
-    0xCFE8CC00u, // bc=103 res=3 pi=419 AU915
-    0xCFE90C00u, // bc=103 res=3 pi=420 AU915
-    0xCFE94C00u, // bc=103 res=3 pi=421 AU915
-    0xCFEA0C00u, // bc=103 res=3 pi=424 AU915
-    0xCFEA4C00u, // bc=103 res=3 pi=425 AU915
-    0xCFEA8C00u, // bc=103 res=3 pi=426 AU915
-    0xCFEACC00u, // bc=103 res=3 pi=427 AU915
-    0xCFEB0C00u, // bc=103 res=3 pi=428 AU915
-    0xCFEB4C00u, // bc=103 res=3 pi=429 AU915
-    0xCFEB8C00u, // bc=103 res=3 pi=430 AU915
     0xCFEC4C00u, // bc=103 res=3 pi=433 AU915
+    0xCFECCC00u, // bc=103 res=3 pi=435 AU915
+    0xD1A44800u, // bc=104 res=3 pi=145 EU868
+    0xD1A78800u, // bc=104 res=3 pi=158 EU868
+    0xD5935800u, // bc=106 res=3 pi=77 AS923-1C
+    0xD59AD800u, // bc=106 res=3 pi=107 AS923-1C
+    0xD7AA0800u, // bc=107 res=3 pi=168 EU868
+    0xD7AA4800u, // bc=107 res=3 pi=169 EU868
+    0xD7AAC800u, // bc=107 res=3 pi=171 EU868
+    0xD7AB4800u, // bc=107 res=3 pi=173 EU868
+    0xD9A48C00u, // bc=108 res=3 pi=146 AU915
     0xD9A58C00u, // bc=108 res=3 pi=150 AU915
-    0xDA809800u, // bc=109 res=1 pi=2 AS923-1C
-    0xDB00D800u, // bc=109 res=2 pi=3 AS923-1C
-    0xDBA01800u, // bc=109 res=3 pi=128 AS923-1C
-    0xDBA05800u, // bc=109 res=3 pi=129 AS923-1C
-    0xDBA09800u, // bc=109 res=3 pi=130 AS923-1C
-    0xDBA0D800u, // bc=109 res=3 pi=131 AS923-1C
-    0xDBA15800u, // bc=109 res=3 pi=133 AS923-1C
-    0xDBA19800u, // bc=109 res=3 pi=134 AS923-1C
+    0xD9AC8C00u, // bc=108 res=3 pi=178 AU915
+    0xD9AD8C00u, // bc=108 res=3 pi=182 AU915
+    0xDB041800u, // bc=109 res=2 pi=16 AS923-1C
+    0xDB801800u, // bc=109 res=3 pi=0 AS923-1C
+    0xDB819800u, // bc=109 res=3 pi=6 AS923-1C
+    0xDB861800u, // bc=109 res=3 pi=24 AS923-1C
+    0xDB875800u, // bc=109 res=3 pi=29 AS923-1C
+    0xDB918C00u, // bc=109 res=3 pi=70 AU915
+    0xDB954C00u, // bc=109 res=3 pi=85 AU915
+    0xDB9C4C00u, // bc=109 res=3 pi=113 AU915
+    0xDB9CCC00u, // bc=109 res=3 pi=115 AU915
+    0xDBA21800u, // bc=109 res=3 pi=136 AS923-1C
     0xDBA31800u, // bc=109 res=3 pi=140 AS923-1C
     0xDBA39800u, // bc=109 res=3 pi=142 AS923-1C
     0xDBA41800u, // bc=109 res=3 pi=144 AS923-1C
+    0xDBA45800u, // bc=109 res=3 pi=145 AS923-1C
     0xDBA49800u, // bc=109 res=3 pi=146 AS923-1C
     0xDBA51800u, // bc=109 res=3 pi=148 AS923-1C
     0xDBA55800u, // bc=109 res=3 pi=149 AS923-1C
     0xDBA59800u, // bc=109 res=3 pi=150 AS923-1C
+    0xDBA71800u, // bc=109 res=3 pi=156 AS923-1C
+    0xDBA75800u, // bc=109 res=3 pi=157 AS923-1C
+    0xDBAA1800u, // bc=109 res=3 pi=168 AS923-1C
     0xDBAA5800u, // bc=109 res=3 pi=169 AS923-1C
     0xDBAA9800u, // bc=109 res=3 pi=170 AS923-1C
+    0xDBAAD800u, // bc=109 res=3 pi=171 AS923-1C
+    0xDBAB9800u, // bc=109 res=3 pi=174 AS923-1C
+    0xDBACD800u, // bc=109 res=3 pi=179 AS923-1C
+    0xDBE01800u, // bc=109 res=3 pi=384 AS923-1C
+    0xDBE09800u, // bc=109 res=3 pi=386 AS923-1C
+    0xDBE15800u, // bc=109 res=3 pi=389 AS923-1C
+    0xDDD08800u, // bc=110 res=3 pi=322 EU868
     0xDDD18800u, // bc=110 res=3 pi=326 EU868
-    0xDE814C00u, // bc=111 res=1 pi=5 AU915
-    0xDF038800u, // bc=111 res=2 pi=14 EU868
+    0xDDD60800u, // bc=110 res=3 pi=344 EU868
+    0xDDD64800u, // bc=110 res=3 pi=345 EU868
+    0xDDD70800u, // bc=110 res=3 pi=348 EU868
+    0xDDD74800u, // bc=110 res=3 pi=349 EU868
+    0xDF0B4C00u, // bc=111 res=2 pi=45 AU915
+    0xDF980800u, // bc=111 res=3 pi=96 EU868
     0xDF988800u, // bc=111 res=3 pi=98 EU868
+    0xDF998800u, // bc=111 res=3 pi=102 EU868
+    0xDF9C0800u, // bc=111 res=3 pi=112 EU868
+    0xDF9C4800u, // bc=111 res=3 pi=113 EU868
+    0xDF9CC800u, // bc=111 res=3 pi=115 EU868
+    0xDF9D0800u, // bc=111 res=3 pi=116 EU868
+    0xDF9D4800u, // bc=111 res=3 pi=117 EU868
+    0xDFA04800u, // bc=111 res=3 pi=129 EU868
     0xDFA08800u, // bc=111 res=3 pi=130 EU868
+    0xDFA14800u, // bc=111 res=3 pi=133 EU868
+    0xDFA44800u, // bc=111 res=3 pi=145 EU868
+    0xDFA50800u, // bc=111 res=3 pi=148 EU868
     0xDFA54800u, // bc=111 res=3 pi=149 EU868
+    0xDFAA8800u, // bc=111 res=3 pi=170 EU868
     0xDFD00C00u, // bc=111 res=3 pi=320 AU915
+    0xDFD04C00u, // bc=111 res=3 pi=321 AU915
     0xDFD08C00u, // bc=111 res=3 pi=322 AU915
+    0xDFD0CC00u, // bc=111 res=3 pi=323 AU915
     0xDFD10C00u, // bc=111 res=3 pi=324 AU915
     0xDFD14C00u, // bc=111 res=3 pi=325 AU915
+    0xDFD30C00u, // bc=111 res=3 pi=332 AU915
+    0xDFD34C00u, // bc=111 res=3 pi=333 AU915
+    0xDFD6C800u, // bc=111 res=3 pi=347 EU868
+    0xDFD70C00u, // bc=111 res=3 pi=348 AU915
     0xDFD84C00u, // bc=111 res=3 pi=353 AU915
     0xDFD88C00u, // bc=111 res=3 pi=354 AU915
     0xDFD8CC00u, // bc=111 res=3 pi=355 AU915
-    0xDFDA0C00u, // bc=111 res=3 pi=360 AU915
-    0xDFDA4C00u, // bc=111 res=3 pi=361 AU915
-    0xDFDA8C00u, // bc=111 res=3 pi=362 AU915
-    0xDFDACC00u, // bc=111 res=3 pi=363 AU915
-    0xDFDB0C00u, // bc=111 res=3 pi=364 AU915
-    0xDFDB4C00u, // bc=111 res=3 pi=365 AU915
-    0xDFDB8C00u, // bc=111 res=3 pi=366 AU915
+    0xDFDC4C00u, // bc=111 res=3 pi=369 AU915
+    0xE1A40800u, // bc=112 res=3 pi=144 EU868
+    0xE1A44800u, // bc=112 res=3 pi=145 EU868
+    0xE1A48800u, // bc=112 res=3 pi=146 EU868
     0xE1A4C800u, // bc=112 res=3 pi=147 EU868
+    0xE1A78800u, // bc=112 res=3 pi=158 EU868
+    0xE1AC0C00u, // bc=112 res=3 pi=176 AU915
+    0xE1AD0C00u, // bc=112 res=3 pi=180 AU915
+    0xE1AD8C00u, // bc=112 res=3 pi=182 AU915
 
 };
 
