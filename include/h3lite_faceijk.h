@@ -139,6 +139,9 @@ bool isResolutionClassIII(int res);
 
 // H3 neighbor and ring functions
 int h3NeighborRotations(H3Index origin, Direction dir, int *rotations, H3Index *out);
+/* Returns the number of cells written to out (6*k, or 1 if k == 0) on
+ * success; negative if a pentagon was encountered. Callers must iterate
+ * the returned count, not the nominal 6*k. */
 int h3GetRing(H3Index origin, int k, H3Index *out);
 
 #endif /* H3LITE_FACEIJK_H */

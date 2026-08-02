@@ -265,31 +265,36 @@ int h3NeighborRotations(H3Index origin, Direction dir, int *rotations, H3Index *
  * @param origin Origin location
  * @param k k >= 0
  * @param out Array which must be of size 6 * k (or 1 if k == 0)
- * @return 0 if successful; 1 if pentagon encountered
+ * @return H3-6(1): the number of cells written to out (6 * k, or 1 if
+ *         k == 0) on success; negative if a pentagon was encountered.
+ *         Callers must iterate the returned count, not 6 * k — real H3
+ *         rings near pentagons contain 5 * k cells, and a future
+ *         pentagon-capable implementation must not become a stale-data
+ *         read.
  */
 int h3GetRing(H3Index origin, int k, H3Index *out) {
     // Short-circuit on 'identity' ring
     if (k == 0) {
         out[0] = origin;
-        return 0;
+        return 1;
     }
     
     int idx = 0;
     int rotations = 0;
     
     if (_h3IsPentagon(origin)) {
-        return 1;  // Pentagon encountered
+        return -1;  // Pentagon encountered
     }
 
     // Move to the start of the ring (k steps in NEXT_RING_DIRECTION)
     for (int ring = 0; ring < k; ring++) {
         int result = h3NeighborRotations(origin, NEXT_RING_DIRECTION, &rotations, &origin);
         if (result != 0) {
-            return result;
+            return -1;
         }
 
         if (_h3IsPentagon(origin)) {
-            return 1;  // Pentagon encountered
+            return -1;  // Pentagon encountered
         }
     }
 
@@ -301,7 +306,7 @@ int h3GetRing(H3Index origin, int k, H3Index *out) {
         for (int pos = 0; pos < k; pos++) {
             int result = h3NeighborRotations(origin, DIRECTIONS[direction], &rotations, &origin);
             if (result != 0) {
-                return result;
+                return -1;
             }
 
             // Skip the very last index (it was already added as first)
@@ -309,7 +314,7 @@ int h3GetRing(H3Index origin, int k, H3Index *out) {
                 out[idx++] = origin;
 
                 if (_h3IsPentagon(origin)) {
-                    return 1;  // Pentagon encountered
+                    return -1;  // Pentagon encountered
                 }
             }
         }
@@ -317,8 +322,8 @@ int h3GetRing(H3Index origin, int k, H3Index *out) {
 
     // Check that we completed the ring properly
     if (lastIndex != origin) {
-        return 1;  // Pentagon distortion
+        return -1;  // Pentagon distortion
     }
 
-    return 0;
+    return idx;
 }
