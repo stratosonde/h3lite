@@ -56,3 +56,4 @@ dkms.conf
 
 # Development artifacts
 archive/
+__pycache__/
