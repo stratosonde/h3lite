@@ -9,8 +9,7 @@
 #include "../include/h3lite_faceijk.h"
 #include "../include/h3lite_constants.h"
 
-// Forward declaration from h3lite.c
-extern const int baseCellTable[12][12];
+/* H3-9: extern for the deleted baseCellTable removed (table was unused). */
 
 /**
  * Icosahedron face centers in x/y/z on the unit sphere (from H3)
