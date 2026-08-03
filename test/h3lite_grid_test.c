@@ -7,12 +7,13 @@
  * any gaps in the region lookup table.
  */
 
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-#include "../include/h3lite.h"
-#include "../include/h3lite_constants.h"
+#include "h3lite.h"
+#include "h3lite_constants.h"
 
 // Test configuration
 #define GRID_STEP_DEGREES 10  // Test every 10 degrees
@@ -25,6 +26,7 @@ typedef struct {
     int invalid_h3;
     int region_found;
     int region_unknown;
+    int known_failures;    // known-location / invalid-input mismatches
     int region_counts[16];  // Count for each region ID
 } TestStats;
 
@@ -32,6 +34,7 @@ typedef struct {
 void test_global_grid(TestStats* stats);
 void test_known_locations(TestStats* stats);
 void test_boundary_cases(TestStats* stats);
+void test_invalid_inputs(TestStats* stats);
 void print_statistics(const TestStats* stats);
 void print_h3_details(H3Index h3, double lat, double lng);
 
@@ -64,18 +67,29 @@ int main(void) {
     
     printf("\n=== Running Boundary Cases Test ===\n");
     test_boundary_cases(&stats);
-    
+
+    printf("\n=== Running Invalid Input Test ===\n");
+    test_invalid_inputs(&stats);
+
     // End timing
     clock_t end_time = clock();
     double elapsed = (double)(end_time - start_time) / CLOCKS_PER_SEC;
-    
+
     // Print final statistics
     printf("\n=== Test Summary ===\n");
     print_statistics(&stats);
     printf("\nTotal execution time: %.3f seconds\n", elapsed);
-    printf("Average time per conversion: %.3f ms\n", 
+    printf("Average time per conversion: %.3f ms\n",
            (elapsed * 1000.0) / stats.total_tests);
-    
+
+    /* A test that cannot fail is not a test: report known-location and
+     * invalid-input mismatches via the exit code (review F-18). */
+    if (stats.known_failures > 0) {
+        printf("\nRESULT: FAIL (%d known/invalid-input mismatches)\n",
+               stats.known_failures);
+        return 1;
+    }
+    printf("\nRESULT: PASS\n");
     return 0;
 }
 
@@ -195,10 +209,55 @@ void test_known_locations(TestStats* stats) {
         }
         
         // Check if result matches expected
-        const char* result = (strcmp(regionName, locations[i].expected_region) == 0) ? "PASS" : "FAIL";
-        
+        int pass = (strcmp(regionName, locations[i].expected_region) == 0);
+        if (!pass) {
+            stats->known_failures++;
+        }
+        const char* result = pass ? "PASS" : "FAIL";
+
         printf("%-25s %-15s %-15s %-10s\n",
                locations[i].name, regionName, locations[i].expected_region, result);
+    }
+}
+
+/* NaN / inf / out-of-domain coordinates must produce h3 == 0, never a
+ * valid-looking index. On Cortex-M the NaN->int cast flushes to 0, which
+ * previously walked straight through to a real cell and could select a
+ * real LoRaWAN region from a lost GPS fix (review F-03). */
+void test_invalid_inputs(TestStats* stats) {
+    typedef struct {
+        double lat;
+        double lng;
+        const char* description;
+    } InvalidTest;
+
+    InvalidTest tests[] = {
+        { NAN, 0.0, "NaN latitude" },
+        { 0.0, NAN, "NaN longitude" },
+        { INFINITY, 0.0, "+inf latitude" },
+        { 0.0, -INFINITY, "-inf longitude" },
+        { 91.0, 0.0, "latitude > 90" },
+        { -90.1, 0.0, "latitude < -90" },
+        { 0.0, 180.1, "longitude > 180" },
+        { 0.0, -181.0, "longitude < -180" },
+    };
+
+    int num_tests = sizeof(tests) / sizeof(InvalidTest);
+
+    printf("Testing %d invalid inputs (all must yield h3 == 0)\n\n", num_tests);
+    printf("%-25s %-20s %-10s\n", "Input", "H3 Index", "Result");
+    printf("----------------------------------------------------------\n");
+
+    for (int i = 0; i < num_tests; i++) {
+        stats->total_tests++;
+        H3Index h3 = latLngToH3(tests[i].lat, tests[i].lng, TEST_RESOLUTION);
+        int pass = (h3 == 0);
+        if (!pass) {
+            stats->known_failures++;
+        }
+        printf("%-25s 0x%016llx %-10s\n",
+               tests[i].description, (unsigned long long)h3,
+               pass ? "PASS" : "FAIL");
     }
 }
 
@@ -261,6 +320,10 @@ void test_boundary_cases(TestStats* stats) {
 }
 
 void print_statistics(const TestStats* stats) {
+    if (stats->total_tests == 0 || stats->valid_h3 == 0) {
+        printf("No results to summarise.\n");
+        return;
+    }
     printf("Total tests run: %d\n", stats->total_tests);
     printf("Valid H3 indexes: %d (%.1f%%)\n", 
            stats->valid_h3, 
@@ -280,15 +343,14 @@ void print_statistics(const TestStats* stats) {
     printf("\n");
     
     printf("Regions detected:\n");
-    const char* region_names[] = {
-        "Unknown", "US915", "EU868", "AU915", "AS923-1", "AS923-2",
-        "AS923-3", "AS923-4", "KR920", "IN865", "RU864", "CN470", "EU433"
-    };
-    
-    for (int i = 0; i <= 12; i++) {
+    /* Use the library's own name table. A private copy here previously
+     * skipped AS923-1B/1C, so every ID >= 5 was mislabelled, and the loop
+     * stopped at 12 so CN470/EU433/CD900-1A never appeared at all. */
+    for (int i = 1; i < (int)(sizeof(stats->region_counts) /
+                              sizeof(stats->region_counts[0])); i++) {
         if (stats->region_counts[i] > 0) {
-            printf("  %s: %d points (%.1f%%)\n", 
-                   region_names[i],
+            printf("  %s: %d points (%.1f%%)\n",
+                   getRegionName((RegionId)i),
                    stats->region_counts[i],
                    100.0 * stats->region_counts[i] / stats->valid_h3);
         }

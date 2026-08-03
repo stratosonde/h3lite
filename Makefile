@@ -3,7 +3,7 @@
 
 CC = gcc
 AR = ar
-CFLAGS = -Wall -Wextra -O3 -g -I./include
+CFLAGS = -Wall -Wextra -O3 -g -MMD -MP -I./include
 LDFLAGS = -lm
 
 # Directories
@@ -20,8 +20,11 @@ H3LITE_SRCS = $(SRC_DIR)/h3lite.c $(SRC_DIR)/h3lite_faceijk.c \
 # For STM32 build (cross-compilation)
 STM32_CC = arm-none-eabi-gcc
 STM32_AR = arm-none-eabi-ar
+# Target is the STM32WLE5 (Cortex-M4F) used by the Stratosonde firmware.
+# The old flags hardcoded -DSTM32F411xE (a different part) and
+# -DUSE_HAL_DRIVER, which is meaningless for this standalone library.
 STM32_CFLAGS = -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 \
-               -DUSE_HAL_DRIVER -DSTM32F411xE -Os -Wall -Wextra -I./include \
+               -DSTM32WLE5xx -Os -Wall -Wextra -I./include \
                -ffunction-sections -fdata-sections -fno-common
 STM32_LDFLAGS = -lm --specs=nano.specs
 
@@ -97,3 +100,5 @@ clean:
 	rm -rf $(BIN_DIR)/* $(OBJ_DIR)/* *.su
 
 .PHONY: all lib stm32lib grid_test nearest_test test lookup_table clean stm32-size
+
+-include $(OBJ_DIR)/*.d

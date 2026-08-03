@@ -4,14 +4,11 @@
  * Optimized for STM32 microcontrollers with limited resources
  */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
 #include <math.h>
-#include "../include/h3lite.h"
-#include "../include/h3lite_constants.h"
-#include "../include/h3lite_faceijk.h"
-#include "../include/h3lite_regions_table.h"
+#include "h3lite.h"
+#include "h3lite_constants.h"
+#include "h3lite_faceijk.h"
+#include "h3lite_regions_table.h"
 
 // Initialization flag
 static bool initialized = false;
@@ -47,6 +44,21 @@ H3Index latLngToH3(double lat, double lng, int resolution) {
     // Constrain resolution (H3 supports 0-15, but we limit to lower resolutions)
     if (resolution < 0 || resolution > H3LITE_MAX_RESOLUTION) {
         return 0;  // Invalid resolution
+    }
+
+    /* Reject non-finite and out-of-domain coordinates before they reach
+     * the double->int casts in _hex2dToCoordIJK. Casting a NaN to int is
+     * undefined behaviour and, critically, is NOT consistent across our
+     * platforms: x86 SSE yields INT_MIN (caught by the later range check,
+     * so latLngToH3 returns 0), while Cortex-M VCVT flushes NaN to 0,
+     * which walks straight through to a *valid-looking* index near face 0
+     * and would silently select a real LoRaWAN region. A GPS module that
+     * reports a lost fix as NaN must not be able to pick a frequency
+     * plan. Bounds are checked too so that a corrupt NMEA parse cannot
+     * alias onto a legitimate cell. */
+    if (!isfinite(lat) || !isfinite(lng) ||
+        lat < -90.0 || lat > 90.0 || lng < -180.0 || lng > 180.0) {
+        return 0;
     }
 
     // Convert lat/lng to radians
@@ -142,6 +154,13 @@ NearestRegionsInfo findNearestRegions(double lat, double lng, int maxRings) {
     NearestRegionsInfo result = {0};
     H3Index h3 = latLngToH3(lat, lng, H3LITE_TARGET_RESOLUTION);
 
+    /* If the conversion failed there is no origin to ring-search from.
+     * Without this, h3GetRing(0, k, ...) would walk baseCellNeighbors[0]
+     * off an all-zero index and hand back meaningless cells. */
+    if (h3 == 0) {
+        return result;
+    }
+
     // Try current cell first
     RegionId region = h3ToRegion(h3);
     if (region != 0) {
@@ -195,8 +214,12 @@ NearestRegionsInfo findNearestRegions(double lat, double lng, int maxRings) {
                         result.regions[result.numRegions].regionId = region;
                         result.regions[result.numRegions].regionName = getRegionName(region);
                         result.regions[result.numRegions].ringDistance = k;
-                        // Approximate distance: ~65km per ring at resolution 3
-                        result.regions[result.numRegions].distanceKm = k * 65.0;
+                        /* Approximate distance: res-3 hexagons have ~69 km
+                         * mean edge length, so centre-to-centre ring spacing
+                         * is ~120 km (sqrt(3) * 69). The old 65 km/ring
+                         * figure underestimated by ~45% — a "3 rings
+                         * (~195 km)" claim was really ~360 km. */
+                        result.regions[result.numRegions].distanceKm = k * 120.0;
                         result.numRegions++;
                     }
                 }

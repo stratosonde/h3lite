@@ -45,18 +45,25 @@ REGION_IDS = {
     "RU864": 12,
     "CN470": 13,
     "EU433": 14,
-    "CD900-1A": 15,
+    # ID 15 is RESTRICTED (no transmission allowed). It was repurposed from
+    # the CD900-1A test plan, which is not used in production. The packed
+    # entry gives regionId only 4 bits, so 15 is the largest encodable ID;
+    # REGION_RESTRICTED can therefore never be 255 in the table.
+    "RESTRICTED": 15,
     # Add other regions as needed
 }
 
 
-def load_regions(directory=".."):
+def load_regions(directory):
     """Load all GeoJSON files that match region names.
 
     Returns {region_name: [shapely geometry, ...]}.
     """
     regions = {}
-    files = [f for f in os.listdir(directory) if f.endswith('.geojson')]
+    # Sorted for determinism: os.listdir() order is filesystem-dependent,
+    # and two files mapping to the same region now MERGE (setdefault)
+    # instead of the later one silently overwriting the earlier one.
+    files = sorted(f for f in os.listdir(directory) if f.endswith('.geojson'))
 
     for filename in files:
         region_name = os.path.splitext(filename)[0]
@@ -85,7 +92,7 @@ def load_regions(directory=".."):
                 geoms.append(shape(gj['geometry']))
             else:
                 geoms.append(shape(gj))
-            regions[region_name] = geoms
+            regions.setdefault(region_name, []).extend(geoms)
             print(f"Loaded region {region_name} from {filename} "
                   f"({len(geoms)} geometries)")
         except Exception as e:
@@ -94,14 +101,67 @@ def load_regions(directory=".."):
     return regions
 
 
+def _crosses_antimeridian(poly):
+    """True if a polygon's longitude span is only explicable by wrapping.
+
+    A polygon whose exterior spans more than 180 degrees of longitude is
+    almost certainly a dateline-crossing shape stored as -179..+179 rather
+    than a genuinely hemispheric one. h3shape_to_cells has no notion of
+    wrapping and will fill the *complement* of such a shape, which is how
+    Fiji, Tuvalu and Kiribati ended up entirely absent from the table.
+    """
+    lons = [x for x, _ in poly.exterior.coords]
+    return (max(lons) - min(lons)) > 180.0
+
+
+def _split_at_antimeridian(poly):
+    """Split a dateline-crossing polygon into eastern and western parts."""
+    from shapely.geometry import box
+    from shapely.ops import unary_union
+
+    # Shift western-hemisphere vertices into 0..360, clip, then shift back.
+    shifted = type(poly)(
+        [(x + 360.0 if x < 0 else x, y) for x, y in poly.exterior.coords],
+        [[(x + 360.0 if x < 0 else x, y) for x, y in ring.coords]
+         for ring in poly.interiors])
+    if not shifted.is_valid:
+        shifted = shifted.buffer(0)
+
+    east = shifted.intersection(box(-180.0, -90.0, 180.0, 90.0))
+    west = shifted.intersection(box(180.0, -90.0, 540.0, 90.0))
+    parts = []
+    if not east.is_empty:
+        parts.append(east)
+    if not west.is_empty:
+        # translate back into -180..0
+        from shapely.affinity import translate
+        parts.append(translate(west, xoff=-360.0))
+    return unary_union(parts) if parts else poly
+
+
 def _polygons(geom):
-    """Yield individual Polygon parts of a (Multi)Polygon geometry."""
+    """Yield individual Polygon parts of a (Multi)Polygon geometry.
+
+    Dateline-crossing parts are split so that each yielded polygon lies
+    wholly within -180..180 without wrapping.
+    """
     if geom.geom_type == 'MultiPolygon':
-        yield from geom.geoms
+        parts = list(geom.geoms)
     elif geom.geom_type == 'Polygon':
-        yield geom
+        parts = [geom]
     else:
         print(f"Warning: Unsupported geometry type: {geom.geom_type}")
+        return
+
+    for part in parts:
+        if _crosses_antimeridian(part):
+            split = _split_at_antimeridian(part)
+            if split.geom_type == 'MultiPolygon':
+                yield from split.geoms
+            else:
+                yield split
+        else:
+            yield part
 
 
 def convert_region_to_h3(geoms, resolution=DEFAULT_RESOLUTION):
@@ -115,12 +175,16 @@ def convert_region_to_h3(geoms, resolution=DEFAULT_RESOLUTION):
                       f"{len(poly.exterior.coords)} points")
                 continue
 
-            # Convert (lng, lat) to (lat, lng) for H3
+            # Convert (lng, lat) to (lat, lng) for H3, honouring holes.
+            # Dropping interior rings fills enclaves solid (Lesotho inside
+            # South Africa, Vatican inside Italy, ...).
             exterior = [(y, x) for x, y in poly.exterior.coords]
+            holes = [[(y, x) for x, y in ring.coords]
+                     for ring in poly.interiors]
 
             cells = None
             try:
-                cells = h3.h3shape_to_cells(h3.LatLngPoly(exterior),
+                cells = h3.h3shape_to_cells(h3.LatLngPoly(exterior, *holes),
                                             res=resolution)
             except Exception as e:
                 print(f"Error converting polygon: {e}")
@@ -138,11 +202,10 @@ def convert_region_to_h3(geoms, resolution=DEFAULT_RESOLUTION):
                          [(y, x) for x, y in
                           poly.buffer(0.0001).exterior.coords]),
                          res=resolution)),
-                    ("convex hull",
-                     lambda: h3.h3shape_to_cells(h3.LatLngPoly(
-                         [(y, x) for x, y in
-                          poly.convex_hull.exterior.coords]),
-                         res=resolution)),
+                    # NO convex-hull fallback: a hull can cover territory
+                    # that was never in the source polygon. Silently
+                    # enlarging a regulatory boundary is worse than
+                    # failing — so we fail (below) instead.
                 ]
                 for approach_name, approach_func in approaches:
                     try:
@@ -154,7 +217,13 @@ def convert_region_to_h3(geoms, resolution=DEFAULT_RESOLUTION):
                     except Exception as alt_e:
                         print(f"{approach_name} failed: {alt_e}")
                 if not cells:
-                    print("All approaches failed to convert this polygon!")
+                    # Fail closed: a region whose geometry cannot be
+                    # converted must abort the whole generation rather
+                    # than silently ship a table with missing territory.
+                    raise RuntimeError(
+                        "All repair approaches failed to convert this "
+                        "polygon; aborting generation. Fix the source "
+                        "GeoJSON rather than shipping a partial table.")
 
             if cells:
                 all_h3_cells.extend(cells)
@@ -186,9 +255,28 @@ def extract_h3_components(h3_index):
 
 
 def pack_entry(base_cell, resolution, partial_index, region_id):
-    """Pack an entry into the uint32 format (H3-1/H3-4)."""
-    return ((base_cell & 0x7F) << 25 | (resolution & 0x03) << 23 |
-            (partial_index & 0x1FF) << 14 | (region_id & 0x0F) << 10)
+    """Pack an entry into the uint32 format (H3-1/H3-4).
+
+    Raises rather than masking: the field widths are tight (regionId is
+    4 bits and IDs 1-15 are already allocated), so a silent `& 0x0F` would
+    turn a newly added region 16 into 0 = Unknown, and `& 0x03` would turn
+    a res-4 table into res 0.
+    """
+    if not 0 <= base_cell <= 121:
+        raise ValueError(f"baseCell {base_cell} out of range 0..121")
+    if not 1 <= resolution <= 3:
+        raise ValueError(
+            f"resolution {resolution} does not fit the 2-bit field (1..3); "
+            f"the packed entry format must be widened first")
+    if not 0 <= partial_index <= 511:
+        raise ValueError(f"partialIndex {partial_index} out of range 0..511")
+    if not 1 <= region_id <= 15:
+        raise ValueError(
+            f"regionId {region_id} does not fit the 4-bit field (1..15); "
+            f"all 15 slots are allocated, so the packed entry format must "
+            f"be widened before adding another region")
+    return (base_cell << 25 | resolution << 23 |
+            partial_index << 14 | region_id << 10)
 
 
 def _cell_polygon(cell):
@@ -237,6 +325,9 @@ def generate_lookup_table(regions, max_resolution=DEFAULT_RESOLUTION):
                                                          max_resolution))
         unions[region_id] = unary_union(geoms)
 
+    # Total planar extent per region, used as the specificity tie-break.
+    region_extent = {rid: u.area for rid, u in unions.items()}
+
     all_true = set().union(*true_cells.values()) if true_cells else set()
 
     claims = {}  # cell -> list of region_ids claiming it
@@ -261,19 +352,26 @@ def generate_lookup_table(regions, max_resolution=DEFAULT_RESOLUTION):
             continue
         n_conflicts += 1
         cpoly = _cell_polygon(cell)
-        best = None  # (area, -region_id) — max wins
         areas = []
         for rid in region_ids:
             area = unions[rid].intersection(cpoly).area
-            areas.append((area, rid))
-        areas.sort(key=lambda t: (-t[0], t[1]))  # area desc, id asc
-        winner = areas[0][1]
+            # Tie-break on TOTAL region extent, smallest first: when two
+            # plans both cover a cell completely (a national carve-out
+            # nested inside a continental catch-all) the intersected areas
+            # are equal and the more specific plan must win. The old
+            # tie-break was "lowest region ID", which handed every interior
+            # cell of the DRC to EU868 (ID 2) instead of CD900-1A (ID 15)
+            # and left CD900-1A with 2 entries for a 2.34 Mkm2 country.
+            areas.append((area, region_extent[rid], rid))
+        areas.sort(key=lambda t: (-t[0], t[1], t[2]))
+        winner = areas[0][2]
         cell_region[cell] = winner
         print(f"  conflict {cell}: " +
-              ", ".join(f"{id_to_name[r]}={a:.6f}" for a, r in areas) +
+              ", ".join(f"{id_to_name[r]}={a:.6f}" for a, _, r in areas) +
               f" -> {id_to_name[winner]}")
     print(f"Resolved {n_conflicts} contested res-3 cells "
-          f"(largest intersected area wins, lowest ID breaks ties)")
+          f"(largest intersected area wins, smallest total region extent "
+          f"breaks ties)")
 
     # ---- 3. bottom-up uniform compaction ---------------------------------
     for parent_res in (max_resolution - 1, max_resolution - 2):
@@ -324,8 +422,31 @@ def generate_lookup_table(regions, max_resolution=DEFAULT_RESOLUTION):
     return entries
 
 
-def generate_c_code(entries, output_c_file, output_h_file):
+def _provenance(geojson_dir, resolution):
+    """A stamp so a committed table can be traced back to its inputs."""
+    import datetime
+    import hashlib
+    digests = []
+    if geojson_dir and os.path.isdir(geojson_dir):
+        for name in sorted(os.listdir(geojson_dir)):
+            if not name.endswith('.geojson'):
+                continue
+            with open(os.path.join(geojson_dir, name), 'rb') as fh:
+                digests.append(f" *   {name}  sha256:"
+                               f"{hashlib.sha256(fh.read()).hexdigest()[:16]}")
+    stamp = datetime.datetime.now(datetime.timezone.utc).isoformat(
+        timespec='seconds')
+    lines = [f" * Generated {stamp} by generate_lookup_table.py",
+             f" * h3 python package: {getattr(h3, '__version__', 'unknown')}",
+             f" * resolution: {resolution}",
+             f" * source GeoJSON ({len(digests)} files):"]
+    return "\n".join(lines + (digests or [" *   (none found)"]))
+
+
+def generate_c_code(entries, output_c_file, output_h_file,
+                    geojson_dir=None, resolution=DEFAULT_RESOLUTION):
     """Generate C code for the packed lookup table."""
+    prov = _provenance(geojson_dir, resolution)
     # Numeric sort of the packed value == tuple sort by
     # (baseCell, resolution, partialIndex, regionId)
     entries.sort(key=lambda x: pack_entry(x['baseCell'], x['resolution'],
@@ -337,7 +458,8 @@ def generate_c_code(entries, output_c_file, output_h_file):
     with open(output_h_file, 'w') as f:
         f.write("""/*
  * H3Lite Region Lookup Table
- * Generated by generate_lookup_table.py
+""" + prov + """
+ * DO NOT EDIT BY HAND.
  */
 
 #ifndef H3LITE_REGIONS_TABLE_H
@@ -374,7 +496,7 @@ typedef uint32_t RegionEntry;
 extern const RegionEntry regionLookup[REGION_ENTRY_COUNT];
 
 // Region names array
-extern const char* regionNames[{max_id + 1}];
+extern const char* const regionNames[{max_id + 1}];
 
 // Binary search the region lookup table for an exact
 // (baseCell, resolution, partialIndex) key; returns 0 (Unknown) on miss.
@@ -387,13 +509,14 @@ RegionId findRegion(uint8_t baseCell, uint8_t res, uint16_t partialIndex);
     with open(output_c_file, 'w') as f:
         f.write(f"""/*
  * H3Lite Region Lookup Table Implementation
- * Generated by generate_lookup_table.py
+{prov}
+ * DO NOT EDIT BY HAND.
  */
 
 #include "../include/h3lite_regions_table.h"
 
 // Region names array
-const char* regionNames[{max_id + 1}] = {{
+const char* const regionNames[{max_id + 1}] = {{
     "Unknown", // ID 0
 """)
         for name, region_id in sorted(REGION_IDS.items(), key=lambda x: x[1]):
@@ -478,6 +601,13 @@ Examples:
                              f'{DEFAULT_RESOLUTION})')
     args = parser.parse_args()
 
+    # The packed entry gives resolution 2 bits, extract_h3_components()
+    # keeps at most 3 digits, and the runtime probes res 3 -> 2 -> 1 only.
+    # Any other --resolution would silently truncate (res 4 packs as 0).
+    if args.resolution != 3:
+        parser.error("The current packed H3Lite region table supports "
+                     "resolution 3 only")
+
     print(f"Loading region definitions from GeoJSON files in "
           f"{args.geojson_dir}...")
     regions = load_regions(directory=args.geojson_dir)
@@ -493,7 +623,9 @@ Examples:
     print("\nGenerating C code...")
     generate_c_code(entries,
                     os.path.join('src', OUTPUT_C_FILE),
-                    os.path.join('include', OUTPUT_H_FILE))
+                    os.path.join('include', OUTPUT_H_FILE),
+                    geojson_dir=args.geojson_dir,
+                    resolution=args.resolution)
 
     print("\nLookup table generation complete!")
 

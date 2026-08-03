@@ -20,9 +20,9 @@ The primary use case is automatic LoRaWAN regional parameter detection for mobil
 
 ## Features
 
-- **Geographic to H3 Conversion**: Convert lat/lng coordinates to H3 indexes at resolutions 0-4
+- **Geographic to H3 Conversion**: Convert lat/lng coordinates to H3 indexes at resolutions 0-4 (bit-exact with reference H3, validated over a 0.5° global grid)
 - **Region Lookup**: Fast binary search through pre-computed region tables
-- **LoRaWAN Region Support**: Built-in support for 16 LoRaWAN regions worldwide
+- **LoRaWAN Region Support**: 14 LoRaWAN region plans plus a RESTRICTED marker (ID 15, transmission prohibited by policy)
 - **Embeddable**: Designed for STM32 and other ARM Cortex-M microcontrollers
 - **Portable**: Standard C99 with minimal dependencies
 
@@ -38,6 +38,8 @@ h3lite_github/
 ├── src/                         # Implementation files
 │   ├── h3lite.c                 # Core H3 implementation
 │   ├── h3lite_faceijk.c         # Coordinate conversion
+│   ├── h3lite_basecells.c       # Base-cell / icosa-face tables
+│   ├── h3lite_neighbor.c        # k-ring traversal (h3GetRing)
 │   └── h3lite_regions_table.c   # Generated region tables
 ├── test/                        # Test programs
 │   ├── h3lite_grid_test.c       # Grid coverage tests
@@ -82,9 +84,10 @@ Instead of implementing the full H3 specification, H3Lite uses:
 # Build the static library
 make lib
 
-# Build and run the test program
+# Build and run the test programs (non-zero exit on failure)
 make test
-./bin/h3lite_test
+./bin/h3lite_grid_test
+./bin/h3lite_nearest_test
 ```
 
 ### STM32 Cross-Compilation
@@ -136,24 +139,33 @@ const char* regionName = getRegionName(region);  // e.g., "US915"
 ### Flash Memory (STM32)
 
 - **Core Code**: ~2-4KB
-- **Lookup Tables**: ~18KB (4,556 packed entries, mixed res 1-3)
+- **Geometry / base-cell tables**: ~4KB (int8/uint8-narrowed const tables)
+- **Region Lookup Table**: 18,256 bytes (4,564 packed entries, mixed res 1-3)
   - Each entry: 4 bytes packed uint32 (baseCell[31:25] resolution[24:23]
     partialIndex[22:14] regionId[13:10])
-- **Total**: ~20-22KB
+- **Total**: ~24-26KB
 
 ### RAM Usage
 
-- **Static Data**: ~100 bytes
-- **Stack**: ~50-100 bytes per operation
+- **Static Data**: ~100 bytes (all large tables are `const` and live in flash;
+  `regionNames` is `const char* const` so the pointer array is flash-resident too)
+- **Stack**: ~50-100 bytes per operation; `findNearestRegions` uses a
+  42-entry (336 byte) stack buffer worst case
 - **Total**: <1KB
 
 ### Supported Regions
 
-Currently supports 16 LoRaWAN regions:
+14 LoRaWAN region plans:
 - EU868, US915, CN470, AU915
 - AS923-1, AS923-1B, AS923-1C, AS923-2, AS923-3, AS923-4
-- KR920, IN865, RU864, EU433, CD900-1A
-- Unknown (default/fallback)
+- KR920, IN865, RU864, EU433
+- RESTRICTED (ID 15 — no transmission allowed; enforced by the application)
+- Unknown (ID 0, default/fallback)
+
+The regionId field in the packed entry is 4 bits (IDs 0-15). ID 15 was
+repurposed from the CD900-1A test plan, which is not used in production.
+`REGION_RESTRICTED` is therefore 15 — a value of 255 could never be
+emitted by the table (it would silently truncate to 15).
 
 ## STM32 Integration
 
@@ -161,15 +173,19 @@ Currently supports 16 LoRaWAN regions:
 
 Copy the following to your STM32 project:
 - `include/` directory → Your project's include path
-- `src/h3lite.c` and `src/h3lite_faceijk.c` → Your source files
-- `src/h3lite_regions_table.c` → Your source files
+- ALL five source files → Your source files:
+  `h3lite.c`, `h3lite_faceijk.c`, `h3lite_basecells.c`,
+  `h3lite_neighbor.c`, `h3lite_regions_table.c`
+  (omitting `h3lite_basecells.c`/`h3lite_neighbor.c` builds fine but
+  link-fails the moment `findNearestRegions()`/`h3GetRing()` is called)
 
 ### Step 2: Configure Build
 
 Add to your Makefile or IDE:
 ```makefile
 CFLAGS += -Ipath/to/h3lite/include
-SOURCES += h3lite.c h3lite_faceijk.c h3lite_regions_table.c
+SOURCES += h3lite.c h3lite_faceijk.c h3lite_basecells.c \
+           h3lite_neighbor.c h3lite_regions_table.c
 ```
 
 ### Step 3: Use in Code
@@ -251,13 +267,42 @@ Based on Uber's H3 library, licensed under the Apache License, Version 2.0.
 
 ## Known limitations
 
-- **Pentagon rings (H3-6(2), deferred):** `h3GetRing()` fails cleanly
-  (returns negative) when the ring traversal crosses one of the 12
-  pentagon base cells, instead of returning the 5k-cell distorted ring
-  real H3 would produce. Measured: 846/927 exact ring matches, 81 clean
-  failures, 0 wrong-content results (~11% of sampled origins, clustered
-  near pentagons). `findNearestRegions()` treats this as "no ring" and
-  searches the next ring outward, so nearest-region lookup still works.
-  Pentagon rotation support is deferred; `h3GetRing` returns the actual
-  cell count (H3-6(1)) so a future pentagon-capable implementation
-  cannot become a stale-data read.
+- **Pentagon rings — corrected statement.** `h3GetRing()` fails cleanly
+  (returns negative) ONLY for `k=1` rings whose origin is itself one of
+  the 12 pentagon cells (H3's legitimate pentagon distortion case). Every
+  other origin — including hexagons adjacent to pentagons — produces
+  rings bit-exact with reference H3.
+  The earlier claim that failures "cluster near pentagons" and that
+  `findNearestRegions()` "searches the next ring outward" was WRONG on
+  both counts: a predicate bug (`_h3IsPentagon` tested only the base
+  cell, not the all-zero-digits condition) made ~6% of the globe report
+  ring failure, and a ring-1 failure aborted the whole search instead of
+  continuing. Both are fixed; regression coverage lives in
+  `test/t_pentagon.py` (differential vs reference h3 around all 12
+  pentagons). The 12 pentagon-centred regions include the Bohai
+  Sea/China, Gulf of Alaska, Norwegian Sea, Arabian Sea, Gulf of Guinea,
+  and waters off Argentina and NW Australia — so this mattered for
+  worldwide operation.
+
+- **Region border granularity.** The table polyfills cell CENTRES at
+  res 3 (~69 km edge, ~120 km between centres) plus a ~0.6° seaward
+  buffer. Border placement is therefore good to roughly one cell —
+  tens of km, not metres. Points within ~one cell of a land border may
+  resolve to the neighbour plan.
+
+- **Coverage gaps in the source data (hplans), as of 2026-08.**
+  Probed and verified against the hplans polygons; all of these fall
+  through to `Unknown` (0) because NO region polygon contains them —
+  this is a data gap, not a library defect:
+  Mongolia, Fiji, Tuvalu, Kiribati, Marshall Islands, Micronesia (FSM),
+  Nauru, Palau, Maldives. Mitigation: `findNearestRegions()` picks up
+  the closest plan offshore of these countries; closing the gap
+  requires extending the hplans source polygons (tracked separately —
+  see the firmware repo's h3lite verification report).
+
+- **First-productive-ring semantics.** `findNearestRegions()` returns
+  regions from the FIRST ring containing any known region (up to 3),
+  not the globally nearest three. `distanceKm` is approximate at
+  ~120 km per ring at res 3 (previously mis-stated as ~65 km/ring).
+
+

@@ -12,6 +12,10 @@
 #include <stdint.h>
 #include <stdbool.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #ifdef H3LITE_DEBUG
 #define H3LITE_DEBUG_PRINT(fmt, ...) printf(fmt, ##__VA_ARGS__)
 #else
@@ -38,7 +42,13 @@ typedef uint8_t RegionId;
 
 /* Special region values */
 #define REGION_UNKNOWN      0    // Unknown/invalid region
-#define REGION_RESTRICTED   255  // Restricted region (no transmission allowed)
+/* Restricted region (no transmission allowed).
+ * Value is 15, not 255: the packed table entry gives regionId only 4 bits
+ * and IDs 1-14 are allocated, so 255 could never be emitted — it would
+ * have truncated to 15 anyway. ID 15 was deliberately repurposed from the
+ * CD900-1A test plan (dropped; not used in production). The application
+ * layer blocks transmission when this ID is returned. */
+#define REGION_RESTRICTED   15
 
 /**
  * Maximum number of nearest regions to return
@@ -51,8 +61,8 @@ typedef uint8_t RegionId;
 typedef struct {
     RegionId regionId;        // Region ID (0 if slot unused)
     const char* regionName;   // Region name
-    int ringDistance;         // Ring where found (0=current, 1-3)
-    double distanceKm;        // Approximate distance in kilometers
+    int ringDistance;         // Ring where found (0=current, 1-6 max)
+    double distanceKm;        // Approximate distance in km (~120 km/ring at res 3)
 } RegionResult;
 
 /**
@@ -105,8 +115,10 @@ const char* getRegionName(RegionId regionId);
  * 
  * @param lat Latitude in degrees
  * @param lng Longitude in degrees  
- * @param maxRings Maximum rings to search (1-3 recommended)
- * @return NearestRegionsInfo with up to 3 nearest regions
+ * @param maxRings Maximum rings to search (clamped to 6; ~120 km/ring at res 3)
+ * @return NearestRegionsInfo with up to 3 regions from the FIRST ring that
+ *         contains any known region ("first productive ring" semantics,
+ *         not a global nearest-three search)
  */
 NearestRegionsInfo findNearestRegions(double lat, double lng, int maxRings);
 
@@ -117,5 +129,9 @@ NearestRegionsInfo findNearestRegions(double lat, double lng, int maxRings);
  * @return true if initialization succeeded, false otherwise
  */
 bool h3liteInit(void);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* H3LITE_H */

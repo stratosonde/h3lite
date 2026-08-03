@@ -7,7 +7,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "../include/h3lite.h"
+#include "h3lite.h"
 
 typedef struct {
     double lat;
@@ -55,7 +55,7 @@ int main(void) {
         NearestRegionsInfo info = findNearestRegions(tests[i].lat, tests[i].lng, 3);
         
         if (info.numRegions == 0) {
-            printf("Result: No regions found within 3 rings (~195km)\n");
+            printf("Result: No regions found within 3 rings (~360km)\n");
         } else {
             printf("Found %d region(s):\n", info.numRegions);
             for (int j = 0; j < info.numRegions; j++) {
@@ -69,6 +69,8 @@ int main(void) {
         printf("\n");
     }
     
+    int failures = 0;
+
     // Additional test: Compare with direct region lookup
     printf("=== Comparison Test ===\n");
     printf("Comparing findNearestRegions() with latLngToRegion() for known locations:\n\n");
@@ -90,16 +92,36 @@ int main(void) {
                    nearestInfo.regions[0].regionName,
                    nearestInfo.regions[0].ringDistance);
             
-            if (directRegion == nearestInfo.regions[0].regionId && 
+            if (directRegion == nearestInfo.regions[0].regionId &&
                 nearestInfo.regions[0].ringDistance == 0) {
                 printf("  ✓ MATCH\n");
             } else {
                 printf("  ✗ MISMATCH\n");
+                failures++;
             }
+        } else {
+            printf("  ✗ MISMATCH (no nearest region found)\n");
+            failures++;
         }
         printf("\n");
     }
-    
-    printf("Test complete!\n");
+
+    // Invalid input must yield zero regions, never garbage ring cells
+    // (handoff F-10 / review F-03).
+    {
+        NearestRegionsInfo bad = findNearestRegions(0.0 / 0.0, 0.0, 3);
+        if (bad.numRegions != 0) {
+            printf("NaN input: FAIL (%d bogus regions)\n", bad.numRegions);
+            failures++;
+        } else {
+            printf("NaN input: PASS (0 regions)\n");
+        }
+    }
+
+    if (failures > 0) {
+        printf("\nRESULT: FAIL (%d mismatches)\n", failures);
+        return 1;
+    }
+    printf("\nRESULT: PASS\n");
     return 0;
 }

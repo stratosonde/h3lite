@@ -6,8 +6,8 @@
 #include <math.h>
 #include <stdbool.h>
 #include <stdlib.h>
-#include "../include/h3lite_faceijk.h"
-#include "../include/h3lite_constants.h"
+#include "h3lite_faceijk.h"
+#include "h3lite_constants.h"
 
 /* H3-9: extern for the deleted baseCellTable removed (table was unused). */
 
@@ -64,49 +64,9 @@ static const double faceAxesAzRadsCII[NUM_ICOSA_FACES][3] = {
 };
 
 /**
- * Face neighbor data for overage handling
- */
-static const FaceOrientIJK faceNeighbors[NUM_ICOSA_FACES][4] = {
-    {{0, {0, 0, 0}, 0}, {4, {2, 0, 2}, 1}, {1, {2, 2, 0}, 5}, {5, {0, 2, 2}, 3}},
-    {{1, {0, 0, 0}, 0}, {0, {2, 0, 2}, 1}, {2, {2, 2, 0}, 5}, {6, {0, 2, 2}, 3}},
-    {{2, {0, 0, 0}, 0}, {1, {2, 0, 2}, 1}, {3, {2, 2, 0}, 5}, {7, {0, 2, 2}, 3}},
-    {{3, {0, 0, 0}, 0}, {2, {2, 0, 2}, 1}, {4, {2, 2, 0}, 5}, {8, {0, 2, 2}, 3}},
-    {{4, {0, 0, 0}, 0}, {3, {2, 0, 2}, 1}, {0, {2, 2, 0}, 5}, {9, {0, 2, 2}, 3}},
-    {{5, {0, 0, 0}, 0}, {10, {2, 2, 0}, 3}, {14, {2, 0, 2}, 3}, {0, {0, 2, 2}, 3}},
-    {{6, {0, 0, 0}, 0}, {11, {2, 2, 0}, 3}, {10, {2, 0, 2}, 3}, {1, {0, 2, 2}, 3}},
-    {{7, {0, 0, 0}, 0}, {12, {2, 2, 0}, 3}, {11, {2, 0, 2}, 3}, {2, {0, 2, 2}, 3}},
-    {{8, {0, 0, 0}, 0}, {13, {2, 2, 0}, 3}, {12, {2, 0, 2}, 3}, {3, {0, 2, 2}, 3}},
-    {{9, {0, 0, 0}, 0}, {14, {2, 2, 0}, 3}, {13, {2, 0, 2}, 3}, {4, {0, 2, 2}, 3}},
-    {{10, {0, 0, 0}, 0}, {5, {2, 2, 0}, 3}, {6, {2, 0, 2}, 3}, {15, {0, 2, 2}, 3}},
-    {{11, {0, 0, 0}, 0}, {6, {2, 2, 0}, 3}, {7, {2, 0, 2}, 3}, {16, {0, 2, 2}, 3}},
-    {{12, {0, 0, 0}, 0}, {7, {2, 2, 0}, 3}, {8, {2, 0, 2}, 3}, {17, {0, 2, 2}, 3}},
-    {{13, {0, 0, 0}, 0}, {8, {2, 2, 0}, 3}, {9, {2, 0, 2}, 3}, {18, {0, 2, 2}, 3}},
-    {{14, {0, 0, 0}, 0}, {9, {2, 2, 0}, 3}, {5, {2, 0, 2}, 3}, {19, {0, 2, 2}, 3}},
-    {{15, {0, 0, 0}, 0}, {16, {2, 0, 2}, 1}, {19, {2, 2, 0}, 5}, {10, {0, 2, 2}, 3}},
-    {{16, {0, 0, 0}, 0}, {17, {2, 0, 2}, 1}, {15, {2, 2, 0}, 5}, {11, {0, 2, 2}, 3}},
-    {{17, {0, 0, 0}, 0}, {18, {2, 0, 2}, 1}, {16, {2, 2, 0}, 5}, {12, {0, 2, 2}, 3}},
-    {{18, {0, 0, 0}, 0}, {19, {2, 0, 2}, 1}, {17, {2, 2, 0}, 5}, {13, {0, 2, 2}, 3}},
-    {{19, {0, 0, 0}, 0}, {15, {2, 0, 2}, 1}, {18, {2, 2, 0}, 5}, {14, {0, 2, 2}, 3}}
-};
-
-/**
- * Maximum dimension for each resolution in Class II
- */
-static const int maxDimByCIIres[] = {
-    2, -1, 14, -1, 98, -1, 686, -1, 4802, -1, 33614, -1, 235298, -1, 1647086, -1, 11529602
-};
-
-/**
- * Unit scale for each resolution in Class II
- */
-static const int unitScaleByCIIres[] = {
-    1, -1, 7, -1, 49, -1, 343, -1, 2401, -1, 16807, -1, 117649, -1, 823543, -1, 5764801
-};
-
-/**
  * Directions used for traversing a hexagonal ring counterclockwise
  */
-const Direction DIRECTIONS[6] = {J_AXES_DIGIT, JK_AXES_DIGIT,
+const uint8_t DIRECTIONS[6] = {J_AXES_DIGIT, JK_AXES_DIGIT,
                                         K_AXES_DIGIT, IK_AXES_DIGIT,
                                         I_AXES_DIGIT, IJ_AXES_DIGIT};
 
@@ -118,7 +78,7 @@ const Direction NEXT_RING_DIRECTION = I_AXES_DIGIT;
 /**
  * New digit when traversing along class II grids
  */
-const Direction NEW_DIGIT_II[7][7] = {
+const uint8_t NEW_DIGIT_II[7][7] = {
     {CENTER_DIGIT, K_AXES_DIGIT, J_AXES_DIGIT, JK_AXES_DIGIT, I_AXES_DIGIT,
      IK_AXES_DIGIT, IJ_AXES_DIGIT},
     {K_AXES_DIGIT, I_AXES_DIGIT, JK_AXES_DIGIT, IJ_AXES_DIGIT, IK_AXES_DIGIT,
@@ -137,7 +97,7 @@ const Direction NEW_DIGIT_II[7][7] = {
 /**
  * New traversal direction when traversing along class II grids
  */
-const Direction NEW_ADJUSTMENT_II[7][7] = {
+const uint8_t NEW_ADJUSTMENT_II[7][7] = {
     {CENTER_DIGIT, CENTER_DIGIT, CENTER_DIGIT, CENTER_DIGIT, CENTER_DIGIT,
      CENTER_DIGIT, CENTER_DIGIT},
     {CENTER_DIGIT, K_AXES_DIGIT, CENTER_DIGIT, K_AXES_DIGIT, CENTER_DIGIT,
@@ -156,7 +116,7 @@ const Direction NEW_ADJUSTMENT_II[7][7] = {
 /**
  * New traversal direction when traversing along class III grids
  */
-const Direction NEW_DIGIT_III[7][7] = {
+const uint8_t NEW_DIGIT_III[7][7] = {
     {CENTER_DIGIT, K_AXES_DIGIT, J_AXES_DIGIT, JK_AXES_DIGIT, I_AXES_DIGIT,
      IK_AXES_DIGIT, IJ_AXES_DIGIT},
     {K_AXES_DIGIT, J_AXES_DIGIT, JK_AXES_DIGIT, I_AXES_DIGIT, IK_AXES_DIGIT,
@@ -175,7 +135,7 @@ const Direction NEW_DIGIT_III[7][7] = {
 /**
  * New traversal direction when traversing along class III grids
  */
-const Direction NEW_ADJUSTMENT_III[7][7] = {
+const uint8_t NEW_ADJUSTMENT_III[7][7] = {
     {CENTER_DIGIT, CENTER_DIGIT, CENTER_DIGIT, CENTER_DIGIT, CENTER_DIGIT,
      CENTER_DIGIT, CENTER_DIGIT},
     {CENTER_DIGIT, K_AXES_DIGIT, CENTER_DIGIT, JK_AXES_DIGIT, CENTER_DIGIT,
@@ -297,39 +257,6 @@ bool isResolutionClassIII(int res) {
 /**
  * Aperture operations
  */
-void _upAp3(CoordIJK *ijk) {
-    _setIJK(ijk, 
-            (ijk->i - ijk->k) / 3,
-            (ijk->j - ijk->i) / 3,
-            (ijk->k - ijk->j) / 3);
-}
-
-void _downAp3(CoordIJK *ijk) {
-    // res r unit vectors in res r+1
-    CoordIJK iVec = {2, 0, 1};
-    CoordIJK jVec = {1, 2, 0};
-    CoordIJK kVec = {0, 1, 2};
-    _ijkScale(&iVec, ijk->i);
-    _ijkScale(&jVec, ijk->j);
-    _ijkScale(&kVec, ijk->k);
-    _ijkAdd(&iVec, &jVec, ijk);
-    _ijkAdd(ijk, &kVec, ijk);
-    _ijkNormalize(ijk);
-}
-
-void _downAp3r(CoordIJK *ijk) {
-    // res r unit vectors in res r+1
-    CoordIJK iVec = {2, 1, 0};
-    CoordIJK jVec = {0, 2, 1};
-    CoordIJK kVec = {1, 0, 2};
-    _ijkScale(&iVec, ijk->i);
-    _ijkScale(&jVec, ijk->j);
-    _ijkScale(&kVec, ijk->k);
-    _ijkAdd(&iVec, &jVec, ijk);
-    _ijkAdd(ijk, &kVec, ijk);
-    _ijkNormalize(ijk);
-}
-
 void _upAp7(CoordIJK *ijk) {
     int i = ijk->i - ijk->k;
     int j = ijk->j - ijk->k;
@@ -564,71 +491,6 @@ void _geoToClosestFace(const LatLng *g, int *face, double *sqd) {
     }
 }
 
-/**
- * Adjusts a FaceIJK address in place so that the resulting cell address is
- * relative to the correct icosahedral face.
- */
-Overage _adjustOverageClassII(FaceIJK *fijk, int res, int pentLeading4,
-                              int substrate) {
-    Overage overage = NO_OVERAGE;
-
-    CoordIJK *ijk = &fijk->coord;
-
-    // get the maximum dimension value; scale if a substrate grid
-    int maxDim = maxDimByCIIres[res];
-    if (substrate) maxDim *= 3;
-
-    // check for overage
-    if (substrate && ijk->i + ijk->j + ijk->k == maxDim)  // on edge
-        overage = FACE_EDGE;
-    else if (ijk->i + ijk->j + ijk->k > maxDim)  // overage
-    {
-        overage = NEW_FACE;
-
-        const FaceOrientIJK *fijkOrient;
-        if (ijk->k > 0) {
-            if (ijk->j > 0)  // jk "quadrant"
-                fijkOrient = &faceNeighbors[fijk->face][JK];
-            else  // ik "quadrant"
-            {
-                fijkOrient = &faceNeighbors[fijk->face][KI];
-
-                // adjust for the pentagonal missing sequence
-                if (pentLeading4) {
-                    // translate origin to center of pentagon
-                    CoordIJK origin;
-                    _setIJK(&origin, maxDim, 0, 0);
-                    CoordIJK tmp;
-                    _ijkSub(ijk, &origin, &tmp);
-                    // rotate to adjust for the missing sequence
-                    _ijkRotate60cw(&tmp);
-                    // translate the origin back to the center of the triangle
-                    _ijkAdd(&tmp, &origin, ijk);
-                }
-            }
-        } else  // ij "quadrant"
-            fijkOrient = &faceNeighbors[fijk->face][IJ];
-
-        fijk->face = fijkOrient->face;
-
-        // rotate and translate for adjacent face
-        for (int i = 0; i < fijkOrient->ccwRot60; i++) _ijkRotate60ccw(ijk);
-
-        CoordIJK transVec = fijkOrient->translate;
-        int unitScale = unitScaleByCIIres[res];
-        if (substrate) unitScale *= 3;
-        _ijkScale(&transVec, unitScale);
-        _ijkAdd(ijk, &transVec, ijk);
-        _ijkNormalize(ijk);
-
-        // overage points on pentagon boundaries can end up on edges
-        if (substrate && ijk->i + ijk->j + ijk->k == maxDim)  // on edge
-            overage = FACE_EDGE;
-    }
-
-    return overage;
-}
-
 static uint64_t _h3RotatePent60ccw(uint64_t h) {
     int foundFirstNonZeroDigit = 0;
     for (int r = 1, res = H3_GET_RESOLUTION(h); r <= res; r++) {
@@ -713,76 +575,6 @@ void _ijkRotate60cw(CoordIJK *ijk) {
 }
 
 /**
- * Convert IJK coordinates to 2D hex coordinates
- */
-void _ijkToHex2d(const CoordIJK *ijk, Vec2d *h) {
-    int i = ijk->i - ijk->k;
-    int j = ijk->j - ijk->k;
-    h->x = i - 0.5 * j;
-    h->y = j * M_SQRT3_2;
-}
-
-/**
- * Get magnitude of 2D vector
- */
-double _v2dMag(const Vec2d *v) {
-    return sqrt(v->x * v->x + v->y * v->y);
-}
-
-/**
- * Check if two 2D vectors are almost equal
- */
-bool _v2dAlmostEquals(const Vec2d *v1, const Vec2d *v2) {
-    return fabs(v1->x - v2->x) < EPSILON && fabs(v1->y - v2->y) < EPSILON;
-}
-
-/**
- * Find intersection of two line segments
- */
-void _v2dIntersect(const Vec2d *p1, const Vec2d *p2, const Vec2d *q1, const Vec2d *q2, Vec2d *r) {
-    double s1_x = p2->x - p1->x;
-    double s1_y = p2->y - p1->y;
-    double s2_x = q2->x - q1->x;
-    double s2_y = q2->y - q1->y;
-
-    double t = (s2_x * (p1->y - q1->y) - s2_y * (p1->x - q1->x)) /
-               (s2_x * s1_y - s2_y * s1_x);
-
-    r->x = p1->x + (t * s1_x);
-    r->y = p1->y + (t * s1_y);
-}
-
-/**
- * Computes the point on the sphere at azimuth and distance from another point
- */
-void _geoAzDistanceRads(const LatLng *p1, double az, double distance, LatLng *p2) {
-    if (distance < EPSILON) {
-        *p2 = *p1;
-        return;
-    }
-
-    double sinlat = sin(p1->lat) * cos(distance) +
-                    cos(p1->lat) * sin(distance) * cos(az);
-    if (sinlat > 1.0) sinlat = 1.0;
-    if (sinlat < -1.0) sinlat = -1.0;
-    p2->lat = asin(sinlat);
-    if (fabs(p2->lat - M_PI_2) < EPSILON) {
-        p2->lng = 0.0;
-    } else if (fabs(p2->lat + M_PI_2) < EPSILON) {
-        p2->lng = 0.0;
-    } else {
-        double sinlng = sin(az) * sin(distance) / cos(p2->lat);
-        double coslng = (cos(distance) - sin(p1->lat) * sin(p2->lat)) /
-                        (cos(p1->lat) * cos(p2->lat));
-        if (sinlng > 1.0) sinlng = 1.0;
-        if (sinlng < -1.0) sinlng = -1.0;
-        if (coslng > 1.0) coslng = 1.0;
-        if (coslng < -1.0) coslng = -1.0;
-        p2->lng = p1->lng + atan2(sinlng, coslng);
-    }
-}
-
-/**
  * Encodes a coordinate on the sphere to the FaceIJK address
  */
 void _geoToFaceIjk(const LatLng *g, int res, FaceIJK *h) {
@@ -792,15 +584,6 @@ void _geoToFaceIjk(const LatLng *g, int res, FaceIJK *h) {
 
     // then convert to ijk+
     _hex2dToCoordIJK(&v, &h->coord);
-}
-
-/**
- * Public wrapper for geoToFaceIjk
- * Takes lat/lng in degrees and converts to radians
- */
-void geoToFaceIjk(double lat, double lng, int res, FaceIJK *fijk) {
-    LatLng g = {lat * M_PI_180, lng * M_PI_180};
-    _geoToFaceIjk(&g, res, fijk);
 }
 
 /**

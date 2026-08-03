@@ -8,8 +8,8 @@
  *   gcc -Wall -O2 -I./include test/xval_pts.c -L./bin -lh3lite -lm -o xval_pts
  */
 #include <stdio.h>
-#include "../include/h3lite.h"
-#include "../include/h3lite_constants.h"
+#include "h3lite.h"
+#include "h3lite_constants.h"
 
 int main(void) {
     double lat, lon;

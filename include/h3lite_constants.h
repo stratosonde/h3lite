@@ -9,6 +9,10 @@
 #include <math.h>
 #include <stdint.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 // Resolution-specific constants
 #define H3LITE_MAX_RESOLUTION 4  // Only supporting up to resolution 4
 #define H3LITE_TARGET_RESOLUTION 3  // Primary resolution to use for region lookup
@@ -113,7 +117,11 @@ typedef int Direction;
 #define M_ONESEVENTH 0.14285714285714285714285714285714
 #define M_RSIN60 1.1547005383792515290182975610039149112953
 #define INV_RES0_U_GNOMONIC 2.61803398874989588842
-#define RES0_U_GNOMONIC 2.6181773447340
+/* Reference H3 value is 0.38196601125010500003. This constant previously
+ * held 2.6181773447340 — a fourth, wrong number close to the INVERSE
+ * (2.61803398...). Unused today, but a trap for anyone porting substrate
+ * grid code. Corrected to match reference H3. */
+#define RES0_U_GNOMONIC 0.38196601125010500003
 #define M_SIN60 0.8660254037844386 // sin(60 degrees)
 #define M_COS60 0.5000000000000000 // cos(60 degrees)
 
@@ -122,6 +130,10 @@ typedef int Direction;
 
 // Lookup specific constants
 #define INVALID_REGION 0
-#define MAX_REGIONS 12  // Based on the approximately 12 regions mentioned
+#define MAX_REGIONS 16  // regionId field is 4 bits; IDs 0-15 (15 = RESTRICTED)
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* H3LITE_CONSTANTS_H */

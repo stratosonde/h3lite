@@ -12,6 +12,10 @@
 #include "h3lite.h"
 #include "h3lite_constants.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 // LatLng is defined in h3lite.h
 
 /**
@@ -49,13 +53,45 @@ typedef struct {
 } FaceIJK;
 
 /**
- * Face ijk orientation for transformations
+ * Narrow (int8_t) mirrors of CoordIJK/FaceIJK used only by the static
+ * base-cell tables. Every value they hold fits in a signed byte
+ * (face 0-19, ijk 0-2), so storing them as int is a 4x flash waste.
+ * The brace layout is identical to CoordIJK/FaceIJK, so the generated
+ * table initializers are unchanged.
  */
 typedef struct {
-    int face;             // Face number
-    CoordIJK translate;   // Translation coordinates
-    int ccwRot60;         // Number of 60° CCW rotations
-} FaceOrientIJK;
+    int8_t i;
+    int8_t j;
+    int8_t k;
+} CoordIJK8;
+
+typedef struct {
+    int8_t face;
+    CoordIJK8 coord;
+} FaceIJK8;
+
+/**
+ * Base cell home face/coords, pentagon flag and cw-offset faces.
+ * Declared here (not privately in each .c) so that every translation
+ * unit agrees on the layout. Previously h3lite_neighbor.c declared this
+ * as `extern const FaceIJK baseCellData[]`, a 16-byte stride against a
+ * 28-byte definition: an ODR violation that silently read wrong data.
+ */
+typedef struct {
+    FaceIJK8 homeFijk;      // Home face and IJK
+    int8_t isPentagon;      // Is this a pentagon
+    int8_t cwOffsetPent[2]; // CW offset faces for pentagons (-1 if none)
+} BaseCellData;
+
+/** @brief base cell at a given ijk and required rotations into its system */
+typedef struct {
+    uint8_t baseCell;  // base cell number (0-121)
+    int8_t ccwRot60;   // number of ccw 60 degree rotations
+} BaseCellRotation;
+
+extern const BaseCellData baseCellData[NUM_BASE_CELLS];
+extern const uint8_t baseCellNeighbors[NUM_BASE_CELLS][7];
+extern const int8_t baseCellNeighbor60CCWRots[NUM_BASE_CELLS][7];
 
 /**
  * Unit cube face IJK coordinate structure
@@ -64,24 +100,6 @@ typedef struct {
     int baseCell;         // Base cell number
     FaceIJK faceIJK;      // Face and coordinates
 } BaseCellOrient;
-
-/**
- * Overage type for indicating coordinate overage conditions
- */
-typedef int Overage;
-
-// Overage adjustment function
-Overage _adjustOverageClassII(FaceIJK *fijk, int res, int pentLeading4, int substrate);
-
-/**
- * Convert spherical coordinates (lat/lng) to face and ijk coordinates
- * 
- * @param lat Latitude in radians
- * @param lng Longitude in radians
- * @param res Resolution
- * @param fijk Output FaceIJK structure
- */
-void geoToFaceIjk(double lat, double lng, int res, FaceIJK *fijk);
 
 /**
  * Convert FaceIJK coordinates to H3 index
@@ -102,20 +120,13 @@ void _ijkRotate60ccw(CoordIJK *ijk);
 void _ijkRotate60cw(CoordIJK *ijk);
 
 // Aperture operations
-void _upAp3(CoordIJK *ijk);
-void _downAp3(CoordIJK *ijk);
-void _downAp3r(CoordIJK *ijk);
 void _upAp7(CoordIJK *ijk);
 void _upAp7r(CoordIJK *ijk);
 void _downAp7(CoordIJK *ijk);
 void _downAp7r(CoordIJK *ijk);
 
 // Vector operations
-void _ijkToHex2d(const CoordIJK *ijk, Vec2d *h);
 void _hex2dToCoordIJK(const Vec2d *v, CoordIJK *h);
-double _v2dMag(const Vec2d *v);
-bool _v2dAlmostEquals(const Vec2d *v1, const Vec2d *v2);
-void _v2dIntersect(const Vec2d *p1, const Vec2d *p2, const Vec2d *q1, const Vec2d *q2, Vec2d *r);
 
 // Geo conversion helpers
 void _geoToVec3d(const LatLng *geo, Vec3d *vec);
@@ -124,7 +135,6 @@ void _geoToClosestFace(const LatLng *g, int *face, double *sqd);
 void _geoToHex2d(const LatLng *g, int res, int *face, Vec2d *v);
 void _geoToFaceIjk(const LatLng *g, int res, FaceIJK *h);
 double _geoAzimuthRads(const LatLng *p1, const LatLng *p2);
-void _geoAzDistanceRads(const LatLng *p1, double az, double distance, LatLng *p2);
 double _posAngleRads(double rads);
 
 // Base cell functions
@@ -143,5 +153,9 @@ int h3NeighborRotations(H3Index origin, Direction dir, int *rotations, H3Index *
  * success; negative if a pentagon was encountered. Callers must iterate
  * the returned count, not the nominal 6*k. */
 int h3GetRing(H3Index origin, int k, H3Index *out);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* H3LITE_FACEIJK_H */

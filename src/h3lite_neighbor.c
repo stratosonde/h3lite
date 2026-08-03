@@ -5,23 +5,22 @@
  * Licensed under the Apache License, Version 2.0
  */
 
-#include "../include/h3lite_faceijk.h"
-#include "../include/h3lite_constants.h"
-#include "../include/h3lite.h"
+#include "h3lite_faceijk.h"
+#include "h3lite_constants.h"
+#include "h3lite.h"
 #include <stdlib.h>
 
 // External declarations
-extern const Direction DIRECTIONS[6];
+extern const uint8_t DIRECTIONS[6];
 extern const Direction NEXT_RING_DIRECTION;
-extern const Direction NEW_DIGIT_II[7][7];
-extern const Direction NEW_ADJUSTMENT_II[7][7];
-extern const Direction NEW_DIGIT_III[7][7];
-extern const Direction NEW_ADJUSTMENT_III[7][7];
+extern const uint8_t NEW_DIGIT_II[7][7];
+extern const uint8_t NEW_ADJUSTMENT_II[7][7];
+extern const uint8_t NEW_DIGIT_III[7][7];
+extern const uint8_t NEW_ADJUSTMENT_III[7][7];
 
-// Need access to basecell data
-extern const int baseCellNeighbors[NUM_BASE_CELLS][7];
-extern const int baseCellNeighbor60CCWRots[NUM_BASE_CELLS][7];
-extern const FaceIJK baseCellData[NUM_BASE_CELLS];
+/* baseCellNeighbors / baseCellNeighbor60CCWRots / baseCellData are
+ * declared in h3lite_faceijk.h so that this TU and h3lite_basecells.c
+ * cannot disagree about their layout. */
 
 // Forward declarations
 static Direction _rotate60ccw(Direction digit);
@@ -122,8 +121,20 @@ static uint64_t _h3RotatePent60ccw(uint64_t h) {
  * Check if an H3 index is a pentagon
  */
 static bool _h3IsPentagon(H3Index h) {
-    int baseCell = H3_GET_BASE_CELL(h);
-    return _isBaseCellPentagon(baseCell);
+    /* A cell is a pentagon only if its base cell is a pentagon AND all of
+     * its indexing digits are 0 (i.e. it is the centre descendant).
+     *
+     * Testing the base cell alone declared the whole ~4.2 Mkm2 pentagon
+     * base cell to be "a pentagon", so h3GetRing refused to run for any
+     * origin within roughly 1000 km of a pentagon centre. That is ~6% of
+     * the globe, and inside it findNearestRegions had no fallback at all:
+     * every ring k = 1..6 returned -1, not just the ring that actually
+     * contains the pentagon. Measured over 8000 random res-3 origins,
+     * this accounted for 603 of the 614 k=1 ring failures.
+     *
+     * Matches the H3 reference implementation of isPentagon(). */
+    return _isBaseCellPentagon(H3_GET_BASE_CELL(h)) &&
+           !_h3LeadingNonZeroDigit(h);
 }
 
 /**
@@ -208,7 +219,7 @@ int h3NeighborRotations(H3Index origin, Direction dir, int *rotations, H3Index *
         if (_h3LeadingNonZeroDigit(current) == K_AXES_DIGIT) {
             if (oldBaseCell != newBaseCell) {
                 // Traversed into the deleted k subsequence of a pentagon base cell
-                if (_baseCellIsCwOffset(newBaseCell, baseCellData[oldBaseCell].face)) {
+                if (_baseCellIsCwOffset(newBaseCell, baseCellData[oldBaseCell].homeFijk.face)) {
                     current = _h3Rotate60cw(current);
                 } else {
                     current = _h3Rotate60ccw(current);

@@ -4,17 +4,11 @@
  * Licensed under Apache License 2.0
  */
 
-#include "../include/h3lite_faceijk.h"
+#include "h3lite_faceijk.h"
 #include <stdbool.h>
 
-/** @brief base cell at a given ijk and required rotations into its system */
-typedef struct {
-    int baseCell;  // base cell number
-    int ccwRot60;  // number of ccw 60 degree rotations
-} BaseCellRotation;
-
 /** @brief Neighboring base cell ID in each IJK direction */
-const int baseCellNeighbors[NUM_BASE_CELLS][7] = {
+const uint8_t baseCellNeighbors[NUM_BASE_CELLS][7] = {
     {0, 1, 5, 2, 4, 3, 8},                          // base cell 0
     {1, 7, 6, 9, 0, 3, 2},                          // base cell 1
     {2, 6, 10, 11, 0, 1, 5},                        // base cell 2
@@ -140,7 +134,7 @@ const int baseCellNeighbors[NUM_BASE_CELLS][7] = {
 };
 
 /** @brief Neighboring base cell rotations in each IJK direction */
-const int baseCellNeighbor60CCWRots[NUM_BASE_CELLS][7] = {
+const int8_t baseCellNeighbor60CCWRots[NUM_BASE_CELLS][7] = {
     {0, 5, 0, 0, 1, 5, 1},   // base cell 0
     {0, 0, 1, 0, 1, 0, 1},   // base cell 1
     {0, 0, 0, 0, 0, 5, 0},   // base cell 2
@@ -377,16 +371,11 @@ int _faceIjkToBaseCellCCWrot60(const FaceIJK *h) {
     return faceIjkBaseCells[h->face][h->coord.i][h->coord.j][h->coord.k].ccwRot60;
 }
 
-/**
- * Base cell data - home face and IJK coordinates  
+/*
+ * Base cell data - home face and IJK coordinates.
+ * Layout is declared in h3lite_faceijk.h so every TU agrees on it.
  */
-typedef struct {
-    FaceIJK homeFijk;      // Home face and IJK
-    int isPentagon;        // Is this a pentagon
-    int cwOffsetPent[2];   // CW offset faces for pentagons
-} BaseCellData;
-
-const BaseCellData baseCellData[122] = {
+const BaseCellData baseCellData[NUM_BASE_CELLS] = {
     {{1, {1, 0, 0}}, 0, {0, 0}},     // base cell 0
     {{2, {1, 1, 0}}, 0, {0, 0}},     // base cell 1
     {{1, {0, 0, 0}}, 0, {0, 0}},     // base cell 2
@@ -525,7 +514,7 @@ bool _isBaseCellPentagon(int baseCell) {
  * Return whether the indicated base cell is a cw offset face
  */
 bool _baseCellIsCwOffset(int baseCell, int testFace) {
-    if (baseCell < 0 || baseCell >= 122) return false;
+    if (baseCell < 0 || baseCell >= NUM_BASE_CELLS) return false;
     return baseCellData[baseCell].cwOffsetPent[0] == testFace ||
            baseCellData[baseCell].cwOffsetPent[1] == testFace;
 }
