@@ -335,15 +335,23 @@ def generate_lookup_table(regions, max_resolution=DEFAULT_RESOLUTION):
         if region_name not in REGION_IDS:
             continue
         region_id = REGION_IDS[region_name]
-        buffered = [g.buffer(SEAWARD_BUFFER_DEG) for g in geoms]
-        seaward = set(convert_region_to_h3(buffered, max_resolution)) \
-            - all_true
+        if region_id == REGION_IDS["RESTRICTED"]:
+            # H3-8 (#56): fail closed — a restricted territory claims only its
+            # TRUE cells. The seaward buffer exists to erode coastal
+            # regular-region cells into the ocean; extending a restricted
+            # region seaward would silence international waters.
+            seaward = set()
+        else:
+            buffered = [g.buffer(SEAWARD_BUFFER_DEG) for g in geoms]
+            seaward = set(convert_region_to_h3(buffered, max_resolution)) \
+                - all_true
         if seaward:
             print(f"  {region_name}: +{len(seaward)} seaward cells")
         for cell in true_cells[region_id] | seaward:
             claims.setdefault(cell, []).append(region_id)
 
     # ---- 2. deterministic conflict resolution ----------------------------
+    RESTRICTED_ID = REGION_IDS["RESTRICTED"]
     cell_region = {}
     n_conflicts = 0
     for cell, region_ids in claims.items():
@@ -351,6 +359,14 @@ def generate_lookup_table(regions, max_resolution=DEFAULT_RESOLUTION):
             cell_region[cell] = region_ids[0]
             continue
         n_conflicts += 1
+        # H3-8 (#56): RESTRICTED always wins a contested cell, regardless of
+        # intersected area. A regular region must never talk over a
+        # restricted territory's airspace — fail closed.
+        if RESTRICTED_ID in region_ids:
+            cell_region[cell] = RESTRICTED_ID
+            print(f"  conflict {cell}: RESTRICTED overrides " +
+                  ", ".join(id_to_name[r] for r in region_ids if r != RESTRICTED_ID))
+            continue
         cpoly = _cell_polygon(cell)
         areas = []
         for rid in region_ids:
