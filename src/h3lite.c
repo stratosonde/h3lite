@@ -5,6 +5,7 @@
  */
 
 #include <math.h>
+#include <string.h>
 #include "h3lite.h"
 #include "h3lite_constants.h"
 #include "h3lite_faceijk.h"
@@ -28,10 +29,38 @@ bool h3liteInit(void) {
         return true;  // Already initialized
     }
 
-    // Simple initialization for now
-    // In a real implementation, this might load lookup data from flash
+    /* F-013 (#210): this used to be an impossible-failure API - it set the
+     * flag and returned true unconditionally, making the caller's
+     * Error_Handler branch dead code. Now it performs a real integrity
+     * self-check of the geo pipeline AND the region table before
+     * reporting success:
+     *  1. the coordinate->H3 pipeline produces a nonzero index for a known
+     *     land coordinate;
+     *  2. the region table maps that coordinate (Paris) to EU868 - catches
+     *     a truncated/corrupt/regenerated-wrong table;
+     *  3. a mid-Atlantic coordinate resolves to REGION_UNKNOWN - pins the
+     *     F-006 (#208) all-land-mapped construction the RF policy relies
+     *     on (UNKNOWN must mean ocean, never unmapped land).
+     * Failure here means the geofence data cannot be trusted: the caller's
+     * failure branch is now meaningful. */
+    /* h3ToRegion refuses lookups while !initialized, so arm the flag first
+     * and drop it again if any probe fails. */
     initialized = true;
-    return initialized;
+    H3Index probe = latLngToH3(48.8566, 2.3522, H3LITE_TARGET_RESOLUTION);
+    if (probe == 0) {
+        initialized = false;
+        return false;
+    }
+    if (strcmp(getRegionName(latLngToRegion(48.8566, 2.3522)), "EU868") != 0) {
+        initialized = false;
+        return false;
+    }
+    if (latLngToRegion(0.0, -30.0) != REGION_UNKNOWN) {
+        initialized = false;
+        return false;
+    }
+
+    return true;
 }
 
 /**
