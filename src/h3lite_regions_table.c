@@ -1,9 +1,9 @@
 /*
  * H3Lite Region Lookup Table Implementation
- * Generated 2026-08-03T15:46:06+00:00 by generate_lookup_table.py
+ * Generated 2026-08-16T02:55:00+00:00 by generate_lookup_table.py
  * h3 python package: 4.5.0
  * resolution: 3
- * source GeoJSON (17 files):
+ * source GeoJSON (18 files):
  *   AS923-1.geojson  sha256:9bce5e68d4381478
  *   AS923-1B.geojson  sha256:8143bcebca8fa827
  *   AS923-1C.geojson  sha256:de395f79cc8a2f83
@@ -17,9 +17,10 @@
  *   EU868.geojson  sha256:c3a9b7c1e310775a
  *   IN865.geojson  sha256:ee7562ece44e15d1
  *   KR920.geojson  sha256:e14b4db31e45890e
+ *   RESTRICTED.geojson  sha256:293c1efa8378a718
  *   RU864.geojson  sha256:15541ab65e84fd64
  *   US915.geojson  sha256:37eec0b6fc78f9c5
- *   Unknown.geojson  sha256:5e58624a8acfc597
+ *   Unknown.geojson  sha256:247b7b52a21405d1
  *   regions.geojson  sha256:0802c801bed19100
  * DO NOT EDIT BY HAND.
  */
@@ -1418,9 +1419,7 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x31053400u, // bc=24 res=2 pi=20 CN470
     0x3105B400u, // bc=24 res=2 pi=22 CN470
     0x31062800u, // bc=24 res=2 pi=24 KR920
-    0x31072800u, // bc=24 res=2 pi=28 KR920
     0x31076800u, // bc=24 res=2 pi=29 KR920
-    0x310AB400u, // bc=24 res=2 pi=42 CN470
     0x310BB400u, // bc=24 res=2 pi=46 CN470
     0x31863400u, // bc=24 res=3 pi=24 CN470
     0x31866800u, // bc=24 res=3 pi=25 KR920
@@ -1428,9 +1427,12 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x31873400u, // bc=24 res=3 pi=28 CN470
     0x31876800u, // bc=24 res=3 pi=29 KR920
     0x3187B400u, // bc=24 res=3 pi=30 CN470
+    0x318A3C00u, // bc=24 res=3 pi=40 RESTRICTED
+    0x318A7C00u, // bc=24 res=3 pi=41 RESTRICTED
     0x318AB400u, // bc=24 res=3 pi=42 CN470
-    0x318AE800u, // bc=24 res=3 pi=43 KR920
-    0x318B3400u, // bc=24 res=3 pi=44 CN470
+    0x318AFC00u, // bc=24 res=3 pi=43 RESTRICTED
+    0x318B3C00u, // bc=24 res=3 pi=44 RESTRICTED
+    0x318B7C00u, // bc=24 res=3 pi=45 RESTRICTED
     0x318BB400u, // bc=24 res=3 pi=46 CN470
     0x31A2B400u, // bc=24 res=3 pi=138 CN470
     0x31A33400u, // bc=24 res=3 pi=140 CN470
@@ -1457,16 +1459,37 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x31B6D000u, // bc=24 res=3 pi=219 AS923-1
     0x31B72800u, // bc=24 res=3 pi=220 KR920
     0x31B75000u, // bc=24 res=3 pi=221 AS923-1
+    0x31B82800u, // bc=24 res=3 pi=224 KR920
+    0x31B86800u, // bc=24 res=3 pi=225 KR920
+    0x31B8A800u, // bc=24 res=3 pi=226 KR920
+    0x31B8E800u, // bc=24 res=3 pi=227 KR920
+    0x31B93C00u, // bc=24 res=3 pi=228 RESTRICTED
+    0x31B97C00u, // bc=24 res=3 pi=229 RESTRICTED
+    0x31B9A800u, // bc=24 res=3 pi=230 KR920
     0x31BC6800u, // bc=24 res=3 pi=241 KR920
     0x31BCE800u, // bc=24 res=3 pi=243 KR920
     0x31BD6800u, // bc=24 res=3 pi=245 KR920
-    0x31D03400u, // bc=24 res=3 pi=320 CN470
+    0x31D03C00u, // bc=24 res=3 pi=320 RESTRICTED
+    0x31D07C00u, // bc=24 res=3 pi=321 RESTRICTED
     0x31D0B400u, // bc=24 res=3 pi=322 CN470
+    0x31D0FC00u, // bc=24 res=3 pi=323 RESTRICTED
     0x31D13400u, // bc=24 res=3 pi=324 CN470
-    0x31D17400u, // bc=24 res=3 pi=325 CN470
+    0x31D17C00u, // bc=24 res=3 pi=325 RESTRICTED
     0x31D1B400u, // bc=24 res=3 pi=326 CN470
+    0x31D43400u, // bc=24 res=3 pi=336 CN470
+    0x31D47C00u, // bc=24 res=3 pi=337 RESTRICTED
+    0x31D4B400u, // bc=24 res=3 pi=338 CN470
+    0x31D4FC00u, // bc=24 res=3 pi=339 RESTRICTED
+    0x31D53400u, // bc=24 res=3 pi=340 CN470
+    0x31D57400u, // bc=24 res=3 pi=341 CN470
+    0x31D5B400u, // bc=24 res=3 pi=342 CN470
+    0x31D63C00u, // bc=24 res=3 pi=344 RESTRICTED
     0x31D66800u, // bc=24 res=3 pi=345 KR920
-    0x31D6E800u, // bc=24 res=3 pi=347 KR920
+    0x31D6BC00u, // bc=24 res=3 pi=346 RESTRICTED
+    0x31D6FC00u, // bc=24 res=3 pi=347 RESTRICTED
+    0x31D73C00u, // bc=24 res=3 pi=348 RESTRICTED
+    0x31D77C00u, // bc=24 res=3 pi=349 RESTRICTED
+    0x31D7BC00u, // bc=24 res=3 pi=350 RESTRICTED
     0x31D83400u, // bc=24 res=3 pi=352 CN470
     0x31D87400u, // bc=24 res=3 pi=353 CN470
     0x31D8B400u, // bc=24 res=3 pi=354 CN470
@@ -2290,13 +2313,13 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x52810800u, // bc=41 res=1 pi=4 EU868
     0x52814800u, // bc=41 res=1 pi=5 EU868
     0x53000800u, // bc=41 res=2 pi=0 EU868
-    0x53004800u, // bc=41 res=2 pi=1 EU868
+    0x5300FC00u, // bc=41 res=2 pi=3 RESTRICTED
     0x53010800u, // bc=41 res=2 pi=4 EU868
     0x53014800u, // bc=41 res=2 pi=5 EU868
     0x53018800u, // bc=41 res=2 pi=6 EU868
+    0x5302BC00u, // bc=41 res=2 pi=10 RESTRICTED
     0x53030800u, // bc=41 res=2 pi=12 EU868
     0x53034800u, // bc=41 res=2 pi=13 EU868
-    0x53038800u, // bc=41 res=2 pi=14 EU868
     0x53040800u, // bc=41 res=2 pi=16 EU868
     0x53044800u, // bc=41 res=2 pi=17 EU868
     0x53048800u, // bc=41 res=2 pi=18 EU868
@@ -2304,45 +2327,73 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x53050800u, // bc=41 res=2 pi=20 EU868
     0x53068800u, // bc=41 res=2 pi=26 EU868
     0x5306C800u, // bc=41 res=2 pi=27 EU868
+    0x53073C00u, // bc=41 res=2 pi=28 RESTRICTED
     0x530D0800u, // bc=41 res=2 pi=52 EU868
+    0x53820800u, // bc=41 res=3 pi=8 EU868
+    0x53824800u, // bc=41 res=3 pi=9 EU868
+    0x5382BC00u, // bc=41 res=3 pi=10 RESTRICTED
+    0x5382FC00u, // bc=41 res=3 pi=11 RESTRICTED
+    0x53830800u, // bc=41 res=3 pi=12 EU868
+    0x53834800u, // bc=41 res=3 pi=13 EU868
+    0x53838800u, // bc=41 res=3 pi=14 EU868
     0x53840800u, // bc=41 res=3 pi=16 EU868
     0x53844800u, // bc=41 res=3 pi=17 EU868
     0x53848800u, // bc=41 res=3 pi=18 EU868
     0x5384C800u, // bc=41 res=3 pi=19 EU868
     0x53850800u, // bc=41 res=3 pi=20 EU868
     0x53854800u, // bc=41 res=3 pi=21 EU868
-    0x53860800u, // bc=41 res=3 pi=24 EU868
-    0x53870800u, // bc=41 res=3 pi=28 EU868
-    0x53874800u, // bc=41 res=3 pi=29 EU868
-    0x53878800u, // bc=41 res=3 pi=30 EU868
+    0x53903C00u, // bc=41 res=3 pi=64 RESTRICTED
+    0x53907C00u, // bc=41 res=3 pi=65 RESTRICTED
+    0x5390BC00u, // bc=41 res=3 pi=66 RESTRICTED
+    0x5390FC00u, // bc=41 res=3 pi=67 RESTRICTED
     0x53910800u, // bc=41 res=3 pi=68 EU868
-    0x53914800u, // bc=41 res=3 pi=69 EU868
-    0x53920800u, // bc=41 res=3 pi=72 EU868
+    0x53917C00u, // bc=41 res=3 pi=69 RESTRICTED
+    0x5391BC00u, // bc=41 res=3 pi=70 RESTRICTED
+    0x53923C00u, // bc=41 res=3 pi=72 RESTRICTED
     0x53924800u, // bc=41 res=3 pi=73 EU868
-    0x53930800u, // bc=41 res=3 pi=76 EU868
+    0x5392BC00u, // bc=41 res=3 pi=74 RESTRICTED
+    0x53933C00u, // bc=41 res=3 pi=76 RESTRICTED
     0x53934800u, // bc=41 res=3 pi=77 EU868
-    0x53950800u, // bc=41 res=3 pi=84 EU868
-    0x53958800u, // bc=41 res=3 pi=86 EU868
+    0x5393BC00u, // bc=41 res=3 pi=78 RESTRICTED
+    0x53963C00u, // bc=41 res=3 pi=88 RESTRICTED
+    0x53973C00u, // bc=41 res=3 pi=92 RESTRICTED
+    0x53977C00u, // bc=41 res=3 pi=93 RESTRICTED
+    0x5397BC00u, // bc=41 res=3 pi=94 RESTRICTED
+    0x539C0800u, // bc=41 res=3 pi=112 EU868
+    0x539C4800u, // bc=41 res=3 pi=113 EU868
+    0x539C8800u, // bc=41 res=3 pi=114 EU868
+    0x539CFC00u, // bc=41 res=3 pi=115 RESTRICTED
+    0x539D0800u, // bc=41 res=3 pi=116 EU868
+    0x539D4800u, // bc=41 res=3 pi=117 EU868
+    0x539D8800u, // bc=41 res=3 pi=118 EU868
     0x53AA0800u, // bc=41 res=3 pi=168 EU868
     0x53AA4800u, // bc=41 res=3 pi=169 EU868
     0x53AA8800u, // bc=41 res=3 pi=170 EU868
     0x53AAC800u, // bc=41 res=3 pi=171 EU868
     0x53AB0800u, // bc=41 res=3 pi=172 EU868
+    0x53AB7C00u, // bc=41 res=3 pi=173 RESTRICTED
     0x53AB8800u, // bc=41 res=3 pi=174 EU868
     0x53AC0800u, // bc=41 res=3 pi=176 EU868
     0x53AC4800u, // bc=41 res=3 pi=177 EU868
     0x53ACC800u, // bc=41 res=3 pi=179 EU868
     0x53AD4800u, // bc=41 res=3 pi=181 EU868
     0x53B0C800u, // bc=41 res=3 pi=195 EU868
+    0x53B13C00u, // bc=41 res=3 pi=196 RESTRICTED
     0x53B20800u, // bc=41 res=3 pi=200 EU868
     0x53B24800u, // bc=41 res=3 pi=201 EU868
     0x53B28800u, // bc=41 res=3 pi=202 EU868
     0x53B2C800u, // bc=41 res=3 pi=203 EU868
     0x53B34800u, // bc=41 res=3 pi=205 EU868
     0x53B38800u, // bc=41 res=3 pi=206 EU868
-    0x53BC0800u, // bc=41 res=3 pi=240 EU868
+    0x53BB3C00u, // bc=41 res=3 pi=236 RESTRICTED
+    0x53BB7C00u, // bc=41 res=3 pi=237 RESTRICTED
+    0x53BBBC00u, // bc=41 res=3 pi=238 RESTRICTED
+    0x53BC3C00u, // bc=41 res=3 pi=240 RESTRICTED
+    0x53BC7C00u, // bc=41 res=3 pi=241 RESTRICTED
     0x53BC8800u, // bc=41 res=3 pi=242 EU868
-    0x53BCC800u, // bc=41 res=3 pi=243 EU868
+    0x53BCFC00u, // bc=41 res=3 pi=243 RESTRICTED
+    0x53BD3C00u, // bc=41 res=3 pi=244 RESTRICTED
+    0x53BD7C00u, // bc=41 res=3 pi=245 RESTRICTED
     0x53BD8800u, // bc=41 res=3 pi=246 EU868
     0x53E24800u, // bc=41 res=3 pi=393 EU868
     0x53E28800u, // bc=41 res=3 pi=394 EU868
@@ -2672,7 +2723,11 @@ const RegionEntry regionLookup[REGION_ENTRY_COUNT] = {
     0x63C90800u, // bc=49 res=3 pi=292 EU868
     0x63C98800u, // bc=49 res=3 pi=294 EU868
     0x63E08800u, // bc=49 res=3 pi=386 EU868
+    0x63E13C00u, // bc=49 res=3 pi=388 RESTRICTED
+    0x63E17C00u, // bc=49 res=3 pi=389 RESTRICTED
     0x63E18800u, // bc=49 res=3 pi=390 EU868
+    0x63EA3C00u, // bc=49 res=3 pi=424 RESTRICTED
+    0x63EBBC00u, // bc=49 res=3 pi=430 RESTRICTED
     0x63EC0800u, // bc=49 res=3 pi=432 EU868
     0x63EC4800u, // bc=49 res=3 pi=433 EU868
     0x63EC8800u, // bc=49 res=3 pi=434 EU868

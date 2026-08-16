@@ -9,7 +9,7 @@ import re, sys, json, os
 import h3
 from shapely.geometry import shape, Point
 
-H3LITE = os.path.dirname(os.path.abspath(__file__))
+H3LITE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 HPLANS = r"c:\working\sonde\hplans"
 
 # ---- parse generated table ----

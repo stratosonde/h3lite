@@ -1,9 +1,9 @@
 /*
  * H3Lite Region Lookup Table
- * Generated 2026-08-03T15:46:06+00:00 by generate_lookup_table.py
+ * Generated 2026-08-16T02:55:00+00:00 by generate_lookup_table.py
  * h3 python package: 4.5.0
  * resolution: 3
- * source GeoJSON (17 files):
+ * source GeoJSON (18 files):
  *   AS923-1.geojson  sha256:9bce5e68d4381478
  *   AS923-1B.geojson  sha256:8143bcebca8fa827
  *   AS923-1C.geojson  sha256:de395f79cc8a2f83
@@ -17,9 +17,10 @@
  *   EU868.geojson  sha256:c3a9b7c1e310775a
  *   IN865.geojson  sha256:ee7562ece44e15d1
  *   KR920.geojson  sha256:e14b4db31e45890e
+ *   RESTRICTED.geojson  sha256:293c1efa8378a718
  *   RU864.geojson  sha256:15541ab65e84fd64
  *   US915.geojson  sha256:37eec0b6fc78f9c5
- *   Unknown.geojson  sha256:5e58624a8acfc597
+ *   Unknown.geojson  sha256:247b7b52a21405d1
  *   regions.geojson  sha256:0802c801bed19100
  * DO NOT EDIT BY HAND.
  */
@@ -48,7 +49,7 @@
 #define REGION_RESTRICTED 15
 
 // Number of entries in the lookup table
-#define REGION_ENTRY_COUNT 4564
+#define REGION_ENTRY_COUNT 4618
 
 /* Packed entry (H3-1/H3-4):
  *   bits [31:25] baseCell (0-121)
