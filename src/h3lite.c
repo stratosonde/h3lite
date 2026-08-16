@@ -60,6 +60,30 @@ bool h3liteInit(void) {
         return false;
     }
 
+    /* GEO-04: the F-013 probes prove the table is present and well-formed,
+     * but silently losing the restricted-enforcement dataset (GEO-01: Yemen
+     * + North Korea) would pass all three - Paris and the mid-Atlantic are
+     * unaffected by dropping those cells. Scan the table for at least one
+     * REGION_RESTRICTED entry and resolve a known restricted coordinate
+     * (Pyongyang) through the production lookup path: a table that lost its
+     * enforcement set is boot-fatal here instead of silently permissive
+     * over restricted airspace. */
+    bool restricted_found = false;
+    for (int i = 0; i < REGION_ENTRY_COUNT; i++) {
+        if (RE_REGION(regionLookup[i]) == REGION_RESTRICTED) {
+            restricted_found = true;
+            break;
+        }
+    }
+    if (!restricted_found) {
+        initialized = false;
+        return false;
+    }
+    if (latLngToRegion(39.0392, 125.7625) != REGION_RESTRICTED) {
+        initialized = false;
+        return false;
+    }
+
     return true;
 }
 

@@ -462,6 +462,13 @@ def _provenance(geojson_dir, resolution):
 def generate_c_code(entries, output_c_file, output_h_file,
                     geojson_dir=None, resolution=DEFAULT_RESOLUTION):
     """Generate C code for the packed lookup table."""
+    # GEO-04: the RESTRICTED enforcement set must be non-empty. A missing or
+    # corrupt RESTRICTED.geojson would otherwise emit a silently permissive
+    # table - fail the generation instead (init self-scan backs this up on
+    # device).
+    restricted_count = sum(1 for e in entries
+                           if e['regionId'] == REGION_IDS['RESTRICTED'])
+    assert restricted_count > 0, "RESTRICTED enforcement set is empty - check RESTRICTED.geojson"
     prov = _provenance(geojson_dir, resolution)
     # Numeric sort of the packed value == tuple sort by
     # (baseCell, resolution, partialIndex, regionId)
@@ -629,9 +636,10 @@ Examples:
     regions = load_regions(directory=args.geojson_dir)
 
     if not regions:
-        print(f"No region files found or loaded in {args.geojson_dir}. "
-              f"Exiting.")
-        return
+        # GEO-04: fail loudly (exit != 0) instead of silently emitting
+        # nothing - a wrong --geojson-dir must break the build, not pass it.
+        parser.error(f"no region files found or loaded in "
+                     f"{args.geojson_dir} - refusing to emit an empty table")
 
     print(f"\nGenerating lookup tables at resolution {args.resolution}...")
     entries = generate_lookup_table(regions, max_resolution=args.resolution)
